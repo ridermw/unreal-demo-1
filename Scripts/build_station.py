@@ -237,9 +237,8 @@ for y in range(-8, 70, 5):
         pts = [(-2.55+7.4*math.cos(t), yy, 6.65+5.2*math.sin(t))
                for t, yy in ((a, y), (b, y), (b, y+5), (a, y+5))]
         face("Glass" if 7 <= i <= 12 and y % 15 != 2 else "RoofPanel", pts)
-        if i in (4, 6, 13, 15):
-            for offset in (1.25, 2.5, 3.75):
-                arch("Iron", y+offset, 6.65, 7.4, 5.2, 0.025, -2.55)
+    for offset in (1.25, 2.5, 3.75):
+        arch("Iron", y+offset, 6.65, 7.4, 5.2, 0.025, -2.55)
 for i in range(21):
     t = i*math.pi/20
     cylinder("Iron", (-2.55+7.4*math.cos(t), -8, 6.65+5.2*math.sin(t)),

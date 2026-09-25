@@ -1,0 +1,14 @@
+{
+  "milestone": "M3 first treatment and measured performance",
+  "review": "Independent review and direct fixes; 16 regression tests",
+  "resolved": [
+    "Source hash only stamped after importing; mismatched reused geometry rejected",
+    "Interrupted generation outputs reconcile receipt sanitization and hashes",
+    "Fourfold intermediate roof duplication removed",
+    "Native CSV FrameTime replaces UI-only timing",
+    "CSV footer excluded from frames; dynamic optional columns handled; scratch directory created"
+  ],
+  "performance": "Valid measurement; median 30.05 FPS but p95 86.35ms fails target",
+  "visual": "Actual M3 camera image preserved; independent Dream Loop acceptance pending",
+  "final_completion": false
+}

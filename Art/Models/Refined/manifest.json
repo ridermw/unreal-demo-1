@@ -230,7 +230,7 @@
     {
       "name": "Roof",
       "file": "Art/Models/Refined/Roof.fbx",
-      "vertices": 534320,
+      "vertices": 202544,
       "material_slots": [
         "Brass",
         "Glass",

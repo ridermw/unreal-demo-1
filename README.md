@@ -6,11 +6,12 @@ Unreal screenshot**.
 
 ## Restart checkpoint
 
-- **PAUSED at user request for another session restart. M0-M2 verified.**
+- **Resumed. M0-M3 evidence recorded; M4 visual/performance improvement active.**
   Source baseline: `ba06f5c`. Last known-good import checkpoint: **`b924990`**,
   reviewed and pushed to `origin/main`. Last verified milestone commit:
-  **`1647362` (M2)**. The subsequent pause commit preserves partial M3 work;
-  **M3-M5 are not complete**.
+  **`53f4a8a` (partial M3 source/scene)**. This checkpoint fixes the recorded
+  review issues and establishes real rendered-frame performance.
+  **Visual acceptance and M4-M5 are not complete.**
 - Starting commit: `cebd39e` on `main`; authorized remote:
   `https://github.com/ridermw/unreal-demo-1.git`.
 - Project: `PlatformNine.uproject`, Unreal Engine 5.8.3.
@@ -42,16 +43,20 @@ Unreal screenshot**.
 - Historical steam generation remains **unresolved**, with no recoverable request
   ID. One explicitly tracked replacement completed as `Art/Textures/steam.png`;
   do not submit another merely to reconcile the historical request.
-- **Next exact action:** load the newly installed Unreal skills and Dream Loop
-  PRO, recheck editor/MCP/git, then diagnose the non-advancing PIE world before
-  claiming performance. Continue visual refinement and M4 judging afterward.
-- **Performance is NOT verified.** `Evidence/performance-report.json` is
-  explicitly `invalid`; its values are isolated under `rejected_ui_only_sample`.
-  Slate ticked, but PIE world time and delta stayed zero with gameplay pause false
-  and time dilation 1.0. Those UI intervals are not game FPS.
-  Native `StartPIE` twice reported "PIE ended before warmup completed" while
-  `IsPIERunning` remained true. Investigate that lifecycle problem, not a new
-  performance target. PIE was stopped before this pause.
+- **Next exact action:** independent Dream Loop PRO comparison of
+  `.dream-loop/round-00/unreal.png` with the locked target, then substantial
+  geometry/material/lighting correction and performance optimization.
+- **Valid performance, target not met:** median **30.05 FPS**, median **33.27 ms**,
+  p95 **86.35 ms** at 1536x864, High, 100% screen percentage. Native Unreal CSV
+  `FrameTime`, 720 actual standalone Metal frames, first 360 discarded for warmup.
+  `Evidence/performance-frames.csv` preserves 360 measured frames.
+  `python3 Scripts/profile_unreal.py` repeats this offscreen rendered game profile
+  (not NullRHI). It verifies actual resolution from engine metadata and excludes
+  personal metadata from tracked frame evidence.
+- The old Slate-only sample is invalid and not the current result. Native
+  `LevelEditorSubsystem.editor_request_begin_play()` advances game time correctly
+  in the editor viewport; MCP floating `StartPIE` did not. Use native scripted
+  in-viewport play for exploration and standalone CSV for performance.
 - The live background-throttle preference was unexpectedly true despite project
   defaults. It was set false through MCP. On this Mac, a floating PIE window
   setting of 1536x844 produced a measured client viewport of 1536x864.
@@ -65,7 +70,7 @@ Unreal screenshot**.
   execute Python. `Scripts/editor_python.py` now connects to the live editor via
   the installed SDK: loopback-unicast discovery with a wildcard multicast-response
   listener resolves this Mac's discovery issue. The editor endpoint remains bound
-  to `127.0.0.1`, TTL 0. Remote execution was **disabled again before this pause**.
+  to `127.0.0.1`, TTL 0. Remote execution is enabled in the current working session.
   No new plugin or external service was installed.
 - **First actual Unreal screenshot:** `Evidence/m2-unreal-first.png`, native
   MCP viewport capture, 1535x1818, FOV 90 (not yet target framing).
@@ -76,7 +81,7 @@ Unreal screenshot**.
   compilation passed. `Evidence/m2-unreal-camera.png` is the corrected-material
   1536x864 actual Unreal target-camera capture at FOV 70. Its visual quality is
   still inadequate: bright/open architecture, basic surface detail and no steam.
-- **No Dream Loop score or valid FPS measurement exists yet.**
+- **No Dream Loop score exists yet; frame pacing fails the acceptance target.**
   Saved/imported does not mean visually accepted.
 
 ## Execution and evidence gates
@@ -86,8 +91,8 @@ Unreal screenshot**.
 | M0 | Reviewed source inventory, sanitized reference/configuration, pushed baseline | Verified in recovery commit |
 | M1 | Idempotent import, saved assets, slot/scale/reference report | Verified in import checkpoint |
 | M2 | Saved and reopened map, first actual Unreal image | Verified; rough baseline |
-| M3 | Materials/atmosphere/detail pass and measured performance | Paused; partial, performance invalid |
-| M4 | Independent Dream Loop PRO score >=8/10 and performance pass | Pending |
+| M3 | Materials/atmosphere/detail pass and measured performance | First treatment and valid measurement recorded |
+| M4 | Independent Dream Loop PRO score >=8/10 and performance pass | Active; not accepted |
 | M5 | Final reopen, tracked screenshots/verdict, reviewed pushed handoff | Pending |
 
 Performance acceptance is set **before measurement**: at 1536x864, 100% screen
@@ -133,13 +138,11 @@ target. No performance result or visual score exists yet.
   with the dedicated generated maps. Save first and inspect the results.
 - `Scripts/measure_performance.py` is unfinished diagnostic tooling. It now rejects
   zero game-delta samples but has not yet produced a valid measurement.
-- **Pause review findings to fix before M3 completion:** reused meshes must not
-  receive a new source hash without importing it; existing generated outputs must
-  reconcile interrupted job bookkeeping before reporting completion; performance
-  must track newly advanced game frames rather than Slate intervals; intermediate
-  roof arches are currently duplicated fourfold by their placement loop.
-  See `Evidence/review-m3-pause.json`. This is a reviewed **WIP checkpoint with
-  known issues**, not an approved final visual/performance milestone.
+- Pause review findings resolved: reused meshes now reject source-hash mismatches;
+  existing generated outputs reconcile and sanitize receipts without resubmission;
+  performance uses native game/render CSV frame timing; redundant intermediate
+  roof arches removed (source vertices reduced from 1,090,710 to 758,934).
+  `Evidence/review-m3-pause.json` remains the historical review receipt.
 - `Scripts/inspect_blender_sources.py` enriches the manifest using saved Blender
   geometry without re-exporting it. Source bounds and exact slot sets are checked
   on every Unreal import. Detailed source vertices differ from Nanite fallback

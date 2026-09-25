@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import subprocess
 import threading
+import struct
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,6 +17,27 @@ STATE = WORK / "jobs.json"
 LOCK = threading.Lock()
 PROVENANCE_KEYS = ("rendered_at", "size", "quality", "model_name", "model_version",
                    "prompt_char_count", "prompt")
+
+
+def reconcile_output(output, job):
+    receipt = output.with_suffix(".png.metadata.json")
+    if not receipt.is_file():
+        raise RuntimeError(f"Image lacks generation receipt: {output}")
+    data = output.read_bytes()
+    if data[:8] != b"\x89PNG\r\n\x1a\n" or len(data) < 1000:
+        raise ValueError(f"Invalid generated PNG: {output}")
+    if struct.unpack(">II", data[16:24]) != (1024, 1024):
+        raise ValueError(f"Unexpected generated image dimensions: {output}")
+    metadata = json.loads(receipt.read_text())
+    if not all(metadata.get(key) for key in ("prompt", "rendered_at", "model_name")):
+        raise ValueError(f"Incomplete generation receipt: {receipt}")
+    digest = hashlib.sha256(data).hexdigest()
+    if job.get("sha256") and job["sha256"] != digest:
+        raise ValueError(f"Completed generation image changed: {output}")
+    receipt.write_text(json.dumps(
+        {key: metadata[key] for key in PROVENANCE_KEYS if key in metadata}, indent=2) + "\n")
+    job.update({"status": "completed", "sha256": digest})
+    return job
 
 
 def main():
@@ -33,8 +55,9 @@ def main():
         with LOCK:
             previous = jobs.get(name)
             if output.exists():
-                if not output.with_suffix(".png.metadata.json").exists():
-                    raise RuntimeError(f"Image lacks generation receipt: {output}")
+                jobs[name] = reconcile_output(output, previous or {
+                    "output": str(output.relative_to(ROOT)), "recovered": True})
+                persist()
                 return output
             if previous:
                 raise RuntimeError(f"Do not duplicate unresolved prior job {name}: {previous['status']}")
@@ -55,10 +78,7 @@ def main():
             jobs[name]["status"] = "completed" if succeeded else "failed-needs-reconciliation"
             jobs[name]["exit_code"] = result.returncode
             if succeeded:
-                metadata = json.loads(receipt.read_text())
-                receipt.write_text(json.dumps(
-                    {key: metadata[key] for key in PROVENANCE_KEYS if key in metadata}, indent=2) + "\n")
-                jobs[name]["sha256"] = hashlib.sha256(output.read_bytes()).hexdigest()
+                jobs[name] = reconcile_output(output, jobs[name])
             persist()
         if not succeeded:
             raise RuntimeError(f"mockui did not produce {name}; inspect {WORK / (name + '.log')}")

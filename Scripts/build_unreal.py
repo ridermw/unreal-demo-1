@@ -193,7 +193,13 @@ def import_assets(unreal, manifest, reimport=False):
     for mesh in manifest["meshes"]:
         name = mesh["name"]
         path = f"{BASE}/Meshes/SM_{name}"
-        if reimport or not library.does_asset_exist(path):
+        source_hash = hashlib.sha256((ROOT / mesh["file"]).read_bytes()).hexdigest()
+        needs_import = reimport or not library.does_asset_exist(path)
+        if not needs_import:
+            recorded_hash = library.get_metadata_tag(asset(path), "PlatformSourceSHA256")
+            if recorded_hash != source_hash:
+                raise RuntimeError(f"Source hash mismatch on {name}; explicit --reimport required")
+        if needs_import:
             options = unreal.InterchangeGenericAssetsPipeline()
             options.set_editor_property("asset_name", "SM_" + name)
             data = options.get_editor_property("mesh_pipeline")
@@ -216,8 +222,8 @@ def import_assets(unreal, manifest, reimport=False):
             if not imported or len(imported) != 1:
                 raise RuntimeError(f"Expected one combined mesh for {name}; got {imported}")
         static_mesh = asset(path)
-        library.set_metadata_tag(static_mesh, "PlatformSourceSHA256",
-                                 hashlib.sha256((ROOT / mesh["file"]).read_bytes()).hexdigest())
+        if needs_import:
+            library.set_metadata_tag(static_mesh, "PlatformSourceSHA256", source_hash)
         slots = []
         for index, slot in enumerate(static_mesh.static_materials):
             slot_name = str(slot.get_editor_property("imported_material_slot_name"))
