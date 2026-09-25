@@ -1,0 +1,7 @@
+.dream-loop/
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+*.blend1
+__pycache__/

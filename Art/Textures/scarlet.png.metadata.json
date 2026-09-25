@@ -1,0 +1,11 @@
+{
+  "rendered_at": "2026-09-24T21:57:43.108187+00:00",
+  "size": "1024x1024",
+  "quality": "high",
+  "deployment": "gpt-image-2",
+  "model_name": "gpt-image-2",
+  "model_version": "default",
+  "account": "mwilliams-imggen-eus2",
+  "prompt_char_count": 543,
+  "prompt": "A seamless tileable PBR albedo texture, orthographic flat square view edge to edge, old very dark wine-red burgundy enamel painted steel on a preserved steam locomotive boiler. Mostly intact polished oxblood red finish, subtle fine hairline scratches, very small rubbed metal scratches near some edges, soot flecks and faint oily streaks. Rich dark oxblood red not orange. Neutral even diffuse lighting, no geometry, no panel divisions, no perspective, no cast shadows, no specular glare, no text, no vignette. Photoreal game material texture."
+}
