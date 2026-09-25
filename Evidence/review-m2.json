@@ -1,0 +1,24 @@
+{
+  "milestone": "M2",
+  "review": "Independent code-review agent and direct follow-up",
+  "resolved_findings": [
+    "Saved-scene verifier now requires all seven lamp actors",
+    "Camera position, rotation and FOV are validated against source",
+    "Materials are checked in imported slot order, not only as a sorted set"
+  ],
+  "checks": [
+    "11 source/scene-contract tests passed",
+    "Scene build repeated without duplicate generated actors",
+    "Fresh process reopened saved map and verified 28 generated actors",
+    "Native MCP loaded HiddenPlatform and captured actual viewport",
+    "Live material repair and native BlackSteel recompile succeeded",
+    "Unreal AutomationLibrary produced actual target-camera pixels at 1536x864"
+  ],
+  "known_visual_defects": [
+    "Initial capture is portrait viewport framing, not the 16:9 target camera",
+    "Overbright initial lighting and inadequate roof/window enclosure",
+    "Four albedo textures are a material baseline, not final treatment",
+    "Initial capture exposed disconnected desaturation inputs; repaired and live-recompiled before target-camera capture"
+  ],
+  "completion": "M2 saved-scene gate only; M3-M5 incomplete"
+}

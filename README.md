@@ -6,15 +6,17 @@ Unreal screenshot**.
 
 ## Restart checkpoint
 
-- **Paused at user request for a session restart. M0-M1 verified.**
+- **Resumed; M0-M2 verified, M3 active.**
   Source baseline: `ba06f5c`. Last known-good import checkpoint: **`b924990`**,
-  reviewed and pushed to `origin/main`. M2-M5 are pending, not completed.
+  reviewed and pushed to `origin/main`. M2 adds the saved scene and first actual
+  Unreal image; M3-M5 are not complete.
 - Starting commit: `cebd39e` on `main`; authorized remote:
   `https://github.com/ridermw/unreal-demo-1.git`.
 - Project: `PlatformNine.uproject`, Unreal Engine 5.8.3.
-- Required map: `/Game/Platform/Maps/HiddenPlatform` (**not created yet**).
-- Last map inspection: `/Temp/Untitled_0`, zero scene actors. M1 now has 35 saved
-  packages: fourteen combined meshes, seventeen materials, four textures.
+- Saved map: **`/Game/Platform/Maps/HiddenPlatform`**.
+- Fresh-process scene verification and live MCP confirm the saved map, 28
+  generated actors, fourteen mesh assignments, material-slot order and camera.
+  M1 has 35 saved asset packages plus the M2 map.
   Native MCP responds at `http://127.0.0.1:8000/mcp` with 19 toolsets.
 - Recovered: 14 FBX groups, Blender source, four generated surface textures.
   `Evidence/source-inventory.json` records sizes and SHA-256 checksums.
@@ -27,23 +29,32 @@ Unreal screenshot**.
 - Historical steam generation remains **unresolved**: no output, running process,
   request ID, or completion receipt recovered from local/cloud session history
   and `mockui history`. No replacement has yet been submitted.
-- **Next exact action:** add scene assembly and reopen verification to
-  `Scripts/build_unreal.py`, run `python3 Scripts/run_unreal.py scene`, then load
-  the saved map through native MCP and capture its actual viewport.
-  The runner recognizes `scene` and `verify`, but the build script currently
-  implements **only `import`**. Do not run the other stages until implemented.
+- **Next exact action:** complete M3 material/geometry/lighting treatment, establish
+  a repeatable 1536x864 camera capture and measure performance. Four albedo images
+  reused across 17 materials are inadequate for the target; dedicated surface
+  sets with normal and roughness detail are required.
+- `python3 Scripts/run_unreal.py scene` assembles/upserts the level; `verify`
+  reopens it in a fresh process. Both stages are implemented.
 - On resume, load the newly installed Unreal skills and Dream Loop **PRO**;
   recheck git, the current editor/project/map, MCP, and saved assets before acting.
   Do not regenerate the locked target or redo M0/M1 without evidence of a problem.
 - Native MCP inspection works. Computer Use console input did not reliably
-  execute Python, so all successful imports used the installed Python commandlet.
-  A loopback-only Python remote-execution probe discovered no nodes; the temporary
-  setting was restored to **disabled**. No new plugin or external service was
-  installed. No image-generation replacement was submitted.
-- **No Unreal scene screenshot, visual score, FPS measurement, saved map, or
-  map-reopen verification exists yet.** Source/asset validation is not visual
-  completion. There are no outstanding asset-generation processes started by
-  this continuation.
+  execute Python. `Scripts/editor_python.py` now connects to the live editor via
+  the installed SDK: loopback-unicast discovery with a wildcard multicast-response
+  listener resolves this Mac's discovery issue. The editor endpoint remains bound
+  to `127.0.0.1`, TTL 0; remote execution is enabled for this working session only.
+  No new plugin or external service was installed.
+- **First actual Unreal screenshot:** `Evidence/m2-unreal-first.png`, native
+  MCP viewport capture, 1535x1818, FOV 90 (not yet target framing).
+  `Evidence/m2-capture.json` records provenance. It shows a rough scene with
+  overbright light, overly open windows/roof and material fallbacks, not completion.
+  Six fallback shaders were traced to a disconnected desaturation input; the
+  importer now repairs and checks that connection; live native material
+  compilation passed. `Evidence/m2-unreal-camera.png` is the corrected-material
+  1536x864 actual Unreal target-camera capture at FOV 70. Its visual quality is
+  still inadequate: bright/open architecture, basic surface detail and no steam.
+- **No visual score or FPS measurement exists yet.** Saved/imported does not mean
+  visually accepted. No replacement image-generation job has yet been submitted.
 
 ## Execution and evidence gates
 
@@ -51,8 +62,8 @@ Unreal screenshot**.
 | --- | --- | --- |
 | M0 | Reviewed source inventory, sanitized reference/configuration, pushed baseline | Verified in recovery commit |
 | M1 | Idempotent import, saved assets, slot/scale/reference report | Verified in import checkpoint |
-| M2 | Saved and reopened map, first actual Unreal image | Pending |
-| M3 | Materials/atmosphere/detail pass and measured performance | Pending |
+| M2 | Saved and reopened map, first actual Unreal image | Verified; rough baseline |
+| M3 | Materials/atmosphere/detail pass and measured performance | Active |
 | M4 | Independent Dream Loop PRO score >=8/10 and performance pass | Pending |
 | M5 | Final reopen, tracked screenshots/verdict, reviewed pushed handoff | Pending |
 
@@ -84,6 +95,10 @@ target. No performance result or visual score exists yet.
   that field did not apply Interchange options. Ten unintended test-import
   packages were **moved, not deleted**, to
   `.dream-loop/failed-import-preserved/`. They are not part of the scene.
+- `python3 Scripts/editor_python.py Scripts/capture_unreal.py --name <capture>`:
+  schedule a live 1536x864 target-camera capture under `Evidence/`.
+  Verify the output file and dimensions after the task completes. This script
+  must run in the live editor, never the NullRHI commandlet.
 - `Scripts/inspect_blender_sources.py` enriches the manifest using saved Blender
   geometry without re-exporting it. Source bounds and exact slot sets are checked
   on every Unreal import. Detailed source vertices differ from Nanite fallback
@@ -96,6 +111,6 @@ target. No performance result or visual score exists yet.
   Selected final Unreal evidence will be tracked under `Evidence/`.
 
 Open `PlatformNine.uproject` with the installed 5.8 editor. The startup map setting
-already names the intended map, but that map does not yet exist. Native MCP is
+loads the saved HiddenPlatform map. Native MCP is
 preferred for inspection; project Python scripts can be run from Unreal's Cmd
 console as `py "/absolute/path/to/script.py"`.

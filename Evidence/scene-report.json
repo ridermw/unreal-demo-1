@@ -1,0 +1,158 @@
+{
+  "status": "success",
+  "map": "/Game/Platform/Maps/HiddenPlatform",
+  "generated_actor_count": 28,
+  "total_actor_count": 28,
+  "meshes": [
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_0",
+      "mesh": "/Game/Platform/Meshes/SM_Architecture.SM_Architecture",
+      "materials": [
+        "/Game/Platform/Materials/M_Brick.M_Brick",
+        "/Game/Platform/Materials/M_Cream.M_Cream",
+        "/Game/Platform/Materials/M_Gravel.M_Gravel",
+        "/Game/Platform/Materials/M_Stone.M_Stone"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_1",
+      "mesh": "/Game/Platform/Meshes/SM_Windows.SM_Windows",
+      "materials": [
+        "/Game/Platform/Materials/M_AmberGlass.M_AmberGlass",
+        "/Game/Platform/Materials/M_Glass.M_Glass",
+        "/Game/Platform/Materials/M_Iron.M_Iron"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_2",
+      "mesh": "/Game/Platform/Meshes/SM_Roof.SM_Roof",
+      "materials": [
+        "/Game/Platform/Materials/M_Brass.M_Brass",
+        "/Game/Platform/Materials/M_Glass.M_Glass",
+        "/Game/Platform/Materials/M_Iron.M_Iron"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_3",
+      "mesh": "/Game/Platform/Meshes/SM_FarWall.SM_FarWall",
+      "materials": [
+        "/Game/Platform/Materials/M_Glass.M_Glass",
+        "/Game/Platform/Materials/M_Iron.M_Iron"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_4",
+      "mesh": "/Game/Platform/Meshes/SM_Track.SM_Track",
+      "materials": [
+        "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
+        "/Game/Platform/Materials/M_Gravel.M_Gravel",
+        "/Game/Platform/Materials/M_Wood.M_Wood"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_5",
+      "mesh": "/Game/Platform/Meshes/SM_Locomotive.SM_Locomotive",
+      "materials": [
+        "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
+        "/Game/Platform/Materials/M_Brass.M_Brass",
+        "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_6",
+      "mesh": "/Game/Platform/Meshes/SM_Wheels.SM_Wheels",
+      "materials": [
+        "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
+        "/Game/Platform/Materials/M_Brass.M_Brass",
+        "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_7",
+      "mesh": "/Game/Platform/Meshes/SM_CabTender.SM_CabTender",
+      "materials": [
+        "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
+        "/Game/Platform/Materials/M_Brass.M_Brass",
+        "/Game/Platform/Materials/M_Glass.M_Glass",
+        "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_8",
+      "mesh": "/Game/Platform/Meshes/SM_Carriages.SM_Carriages",
+      "materials": [
+        "/Game/Platform/Materials/M_AmberGlass.M_AmberGlass",
+        "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
+        "/Game/Platform/Materials/M_Brass.M_Brass",
+        "/Game/Platform/Materials/M_Scarlet.M_Scarlet",
+        "/Game/Platform/Materials/M_Wood.M_Wood"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_9",
+      "mesh": "/Game/Platform/Meshes/SM_Luggage.SM_Luggage",
+      "materials": [
+        "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
+        "/Game/Platform/Materials/M_Blanket.M_Blanket",
+        "/Game/Platform/Materials/M_Brass.M_Brass",
+        "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather",
+        "/Game/Platform/Materials/M_Leather.M_Leather",
+        "/Game/Platform/Materials/M_Wood.M_Wood"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_10",
+      "mesh": "/Game/Platform/Meshes/SM_Furniture.SM_Furniture",
+      "materials": [
+        "/Game/Platform/Materials/M_Brass.M_Brass",
+        "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather",
+        "/Game/Platform/Materials/M_Iron.M_Iron",
+        "/Game/Platform/Materials/M_Wood.M_Wood"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_11",
+      "mesh": "/Game/Platform/Meshes/SM_Signs.SM_Signs",
+      "materials": [
+        "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
+        "/Game/Platform/Materials/M_Brass.M_Brass",
+        "/Game/Platform/Materials/M_Cream.M_Cream",
+        "/Game/Platform/Materials/M_Iron.M_Iron",
+        "/Game/Platform/Materials/M_Lettering.M_Lettering"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_12",
+      "mesh": "/Game/Platform/Meshes/SM_Lanterns.SM_Lanterns",
+      "materials": [
+        "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
+        "/Game/Platform/Materials/M_Iron.M_Iron",
+        "/Game/Platform/Materials/M_Lamp.M_Lamp"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_13",
+      "mesh": "/Game/Platform/Meshes/SM_Puddles.SM_Puddles",
+      "materials": [
+        "/Game/Platform/Materials/M_Puddle.M_Puddle"
+      ]
+    }
+  ],
+  "camera": {
+    "position_cm": [
+      110.00000000000001,
+      580.0,
+      235.0
+    ],
+    "rotation_degrees": [
+      0.07994218915700911,
+      -92.55900573730469,
+      6.212026908817162e-18
+    ],
+    "fov": 70.0
+  },
+  "engine": "5.8.3-58210709+++UE5+Release-5.8",
+  "rendered": false,
+  "stage": "scene",
+  "utc": "2026-09-25T03:24:06.336096+00:00"
+}

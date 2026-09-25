@@ -1,0 +1,25 @@
+{
+  "cameraLocation": {
+    "x": 110,
+    "y": 580,
+    "z": 235
+  },
+  "cameraRotation": {
+    "pitch": 0.07994,
+    "yaw": -92.55900000000001,
+    "roll": -0.0
+  },
+  "cameraFOV": 90,
+  "grid": {
+    "spacingCm": 0,
+    "extentCm": 0,
+    "height": 0
+  },
+  "labeledActors": [],
+  "pixel_size": [
+    1535,
+    1818
+  ],
+  "source": "Native Unreal MCP CaptureViewport, actual loaded HiddenPlatform",
+  "image": "Evidence/m2-unreal-first.png"
+}

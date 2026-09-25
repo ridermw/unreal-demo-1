@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 import json
 from pathlib import Path
 import traceback
+import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -107,7 +108,8 @@ def import_assets(unreal, manifest):
             else:
                 grayscale = editing.create_material_expression(
                     material, unreal.MaterialExpressionDesaturation, -600, -200)
-                editing.connect_material_expressions(texture, "RGB", grayscale, "Input")
+                if not editing.connect_material_expressions(texture, "", grayscale, ""):
+                    raise RuntimeError(f"Cannot wire texture into {name} desaturation")
                 multiply = editing.create_material_expression(
                     material, unreal.MaterialExpressionMultiply, -350, 0)
                 editing.connect_material_expressions(grayscale, "", multiply, "A")
@@ -147,6 +149,14 @@ def import_assets(unreal, manifest):
             if editing.get_material_property_input_node(material, property_) is None:
                 raise RuntimeError(f"Missing graph input {property_} on {name}")
         expressions = editing.get_material_expressions(material)
+        for node in expressions:
+            if isinstance(node, unreal.MaterialExpressionDesaturation):
+                texture_nodes = [n for n in expressions if isinstance(n, unreal.MaterialExpressionTextureSample)]
+                if len(texture_nodes) != 1 or not editing.connect_material_expressions(texture_nodes[0], "", node, ""):
+                    raise RuntimeError(f"Cannot wire generated texture into {name}")
+                editing.recompile_material(material)
+                if not library.save_loaded_asset(material):
+                    raise RuntimeError(f"Cannot save corrected {name} material")
         referenced_textures = [node.texture.get_path_name() for node in expressions
                                if isinstance(node, unreal.MaterialExpressionTextureSample)
                                and node.texture is not None]
@@ -219,15 +229,25 @@ def import_assets(unreal, manifest):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--stage", choices=["import"], default="import")
+    parser.add_argument("--stage", choices=["import", "scene", "verify"], default="import")
     args = parser.parse_args()
     save_report(args.stage, {"status": "running"})
     try:
         manifest = source_manifest()
         import unreal
-        report = import_assets(unreal, manifest)
+        if args.stage == "import":
+            report = import_assets(unreal, manifest)
+        else:
+            sys.path.insert(0, str(ROOT / "Scripts"))
+            import station_scene
+            if args.stage == "scene":
+                report = station_scene.assemble(manifest)
+            else:
+                if not unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).load_level(MAP):
+                    raise RuntimeError("Cannot reopen station map")
+                report = station_scene.verify(manifest)
         save_report(args.stage, report)
-        unreal.log("PLATFORM_IMPORT_OK " + json.dumps(report))
+        unreal.log("PLATFORM_" + args.stage.upper() + "_OK " + json.dumps(report))
     except Exception:
         save_report(args.stage, {"status": "failed", "traceback": traceback.format_exc()})
         raise
