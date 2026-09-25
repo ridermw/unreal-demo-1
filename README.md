@@ -34,15 +34,17 @@ Dream Loop stall. Do not interpret local improvements as acceptance.
   renders stay under `.dream-loop/` and are never presented as Unreal evidence.
 - The corrected source/assets are preserved on local `main`; a separate
   **`checkpoint/platform-nine`** branch safely mirrors reviewed snapshots remotely.
-  User approval now permits Git LFS migration of unpublished commits after
-  `ae13c86`, with the original history preserved under
-  `backup/pre-lfs-20260925`. Published history and Pages/recovery refs must remain
-  unchanged. See `Evidence/lfs-migration.json` for the migration outcome.
+  The seven unpublished commits after `ae13c86` have been migrated to Git LFS.
+  The original checkpoint `9ce49ef` is preserved under
+  `backup/pre-lfs-20260925`; the migrated checkpoint is `15ffadd`.
+  All 393 protected working-file hashes are unchanged, and published history plus
+  Pages/recovery refs were preserved. See `Evidence/lfs-migration.json` and
+  `Evidence/lfs-commit-map.csv` for verification and old/new commit IDs.
 - Public review gallery: **https://ridermw.github.io/unreal-demo-1/**, deployed from
   `gh-pages`. It is a screenshot/audit gallery, not a playable browser Unreal build.
-- **Next action:** finish the authorized LFS checkpoint/migration/push and update
-  the gallery. Visual work is stalled below the required threshold and needs
-  further direction; do not claim the environment objective is complete.
+- **Next action:** review the stalled visual result and choose further art
+  direction. The gallery branch can be updated separately from the preserved
+  checkpoint. Do not claim the environment objective is complete.
 
 ## Historical recovery notes (superseded by the checkpoint above)
 

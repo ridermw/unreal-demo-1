@@ -1,8 +1,17 @@
 {
-  "status": "authorized-pending",
+  "status": "migrated-and-verified",
   "base": "ae13c86faac4fc8e3608332375b822943111b492",
   "scope": "Only unpublished main commits after the existing origin/main base",
   "backup_ref": "refs/heads/backup/pre-lfs-20260925",
+  "pre_migration_checkpoint": "9ce49efd11c7cc35173fabf247006290e5a63729",
+  "migrated_checkpoint": "15ffaddcbabc979d1568ddf3f5e50282ede2713f",
+  "rewritten_commits": 7,
+  "working_files_verified": 393,
+  "working_files_byte_identical": true,
+  "protected_refs_unchanged": true,
+  "oversized_raw_blobs_in_unpublished_range": 0,
+  "head_lfs_asset_count": 162,
+  "commit_map": "Evidence/lfs-commit-map.csv",
   "preserve_refs": ["origin/main", "gh-pages", "checkpoint/platform-nine"],
   "working_asset_policy": "Preserve hydrated working files byte-for-byte",
   "lfs_patterns": ["*.uasset", "*.umap", "*.ubulk", "*.uexp", "*.fbx", "*.blend", "Art/Textures/**/*.png"],
@@ -12,6 +21,10 @@
   "verification": [
     "Local Git LFS3.8.0 is installed and repository-local filters/hooks initialized",
     "Map, FBX and PNG clean/smudge round trips preserve original bytes",
-    "Attributes exclude Pages images and text metadata"
+    "Attributes exclude Pages images and text metadata",
+    "All393 protected working files retained identical SHA256 hashes",
+    "Published base remains an ancestor; all refs except main retain their original values",
+    "Git LFS object/pointer fsck passed",
+    "No raw Git blob over100MiB remains in the unpublished range"
   ]
 }
