@@ -120,8 +120,16 @@
         "normal": "/Game/Platform/Textures/T_iron_normal.T_iron_normal",
         "roughness": "/Game/Platform/Textures/T_iron_roughness.T_iron_roughness"
       }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Interior.M_Interior",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_wood.T_wood",
+        "normal": "/Game/Platform/Textures/T_wood_normal.T_wood_normal",
+        "roughness": "/Game/Platform/Textures/T_wood_roughness.T_wood_roughness"
+      }
     }
   ],
   "stage": "materials",
-  "utc": "2026-09-25T04:26:03.627859+00:00"
+  "utc": "2026-09-25T04:49:18.094022+00:00"
 }

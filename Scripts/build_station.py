@@ -19,7 +19,7 @@ bpy.ops.object.select_all(action="SELECT")
 bpy.ops.object.delete(use_global=False)
 
 PALETTE = {
-    "Brick": ((0.28, 0.105, 0.055), 0.0, 0.87, "brick", 2.6),
+    "Brick": ((0.28, 0.105, 0.055), 0.0, 0.87, "brick", 1.4),
     "Stone": ((0.35, 0.32, 0.26), 0.0, 0.68, "stone", 3.2),
     "Scarlet": ((0.19, 0.014, 0.023), 0.0, 0.32, "scarlet", 2.0),
     "BlackSteel": ((0.018, 0.025, 0.027), 0.78, 0.34, "blacksteel", 2.0),
@@ -36,6 +36,7 @@ PALETTE = {
     "Gravel": ((0.09, 0.115, 0.12), 0.0, 0.91, "ballast", 1.2),
     "Blanket": ((0.13, 0.009, 0.027), 0.0, 0.95, "cloth", 0.25),
     "RoofPanel": ((0.045, 0.054, 0.048), 0.3, 0.72, "iron", 2.0),
+    "Interior": ((0.30, 0.18, 0.07), 0.0, 0.85, "wood", 2.0),
     "Puddle": ((0.10, 0.12, 0.12), 0.4, 0.075, None, 1.0),
 }
 MATERIALS = {}
@@ -175,6 +176,10 @@ for y in range(-10, 68, 2):
     box("Cream", (-0.46, y, 0.69), (0.29, 1.98, 0.07))
     box("Stone", (-0.59, y, 0.46), (0.15, 1.98, 0.48))
 for side in (4.95, -10.0):
+    GROUP = "Windows"
+    inward = -1 if side > 0 else 1
+    box("Interior",(side-inward*1.4,28,3.7),(.22,80,7.4))
+    GROUP = "Architecture"
     for y in range(-8, 67, 5):
         box("Brick", (side, y, 4.25), (0.60, 0.95, 7.15))
         box("Stone", (side-0.04, y, 0.99), (0.71, 1.12, 0.52))
@@ -204,6 +209,10 @@ for side in (4.95, -10.0):
                                for xx, theta in ((x-.1, a), (x+.1, a), (x+.1, b), (x-.1, b))])
         GROUP = "Windows"
         box("AmberGlass", (x+inward*0.015, y+2.5, 3.22), (0.055, 1.95, 3.02))
+        box("Interior",(side-inward*1.1,y+2.5,3.5),(.12,2.0,3.6))
+        for zz in (2.0,3.05,4.1):
+            box("Wood",(side-inward*.7,y+2.5,zz),(.65,1.9,.09))
+        box("Lamp",(side-inward*.45,y+2.5,4.5),(.15,.13,.2))
         points = [(x, y+2.5, 4.8)] + [
             (x, y+2.5+0.97*math.cos(t*math.pi/32), 4.8+0.97*math.sin(t*math.pi/32))
             for t in range(33)]
@@ -221,6 +230,9 @@ GROUP = "Roof"
 for y in range(-8, 70, 5):
     arch("Iron", y, 6.65, 7.4, 5.2, 0.10, -2.55)
     arch("Iron", y, 6.65, 7.4, 4.72, 0.065, -2.55)
+    for depth in (-.10,.10):
+        arch("Iron",y+depth,6.65,7.4,5.2,.075,-2.55)
+        arch("Iron",y+depth,6.65,7.4,4.72,.055,-2.55)
     for i in range(17):
         t = (i+0.5)*math.pi/17
         p = (-2.55+7.4*math.cos(t), y, 6.65+5.2*math.sin(t))
@@ -262,6 +274,15 @@ for x in (-9.7, -7.2, -4.7, -2.2, 0.3, 2.8, 4.65):
 box("Glass", (-2.5, 66.1, 5.1), (14.4, 0.10, 8.7))
 for z in (2.5, 4.5, 6.5, 8.5):
     box("Iron", (-2.5, 66, z), (14.4, 0.14, 0.075))
+for y in (65.7,):
+    arch("Iron", y, 6.65, 7.4, 5.2, .095, -2.55)
+    for x in range(-9,5):
+        box("Iron",(x,y,5.4),(.055,.11,9.5))
+    for z in (3,4,5,6,7,8,9):
+        box("Iron",(-2.55,y,z),(14,.1,.045))
+for x in (-9.8,4.6):
+    box("Brick",(x,71,4.0),(.8,13,7.8))
+box("Stone",(0,74,.3),(9,22,.6))
 
 GROUP = "Track"
 for x in (-3.42, -1.96):
@@ -281,7 +302,7 @@ for i in range(9000):
 GROUP = "Locomotive"
 TX = -2.69
 box("BlackSteel", (TX, 8.0, 1.05), (1.55, 10.4, 0.40))
-box("Scarlet", (TX, 7.65, 1.55), (2.76, 10.8, 0.19))
+box("Scarlet", (TX, 7.25, 1.55), (2.76, 11.7, 0.19))
 cylinder("Scarlet", (TX, 4.35, 2.80), (TX, 11.75, 2.80), 1.02, 80)
 cylinder("BlackSteel", (TX, 3.15, 2.80), (TX, 4.50, 2.80), 1.065, 80)
 cylinder("BlackSteel", (TX, 3.02, 2.80), (TX, 3.16, 2.80), 0.985, 80)
@@ -313,17 +334,17 @@ for side in (-1, 1):
         box("BlackSteel", (TX+side*0.91, y, 3.36), (0.07, 0.045, 0.12))
     cylinder("BlackSteel", (TX+side*0.92, 3.8, 3.45),
              (TX+side*0.92, 11.5, 3.45), 0.025, 12)
-box("Scarlet", (TX, 2.62, 0.96), (2.9, 0.28, 0.62))
+box("Scarlet", (TX, 1.52, 1.12), (2.9, 0.28, 0.54))
 for x in (TX-1.06, TX+1.06):
-    cylinder("BlackSteel", (x, 2.56, 0.96), (x, 2.10, 0.96), 0.15, 24)
-    cylinder("BlackSteel", (x, 2.10, 0.96), (x, 1.96, 0.96), 0.25, 40)
-    ring("BlackSteel", (x, 2.09, 0.96), 0.16, 0.030)
-for row in (0.73, 1.17):
+    cylinder("BlackSteel", (x, 1.45, 1.12), (x, .99, 1.12), 0.15, 24)
+    cylinder("BlackSteel", (x, .99, 1.12), (x, .85, 1.12), 0.25, 40)
+    ring("BlackSteel", (x, .98, 1.12), 0.16, 0.030)
+for row in (.90, 1.32):
     for i in range(13):
-        rivet("BlackSteel", (TX-1.28+i*0.21, 2.46, row), radius=0.025)
-tube("BlackSteel", [(TX, 2.55, 1), (TX, 1.96, 0.65), (TX+0.10, 2.12, 0.42)], 0.053)
-tube("BlackSteel", [(TX-0.45, 2.53, 1.3), (TX-0.4, 2.15, 0.63),
-                    (TX-0.25, 2.02, 0.45)], 0.044)
+        rivet("BlackSteel", (TX-1.28+i*0.21, 1.36, row), radius=0.025)
+tube("BlackSteel", [(TX, 1.45, 1.15), (TX, .85, 0.70), (TX+0.10, 1.0, 0.42)], 0.053)
+tube("BlackSteel", [(TX-0.45, 1.43, 1.3), (TX-0.4, 1.05, 0.63),
+                    (TX-0.25, .92, 0.45)], 0.044)
 cylinder("Brass", (TX, 2.91, 2.8), (TX, 2.73, 2.8), 0.08, 24)
 cylinder("BlackSteel", (TX-.32, 2.72, 2.8), (TX+.30, 2.72, 2.8), .029, 16)
 tube("BlackSteel", [(TX,2.72,2.9),(TX,2.7,2.64),(TX+.06,2.68,2.57)], .031, 16)
@@ -331,17 +352,17 @@ for z in (2.3, 3.3):
     box("BlackSteel", (TX+0.65, 2.90, z), (0.4, 0.07, 0.065))
 text("5979", (TX, 2.913, 2.23), 0.12, "Brass")
 # Tall apron, coupling links, door hardware and fittings make the hero silhouette mechanical.
-face("BlackSteel", [(TX-1.38,2.45,1.27),(TX+1.38,2.45,1.27),
+face("BlackSteel", [(TX-1.38,1.40,1.38),(TX+1.38,1.40,1.38),
                     (TX+1.12,3.08,1.96),(TX-1.12,3.08,1.96)])
 for x in (-.94,-.62,-.3,0,.3,.62,.94):
-    rivet("BlackSteel",(TX+x,2.50,1.31),radius=.018)
+    rivet("BlackSteel",(TX+x,1.45,1.42),radius=.018)
 for index in range(7):
-    ring("BlackSteel", (TX+.015*index,1.97+.035*index,.68-index*.065),
+    ring("BlackSteel", (TX+.015*index,.87+.035*index,.74-index*.065),
          .073,.018,"XZ" if index%2 else "YZ",20)
 for x in (TX-.60,TX+.65):
-    tube("BlackSteel",[(x,2.48,1.23),(x-.06,2.0,.86),(x+.10,1.97,.46)],.042,14)
+    tube("BlackSteel",[(x,1.38,1.33),(x-.06,.90,.86),(x+.10,.87,.46)],.042,14)
     for j in range(10):
-        ring("BlackSteel",(x,2.1,.62+j*.04),.05,.012,"XY",12)
+        ring("BlackSteel",(x,1.0,.62+j*.04),.05,.012,"XY",12)
 box("Brass",(TX,2.97,3.87),(.18,.15,.27))
 cylinder("Brass",(TX,2.9,3.92),(TX,2.80,3.92),.087,32)
 cylinder("Cream",(TX,2.79,3.92),(TX,2.78,3.92),.065,32)
@@ -364,7 +385,7 @@ for y in (6.6,9.2):
     ring("Brass",(TX+.44,y,4.16),.10,.012,"XY",24)
 
 GROUP = "Wheels"
-for y, radius in ((3.75, 0.48), (5.5, 0.82), (7.45, 0.82), (9.4, 0.82), (11.75, 0.5)):
+for y, radius in ((3.75, 0.48), (5.5, 0.92), (7.45, 0.92), (9.4, 0.92), (11.75, 0.5)):
     z = radius+0.15
     cylinder("BlackSteel", (TX-1.12, y, z), (TX+1.12, y, z), 0.105, 16)
     for side in (-1, 1):
@@ -493,19 +514,20 @@ for i in range(22):
     cylinder("Blanket", (cx+.12+i*.031,cy-.55,1.55),
              (cx+.12+i*.031,cy-.56,1.45-random.random()*.08),.006,5)
 # Delicate cage bars and domed crown remain actual geometry.
-gx, gy, bottom = cx-.35, cy+0.14, 1.68
-for z in (bottom, bottom+0.08, bottom+0.48, bottom+0.68):
-    ring("Brass", (gx, gy, z), 0.36, 0.013, "XY", 48)
+gx, gy, bottom = cx-.35, cy+0.14, 1.67
+for z in (bottom, bottom+0.06, bottom+0.34, bottom+0.47):
+    ring("Brass", (gx, gy, z), 0.29, 0.009, "XY", 48)
+cylinder("Brass",(gx,gy,bottom-.02),(gx,gy,bottom+.035),.292,64)
 for i in range(40):
     t = i*math.tau/40
-    points = [(gx+0.36*math.cos(t), gy+0.36*math.sin(t), bottom),
-              (gx+0.36*math.cos(t), gy+0.36*math.sin(t), bottom+0.68)]
+    points = [(gx+0.29*math.cos(t), gy+0.29*math.sin(t), bottom),
+              (gx+0.29*math.cos(t), gy+0.29*math.sin(t), bottom+0.47)]
     for j in range(1, 9):
         a = j*math.pi/16
-        points.append((gx+0.36*math.cos(a)*math.cos(t),
-                       gy+0.36*math.cos(a)*math.sin(t), bottom+0.68+0.35*math.sin(a)))
-    tube("Brass", points, 0.006, 5)
-ring("Brass", (gx, gy, bottom+1.12), 0.072, 0.012, "XZ", 24)
+        points.append((gx+0.29*math.cos(a)*math.cos(t),
+                       gy+0.29*math.cos(a)*math.sin(t), bottom+0.47+0.24*math.sin(a)))
+    tube("Brass", points, 0.0045, 6)
+ring("Brass", (gx, gy, bottom+.78), 0.05, 0.009, "XZ", 24)
 
 GROUP = "Furniture"
 for y in (3.8, 15.0, 27.0, 42.0, 53.0):
@@ -568,7 +590,8 @@ for x, y, rx, ry in [(1.6, -0.8, 0.55, 0.40), (0.4, 3.2, 0.27, 1.2),
 objects = defaultdict(list)
 for (group, material), data in meshes.items():
     if group == "Locomotive":
-        data["verts"] = [Vector((v.x, v.y, v.z*1.13+.15)) for v in data["verts"]]
+        data["verts"] = [Vector((v.x, v.y, v.z*1.13+.15))
+                         for v in data["verts"]]
     elif group in ("CabTender", "Carriages"):
         data["verts"] = [Vector((v.x,v.y,v.z+.3 if v.z>1.8 else v.z)) for v in data["verts"]]
     mesh = bpy.data.meshes.new(f"{group}_{material}")
@@ -590,7 +613,7 @@ for (group, material), data in meshes.items():
     obj = bpy.data.objects.new(mesh.name, mesh)
     bpy.context.collection.objects.link(obj)
     objects[group].append(obj)
-    if material not in ("Glass", "Puddle", "Gravel", "Lettering"):
+    if group not in ("Roof", "Track") and material not in ("Glass", "Puddle", "Gravel", "Lettering", "Blanket"):
         bevel = obj.modifiers.new("Machined and worn edges", "BEVEL")
         bevel.width = (0.032 if group == "Luggage" and material in ("Leather","DarkLeather")
                        else .012 if group == "Furniture" and material == "Wood" else .008)

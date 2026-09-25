@@ -170,6 +170,16 @@
       "roughness": 0.72,
       "texture": "iron"
     },
+    "Interior": {
+      "color": [
+        0.3,
+        0.18,
+        0.07
+      ],
+      "metallic": 0.0,
+      "roughness": 0.85,
+      "texture": "wood"
+    },
     "Puddle": {
       "color": [
         0.1,
@@ -208,29 +218,32 @@
     {
       "name": "Windows",
       "file": "Art/Models/Refined/Windows.fbx",
-      "vertices": 3660,
+      "vertices": 4876,
       "material_slots": [
         "AmberGlass",
         "Glass",
-        "Iron"
+        "Interior",
+        "Iron",
+        "Lamp",
+        "Wood"
       ],
       "source_bounds_m": {
         "minimum": [
-          -9.682499885559082,
-          -6.474999904632568,
-          1.7100000381469727
+          -11.510000228881836,
+          -12.0,
+          0.0
         ],
         "maximum": [
-          4.632500171661377,
-          65.4749984741211,
-          5.769999980926514
+          6.460000038146973,
+          68.0,
+          7.400000095367432
         ]
       }
     },
     {
       "name": "Roof",
       "file": "Art/Models/Refined/Roof.fbx",
-      "vertices": 123166,
+      "vertices": 166302,
       "material_slots": [
         "Brass",
         "Glass",
@@ -253,21 +266,23 @@
     {
       "name": "FarWall",
       "file": "Art/Models/Refined/FarWall.fbx",
-      "vertices": 112,
+      "vertices": 978,
       "material_slots": [
+        "Brick",
         "Glass",
-        "Iron"
+        "Iron",
+        "Stone"
       ],
       "source_bounds_m": {
         "minimum": [
-          -9.732500076293945,
-          65.93000030517578,
-          0.75
+          -10.199999809265137,
+          63.0,
+          0.0
         ],
         "maximum": [
-          4.699999809265137,
-          66.1500015258789,
-          9.449999809265137
+          5.0,
+          85.0,
+          11.944974899291992
         ]
       }
     },
@@ -306,8 +321,8 @@
       "source_bounds_m": {
         "minimum": [
           -4.139999866485596,
-          1.8792216777801514,
-          0.3751204311847687
+          0.7792215943336487,
+          0.44292041659355164
         ],
         "maximum": [
           -1.2400000095367432,
@@ -334,7 +349,7 @@
         "maximum": [
           -1.25,
           12.332900047302246,
-          1.9964936971664429
+          2.0729000568389893
         ]
       }
     },
@@ -388,7 +403,7 @@
     {
       "name": "Luggage",
       "file": "Art/Models/Refined/Luggage.fbx",
-      "vertices": 18473,
+      "vertices": 19074,
       "material_slots": [
         "BlackSteel",
         "Blanket",
@@ -406,7 +421,7 @@
         "maximum": [
           4.896999835968018,
           3.6649999618530273,
-          2.883897304534912
+          2.508923053741455
         ]
       }
     },

@@ -65,6 +65,22 @@ def material(root):
 
 def assemble(root, upsert, manifest):
     vapor = material(root)
+    library = unreal.EditorAssetLibrary
+    low_path = "/Game/Platform/Materials/MI_WheelSteam"
+    if library.does_asset_exist(low_path):
+        low_vapor = library.load_asset(low_path)
+    else:
+        low_vapor = unreal.AssetToolsHelpers.get_asset_tools().create_asset(
+            "MI_WheelSteam", "/Game/Platform/Materials", unreal.MaterialInstanceConstant,
+            unreal.MaterialInstanceConstantFactoryNew())
+    editing = unreal.MaterialEditingLibrary
+    editing.set_material_instance_parent(low_vapor, vapor)
+    editing.set_material_instance_scalar_parameter_value(low_vapor, "Density", .12)
+    editing.set_material_instance_vector_parameter_value(
+        low_vapor, "SteamLuminance", unreal.LinearColor(65, 72, 78, 1))
+    editing.update_material_instance(low_vapor)
+    if not library.save_loaded_asset(low_vapor):
+        raise RuntimeError("Cannot save wheel steam instance")
     plane = unreal.EditorAssetLibrary.load_asset("/Engine/BasicShapes/Plane")
     if plane is None:
         raise RuntimeError("Engine plane unavailable for steam cards")
@@ -74,13 +90,13 @@ def assemble(root, upsert, manifest):
         specs.append((f"ChimneySteam_{index}", (chimney[0]+index*0.12, chimney[1]+index*0.25, 7.1+index*0.2),
                       2.2, 4.2, angle))
     for index, y in enumerate((4.7, 6.6, 8.8, 11.4, 15.0)):
-        specs.append((f"WheelSteam_{index}", (-1.3, y, 1.22), 1.8, 1.8, 10))
+        specs.append((f"WheelSteam_{index}", (-1.3, y, 1.18), 3.0, 1.5, 30))
     for name, position, width, height, angle in specs:
         actor = upsert(name, unreal.StaticMeshActor, position,
                        unreal.Rotator(pitch=0, yaw=angle, roll=90))
         actor.set_actor_scale3d(unreal.Vector(width, height, 1))
         component = actor.static_mesh_component
         component.set_static_mesh(plane)
-        component.set_material(0, vapor)
+        component.set_material(0, low_vapor if name.startswith("Wheel") else vapor)
         component.set_collision_profile_name("NoCollision")
         component.set_editor_property("cast_shadow", False)

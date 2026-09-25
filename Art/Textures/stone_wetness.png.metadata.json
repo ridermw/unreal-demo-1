@@ -1,0 +1,9 @@
+{
+  "rendered_at": "2026-09-25T04:37:57.337667+00:00",
+  "size": "1024x1024",
+  "quality": "high",
+  "model_name": "gpt-image-2.5-sunburst",
+  "model_version": "default",
+  "prompt_char_count": 510,
+  "prompt": "Create a seamless grayscale WETNESS MASK for this exact paving image. Preserve the alignment of all slab joints. White areas mark irregular shallow puddles, wet patches and water-darkened seams; black is dry. Organic fragmented shapes with feathered broken edges, no circles, no uniform repeating ovals. Mostly black to dark grey with about twenty percent medium-to-white wetness gathered near joints and random low spots. Technical grayscale data map, no color, no lighting or reflections, no text, no border."
+}

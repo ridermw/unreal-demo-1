@@ -181,5 +181,47 @@
     ],
     "performance": null,
     "accepted": false
+  },
+  {
+    "id": "round-02",
+    "image": "rounds/round-02/unreal.png",
+    "sha256": "7ca52b7437085a4f751a57c92e26cff6edb253d7ab77e97a8bff253d94cf08c7",
+    "scores": {
+      "composition": 2.1,
+      "lighting": 1.2,
+      "materials": 1.1,
+      "details": 0.3
+    },
+    "total": 4.7,
+    "assessment": "Marginally closer, not a successful overall architectural transformation. The cage is substantially better scaled, the conspicuous pale oval puddle is gone, window recesses read less like flat tan panels, and the front beam reaches farther left. These justify a small gain. They do not resolve the simplified locomotive, sparse roof structure, closed-off terminal backdrop, boxy foreground assets or missing warm wet-platform atmosphere. The extended front also introduces left-edge buffer clipping and emphasizes an oversized flat deck. The smokebox and red front surfaces have conspicuous cool or pale highlights unlike the target's dark, locally worn machinery. Most major gaps from the previous verdict remain.",
+    "fixes": [],
+    "performance": {
+      "status": "success",
+      "utc": "2026-09-25T04:50:00.337993+00:00",
+      "mode": "standalone game, Metal SM6 offscreen rendering; not NullRHI",
+      "resolution": [
+        1536,
+        864
+      ],
+      "screen_percentage": 100,
+      "quality": "High (all sg.* = 2)",
+      "warmup_frames": 360,
+      "measurement_frames": 360,
+      "target": {
+        "median_fps_minimum": 30,
+        "p95_frame_ms_maximum": 50
+      },
+      "log": ".dream-loop/profile-20260925T045000.log",
+      "median_fps": 45.99414034651985,
+      "average_fps": 45.53182768348277,
+      "median_frame_ms": 21.7419,
+      "p95_frame_ms": 53.6777,
+      "meets_target": false,
+      "frame_source": "Native Unreal CSV FrameTime",
+      "device": "Apple M4 Pro, 20 GPU cores, 48 GB",
+      "engine": "5.8.3",
+      "frame_evidence": "Evidence/performance-frames.csv"
+    },
+    "accepted": false
   }
 ]

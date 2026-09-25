@@ -32,7 +32,7 @@
         3900.0000610351562,
         406.2500009536743
       ],
-      "lod0_triangles": 8988,
+      "lod0_triangles": 9032,
       "nanite_enabled": true
     },
     {
@@ -50,19 +50,31 @@
         {
           "slot": "Iron",
           "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        },
+        {
+          "slot": "Interior",
+          "material": "/Game/Platform/Materials/M_Interior.M_Interior"
+        },
+        {
+          "slot": "Lamp",
+          "material": "/Game/Platform/Materials/M_Lamp.M_Lamp"
+        },
+        {
+          "slot": "Wood",
+          "material": "/Game/Platform/Materials/M_Wood.M_Wood"
         }
       ],
       "center_cm": [
-        -252.49952697753906,
-        -2949.999969482422,
-        374.0
+        -252.49960327148438,
+        -2799.9999389648438,
+        370.0
       ],
       "extent_cm": [
-        715.7505340576172,
-        3597.500030517578,
-        203.0
+        898.5006408691406,
+        4000.0000610351562,
+        370.0
       ],
-      "lod0_triangles": 63000,
+      "lod0_triangles": 91576,
       "nanite_enabled": false
     },
     {
@@ -87,16 +99,16 @@
         }
       ],
       "center_cm": [
-        -254.99920654296875,
-        -3137.8700256347656,
-        632.4945678710938
+        -254.99954223632812,
+        -3137.8640747070312,
+        632.4987182617188
       ],
       "extent_cm": [
-        749.980224609375,
-        4062.4580993652344,
-        562.4945678710938
+        749.9897155761719,
+        4062.4703979492188,
+        562.4987182617188
       ],
-      "lod0_triangles": 3407890,
+      "lod0_triangles": 327500,
       "nanite_enabled": false
     },
     {
@@ -110,19 +122,27 @@
         {
           "slot": "Iron",
           "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        },
+        {
+          "slot": "Brick",
+          "material": "/Game/Platform/Materials/M_Brick.M_Brick"
+        },
+        {
+          "slot": "Stone",
+          "material": "/Game/Platform/Materials/M_Stone.M_Stone"
         }
       ],
       "center_cm": [
-        -251.6240234375,
-        -6604.000244140625,
-        510.0
+        -259.9989318847656,
+        -7400.0,
+        597.227783203125
       ],
       "extent_cm": [
-        721.625,
-        11.000244140625,
-        435.0
+        760.0000915527344,
+        1100.0,
+        597.227783203125
       ],
-      "lod0_triangles": 2080,
+      "lod0_triangles": 25584,
       "nanite_enabled": false
     },
     {
@@ -152,7 +172,7 @@
         3951.713623046875,
         13.75
       ],
-      "lod0_triangles": 4846,
+      "lod0_triangles": 5272,
       "nanite_enabled": true
     },
     {
@@ -177,16 +197,16 @@
         }
       ],
       "center_cm": [
-        -268.99995040893555,
-        -753.978515625,
-        290.27600479125977
+        -268.99997329711914,
+        -698.9785079956055,
+        293.66600036621094
       ],
       "extent_cm": [
-        144.9999885559082,
-        566.021484375,
-        252.72838973999023
+        144.99999618530273,
+        621.0214920043945,
+        249.33839416503906
       ],
-      "lod0_triangles": 5440,
+      "lod0_triangles": 4049,
       "nanite_enabled": true
     },
     {
@@ -209,14 +229,14 @@
       "center_cm": [
         -268.9998970031738,
         -776.0000457763672,
-        103.1798951625824
+        106.99858260154724
       ],
       "extent_cm": [
         144.00004196166992,
         457.2772979736328,
-        96.4599974155426
+        100.27868485450745
       ],
-      "lod0_triangles": 32682,
+      "lod0_triangles": 32544,
       "nanite_enabled": true
     },
     {
@@ -323,14 +343,14 @@
       "center_cm": [
         384.22499084472656,
         -86.57854461669922,
-        177.11861038208008
+        158.37072372436523
       ],
       "extent_cm": [
         105.47496032714844,
         279.92139434814453,
-        111.26243209838867
+        92.51454544067383
       ],
-      "lod0_triangles": 5037,
+      "lod0_triangles": 5598,
       "nanite_enabled": true
     },
     {
@@ -364,7 +384,7 @@
         2593.500030517578,
         60.17500305175781
       ],
-      "lod0_triangles": 1878,
+      "lod0_triangles": 1881,
       "nanite_enabled": true
     },
     {
@@ -402,7 +422,7 @@
         1153.1000289916992,
         70.82110595703125
       ],
-      "lod0_triangles": 4120,
+      "lod0_triangles": 4106,
       "nanite_enabled": true
     },
     {
@@ -432,7 +452,7 @@
         3027.2857055664062,
         34.75
       ],
-      "lod0_triangles": 988,
+      "lod0_triangles": 984,
       "nanite_enabled": true
     },
     {
@@ -482,6 +502,7 @@
     "DarkLeather",
     "Glass",
     "Gravel",
+    "Interior",
     "Iron",
     "Lamp",
     "Leather",
@@ -514,7 +535,8 @@
         "/Game/Platform/Textures/T_stone.T_stone",
         "/Game/Platform/Textures/T_stone.T_stone",
         "/Game/Platform/Textures/T_stone_normal.T_stone_normal",
-        "/Game/Platform/Textures/T_stone_roughness.T_stone_roughness"
+        "/Game/Platform/Textures/T_stone_roughness.T_stone_roughness",
+        "/Game/Platform/Textures/T_stone.T_stone"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -726,6 +748,20 @@
       ]
     },
     {
+      "name": "Interior",
+      "texture_references": [
+        "/Game/Platform/Textures/T_wood.T_wood",
+        "/Game/Platform/Textures/T_wood.T_wood",
+        "/Game/Platform/Textures/T_wood_normal.T_wood_normal",
+        "/Game/Platform/Textures/T_wood_roughness.T_wood_roughness"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
       "name": "Puddle",
       "texture_references": [],
       "required_graph_inputs": [
@@ -737,7 +773,7 @@
   ],
   "policy": "Reuse and validate existing named packages; no deletions",
   "engine": "5.8.3-58210709+++UE5+Release-5.8",
-  "asset_count": 71,
+  "asset_count": 74,
   "stage": "import",
-  "utc": "2026-09-25T04:24:25.207577+00:00"
+  "utc": "2026-09-25T04:49:13.877048+00:00"
 }

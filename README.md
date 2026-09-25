@@ -46,16 +46,30 @@ Unreal screenshot**.
 - **Next exact action:** independent Dream Loop PRO comparison of
   `.dream-loop/round-00/unreal.png` with the locked target, then substantial
   geometry/material/lighting correction and performance optimization.
+- **Dream Loop round 02:** score **4.7/10** (composition 2.1, lighting 1.2,
+  materials 1.1, details 0.3). Smaller cage and wetness improve the image, but
+  locomotive proportions, material fidelity, roof depth and warm reflections
+  remain below the target. The judge says continue, not stalled.
+  Current measured performance: **45.99 median FPS / 53.68 ms p95**, still failing
+  the <=50 ms p95 gate. The editor's realtime rendering was disabled during the
+  standalone profile to avoid competing GPU work.
 - **Dream Loop round 01:** score **4.5/10** (composition 2.0, lighting 1.2,
   materials 1.0, details 0.3), up from 3.4. Actual image:
   `Evidence/rounds/round-01/unreal.png`. The judge repeated structural gaps;
   the next pass must rethink proportions and architectural depth, not merely
   add small details. Performance must be remeasured after visual changes.
 - **Human review gallery:** `https://ridermw.github.io/unreal-demo-1/`.
-  GitHub Pages publishes `main:/docs`. Run `python3 Scripts/publish_rounds.py`
-  after every independently judged round, then review/commit/push its output.
+  GitHub Pages publishes `gh-pages:/`. Run `python3 Scripts/publish_rounds.py`
+  after every independently judged round, then `python3 Scripts/deploy_pages.py`.
   Gallery images are actual Unreal captures, with a labeled generated-target
   comparison. It is not a playable browser port or a Pixel Streaming service.
+- **Main push blocker:** local commit `142a732` contains an oversized historical
+  roof FBX/package and GitHub rejected it. Corrected current roof files are below
+  10 MiB, but the unpublished history still includes the oversized blobs.
+  Permission was requested to preserve a backup ref and replace the unpublished
+  commit; no response was available. **Do not amend/rewrite it without approval.**
+  Last pushed main is `ae13c86`; later work is committed locally. The review
+  gallery uses its own branch and is live independently.
 - **Valid performance, target not met:** median **30.05 FPS**, median **33.27 ms**,
   p95 **86.35 ms** at 1536x864, High, 100% screen percentage. Native Unreal CSV
   `FrameTime`, 720 actual standalone Metal frames, first 360 discarded for warmup.

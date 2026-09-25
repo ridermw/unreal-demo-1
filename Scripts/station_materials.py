@@ -35,7 +35,7 @@ def upgrade(root, manifest):
         texture.set_editor_property("srgb", kind == "albedo")
         if kind == "normal":
             texture.set_editor_property("compression_settings", unreal.TextureCompressionSettings.TC_NORMALMAP)
-        elif kind == "roughness":
+        elif kind in ("roughness", "wetness"):
             texture.set_editor_property("compression_settings", unreal.TextureCompressionSettings.TC_MASKS)
         if not library.save_loaded_asset(texture):
             raise RuntimeError(f"Texture save failed: {key}")
@@ -90,7 +90,7 @@ def upgrade(root, manifest):
             "DarkLeather": (0.45, 0.40, 0.35), "RoofPanel": (0.25, 0.25, 0.25),
             "AmberGlass": (0.14, 0.15, 0.12), "Glass": (0.35, 0.43, 0.45),
             "Scarlet": (0.65, 0.30, 0.25), "Stone": (.19,.20,.21),
-            "Brick": (.7,.62,.53), "BlackSteel": (2.3,2.3,2.3),
+            "Brick": (.7,.62,.53), "BlackSteel": (.85,.85,.85),
             "Cream": (.62,.49,.32), "Brass": (.72,.60,.43),
         }.get(name, (1.0, 1.0, 1.0))
         expressions = editing.get_material_expressions(material)
@@ -102,9 +102,12 @@ def upgrade(root, manifest):
                 material, unreal.MaterialExpressionVectorParameter, -850, 1500)
             tint.set_editor_property("parameter_name", "SurfaceTint")
         tint.set_editor_property("default_value", unreal.LinearColor(*tint_value, 1))
-        multiply = original_base_input
+        multiply = next((node for node in expressions
+                         if isinstance(node, unreal.MaterialExpressionMultiply)
+                         and str(node.get_editor_property("desc")) == "SurfaceBaseTint"), original_base_input)
         if not isinstance(multiply, unreal.MaterialExpressionMultiply):
             multiply = editing.create_material_expression(material, unreal.MaterialExpressionMultiply, -300, 650)
+        multiply.set_editor_property("desc", "SurfaceBaseTint")
         for source, input_ in ((maps["albedo"], "A"), (tint, "B")):
             if not editing.connect_material_expressions(source, "", multiply, input_):
                 raise RuntimeError(f"Cannot connect tint on {name}")
@@ -164,15 +167,44 @@ def upgrade(root, manifest):
             raise RuntimeError("Cannot wire normal strength")
         if not editing.connect_material_property(flatten, "", unreal.MaterialProperty.MP_NORMAL):
             raise RuntimeError("Cannot wire softened surface normal")
+        if name == "Stone":
+            def node_with_label(cls, label, x, y):
+                found = next((node for node in editing.get_material_expressions(material)
+                              if isinstance(node, cls) and str(node.get_editor_property("desc")) == label), None)
+                if found is None:
+                    found = editing.create_material_expression(material, cls, x, y)
+                    found.set_editor_property("desc", label)
+                return found
+
+            mask = node_with_label(unreal.MaterialExpressionTextureSample, "GeneratedWetness", -900, 2600)
+            mask.texture = load_texture("stone", "wetness")
+            mask.set_editor_property("sampler_type", unreal.MaterialSamplerType.SAMPLERTYPE_MASKS)
+            darken = node_with_label(unreal.MaterialExpressionLinearInterpolate, "WetDarken", -550, 2600)
+            darken.set_editor_property("const_a", 1)
+            darken.set_editor_property("const_b", .36)
+            wet_color = node_with_label(unreal.MaterialExpressionMultiply, "WetBaseColor", -250, 2600)
+            wet_roughness = node_with_label(unreal.MaterialExpressionLinearInterpolate, "WetRoughness", -250, 2900)
+            wet_roughness.set_editor_property("const_b", .07)
+            for source_node, output, target_node, input_ in (
+                (mask, "R", darken, "Alpha"), (multiply, "", wet_color, "A"), (darken, "", wet_color, "B"),
+                (rough_product, "", wet_roughness, "A"), (mask, "R", wet_roughness, "Alpha")):
+                if not editing.connect_material_expressions(source_node, output, target_node, input_):
+                    raise RuntimeError(f"Cannot wire wet paving: {input_}")
+            if not editing.connect_material_property(wet_color, "", unreal.MaterialProperty.MP_BASE_COLOR):
+                raise RuntimeError("Cannot wire wet paving color")
+            if not editing.connect_material_property(wet_roughness, "", unreal.MaterialProperty.MP_ROUGHNESS):
+                raise RuntimeError("Cannot wire wet paving roughness")
         if name in ("Glass", "AmberGlass", "RoofPanel"):
             material.set_editor_property("two_sided", True)
         if name == "AmberGlass":
-            material.set_editor_property("blend_mode", unreal.BlendMode.BLEND_OPAQUE)
+            material.set_editor_property("blend_mode", unreal.BlendMode.BLEND_TRANSLUCENT)
+            opacity = editing.get_material_property_input_node(material, unreal.MaterialProperty.MP_OPACITY)
+            opacity.r = .22
             emission = editing.get_material_property_input_node(material, unreal.MaterialProperty.MP_EMISSIVE_COLOR)
             if emission is None:
                 emission = editing.create_material_expression(
                     material, unreal.MaterialExpressionConstant3Vector, -300, 1400)
-            emission.constant = unreal.LinearColor(4.5, 1.7, .35, 1)
+            emission.constant = unreal.LinearColor(.06, .025, .008, 1)
             if not editing.connect_material_property(emission, "", unreal.MaterialProperty.MP_EMISSIVE_COLOR):
                 raise RuntimeError("Cannot wire window interior glow")
         if name == "Glass":

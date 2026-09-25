@@ -1,8 +1,8 @@
 {
   "status": "success",
   "map": "/Game/Platform/Maps/HiddenPlatform",
-  "generated_actor_count": 39,
-  "total_actor_count": 39,
+  "generated_actor_count": 50,
+  "total_actor_count": 50,
   "meshes": [
     {
       "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_0",
@@ -20,7 +20,10 @@
       "materials": [
         "/Game/Platform/Materials/M_AmberGlass.M_AmberGlass",
         "/Game/Platform/Materials/M_Glass.M_Glass",
-        "/Game/Platform/Materials/M_Iron.M_Iron"
+        "/Game/Platform/Materials/M_Iron.M_Iron",
+        "/Game/Platform/Materials/M_Interior.M_Interior",
+        "/Game/Platform/Materials/M_Lamp.M_Lamp",
+        "/Game/Platform/Materials/M_Wood.M_Wood"
       ]
     },
     {
@@ -38,7 +41,9 @@
       "mesh": "/Game/Platform/Meshes/SM_FarWall.SM_FarWall",
       "materials": [
         "/Game/Platform/Materials/M_Glass.M_Glass",
-        "/Game/Platform/Materials/M_Iron.M_Iron"
+        "/Game/Platform/Materials/M_Iron.M_Iron",
+        "/Game/Platform/Materials/M_Brick.M_Brick",
+        "/Game/Platform/Materials/M_Stone.M_Stone"
       ]
     },
     {
@@ -156,5 +161,5 @@
   "engine": "5.8.3-58210709+++UE5+Release-5.8",
   "rendered": false,
   "stage": "verify",
-  "utc": "2026-09-25T04:26:46.940773+00:00"
+  "utc": "2026-09-25T04:55:27.257592+00:00"
 }
