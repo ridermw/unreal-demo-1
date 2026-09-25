@@ -2,10 +2,8 @@
   "rendered_at": "2026-09-24T21:56:36.470257+00:00",
   "size": "1024x1024",
   "quality": "high",
-  "deployment": "gpt-image-2",
   "model_name": "gpt-image-2",
   "model_version": "default",
-  "account": "mwilliams-imggen-eus2",
   "prompt_char_count": 504,
   "prompt": "A seamless tileable PBR albedo texture, perfectly orthographic flat front view, edge to edge old warm reddish brown Victorian railway station brick masonry, irregular handmade terracotta bricks in a traditional running bond, deep warm-grey lime mortar, rubbed corners, dark soot staining and fine pores. Approximately twelve brick courses across the entire image. Neutral diffuse lighting, no directional cast shadows, no vignette, no perspective, no objects, no text. Photoreal game environment texture."
 }

@@ -2,10 +2,8 @@
   "rendered_at": "2026-09-24T21:57:48.312228+00:00",
   "size": "1024x1024",
   "quality": "high",
-  "deployment": "gpt-image-2",
   "model_name": "gpt-image-2",
   "model_version": "default",
-  "account": "mwilliams-imggen-eus2",
   "prompt_char_count": 433,
   "prompt": "A seamless tileable PBR albedo texture of antique warm chestnut-brown leather, flat orthographic image edge to edge, rich natural graining, wrinkles and subtly rubbed honey-gold patches, small scuffs and age cracking. Texture for a 1930s travel trunk. Uniform diffuse lighting, no geometric shapes, no straps, no buckles, no text, no vignette, no specular highlights, no shadows, no perspective. Photoreal game asset leather texture."
 }

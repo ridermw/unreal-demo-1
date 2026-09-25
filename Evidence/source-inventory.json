@@ -1,0 +1,146 @@
+{
+  "kind": "source-assets-only-not-an-Unreal-render",
+  "files": [
+    {
+      "path": "Art/Models/Architecture.fbx",
+      "bytes": 350540,
+      "sha256": "bfcdef3dc6007ef6fcf6df01139f7c3a22286cd7e6bdc8b8d686155ae82c0e18"
+    },
+    {
+      "path": "Art/Models/CabTender.fbx",
+      "bytes": 316076,
+      "sha256": "5bd10f9c3963aa7d587cefc4c84c4b696d3922f9a49204425fed246d4368d245"
+    },
+    {
+      "path": "Art/Models/Carriages.fbx",
+      "bytes": 609852,
+      "sha256": "4804d690810f45680df7b1a970b3ab6a02205390a4c4e4cf26f97657c2d7449a"
+    },
+    {
+      "path": "Art/Models/FarWall.fbx",
+      "bytes": 22812,
+      "sha256": "20af43c6c102de5c9c2f778b8c677779c454beab088e0bda3403b045d175d487"
+    },
+    {
+      "path": "Art/Models/Furniture.fbx",
+      "bytes": 210700,
+      "sha256": "01182b19570b7c023aab67468a100c61a3c17ac14133ef232acb0517dce4e355"
+    },
+    {
+      "path": "Art/Models/HiddenPlatform.blend",
+      "bytes": 5463023,
+      "sha256": "d9ffbe707372b8cb2e65578a3b037df09ba9f2c5112e6c212c6353355a133a1f"
+    },
+    {
+      "path": "Art/Models/Lanterns.fbx",
+      "bytes": 75340,
+      "sha256": "72d4b9b2bd53820c2e9c2faacc393eb5a8f047bd2f3b864b192234fcd085e6aa"
+    },
+    {
+      "path": "Art/Models/Locomotive.fbx",
+      "bytes": 1198268,
+      "sha256": "3e8963cd383528a8fd9b5cb348b534edb642b6012beda7fd0b30ce7c540d3d61"
+    },
+    {
+      "path": "Art/Models/Luggage.fbx",
+      "bytes": 668700,
+      "sha256": "703aa3a55d128bfb724c197c702bdbf455f01d4a2bb5990019aa88daffb27ad4"
+    },
+    {
+      "path": "Art/Models/Puddles.fbx",
+      "bytes": 22764,
+      "sha256": "828d5e670cdd73ad7be33c2f555eb1ed99321c6cc2276520fd513449be680eca"
+    },
+    {
+      "path": "Art/Models/Roof.fbx",
+      "bytes": 1948524,
+      "sha256": "5bd6e9c9d79958b9ae20d56344885583bbfcea111a79d39cb39668ec1fe2817b"
+    },
+    {
+      "path": "Art/Models/Signs.fbx",
+      "bytes": 627676,
+      "sha256": "39ea369697bab8eb8a7da38d8a499970a0e612883787dd1972a6b1a02dad96b8"
+    },
+    {
+      "path": "Art/Models/Track.fbx",
+      "bytes": 2620668,
+      "sha256": "43ce3554765ca2d86d0879da5e3e97c4ae0ddba05ed8b804a761fb080a138710"
+    },
+    {
+      "path": "Art/Models/Wheels.fbx",
+      "bytes": 1425452,
+      "sha256": "7b8811bc75193d916c4ddb6d135f9ba43249c836e6db0ca1e5fea1f984d530bd"
+    },
+    {
+      "path": "Art/Models/Windows.fbx",
+      "bytes": 160412,
+      "sha256": "91622819b8c53d2fccf17e7ceeb56be48661e961384ac498ddb8fa108bce4010"
+    },
+    {
+      "path": "Art/Models/manifest.json",
+      "bytes": 4934,
+      "sha256": "65651c9fff2286bfb02da25583b7133d6ace887c99415b0be539a9c560da0b1a"
+    },
+    {
+      "path": "Art/Reference/target-prompt.txt",
+      "bytes": 2737,
+      "sha256": "4984d58590538ea19fa5dcb6a3144b0a93f57784221c1922338fabd2a1bca2e9"
+    },
+    {
+      "path": "Art/Reference/target.png",
+      "bytes": 2516141,
+      "sha256": "13f10c4beb43d098cac8bc78cf8721ee5aefb4b1fe1fa259048fa390a0a849c0"
+    },
+    {
+      "path": "Art/Reference/target.png.metadata.json",
+      "bytes": 2965,
+      "sha256": "826233a609362e29f4c5d620f691d65b29740e5ea6600a7f0ac9796b645d426c"
+    },
+    {
+      "path": "Art/Textures/brick.png",
+      "bytes": 2167253,
+      "sha256": "37b4ebabc411f44243f11072e40501a35050aba0cc4114e61343dbf7395e7e34"
+    },
+    {
+      "path": "Art/Textures/brick.png.metadata.json",
+      "bytes": 709,
+      "sha256": "4d4c24aa3162c940ff91a79b1fc6f208a943b4138921b6d979df97fb568af989"
+    },
+    {
+      "path": "Art/Textures/leather.png",
+      "bytes": 2245289,
+      "sha256": "f8923bc8cf199b37cfeead60f97e588a051c9cf0ec109acbc73d008db86a286d"
+    },
+    {
+      "path": "Art/Textures/leather.png.metadata.json",
+      "bytes": 638,
+      "sha256": "77b12a777a8f7368f7aa2729926df9be1696fa243d8ae07824defcce741132f5"
+    },
+    {
+      "path": "Art/Textures/scarlet.png",
+      "bytes": 1683434,
+      "sha256": "501f9b631ef6079069d6332c9b77cfb240ea8856736ff7d7d963dba51450712c"
+    },
+    {
+      "path": "Art/Textures/scarlet.png.metadata.json",
+      "bytes": 748,
+      "sha256": "a2cc49a4c3b8a0354ba360f93ce6e67c66effbdd2d5f79244ce54c9d6ae7210a"
+    },
+    {
+      "path": "Art/Textures/stone.png",
+      "bytes": 1868549,
+      "sha256": "4cb96b18e1f0463d4b84cc0f5d0586e3ecc8ff5ae0550cb7d31cfbf7d4ca8f88"
+    },
+    {
+      "path": "Art/Textures/stone.png.metadata.json",
+      "bytes": 707,
+      "sha256": "092025e276eb846c90410cac3be377fc88491abcb850effd88c60e4d6198d2bc"
+    }
+  ],
+  "mesh_groups": 14,
+  "steam_request": {
+    "status": "unresolved; no output, process, request ID, or completion receipt recovered",
+    "output": "Art/Textures/steam.png",
+    "replacement_submitted": false
+  }
+}

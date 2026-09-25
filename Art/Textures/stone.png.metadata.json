@@ -2,10 +2,8 @@
   "rendered_at": "2026-09-24T21:56:42.772899+00:00",
   "size": "1024x1024",
   "quality": "high",
-  "deployment": "gpt-image-2",
   "model_name": "gpt-image-2",
   "model_version": "default",
-  "account": "mwilliams-imggen-eus2",
   "prompt_char_count": 502,
   "prompt": "A seamless tileable PBR albedo texture, orthographic top-down flat square image, edge to edge worn grey-brown British railway platform sandstone paving, rectangular large staggered flagstones with narrow dark joints, subtle chipped edges and scuffs, light dirty patina, muted taupe cool-grey stone variations. Four slabs across and six rows high. Neutral diffuse lighting, dry surface for albedo only, no highlights, no perspective, no objects, no text, no vignette. Photoreal game environment texture."
 }

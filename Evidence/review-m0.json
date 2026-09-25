@@ -1,0 +1,19 @@
+{
+  "milestone": "M0",
+  "scope": "Recovery changes against cebd39e; source inventory and reference hash verification",
+  "review": "Direct correctness and configuration review",
+  "findings": [],
+  "checks": [
+    "Original reference files retained and copied bytes equal",
+    "14 expected FBX groups and four generated surface textures present",
+    "Configuration disables unused Android file server and omits its token",
+    "New provenance allows only generation parameters and prompts",
+    "No Unreal completion claim; current empty level confirmed with native MCP",
+    "Recovery script syntax checked and executed successfully"
+  ],
+  "limitations": [
+    "Source geometry not yet visually validated in Unreal",
+    "Historical token remains in initial git commit; no history rewrite authorized",
+    "Steam request outcome unknown; no recoverable request ID"
+  ]
+}
