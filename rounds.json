@@ -1,0 +1,185 @@
+[
+  {
+    "id": "round-00",
+    "image": "rounds/round-00/unreal.png",
+    "sha256": "0b110c342170f4a636f0d6b384aa7aba831bbe9c9ffdf2c54418840e06a40feb",
+    "scores": {
+      "composition": 1.7,
+      "lighting": 0.7,
+      "materials": 0.8,
+      "details": 0.2
+    },
+    "total": 3.4,
+    "assessment": "The scene reproduces the broad subject arrangement: red steam train on the left, vaulted station, platform, hanging sign and luggage with a birdcage on the right. It is nevertheless far from the target. The actual image reads as a simplified, harshly sunlit reconstruction rather than the target's richly modeled, softly lit, damp and atmospheric station. Camera/layout discrepancies, especially the low train front and oversized high luggage silhouette, are conspicuous. The locomotive, roof structure and foreground props need substantial asset redesign, not just material or exposure tweaks.",
+    "fixes": [
+      {
+        "priority": 1,
+        "title": "Replace the harsh direct-sun lighting with the target's soft damp-station light",
+        "categories": [
+          "lighting",
+          "materials"
+        ],
+        "action": "Substantially reduce the dominant direct beam and use softer cool overhead illumination. Add controlled ambient/bounce fill so black locomotive metal retains form without lifting the whole image. Lock exposure after balancing these sources. Restore warm lamp pools and lit interiors, and introduce cool distance haze, a brighter substantial chimney plume and subtle low wheel steam.",
+        "acceptance": "No large near-white paving patches or dominant hard shadow grid; front-engine hardware remains readable; the distant window retains structure; warm reflections and cool atmospheric depth are visible together."
+      },
+      {
+        "priority": 2,
+        "title": "Match screen-space framing before further decorative work",
+        "categories": [
+          "composition"
+        ],
+        "action": "Overlay the target and actual, then fit camera and main-subject transforms jointly. Raise the train-front/chimney silhouette toward the target without indiscriminately enlarging the already similar smokebox face. Match the taller chassis silhouette and wider leftward buffer beam. Raise the distant vanishing region and reduce the apparent terminal-window opening. Shrink the sign about 20 percent, move it slightly left/down, and lower/right-shift the luggage group. Reduce cage scale and lower its top by roughly 200 pixels; let the trolley crop at the bottom/right and expose the near bench.",
+        "acceptance": "Smokebox center, chimney top, beam ends, far arch, sign bounds and cage/trolley silhouette align closely with the reference overlay. Foreground props no longer dominate the mid-height right side."
+      },
+      {
+        "priority": 3,
+        "title": "Redesign the locomotive's hero geometry",
+        "categories": [
+          "composition",
+          "materials",
+          "details"
+        ],
+        "action": "Rebuild the shallow chassis and generic drum-and-box assembly into the target's tall, layered locomotive. Model prominent driving wheels and rods, cylinders, pipes, front coupler/hoses, boiler fittings and cab/tender transitions. Replace the gold cross with the correct door hardware and lamp. Give major metal edges real bevels and separate painted, soot-blackened, oily and brass surfaces.",
+        "acceptance": "The engine reads as a dense mechanical hero asset at this camera distance, with a target-like silhouette and distinct readable parts rather than a smooth cylinder over a dark narrow frame.",
+        "redesign_required": true
+      },
+      {
+        "priority": 4,
+        "title": "Rebuild the roof and station architectural layering",
+        "categories": [
+          "composition",
+          "details",
+          "lighting"
+        ],
+        "action": "Replace the simplified barrel-vault appearance with open iron ribs, repeated triangulated trusses, smaller secondary members and continuous ridge glazing. Restore ornate support columns/capitals and convincing brick arch/window relief. Build layered far-window mullions and exterior depth rather than relying on a bright flat background. Add the sign's wrought-iron bracket.",
+        "acceptance": "The upper half shows intricate overlapping ironwork against cool glazing, while the end of the station feels distant rather than like a large luminous wall.",
+        "redesign_required": true
+      },
+      {
+        "priority": 5,
+        "title": "Re-author the ground and hero-surface material response",
+        "categories": [
+          "materials",
+          "lighting"
+        ],
+        "action": "Darken and vary the stone slabs, introduce worn edges and dirty recessed joints, and replace isolated pale puddle blobs with irregular low-roughness pooling plus broader dampness transitions. Tune these reflections after the lighting correction. Add layered oxblood paint and oily steel variation to the engine, warm coherent masonry variation, and genuine reflective/transmissive window glass with visible interiors.",
+        "acceptance": "The platform is dark wet stone with broken warm reflections, not cream tiles with opaque-looking puddle decals; train metal and glazing retain convincing material-specific highlights."
+      },
+      {
+        "priority": 6,
+        "title": "Replace blocky foreground props and restore finishing detail",
+        "categories": [
+          "materials",
+          "details",
+          "composition"
+        ],
+        "action": "Remodel trunks with rounded leather forms, thin straps, stitching, locks and worn brass hardware. Make the cage smaller and finer, with many slender bars, a delicate dome and detailed base. Give the scarf thick folded volume and a restrained fringe. Refine trolley tubing/wheels and the nearby slatted bench; then add small platform props and varied ballast/rail wear. Resolve the visible image grain without smearing these details.",
+        "acceptance": "The foreground has the target's low, richly detailed luggage silhouette and tactile leather, brass and fabric, with no large plain box faces or flat cloth strips.",
+        "redesign_required": true
+      }
+    ],
+    "performance": {
+      "status": "success",
+      "utc": "2026-09-25T04:13:06.550416+00:00",
+      "mode": "standalone game, Metal SM6 offscreen rendering; not NullRHI",
+      "resolution": [
+        1536,
+        864
+      ],
+      "screen_percentage": 100,
+      "quality": "High (all sg.* = 2)",
+      "warmup_frames": 360,
+      "measurement_frames": 360,
+      "target": {
+        "median_fps_minimum": 30,
+        "p95_frame_ms_maximum": 50
+      },
+      "log": ".dream-loop/profile-20260925T041152.log",
+      "median_fps": 30.054082321136885,
+      "average_fps": 30.02445316567701,
+      "median_frame_ms": 33.27335,
+      "p95_frame_ms": 86.3459,
+      "meets_target": false,
+      "frame_source": "Native Unreal CSV FrameTime",
+      "device": "Apple M4 Pro, 20 GPU cores, 48 GB",
+      "engine": "5.8.3",
+      "frame_evidence": "Evidence/performance-frames.csv"
+    },
+    "accepted": false
+  },
+  {
+    "id": "round-01",
+    "image": "rounds/round-01/unreal.png",
+    "sha256": "f224a142bfc79583eaf30260b40e3cb133ef72203da2446e7ac842e73907c97a",
+    "scores": {
+      "composition": 2.0,
+      "lighting": 1.2,
+      "materials": 1.0,
+      "details": 0.3
+    },
+    "total": 4.5,
+    "assessment": "A visible improvement over round 00, but still substantially unlike the target. The chimney height, smaller sign, continuous ridge glazing, lower/right-shifted luggage, less extreme sun patches and more readable locomotive improve the match. Added hardware and steam are also visible. Nevertheless, the scene still reads as a simplified reconstruction: an oversized plain smokebox over a shallow mechanical assembly, sparse repetitive roof framing, an oversized cage, boxy luggage and pale paving with isolated puddle shapes. The target's dense mechanical silhouettes, warm reflective wet stone, cool atmospheric distance, amber interiors and tactile worn surfaces remain absent or weak. This is not close to the 8/10 completion threshold.",
+    "fixes": [
+      {
+        "priority": 1,
+        "title": "Rebuild and fit the locomotive rather than enlarging its primitive forms",
+        "categories": [
+          "composition",
+          "materials",
+          "details"
+        ],
+        "action": "Use a target overlay to fit the smokebox face independently from chimney height and chassis. Move the face slightly up/left and reduce its oversized outline while retaining the improved chimney top. Rebuild the front apron, wider leftward buffer arrangement, cylinders, large driving wheels, rods and suspension as layered connected machinery. Replace the plain door with shaped steel, straps, hinges, latch and number plate. Rework the boiler/cab transition and paint/metal separation rather than adding isolated decorative pipes to the existing silhouette.",
+        "acceptance": "The door, chimney, buffer ends and bottom running gear align together with the target; the lower-left hero asset has comparable mechanical density and mass, not a large disk above thin shelves.",
+        "redesign_required": true
+      },
+      {
+        "priority": 2,
+        "title": "Re-author lighting and ground together around damp warm reflections",
+        "categories": [
+          "lighting",
+          "materials"
+        ],
+        "action": "Retain the reduction in harsh direct sunlight, but lower the pale stone/edge-strip dominance and establish darker irregular damp slabs. Replace the isolated oval puddles with shallow irregular pooling and wetness transitions. Balance soft cool skylight and restrained locomotive fill against warm lamps and genuinely lit window interiors, then tune roughness and exposure so those sources produce broken amber reflections down the platform. Restore cool hazy depth without washing out the terminal opening.",
+        "acceptance": "The platform reads as dark wet stone with a warm reflected path, the windows have amber depth, and the locomotive remains readable against cooler distance. There are no dominant pale puddle blobs or uniformly bright edge strips.",
+        "redesign_required": true
+      },
+      {
+        "priority": 3,
+        "title": "Replace the oversized cage and block-like foreground props",
+        "categories": [
+          "composition",
+          "materials",
+          "details"
+        ],
+        "action": "Reduce cage height and width around its approximately correct base height; target a finial near y=435 rather than y=305 and a narrower dome farther right. Rebuild it with thin closely spaced bars and aged brass. Replace the broad plain trunk face with rounded leather trunks, inset locks, thin straps, binding and worn hardware. Recompose a thick folded scarf fully enough inside the frame to read clearly. Restore the visible near bench and the trolley's curved tubing and substantial wheels.",
+        "acceptance": "The foreground silhouette is low and right-weighted like the target, the cage no longer reaches into the middle-right architecture, and leather, cloth, brass and wood are distinguishable by shape as well as color.",
+        "redesign_required": true
+      },
+      {
+        "priority": 4,
+        "title": "Replace sparse roof repetition and the flat terminal backdrop",
+        "categories": [
+          "composition",
+          "details",
+          "lighting"
+        ],
+        "action": "Keep continuous ridge glazing but build deep triangulated trusses, secondary members, ornate column capitals and overlapping longitudinal ironwork. Adjust the terminal opening's apparent size and lower extent using the target overlay, then add layered mullions, structural depth and visible cool exterior space beyond it. Refine brick arches and window recesses so the station is not a simple tunnel lined with flat panels.",
+        "acceptance": "The upper frame has target-like structural density and varied silhouettes, and the far station reads as receding space instead of a luminous gridded end wall.",
+        "redesign_required": true
+      },
+      {
+        "priority": 5,
+        "title": "Finish atmospheric shape, surface wear and fine construction",
+        "categories": [
+          "lighting",
+          "materials",
+          "details"
+        ],
+        "action": "Broaden and break up the chimney plume; replace separate upright wheel wisps with low drifting steam integrated with the machinery. Localize paint wear, soot and oil instead of applying coarse uniform mottling. Refine cage, luggage, rails, ballast, bench and window details at the final camera distance. Diagnose the visible grain and unstable-looking highlights from fresh captures before choosing a rendering or material correction.",
+        "acceptance": "Steam has soft irregular volume, surfaces show scale-appropriate wear, and fine features remain cleanly readable without harsh speckling or an overall noise texture."
+      }
+    ],
+    "performance": null,
+    "accepted": false
+  }
+]
