@@ -46,6 +46,11 @@ Unreal screenshot**.
 - **Next exact action:** independent Dream Loop PRO comparison of
   `.dream-loop/round-00/unreal.png` with the locked target, then substantial
   geometry/material/lighting correction and performance optimization.
+- **Dream Loop round 03:** score **4.8/10** (composition 2.1, lighting 1.2,
+  materials 1.2, details 0.3). Another small gain, not acceptance. Judge flags
+  "stall approaching"; next pass must address substantial roof depth, connected
+  locomotive machinery, and warm reflected lighting. The gallery has all four
+  judged frames (00-03). Round03 performance has not been remeasured.
 - **Dream Loop round 02:** score **4.7/10** (composition 2.1, lighting 1.2,
   materials 1.1, details 0.3). Smaller cage and wetness improve the image, but
   locomotive proportions, material fidelity, roof depth and warm reflections

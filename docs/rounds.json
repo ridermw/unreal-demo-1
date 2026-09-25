@@ -223,5 +223,47 @@
       "frame_evidence": "Evidence/performance-frames.csv"
     },
     "accepted": false
+  },
+  {
+    "id": "round-03",
+    "image": "rounds/round-03/unreal.png",
+    "sha256": "94fb2b875be0686cd8664969a50c61ef76ca46b439b41f4dd871ecb1c5c78b47",
+    "scores": {
+      "composition": 2.1,
+      "lighting": 1.2,
+      "materials": 1.2,
+      "details": 0.3
+    },
+    "total": 4.8,
+    "assessment": "A very small net improvement, not an architectural breakthrough or a pass. The conspicuous upper red shelf has been removed, the smokebox face sits closer to the target's screen position, foreground paving looks less harshly embossed, and a slatted bench is easier to see. Those are visible results, not just claimed changes. However, the front remains a shallow black platform over a simple red beam rather than the target's deep shaped apron and connected machinery. Camera and luggage changes introduce meaningful tradeoffs: the chimney and beam are now too high, while the cage is larger and substantially too low and the foreground trunk is more heavily cropped. The small net score gain is assigned to the less abrasive material presentation; composition gains and losses broadly cancel. Warm wet-platform reflections, cool spatial depth, roof construction and tactile foreground assets remain major unresolved gaps.",
+    "fixes": [
+      {
+        "priority": 1,
+        "action": "Fit the locomotive's face, chimney top, beam, complete buffer heads and cab against the target together, then rebuild the apron and connected running-gear mass.",
+        "acceptance": "The left buffer is fully inside the image; the chimney and beam no longer sit too high; a deep shaped apron, cylinder housings and connected coupling hardware replace the shallow shelf and repeated hoses."
+      },
+      {
+        "priority": 2,
+        "action": "Solve wet paving, warm reflected light, illuminated window interiors and cool atmospheric distance as a single coordinated setup.",
+        "acceptance": "Dark irregular pooling and a broken amber reflection path are visible; the cream edge no longer dominates; nearest windows have broad amber depth; distant architecture reads through cool haze rather than as a gray closure."
+      },
+      {
+        "priority": 3,
+        "action": "Correct the foreground grouping in screen space before adding decoration: reduce and raise the cage, retain its useful rightward move, and fit the trunk, cloth, bench and trolley silhouettes together.",
+        "acceptance": "The cage has the target's smaller silhouette and higher base; the case and trolley remain legible near the bottom edge; the folded scarf is inside the frame; rounded leather, fine aged brass and soft cloth replace coarse blocks."
+      },
+      {
+        "priority": 4,
+        "action": "Replace the repetitive roof tunnel and flat terminal grid with coherent deep trusses, branching supports, an upper glazed opening and visible receding architecture below it.",
+        "acceptance": "The roof has target-like structural depth and varied overlapping silhouettes, and the platform visibly continues beyond the distant train rather than ending at a full-height grid."
+      },
+      {
+        "priority": 5,
+        "action": "After silhouettes and light are resolved, match the face fittings, coupling assembly, running-gear joints, sign typography and worn trackside detail.",
+        "acceptance": "Details form connected target-specific assemblies instead of repeated bars, hoses, blocks and isolated rivets."
+      }
+    ],
+    "performance": null,
+    "accepted": false
   }
 ]

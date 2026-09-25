@@ -302,12 +302,26 @@ for i in range(9000):
 GROUP = "Locomotive"
 TX = -2.69
 box("BlackSteel", (TX, 8.0, 1.05), (1.55, 10.4, 0.40))
-box("Scarlet", (TX, 7.25, 1.55), (2.76, 11.7, 0.19))
+for side in (-1, 1):
+    box("BlackSteel", (TX+side*1.16, 8.15, 1.64), (.40, 9.6, .09))
+    box("Scarlet", (TX+side*1.36, 8.15, 1.52), (.045, 9.6, .20))
+box("BlackSteel",(TX,2.80,1.55),(2.65,2.35,.08))
 cylinder("Scarlet", (TX, 4.35, 2.80), (TX, 11.75, 2.80), 1.02, 80)
 cylinder("BlackSteel", (TX, 3.15, 2.80), (TX, 4.50, 2.80), 1.065, 80)
 cylinder("BlackSteel", (TX, 3.02, 2.80), (TX, 3.16, 2.80), 0.985, 80)
 ring("BlackSteel", (TX, 2.98, 2.80), 0.985, 0.055)
 ring("Brass", (TX, 2.965, 2.80), 1.018, 0.012)
+for row in range(12):
+    r0, r1 = row*.985/12, (row+1)*.985/12
+    for segment in range(96):
+        a, b = segment*math.tau/96, (segment+1)*math.tau/96
+        points=[]
+        for radius, theta in ((r0,a),(r1,a),(r1,b),(r0,b)):
+            depth=3.012-.13*math.sqrt(max(0,1-(radius/.985)**2))
+            points.append((TX+radius*math.cos(theta),depth,2.8+radius*math.sin(theta)))
+        if row == 0:
+            points=points[:3]
+        face("BlackSteel",points)
 for i in range(32):
     t = i*math.tau/32
     rivet("BlackSteel", (TX+0.91*math.cos(t), 2.94, 2.80+0.91*math.sin(t)), radius=0.027)
@@ -334,14 +348,14 @@ for side in (-1, 1):
         box("BlackSteel", (TX+side*0.91, y, 3.36), (0.07, 0.045, 0.12))
     cylinder("BlackSteel", (TX+side*0.92, 3.8, 3.45),
              (TX+side*0.92, 11.5, 3.45), 0.025, 12)
-box("Scarlet", (TX, 1.52, 1.12), (2.9, 0.28, 0.54))
+box("Scarlet", (TX, 1.87, 1.12), (2.9, 0.28, 0.54))
 for x in (TX-1.06, TX+1.06):
-    cylinder("BlackSteel", (x, 1.45, 1.12), (x, .99, 1.12), 0.15, 24)
-    cylinder("BlackSteel", (x, .99, 1.12), (x, .85, 1.12), 0.25, 40)
-    ring("BlackSteel", (x, .98, 1.12), 0.16, 0.030)
+    cylinder("BlackSteel", (x, 1.80, 1.12), (x, 1.34, 1.12), 0.15, 24)
+    cylinder("BlackSteel", (x, 1.34, 1.12), (x, 1.20, 1.12), 0.25, 40)
+    ring("BlackSteel", (x, 1.33, 1.12), 0.16, 0.030)
 for row in (.90, 1.32):
     for i in range(13):
-        rivet("BlackSteel", (TX-1.28+i*0.21, 1.36, row), radius=0.025)
+        rivet("BlackSteel", (TX-1.28+i*0.21, 1.71, row), radius=0.025)
 tube("BlackSteel", [(TX, 1.45, 1.15), (TX, .85, 0.70), (TX+0.10, 1.0, 0.42)], 0.053)
 tube("BlackSteel", [(TX-0.45, 1.43, 1.3), (TX-0.4, 1.05, 0.63),
                     (TX-0.25, .92, 0.45)], 0.044)
@@ -352,10 +366,10 @@ for z in (2.3, 3.3):
     box("BlackSteel", (TX+0.65, 2.90, z), (0.4, 0.07, 0.065))
 text("5979", (TX, 2.913, 2.23), 0.12, "Brass")
 # Tall apron, coupling links, door hardware and fittings make the hero silhouette mechanical.
-face("BlackSteel", [(TX-1.38,1.40,1.38),(TX+1.38,1.40,1.38),
+face("BlackSteel", [(TX-1.30,1.74,1.38),(TX+1.30,1.74,1.38),
                     (TX+1.12,3.08,1.96),(TX-1.12,3.08,1.96)])
 for x in (-.94,-.62,-.3,0,.3,.62,.94):
-    rivet("BlackSteel",(TX+x,1.45,1.42),radius=.018)
+    rivet("BlackSteel",(TX+x,1.75,1.42),radius=.018)
 for index in range(7):
     ring("BlackSteel", (TX+.015*index,.87+.035*index,.74-index*.065),
          .073,.018,"XZ" if index%2 else "YZ",20)
@@ -485,15 +499,15 @@ def suitcase(x, y, bottom, width, depth, height, mat="Leather"):
 
 
 GROUP = "Luggage"
-cx, cy = 4.12, -1.25
+cx, cy = 4.12, -2.0
 box("Wood", (cx, cy, 1.03), (1.45, 1.12, 0.12))
 for side in (-1, 1):
     for yy in (cy-0.38, cy+0.38):
         ring("BlackSteel", (cx+side*0.60, yy, 0.9), 0.20, 0.043, "YZ", 24)
     tube("Brass", [(cx+side*0.63, cy+0.42, 1.03), (cx+side*0.63, cy+0.42, 2.14),
                    (cx+side*0.51, cy+0.42, 2.36), (cx, cy+0.42, 2.40)], 0.030)
-suitcase(cx, cy-0.12, 1.09, 1.27, 0.86, 0.56)
-suitcase(cx+0.19, cy+0.10, 1.66, 0.75, 0.59, 0.23, "DarkLeather")
+suitcase(cx, cy-0.12, 1.09, 1.27, 0.86, 0.41)
+suitcase(cx+0.19, cy+0.10, 1.51, 0.75, 0.59, 0.23, "DarkLeather")
 suitcase(3.12, 3.00, 0.73, 0.64, 0.36, 0.86)
 suitcase(3.86, 3.45, 0.73, 0.79, 0.43, 1.15, "DarkLeather")
 for layer in range(4):
@@ -504,17 +518,17 @@ for layer in range(4):
                 u,v=ii/30,jj/18
                 x=cx+.12+u*.65
                 y=cy-.55+v*.75
-                z=1.91+layer*.034+.017*math.sin(u*math.pi*6+layer*.5)+.012*math.sin(v*math.pi*4)
+                z=1.76+layer*.034+.017*math.sin(u*math.pi*6+layer*.5)+.012*math.sin(v*math.pi*4)
                 if v<.16:
                     z-=.38*(1-v/.16)
                     y=cy-.53-.016*layer
                 pts.append((x,y,z))
             face("Blanket",pts)
 for i in range(22):
-    cylinder("Blanket", (cx+.12+i*.031,cy-.55,1.55),
-             (cx+.12+i*.031,cy-.56,1.45-random.random()*.08),.006,5)
+    cylinder("Blanket", (cx+.12+i*.031,cy-.55,1.40),
+             (cx+.12+i*.031,cy-.56,1.30-random.random()*.08),.006,5)
 # Delicate cage bars and domed crown remain actual geometry.
-gx, gy, bottom = cx-.35, cy+0.14, 1.67
+gx, gy, bottom = cx-.35, cy+0.14, 1.52
 for z in (bottom, bottom+0.06, bottom+0.34, bottom+0.47):
     ring("Brass", (gx, gy, z), 0.29, 0.009, "XY", 48)
 cylinder("Brass",(gx,gy,bottom-.02),(gx,gy,bottom+.035),.292,64)
@@ -533,7 +547,7 @@ GROUP = "Furniture"
 for y in (3.8, 15.0, 27.0, 42.0, 53.0):
     for i in range(5):
         box("Wood", (4.02+i*0.10, y, 1.21), (0.075, 1.85, 0.06))
-        box("Wood", (4.48, y, 1.47+i*0.105), (0.065, 1.85, 0.075))
+        box("Wood", (4.48, y, 1.55+i*0.14), (0.065, 1.85, 0.10))
     for dy in (-0.72, 0.72):
         for x in (4.05, 4.48):
             tube("Iron", [(x, y+dy, 0.73), (x+0.05, y+dy, 1.12),
@@ -543,7 +557,7 @@ for y in (3.8, 15.0, 27.0, 42.0, 53.0):
     suitcase(4.22, y+1.52, 0.73, 0.48, 0.45, 0.68, "DarkLeather")
 
 GROUP = "Signs"
-for x, y, z, radius in ((3.40, 2.10, 4.20, 0.52), (4.0, 25.0, 4.1, 0.38)):
+for x, y, z, radius in ((3.62, 2.10, 4.10, 0.52), (4.0, 25.0, 4.1, 0.38)):
     cylinder("Cream", (x, y-0.05, z), (x, y+0.06, z), radius, 80)
     ring("BlackSteel", (x, y-0.075, z), radius, 0.025, "XZ")
     ring("Brass", (x, y-0.080, z), radius-0.04, 0.006, "XZ")
@@ -630,7 +644,7 @@ manifest = {
     "materials": {k: {"color": v[0], "metallic": v[1], "roughness": v[2],
                        "texture": v[3]} for k, v in PALETTE.items()},
     "meshes": [],
-    "camera": {"position": [2.5, -5.8, 2.35], "target": [-3.5, 30, 2.4], "fov": 70},
+    "camera": {"position": [2.5, -5.8, 2.35], "target": [-2.55, 30, 1.72], "fov": 70},
     "lamps": lamps,
     "chimney": [TX, 4.2, 5.37],
 }

@@ -122,7 +122,7 @@ def assemble(manifest):
         component.set_editor_property("intensity_units", unreal.LightUnits.LUMENS)
         component.set_intensity(4500)
         component.set_light_color(unreal.LinearColor(1.0, 0.49, 0.19, 1))
-        component.set_attenuation_radius(650)
+        component.set_attenuation_radius(1800)
         component.set_editor_property("source_radius", 14)
         component.set_editor_property("cast_shadows", index < 3)
         component.set_editor_property("volumetric_scattering_intensity", 0.25)

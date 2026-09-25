@@ -117,7 +117,7 @@ def upgrade(root, manifest):
         if not isinstance(metallic, unreal.MaterialExpressionConstant):
             raise RuntimeError(f"Unexpected metallic input type on {name}")
         metallic.r = spec["metallic"]
-        modifiers = {"Stone": .60, "Scarlet": .9, "BlackSteel": 1.1, "Brass": .9,
+        modifiers = {"Stone": .45, "Scarlet": .65, "BlackSteel": .9, "Brass": .9,
                      "Iron": 1.0, "Leather": 1.0, "DarkLeather": 1.0, "Wood": 1.0}
         if name in modifiers:
             rough_scale = next((node for node in expressions
@@ -148,7 +148,7 @@ def upgrade(root, manifest):
             normal_strength = editing.create_material_expression(
                 material, unreal.MaterialExpressionScalarParameter, -800, 2150)
             normal_strength.set_editor_property("parameter_name", "NormalStrength")
-        normal_strength.set_editor_property("default_value", .45 if name in ("Brick","Stone","Gravel") else .14)
+        normal_strength.set_editor_property("default_value", .25 if name in ("Brick","Stone","Gravel") else .08)
         flatten = next((node for node in expressions
             if isinstance(node, unreal.MaterialExpressionLinearInterpolate)
             and str(node.get_editor_property("desc")) == "SurfaceNormal"), None)

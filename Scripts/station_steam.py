@@ -93,7 +93,7 @@ def assemble(root, upsert, manifest):
         specs.append((f"WheelSteam_{index}", (-1.3, y, 1.18), 3.0, 1.5, 30))
     for name, position, width, height, angle in specs:
         actor = upsert(name, unreal.StaticMeshActor, position,
-                       unreal.Rotator(pitch=0, yaw=angle, roll=90))
+                       unreal.Rotator(pitch=-12 if name.startswith("Chimney") else 0, yaw=angle, roll=90))
         actor.set_actor_scale3d(unreal.Vector(width, height, 1))
         component = actor.static_mesh_component
         component.set_static_mesh(plane)
