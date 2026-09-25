@@ -5,3 +5,7 @@ Intermediate/
 Saved/
 *.blend1
 __pycache__/
+Builds/
+.DS_Store
+Build/Mac/*.PackageVersionCounter
+Build/Mac/FileOpenOrder/

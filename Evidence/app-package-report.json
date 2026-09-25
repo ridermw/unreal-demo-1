@@ -1,0 +1,20 @@
+{
+  "status": "packaged-runtime-verified",
+  "started_utc": "2026-09-25T14:20:16.993523+00:00",
+  "platform": "Mac",
+  "architecture": "arm64",
+  "configuration": "Shipping",
+  "archive": "Builds/PlatformNine-Mac-Shipping-20260925T142016",
+  "map": "/Game/Platform/Maps/HiddenPlatform",
+  "log": ".dream-loop/package-mac-20260925T142016.log",
+  "runtime_verified": true,
+  "app": "Builds/PlatformNine-Mac-Shipping-20260925T142016/Mac/PlatformNine-Mac-Shipping.app",
+  "executable": "Builds/PlatformNine-Mac-Shipping-20260925T142016/Mac/PlatformNine-Mac-Shipping.app/Contents/MacOS/PlatformNine-Mac-Shipping",
+  "cooked_container_count": 3,
+  "completed_utc": "2026-09-25T14:21:21.187673+00:00",
+  "verification_report": "Evidence/App/packaged-20260925T143421/report.json",
+  "verification_source": "App-sandbox output copied unchanged into repository evidence",
+  "verified_utc": "2026-09-25T14:34:28.089222+00:00",
+  "signing": "Ad-hoc signed for local running; not Apple-notarized",
+  "manual_ui_check": "Mouse hit boxes and fullscreen remain manual checks"
+}

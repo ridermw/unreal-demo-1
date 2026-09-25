@@ -4,12 +4,48 @@ An original Victorian hidden-platform environment. `GOAL.md` is the authoritativ
 objective and evidence standard. The generated target is a reference, **not an
 Unreal screenshot**.
 
+## Mac walkthrough app - built
+
+Open the self-contained Apple Silicon Shipping application:
+
+```text
+Builds/PlatformNine-Mac-Shipping-20260925T142016/Mac/PlatformNine-Mac-Shipping.app
+```
+
+The approximately 842 MB bundle includes the runtime and cooked scene; Unreal Editor
+is not required. It is ad-hoc signed for local running, **not Apple-notarized**.
+The actual packaged executable loaded `HiddenPlatform` and passed fresh checks
+for five views, preset keys, keyboard movement, mouse-look input and the Escape
+menu at 1536x864. See `Evidence/app-package-report.json` and
+`Evidence/App/packaged-20260925T143421/report.json`.
+
+Controls: **Tab** explore/menu; **WASD** move; **mouse** look; **Q/E** or
+**Ctrl/Space** vertical; **Shift** faster; **1-5** preset views; **Esc** menu;
+**H** hide controls; **F11** fullscreen. Menu buttons include Explore, Next view,
+Fullscreen and Quit. Physical mouse hit boxes, fullscreen and the Quit button
+still have a manual UI check outstanding; work stopped after the build as requested.
+
+Rebuild with `python3 Scripts/package_mac.py`; verify with
+`python3 Scripts/verify_mac_app.py`. Mac packaging requires `-package` and
+`-createappbundle` in addition to cook/stage/archive. `bUseZenStore=False` avoids
+the stale Zen cook-store problem. The verifier writes inside the app sandbox and
+copies evidence back to the repository. Failed earlier app outputs and identical
+staging/binary copies were deleted with permission; only the successful app and
+its distribution ZIP remain. Diagnostic logs remain local under `.dream-loop/`.
+
+Native code is under `Source/PlatformNine/`. The saved, resource-packed Blender
+inspection snapshot is
+`Art/Models/SessionSnapshots/BlenderSession-20260925T142950.blend` (Git LFS);
+it is not the authoritative full station source. Blender and Unreal Editor were
+saved and closed. The app bundle and ZIP are ignored build outputs, not Git files.
+
 ## Current checkpoint
 
 **Not complete.** The latest independent visual score is **5.4/10** (round 12,
-58/58 components audited); the required threshold remains8/10. The user authorized
-continued best effort until **September 25, 2026, 07:21 EDT / 11:21 UTC** after the
-Dream Loop stall. Do not interpret local improvements as acceptance.
+58/58 components audited); the required threshold remains 8/10. The original
+visual objective is paused. The user subsequently prioritized the standalone app
+and requested stopping after it was built, followed by preservation and cleanup.
+Do not interpret a working app or local improvements as visual acceptance.
 
 - Project: `PlatformNine.uproject`, Unreal 5.8.3 on Apple M4 Pro / 48 GB.
 - Saved map: `/Game/Platform/Maps/HiddenPlatform`. Current scene report: 99 generated
@@ -18,8 +54,9 @@ Dream Loop stall. Do not interpret local improvements as acceptance.
   58-component verdict is `Evidence/rounds/round-12/verdict.json`. Best historical
   score was 5.5/10; the unchanged required score is 8/10.
 - Runtime defaults are **High quality, 1536x864, 100% screen percentage, 32 FPS cap,
-  one-frame thread lag disabled**. The current matched-state timing is **31.99 median
-  FPS / 31.67 ms p95**. It passes the unchanged median >=30 FPS and p95 <=50 ms target.
+  one-frame thread lag disabled**. The last pre-app matched-state timing was
+  **31.99 median FPS / 31.67 ms p95**, passing median >=30 FPS and p95 <=50 ms.
+  This is not a fresh packaged-app performance measurement.
 - Captures now reject unsaved platform changes and record the saved-scene hash,
   actual runtime settings, camera, PNG hash and completion status in sibling JSON.
   Profiles require finalized provenance bound to both log and CSV. Gallery
@@ -32,9 +69,10 @@ Dream Loop stall. Do not interpret local improvements as acceptance.
 - `Evidence/inspection-opposite-platform.png` and other `inspection-*.png` files
   are actual Unreal alternate views; each has a capture receipt. Blender inspection
   renders stay under `.dream-loop/` and are never presented as Unreal evidence.
-- The corrected source/assets are preserved on local `main`; a separate
-  **`checkpoint/platform-nine`** branch safely mirrors reviewed snapshots remotely.
-  The seven unpublished commits after `ae13c86` have been migrated to Git LFS.
+- The corrected source/assets are preserved on `main`; the LFS checkpoint
+  `d702b9a` was pushed successfully. The separate **`checkpoint/platform-nine`**
+  branch is an older recovery snapshot, not the current app.
+  The seven unpublished commits after `ae13c86` were migrated to Git LFS.
   The original checkpoint `9ce49ef` is preserved under
   `backup/pre-lfs-20260925`; the migrated checkpoint is `15ffadd`.
   All 393 protected working-file hashes are unchanged, and published history plus
@@ -42,9 +80,10 @@ Dream Loop stall. Do not interpret local improvements as acceptance.
   `Evidence/lfs-commit-map.csv` for verification and old/new commit IDs.
 - Public review gallery: **https://ridermw.github.io/unreal-demo-1/**, deployed from
   `gh-pages`. It is a screenshot/audit gallery, not a playable browser Unreal build.
-- **Next action:** review the stalled visual result and choose further art
-  direction. The gallery branch can be updated separately from the preserved
-  checkpoint. Do not claim the environment objective is complete.
+- **Paused:** no further app or art work is authorized by this checkpoint.
+  The deployed gallery branch is still at `fab3616` (through round 07); newer
+  evidence through round 12 is preserved on `main`, not yet redeployed.
+  A new session should orient from the handoff and wait for the user's direction.
 
 ## Historical recovery notes (superseded by the checkpoint above)
 

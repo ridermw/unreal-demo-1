@@ -1,0 +1,15 @@
+{
+	"status": "success",
+	"error": "",
+	"map": "HiddenPlatform",
+	"view_count": 5,
+	"movement_cm": 167.41033935546875,
+	"screen_percentage": 100,
+	"preset_key_verified": true,
+	"movement_key_verified": true,
+	"look_axis_verified": true,
+	"menu_key_verified": true,
+	"limitations": "Fullscreen and mouse hit boxes require the windowed UI check.",
+	"width": 1536,
+	"height": 864
+}
