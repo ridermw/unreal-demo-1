@@ -6,7 +6,9 @@ Unreal screenshot**.
 
 ## Restart checkpoint
 
-- **M0-M1 verified:** source baseline `ba06f5c`; M2 next; M3-M5 pending.
+- **Paused at user request for a session restart. M0-M1 verified.**
+  Source baseline: `ba06f5c`. Last known-good import checkpoint: **`b924990`**,
+  reviewed and pushed to `origin/main`. M2-M5 are pending, not completed.
 - Starting commit: `cebd39e` on `main`; authorized remote:
   `https://github.com/ridermw/unreal-demo-1.git`.
 - Project: `PlatformNine.uproject`, Unreal Engine 5.8.3.
@@ -28,6 +30,20 @@ Unreal screenshot**.
 - **Next exact action:** add scene assembly and reopen verification to
   `Scripts/build_unreal.py`, run `python3 Scripts/run_unreal.py scene`, then load
   the saved map through native MCP and capture its actual viewport.
+  The runner recognizes `scene` and `verify`, but the build script currently
+  implements **only `import`**. Do not run the other stages until implemented.
+- On resume, load the newly installed Unreal skills and Dream Loop **PRO**;
+  recheck git, the current editor/project/map, MCP, and saved assets before acting.
+  Do not regenerate the locked target or redo M0/M1 without evidence of a problem.
+- Native MCP inspection works. Computer Use console input did not reliably
+  execute Python, so all successful imports used the installed Python commandlet.
+  A loopback-only Python remote-execution probe discovered no nodes; the temporary
+  setting was restored to **disabled**. No new plugin or external service was
+  installed. No image-generation replacement was submitted.
+- **No Unreal scene screenshot, visual score, FPS measurement, saved map, or
+  map-reopen verification exists yet.** Source/asset validation is not visual
+  completion. There are no outstanding asset-generation processes started by
+  this continuation.
 
 ## Execution and evidence gates
 
