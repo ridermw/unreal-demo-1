@@ -9,6 +9,21 @@ import shutil
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def validate_component_audit(verdict, checklist):
+    expected = {item.split(":", 1)[0] for group in checklist["groups"] for item in group["components"]}
+    audit = verdict.get("component_audit", [])
+    observed = [entry["id"] for entry in audit]
+    if len(observed) != len(set(observed)) or set(observed) != expected:
+        raise ValueError(f"Incomplete/duplicate component audit; missing={sorted(expected-set(observed))}")
+    for entry in audit:
+        if entry["status"] not in ("matches", "partial", "wrong", "missing", "not_visible"):
+            raise ValueError(f"Invalid audit status: {entry['id']}")
+        if not entry.get("target_observation") or not entry.get("actual_observation"):
+            raise ValueError(f"Missing visual observations: {entry['id']}")
+        if entry["status"] in ("wrong", "missing", "partial") and not entry.get("correction"):
+            raise ValueError(f"Missing corrective action: {entry['id']}")
+
+
 def build(root=ROOT):
     site = root / "docs"
     evidence = root / "Evidence/rounds"
@@ -25,6 +40,9 @@ def build(root=ROOT):
                 shutil.copy2(folder / name, saved / name)
     for folder in sorted(evidence.glob("round-[0-9][0-9]")):
         verdict = json.loads((folder / "verdict.json").read_text())
+        if int(folder.name[-2:]) >= 4:
+            validate_component_audit(verdict, json.loads(
+                (root / "Art/Reference/visual-checklist.json").read_text()))
         image = folder / "unreal.png"
         scores = verdict["scores"]
         total = verdict["total"]
@@ -42,6 +60,7 @@ def build(root=ROOT):
                   "sha256": hashlib.sha256(image.read_bytes()).hexdigest(),
                   "scores": scores, "total": total, "assessment": verdict["assessment"],
                   "fixes": verdict.get("prioritized_fixes", []),
+                  "component_audit": verdict.get("component_audit", []),
                   "performance": performance,
                   "accepted": total >= 8 and bool(performance and performance.get("status") == "success"
                                                  and performance.get("meets_target"))}

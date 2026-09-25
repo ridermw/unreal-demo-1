@@ -23,16 +23,16 @@
         }
       ],
       "center_cm": [
-        -256.49957275390625,
-        -2799.9999389648438,
+        -241.74957275390625,
+        -3049.9999389648438,
         376.2499990463257
       ],
       "extent_cm": [
-        786.0005493164062,
-        3900.0000610351562,
+        771.2505493164062,
+        4150.000061035156,
         406.2500009536743
       ],
-      "lod0_triangles": 9032,
+      "lod0_triangles": 14806,
       "nanite_enabled": true
     },
     {
@@ -65,17 +65,81 @@
         }
       ],
       "center_cm": [
-        -252.49960327148438,
-        -2799.9999389648438,
-        370.0
+        -241.49954223632812,
+        -2928.4999389648438,
+        410.0
       ],
       "extent_cm": [
-        898.5006408691406,
-        4000.0000610351562,
-        370.0
+        887.5005798339844,
+        4128.500061035156,
+        410.0
       ],
-      "lod0_triangles": 91576,
+      "lod0_triangles": 107160,
       "nanite_enabled": false
+    },
+    {
+      "name": "Furniture",
+      "path": "/Game/Platform/Meshes/SM_Furniture",
+      "slots": [
+        {
+          "slot": "Brass",
+          "material": "/Game/Platform/Materials/M_Brass.M_Brass"
+        },
+        {
+          "slot": "DarkLeather",
+          "material": "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather"
+        },
+        {
+          "slot": "Iron",
+          "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        },
+        {
+          "slot": "Wood",
+          "material": "/Game/Platform/Materials/M_Wood.M_Wood"
+        }
+      ],
+      "center_cm": [
+        -123.00363159179688,
+        -3200.0000610351562,
+        141.00000762939453
+      ],
+      "extent_cm": [
+        579.2973937988281,
+        3999.9999389648438,
+        75.00000762939453
+      ],
+      "lod0_triangles": 182758,
+      "nanite_enabled": false
+    },
+    {
+      "name": "Lanterns",
+      "path": "/Game/Platform/Meshes/SM_Lanterns",
+      "slots": [
+        {
+          "slot": "BlackSteel",
+          "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel"
+        },
+        {
+          "slot": "Iron",
+          "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        },
+        {
+          "slot": "Lamp",
+          "material": "/Game/Platform/Materials/M_Lamp.M_Lamp"
+        }
+      ],
+      "center_cm": [
+        -240.7462615966797,
+        -3200.0005798339844,
+        408.0
+      ],
+      "extent_cm": [
+        710.1422882080078,
+        3767.5350646972656,
+        88.0
+      ],
+      "lod0_triangles": 2153,
+      "nanite_enabled": true
     },
     {
       "name": "Roof",
@@ -101,14 +165,14 @@
       "center_cm": [
         -254.99954223632812,
         -3137.8640747070312,
-        632.4987182617188
+        629.9987182617188
       ],
       "extent_cm": [
         749.9897155761719,
         4062.4703979492188,
-        562.4987182617188
+        564.9987182617188
       ],
-      "lod0_triangles": 327500,
+      "lod0_triangles": 356492,
       "nanite_enabled": false
     },
     {
@@ -133,16 +197,16 @@
         }
       ],
       "center_cm": [
-        -259.9989318847656,
-        -7400.0,
-        597.227783203125
+        -256.2490234375,
+        -8168.75,
+        592.5
       ],
       "extent_cm": [
-        760.0000915527344,
-        1100.0,
-        597.227783203125
+        763.75,
+        1868.75,
+        592.5
       ],
-      "lod0_triangles": 25584,
+      "lod0_triangles": 9840,
       "nanite_enabled": false
     },
     {
@@ -206,8 +270,8 @@
         621.0214920043945,
         249.33839416503906
       ],
-      "lod0_triangles": 4912,
-      "nanite_enabled": true
+      "lod0_triangles": 650658,
+      "nanite_enabled": false
     },
     {
       "name": "Wheels",
@@ -236,8 +300,8 @@
         457.2772979736328,
         100.27868485450745
       ],
-      "lod0_triangles": 32651,
-      "nanite_enabled": true
+      "lod0_triangles": 707088,
+      "nanite_enabled": false
     },
     {
       "name": "CabTender",
@@ -350,42 +414,8 @@
         317.4214172363281,
         88.49325180053711
       ],
-      "lod0_triangles": 5400,
-      "nanite_enabled": true
-    },
-    {
-      "name": "Furniture",
-      "path": "/Game/Platform/Meshes/SM_Furniture",
-      "slots": [
-        {
-          "slot": "Brass",
-          "material": "/Game/Platform/Materials/M_Brass.M_Brass"
-        },
-        {
-          "slot": "DarkLeather",
-          "material": "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather"
-        },
-        {
-          "slot": "Iron",
-          "material": "/Game/Platform/Materials/M_Iron.M_Iron"
-        },
-        {
-          "slot": "Wood",
-          "material": "/Game/Platform/Materials/M_Wood.M_Wood"
-        }
-      ],
-      "center_cm": [
-        423.52845764160156,
-        -2880.999969482422,
-        144.20000457763672
-      ],
-      "extent_cm": [
-        32.72874450683594,
-        2593.500030517578,
-        71.80001068115234
-      ],
-      "lod0_triangles": 1787,
-      "nanite_enabled": true
+      "lod0_triangles": 268922,
+      "nanite_enabled": false
     },
     {
       "name": "Signs",
@@ -410,50 +440,24 @@
         {
           "slot": "Lettering",
           "material": "/Game/Platform/Materials/M_Lettering.M_Lettering"
+        },
+        {
+          "slot": "SignFace",
+          "material": "/Game/Platform/Materials/M_SignFace.M_SignFace"
         }
       ],
       "center_cm": [
-        387.30528259277344,
-        -1352.8999710083008,
-        426.3490905761719
+        387.92698669433594,
+        -1324.8706512451172,
+        432.9990997314453
       ],
       "extent_cm": [
-        79.77726745605469,
-        1153.1000289916992,
-        70.82110595703125
+        78.92576599121094,
+        1182.4293975830078,
+        71.99790954589844
       ],
-      "lod0_triangles": 4208,
-      "nanite_enabled": true
-    },
-    {
-      "name": "Lanterns",
-      "path": "/Game/Platform/Meshes/SM_Lanterns",
-      "slots": [
-        {
-          "slot": "BlackSteel",
-          "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel"
-        },
-        {
-          "slot": "Iron",
-          "material": "/Game/Platform/Materials/M_Iron.M_Iron"
-        },
-        {
-          "slot": "Lamp",
-          "material": "/Game/Platform/Materials/M_Lamp.M_Lamp"
-        }
-      ],
-      "center_cm": [
-        431.97947692871094,
-        -2749.9999389648438,
-        461.25
-      ],
-      "extent_cm": [
-        37.26521301269531,
-        3027.2857055664062,
-        34.75
-      ],
-      "lod0_triangles": 999,
-      "nanite_enabled": true
+      "lod0_triangles": 35154,
+      "nanite_enabled": false
     },
     {
       "name": "Puddles",
@@ -489,6 +493,7 @@
     "iron",
     "leather",
     "scarlet",
+    "sign_face",
     "stone",
     "wood"
   ],
@@ -510,6 +515,7 @@
     "Puddle",
     "RoofPanel",
     "Scarlet",
+    "SignFace",
     "Stone",
     "Wood"
   ],
@@ -536,7 +542,7 @@
         "/Game/Platform/Textures/T_stone.T_stone",
         "/Game/Platform/Textures/T_stone_normal.T_stone_normal",
         "/Game/Platform/Textures/T_stone_roughness.T_stone_roughness",
-        "/Game/Platform/Textures/T_stone.T_stone"
+        "/Game/Platform/Textures/T_stone_wetness.T_stone_wetness"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -762,6 +768,17 @@
       ]
     },
     {
+      "name": "SignFace",
+      "texture_references": [
+        "/Game/Platform/Textures/T_sign_face.T_sign_face"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
       "name": "Puddle",
       "texture_references": [],
       "required_graph_inputs": [
@@ -773,7 +790,7 @@
   ],
   "policy": "Reuse and validate existing named packages; no deletions",
   "engine": "5.8.3-58210709+++UE5+Release-5.8",
-  "asset_count": 74,
+  "asset_count": 76,
   "stage": "import",
-  "utc": "2026-09-25T04:59:19.272894+00:00"
+  "utc": "2026-09-25T06:18:44.227330+00:00"
 }

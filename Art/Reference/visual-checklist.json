@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "purpose": "Require explicit full-frame component coverage before Dream Loop PRO scoring.",
+  "groups": [
+    {
+      "name": "Train, front to back",
+      "components": [
+        "train.buffers: both buffer heads, shafts, plates, complete silhouettes and screen position",
+        "train.buffer-beam: scarlet beam proportions, brackets, bolts, wear and height",
+        "train.coupling: central hook, chain, hoses, attachment points and front mechanical mass",
+        "train.apron: shaped front apron, footplate, running boards and their structural connections",
+        "train.smokebox-form: door convexity, diameter, housing, seam and blackened-steel response",
+        "train.smokebox-fittings: latch, hinges, horizontal straps, number plate, rivets and lamp",
+        "train.chimney: stack, flare, rim, base, height and integration with boiler",
+        "train.front-cylinders: cylinder housings, piston rods, pipes and mountings",
+        "train.leading-wheels: leading wheels, axles, rail contact and visible supports",
+        "train.driving-wheels: each visible driving wheel, spokes, hubs, rims and splashers",
+        "train.running-gear: connecting rods, joints, springs, suspension and dark intervening machinery",
+        "train.boiler: barrel profile, taper, longitudinal length, bands, seams and oxblood paint",
+        "train.boiler-fittings: domes, valves, handrails, pipes, supports and local wear",
+        "train.cab: roof, windows, pillars, door, steps, interior depth and connection to boiler",
+        "train.tender: body, coal, wheels, coupling and transitions",
+        "train.near-carriage: first coach profile, window spacing, roof, trim, doors and undercarriage",
+        "train.middle-carriages: successive coach silhouettes, windows, connections and perspective spacing",
+        "train.distant-end: final visible train extent, atmospheric recession and relationship to terminal"
+      ]
+    },
+    {
+      "name": "Opposing station, behind the train",
+      "components": [
+        "opposite.platform: platform width, height, coping, edge wear and furniture",
+        "opposite.lower-facade: lower windows, doors, arches, recesses and interior illumination",
+        "opposite.upper-facade: upper storey, arched bays, window spacing and masonry infill",
+        "opposite.masonry: brick scale, mortar, pilasters, horizontal bands, cornices and soot",
+        "opposite.railings: fence location, posts, finials, rails and visual density",
+        "opposite.fixtures: lamps, brackets, signage and small wall details",
+        "opposite.columns: freestanding columns, bases, capitals and branching roof supports"
+      ]
+    },
+    {
+      "name": "Roof and distant station",
+      "components": [
+        "roof.overall: canopy span, height, curvature, ridge and coverage",
+        "roof.primary-trusses: deep curved chords, triangulated webs, plates and physical junctions",
+        "roof.secondary: longitudinal members, diagonal bracing, purlins and overlapping depth",
+        "roof.glazing: panel sizes, frames, dirt, transparency and sky visibility",
+        "roof.side-panels: side-roof material, seams, soot and relationship to supports",
+        "distance.upper-window: arched terminal glazing proportions, mullions and crossbeam",
+        "distance.lower-opening: continuation below terminal glazing, columns, buildings and open space",
+        "distance.depth: layered geometry, vanishing point, train recession and cool atmosphere"
+      ]
+    },
+    {
+      "name": "Near platform and track",
+      "components": [
+        "ground.paving: slab sizes, layout, variation, joints, edge damage and scale",
+        "ground.wetness: shallow irregular pooling, damp transitions and reflected-light continuity",
+        "ground.platform-edge: coping width, color, wear, height and perspective",
+        "track.rails: rail profile, parallel spacing, polished tops, rust and fastening",
+        "track.sleepers: spacing, wood grain, wear, fasteners and contact with ballast",
+        "track.ballast: stone size, distribution, darkness, coal grit, dirt and debris"
+      ]
+    },
+    {
+      "name": "Right wall and foreground props",
+      "components": [
+        "right.masonry: pier widths, arched bays, brick scale, mortar and projecting stonework",
+        "right.windows: frame profiles, mullions, glass, reflection and warm interior depth",
+        "right.lanterns: housings, glow, brackets, spacing and cast/reflected light",
+        "sign.face: sign diameter, screen position, aged enamel and exact numeral proportions",
+        "sign.bracket: wrought-iron scrolls, mountings, thickness and silhouette",
+        "props.bench: slats, seat/back proportions, curved arms, legs and screen placement",
+        "props.trolley: curved handle, tubing, tray, axle, wheels and wear",
+        "props.main-trunk: rounded leather thickness, seams, straps, locks, handles and corner hardware",
+        "props.other-luggage: each visible case, stacking, material variation and believable support",
+        "props.cage: size, placement, thin bars, dome, rings, finial, base and contents",
+        "props.blanket: folded volume, soft silhouette, layered fabric, fringes and placement",
+        "props.small-details: clocks, notices, additional luggage and station dressing"
+      ]
+    },
+    {
+      "name": "Cross-frame lighting and image quality",
+      "components": [
+        "light.exposure: highlight/shadow balance without clipping or crushed important forms",
+        "light.palette: cool roof/distance against warm brick, lamps and reflected amber",
+        "light.reflections: shape, intensity, color and location on each major surface",
+        "light.chimney-steam: plume origin, shape, breadth, drift, translucency and illumination",
+        "light.wheel-steam: low rolling steam, occlusion, spread and interaction with running gear",
+        "light.depth-haze: layered atmosphere and distant visibility",
+        "image.artifacts: noise, aliasing, geometry intersections, floating pieces, repetition and cropping"
+      ]
+    }
+  ]
+}

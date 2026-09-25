@@ -6,12 +6,32 @@ Unreal screenshot**.
 
 ## Restart checkpoint
 
-- **Resumed. M0-M3 evidence recorded; M4 visual/performance improvement active.**
+- **Five-hour best-effort window active until September 25, 2026, 07:21 EDT
+  (11:21 UTC). M4 and final completion are not accepted.**
   Source baseline: `ba06f5c`. Last known-good import checkpoint: **`b924990`**,
   reviewed and pushed to `origin/main`. Last verified milestone commit:
   **`53f4a8a` (partial M3 source/scene)**. This checkpoint fixes the recorded
   review issues and establishes real rendered-frame performance.
   **Visual acceptance and M4-M5 are not complete.**
+- **Latest full-scene audit:** round05 **5.0/10**, all **58/58 components**
+  checked. Judge reports **stalled** after structural rethinking. The user then
+  requested best effort during a five-hour absence; this does not lower the
+  acceptance standard or grant permission to rewrite unpublished history.
+- **Latest valid performance:** **34.47 median FPS, 58.05 ms p95** at 1536x864,
+  High, 100% screen percentage, standalone Metal rendering. P95 still fails the
+  50 ms target. Actual gameplay uses `PN_TargetCamera`, FOV70, verified during
+  advancing native PIE in `Evidence/play-camera-verification.json`.
+- **Important fidelity fix:** hero geometry must disable automatic Nanite building
+  before reimport, not only after import. The sign's rendered triangle count went
+  from940 to35,154; locomotive from5,164 to650,658; luggage from4,247 to268,922.
+  Source counts are recorded as `exported_triangles`; non-Nanite imports now fail
+  if they retain less than98% of the evaluated source triangles.
+- **Sign-focused work:** `Scripts/extract_sign_reference.py` crops the target's
+  face with explicit provenance, then maps it to real sign geometry. Scrollwork
+  is traced into an angled3D support, not pasted scenery. Latest actual image:
+  `Evidence/hero-fullgeometry-unreal.png`. Earlier focused review rated face8/10,
+  bracket2.5/10; that review predates full-detail scrollwork restoration and is
+  not proof of acceptance. The sign is not yet claimed picture-perfect.
 - Starting commit: `cebd39e` on `main`; authorized remote:
   `https://github.com/ridermw/unreal-demo-1.git`.
 - Project: `PlatformNine.uproject`, Unreal Engine 5.8.3.
@@ -51,6 +71,12 @@ Unreal screenshot**.
   "stall approaching"; next pass must address substantial roof depth, connected
   locomotive machinery, and warm reflected lighting. The gallery has all four
   judged frames (00-03). Round03 performance has not been remeasured.
+- **Judge coverage correction:** earlier verdicts did not adequately inventory the
+  scenery behind the train. Subsequent rounds must use
+  `Art/Reference/visual-checklist.json` and `Scripts/judge_round.txt`: explicit
+  train-front-to-back and full-scene component observations precede the unchanged
+  PRO category score. Unmentioned regions must not be treated as correct.
+  The gallery now displays the expandable58-item audits for rounds04and05.
 - **Dream Loop round 02:** score **4.7/10** (composition 2.1, lighting 1.2,
   materials 1.1, details 0.3). Smaller cage and wetness improve the image, but
   locomotive proportions, material fidelity, roof depth and warm reflections

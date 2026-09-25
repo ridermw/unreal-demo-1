@@ -18,5 +18,16 @@ for group in manifest["meshes"]:
     maximum = [max(p[i] for p in coordinates) for i in range(3)]
     group["material_slots"] = sorted({slot.name for obj in objects for slot in obj.data.materials})
     group["source_bounds_m"] = {"minimum": minimum, "maximum": maximum}
+    triangles = 0
+    for obj in objects:
+        evaluated = obj.evaluated_get(bpy.context.evaluated_depsgraph_get())
+        mesh = evaluated.to_mesh()
+        mesh.calc_loop_triangles()
+        triangles += len(mesh.loop_triangles)
+        evaluated.to_mesh_clear()
+    group["exported_triangles"] = triangles
 manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+source_manifest_path = Path(bpy.data.filepath).parent / "manifest.json"
+if source_manifest_path != manifest_path:
+    source_manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
 print("SOURCE_CONTRACTS_OK", len(manifest["meshes"]))

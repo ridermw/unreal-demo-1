@@ -45,6 +45,54 @@ def upgrade(root, manifest):
     reports = []
     for name, spec in manifest["materials"].items():
         surface = spec["texture"]
+        if name == "SignFace":
+            sign = library.load_asset("/Game/Platform/Materials/M_SignFace")
+            if sign is None:
+                raise RuntimeError("Reference sign material is not imported")
+            nodes = [node for node in editing.get_material_expressions(sign)
+                     if isinstance(node, unreal.MaterialExpressionTextureSample)]
+            if len(nodes) != 1:
+                raise RuntimeError("Expected one sign-face texture sample")
+            texture = nodes[0].texture
+            texture.set_editor_property("address_x", unreal.TextureAddress.TA_CLAMP)
+            texture.set_editor_property("address_y", unreal.TextureAddress.TA_CLAMP)
+            texture.set_editor_property("srgb", True)
+            texture.set_editor_property("compression_settings", unreal.TextureCompressionSettings.TC_EDITOR_ICON)
+            texture.set_editor_property("mip_gen_settings", unreal.TextureMipGenSettings.TMGS_NO_MIPMAPS)
+            texture.set_editor_property("never_stream", True)
+            texture.set_editor_property("filter", unreal.TextureFilter.TF_BILINEAR)
+            expressions = editing.get_material_expressions(sign)
+            tint = next((node for node in expressions
+                         if isinstance(node, unreal.MaterialExpressionVectorParameter)
+                         and str(node.get_editor_property("parameter_name")) == "SignCalibration"), None)
+            if tint is None:
+                tint = editing.create_material_expression(
+                    sign, unreal.MaterialExpressionVectorParameter, -500, 650)
+                tint.set_editor_property("parameter_name", "SignCalibration")
+            tint.set_editor_property("default_value", unreal.LinearColor(.68,.63,.58,1))
+            product = editing.get_material_property_input_node(sign, unreal.MaterialProperty.MP_BASE_COLOR)
+            if not isinstance(product, unreal.MaterialExpressionMultiply):
+                product = editing.create_material_expression(sign, unreal.MaterialExpressionMultiply,-250,0)
+            if not editing.connect_material_expressions(nodes[0], "", product, "A"):
+                raise RuntimeError("Cannot connect sign artwork to calibration")
+            if not editing.connect_material_expressions(tint, "", product, "B"):
+                raise RuntimeError("Cannot connect sign calibration")
+            if not editing.connect_material_property(product, "", unreal.MaterialProperty.MP_BASE_COLOR):
+                raise RuntimeError("Cannot connect exact sign artwork")
+            roughness = editing.get_material_property_input_node(sign, unreal.MaterialProperty.MP_ROUGHNESS)
+            roughness.r = .9
+            specular = editing.get_material_property_input_node(sign, unreal.MaterialProperty.MP_SPECULAR)
+            if specular is None:
+                specular = editing.create_material_expression(sign, unreal.MaterialExpressionConstant,-300,400)
+            specular.r = .05
+            if not editing.connect_material_property(specular,"",unreal.MaterialProperty.MP_SPECULAR):
+                raise RuntimeError("Cannot calibrate printed-sign specular")
+            if not library.save_loaded_asset(texture) or not library.save_loaded_asset(sign):
+                raise RuntimeError("Cannot save exact sign material")
+            editing.recompile_material(sign)
+            reports.append({"material": sign.get_path_name(), "maps": {"albedo": texture.get_path_name()},
+                            "source": "User-authorized rectified crop of locked target"})
+            continue
         if not surface:
             if name == "Lamp":
                 lamp = library.load_asset("/Game/Platform/Materials/M_Lamp")

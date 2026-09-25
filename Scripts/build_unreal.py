@@ -43,6 +43,10 @@ def save_report(stage, report):
 def validate_mesh_record(source, record):
     if record["lod0_triangles"] <= 0:
         raise ValueError(f"Empty mesh: {source['name']}")
+    if (record.get("nanite_enabled") is False and source.get("exported_triangles")
+            and record["lod0_triangles"] < source["exported_triangles"] * .98):
+        raise ValueError(f"Source geometry was lost on {source['name']}; "
+                         f"{record['lod0_triangles']} vs {source['exported_triangles']} exported triangles")
     if sorted(slot["slot"] for slot in record["slots"]) != source["material_slots"]:
         raise ValueError(f"Material slot mismatch: {source['name']}")
     bounds = source["source_bounds_m"]
@@ -195,11 +199,20 @@ def import_assets(unreal, manifest, reimport=False):
         path = f"{BASE}/Meshes/SM_{name}"
         source_hash = hashlib.sha256((ROOT / mesh["file"]).read_bytes()).hexdigest()
         needs_import = reimport or not library.does_asset_exist(path)
+        preserve_source_geometry = (name in ("Signs", "Luggage", "Locomotive", "Wheels", "Furniture")
+                                    or bool({"Glass", "AmberGlass"} & set(mesh["material_slots"])))
         if not needs_import:
             recorded_hash = library.get_metadata_tag(asset(path), "PlatformSourceSHA256")
             if recorded_hash != source_hash:
                 raise RuntimeError(f"Source hash mismatch on {name}; explicit --reimport required")
         if needs_import:
+            if preserve_source_geometry and library.does_asset_exist(path):
+                existing_mesh = asset(path)
+                settings = existing_mesh.get_editor_property("nanite_settings")
+                settings.enabled = False
+                settings.fallback_percent_triangles = 1.0
+                settings.fallback_relative_error = 0.0
+                existing_mesh.set_editor_property("nanite_settings", settings)
             options = unreal.InterchangeGenericAssetsPipeline()
             options.set_editor_property("asset_name", "SM_" + name)
             data = options.get_editor_property("mesh_pipeline")
@@ -207,6 +220,7 @@ def import_assets(unreal, manifest, reimport=False):
                                      unreal.InterchangeCombineStaticMeshesBehavior.ALL)
             data.generate_lightmap_u_vs = False
             data.set_editor_property("collision", False)
+            data.set_editor_property("build_nanite", not preserve_source_geometry)
             material_pipeline = options.get_editor_property("material_pipeline")
             material_pipeline.set_editor_property("import_materials", False)
             material_pipeline.get_editor_property("texture_pipeline").set_editor_property(
@@ -233,7 +247,7 @@ def import_assets(unreal, manifest, reimport=False):
             slots.append({"slot": slot_name, "material": materials[slot_name].get_path_name()})
         if not slots:
             raise RuntimeError(f"Mesh has no material slots: {name}")
-        if {"Glass", "AmberGlass"} & {slot["slot"] for slot in slots}:
+        if preserve_source_geometry:
             nanite = static_mesh.get_editor_property("nanite_settings")
             nanite.enabled = False
             static_mesh.set_editor_property("nanite_settings", nanite)

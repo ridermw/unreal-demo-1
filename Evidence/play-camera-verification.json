@@ -1,0 +1,11 @@
+{
+  "target": "CameraActor_0",
+  "target_label": "PN_TargetCamera",
+  "fov": 70.0,
+  "position": [
+    250.0,
+    580.0,
+    235.0
+  ],
+  "time": 0.7146267965435982
+}

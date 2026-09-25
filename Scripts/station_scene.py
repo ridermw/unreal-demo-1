@@ -135,11 +135,21 @@ def assemble(manifest):
         component.set_light_color(unreal.LinearColor(1.0,.53,.22,1))
         component.set_attenuation_radius(450)
         component.set_editor_property("cast_shadows", False)
+    for index, y in enumerate((-5.5,4.5,14.5,24.5,34.5,44.5,54.5,64.5)):
+        actor=upsert(f"OppositeInterior_{index:02}",unreal.PointLight,(-10.35,y,2.2))
+        component=actor.get_component_by_class(unreal.PointLightComponent)
+        component.set_mobility(unreal.ComponentMobility.MOVABLE)
+        component.set_editor_property("intensity_units",unreal.LightUnits.LUMENS)
+        component.set_intensity(4000)
+        component.set_light_color(unreal.LinearColor(1,.55,.25,1))
+        component.set_attenuation_radius(550)
+        component.set_editor_property("cast_shadows",False)
 
     for name, position, intensity, color, yaw in (
         ("FrontBounce", (-2.0, -5.0, 4.2), 55000, (0.84, 0.87, 1.0), -95),
         ("WarmWindowBounce", (4.0, 5.0, 4.2), 24000, (1.0, 0.65, 0.34), -150),
         ("PlatformSkylight", (0.5, 20.0, 9.5), 18000, (0.64, 0.76, 1.0), -90),
+        ("DistantDaylight", (-1.5, 66.0, 6.0), 35000, (0.55,0.73,1.0), 90),
     ):
         fill = upsert(name, unreal.RectLight, position,
                       unreal.Rotator(pitch=-12 if name != "PlatformSkylight" else -85, yaw=yaw, roll=0))
@@ -148,9 +158,9 @@ def assemble(manifest):
         component.set_editor_property("intensity_units", unreal.LightUnits.LUMENS)
         component.set_intensity(intensity)
         component.set_light_color(unreal.LinearColor(*color, 1))
-        component.set_editor_property("source_width", 550)
-        component.set_editor_property("source_height", 400)
-        component.set_attenuation_radius(3500)
+        component.set_editor_property("source_width", 1100 if name=="DistantDaylight" else 550)
+        component.set_editor_property("source_height", 550 if name=="DistantDaylight" else 400)
+        component.set_attenuation_radius(8000 if name=="DistantDaylight" else 3500)
         component.set_editor_property("cast_shadows", name != "FrontBounce")
 
     config = manifest["camera"]

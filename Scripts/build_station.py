@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "Art" / "Models" / "Refined"
 OUT.mkdir(parents=True, exist_ok=True)
 random.seed(934)
+CAMERA = {"position": [2.5, -5.8, 2.35], "target": [-2.55, 30, 1.72], "fov": 70}
 bpy.ops.object.select_all(action="SELECT")
 bpy.ops.object.delete(use_global=False)
 
@@ -37,6 +38,7 @@ PALETTE = {
     "Blanket": ((0.13, 0.009, 0.027), 0.0, 0.95, "cloth", 0.25),
     "RoofPanel": ((0.045, 0.054, 0.048), 0.3, 0.72, "iron", 2.0),
     "Interior": ((0.30, 0.18, 0.07), 0.0, 0.85, "wood", 2.0),
+    "SignFace": ((0.55, 0.42, 0.25), 0.0, 0.72, "sign_face", 1.0),
     "Puddle": ((0.10, 0.12, 0.12), 0.4, 0.075, None, 1.0),
 }
 MATERIALS = {}
@@ -161,6 +163,18 @@ def text(body, position, size, material, rotation=(math.pi/2, 0, 0), align="CENT
     bpy.data.objects.remove(obj, do_unlink=True)
 
 
+def camera_pixel_on_plane(pixel, plane_y, slope=0):
+    position = Vector(CAMERA["position"])
+    forward = (Vector(CAMERA["target"])-position).normalized()
+    right = forward.cross(Vector((0,0,1))).normalized()
+    up = right.cross(forward).normalized()
+    tangent = math.tan(math.radians(CAMERA["fov"])/2)
+    ray = forward + right*((pixel[0]/1536*2-1)*tangent)
+    ray += up*((1-pixel[1]/864*2)*tangent*864/1536)
+    distance = (plane_y+slope*3.6-position.y-slope*position.x)/(ray.y+slope*ray.x)
+    return position + ray*distance
+
+
 # Masonry is segmented around real openings rather than painted onto a solid wall.
 box("Stone", (2.25, 28, 0.34), (5.5, 78, 0.68))
 box("Stone", (-7.6, 28, 0.30), (4.6, 78, 0.60))
@@ -175,7 +189,7 @@ for row in range(-10, 48):
 for y in range(-10, 68, 2):
     box("Cream", (-0.46, y, 0.69), (0.29, 1.98, 0.07))
     box("Stone", (-0.59, y, 0.46), (0.15, 1.98, 0.48))
-for side in (4.95, -10.0):
+for side in (4.95,):
     GROUP = "Windows"
     inward = -1 if side > 0 else 1
     box("Interior",(side-inward*1.4,28,3.7),(.22,80,7.4))
@@ -226,20 +240,97 @@ for side in (4.95, -10.0):
             box("Iron", (x+inward*0.055, y+2.5, z), (0.10, span, 0.06))
         GROUP = "Architecture"
 
+left_lamps = []
+GROUP="Windows"
+box("Interior",(-11.2,28,4.1),(.18,80,8.2))
+GROUP="Architecture"
+for y in range(-8, 68, 5):
+    side, center = -9.8, y+2.5
+    box("Brick", (side,y,3.85),(.65,.82,6.5))
+    box("Stone", (side+.10,y,.89),(.85,1.05,.36))
+    box("Stone", (side+.1,y,4.0),(.80,1.02,.28))
+    box("Brick", (side,center,.97),(.5,4.2,.7))
+    box("Brick", (side,center,3.7),(.5,4.2,1.08))
+    box("Brick", (side,center,6.94),(.5,4.2,.55))
+    for z,width,height in ((.68,.76,.15),(3.65,.72,.13),(3.95,.84,.12),
+                           (4.15,.76,.13),(6.78,.75,.12),(7.05,.90,.17)):
+        box("Stone",(side+.12,center,z),(width,5.0,height))
+    for offset in (-1.6,1.6):
+        box("Brick",(side,center+offset,2.25),(.50,1.04,2.0))
+        box("Brick",(side,center+offset,5.37),(.50,1.04,2.65))
+    for base,spring,radius in ((1.18,2.73,.92),(4.35,5.72,1.05)):
+        front=side+.35
+        for edge in (-1,1):
+            box("Stone",(front,center+edge*(radius+.08),(base+spring)/2),
+                (.22,.14,spring-base))
+        box("Stone",(front,center,base-.08),(.42,2*radius+.34,.18))
+        for j in range(20):
+            a,b=j*math.pi/20+.004,(j+1)*math.pi/20-.004
+            points=[(front+.12,center+r*math.cos(t),spring+r*math.sin(t))
+                    for r,t in ((radius,a),(radius,b),(radius+.19,b),(radius+.19,a))]
+            face("Brick",list(reversed(points)))
+            middle=(a+b)/2
+            top=spring+radius*math.sin(middle)
+            ceiling=3.33 if base<2 else 6.82
+            if ceiling>top:
+                box("Brick",(side,center+radius*math.cos(middle),(ceiling+top)/2),
+                    (.5,.18,ceiling-top))
+        GROUP="Windows"
+        box("AmberGlass",(front-.10,center,(base+spring)/2),(.035,2*radius,spring-base))
+        face("AmberGlass",[(front-.10,center,spring)]+[
+            (front-.10,center+radius*math.cos(t),spring+radius*math.sin(t))
+            for t in [j*math.pi/32 for j in range(33)]])
+        box("Interior",(side-.95,center,(base+spring)/2),(.12,2*radius,spring-base+1.0))
+        for offset in (-radius,-radius/2,0,radius/2,radius):
+            top=spring+math.sqrt(max(0,radius**2-offset**2))
+            box("Iron",(front+.035,center+offset,(base+top)/2),(.08,.04,top-base))
+        for z in (base+.52,spring-.18,spring):
+            box("Iron",(front+.055,center,z),(.10,2*radius,.05))
+        GROUP="Architecture"
+    for j in range(8):
+        yy=y+.4+j*.60
+        GROUP="Furniture"
+        cylinder("Iron",(-7.0,yy,.66),(-7.0,yy,1.64),.016,8)
+        cylinder("Brass",(-7.0,yy,1.64),(-7.0,yy,1.71),.024,8,.008)
+    for z in (.94,1.58):
+        cylinder("Iron",(-7.0,y,.0+z),(-7.0,y+5,z),.024,10)
+    GROUP="Lanterns"
+    x,z=-9.16,3.37
+    tube("Iron",[(side+.30,center,3.5),(x,center,3.67),(x,center,3.45)],.024,8)
+    box("Lamp",(x,center,z),(.13,.15,.25))
+    for yy in (-.1,.1):
+        for xx in (-.1,.1):
+            cylinder("Iron",(x+xx,center+yy,z-.17),(x+xx,center+yy,z+.17),.011,8)
+    cylinder("Iron",(x,center,z+.17),(x,center,z+.29),.18,4,.03)
+    left_lamps.append([x+.10,center,z])
+    GROUP="Architecture"
+
 GROUP = "Roof"
+for y in range(-3,68,10):
+    x=-7.1
+    cylinder("Iron",(x,y,.65),(x,y,6.75),.13,16,.085)
+    for z,radius in ((.8,.27),(1.05,.21),(5.8,.20),(6.0,.28),(6.2,.34)):
+        cylinder("Iron",(x,y,z-.07),(x,y,z+.07),radius,12)
+    for dx,dy in ((-2.4,0),(2.4,0),(0,-2.4),(0,2.4)):
+        tube("Iron",[(x,y,5.8),(x+dx*.3,y+dy*.3,6.6),
+                     (x+dx*.7,y+dy*.7,7.12),(x+dx,y+dy,7.4)],.066,10)
+        tube("Iron",[(x,y,6.15),(x+dx*.45,y+dy*.45,6.85),
+                     (x+dx,y+dy,7.4)],.032,8)
+    for r,z in ((.30,6.28),(.23,6.40),(.16,6.5)):
+        ring("Brass",(x,y,z),r,.015,"XY",32)
 for y in range(-8, 70, 5):
     arch("Iron", y, 6.65, 7.4, 5.2, 0.10, -2.55)
-    arch("Iron", y, 6.65, 7.4, 4.72, 0.065, -2.55)
+    arch("Iron", y, 6.65, 7.4, 4.15, 0.065, -2.55)
     for depth in (-.10,.10):
         arch("Iron",y+depth,6.65,7.4,5.2,.075,-2.55)
-        arch("Iron",y+depth,6.65,7.4,4.72,.055,-2.55)
+        arch("Iron",y+depth,6.65,7.4,4.15,.055,-2.55)
     for i in range(17):
         t = (i+0.5)*math.pi/17
         p = (-2.55+7.4*math.cos(t), y, 6.65+5.2*math.sin(t))
         t2 = (i+1)*math.pi/17
-        q = (-2.55+7.4*math.cos(t2), y, 6.65+4.72*math.sin(t2))
+        q = (-2.55+7.4*math.cos(t2), y, 6.65+4.15*math.sin(t2))
         tube("Iron", [p, q], 0.035, 6)
-        p2 = (-2.55+7.4*math.cos(t), y, 6.65+4.72*math.sin(t))
+        p2 = (-2.55+7.4*math.cos(t), y, 6.65+4.15*math.sin(t))
         q2 = (-2.55+7.4*math.cos(t2), y, 6.65+5.2*math.sin(t2))
         tube("Iron", [p2, q2], 0.026, 6)
     for x in (-9.65, 4.55):
@@ -269,17 +360,26 @@ for i in range(21):
              (-2.55+7.4*math.cos(t), 72, 6.65+5.2*math.sin(t)), 0.045, 8)
 
 GROUP = "FarWall"
-for x in (-9.7, -7.2, -4.7, -2.2, 0.3, 2.8, 4.65):
-    box("Iron", (x, 66, 5.1), (0.065, 0.14, 8.7))
-box("Glass", (-2.5, 66.1, 5.1), (14.4, 0.10, 8.7))
-for z in (2.5, 4.5, 6.5, 8.5):
-    box("Iron", (-2.5, 66, z), (14.4, 0.14, 0.075))
-for y in (65.7,):
-    arch("Iron", y, 6.65, 7.4, 5.2, .095, -2.55)
-    for x in range(-9,5):
-        box("Iron",(x,y,5.4),(.055,.11,9.5))
-    for z in (3,4,5,6,7,8,9):
-        box("Iron",(-2.55,y,z),(14,.1,.045))
+for x in (-9.7,4.65):
+    box("Brick",(x,66,3.1),(.85,1.0,5.8))
+for x in [i*.65-9.65 for i in range(23)]:
+    top=6.65+5.2*math.sqrt(max(0,1-((x+2.55)/7.4)**2))
+    box("Iron",(x,66,(4.9+top)/2),(.06,.16,top-4.9))
+box("Iron",(-2.55,66,4.95),(14.8,.35,.32))
+for z in (6.2,7.8,9.4):
+    width=14.8 if z<6.65 else 14.8*math.sqrt(max(0,1-((z-6.65)/5.2)**2))
+    box("Iron",(-2.55,66,z),(width,.16,.06))
+for i in range(32):
+    a,b=i*math.pi/32,(i+1)*math.pi/32
+    face("Glass",[(-2.55+7.4*math.cos(a),66.1,4.95),
+                  (-2.55+7.4*math.cos(b),66.1,4.95),
+                  (-2.55+7.4*math.cos(b),66.1,6.65+5.2*math.sin(b)),
+                  (-2.55+7.4*math.cos(a),66.1,6.65+5.2*math.sin(a))])
+for y in (70,78,88,100):
+    for x in (-7.8,3.0):
+        box("Brick",(x,y,3.0),(.5,.5,5.8))
+        box("Stone",(x,y,5.5),(.75,.75,.2))
+    box("Iron",(-2.4,y,5.75),(11.3,.18,.18))
 for x in (-9.8,4.6):
     box("Brick",(x,71,4.0),(.8,13,7.8))
 box("Stone",(0,74,.3),(9,22,.6))
@@ -557,26 +657,54 @@ for y in (3.8, 15.0, 27.0, 42.0, 53.0):
     suitcase(4.22, y+1.52, 0.73, 0.48, 0.45, 0.68, "DarkLeather")
 
 GROUP = "Signs"
-for x, y, z, radius in ((3.62, 2.10, 4.10, 0.52), (4.0, 25.0, 4.1, 0.38)):
+for x, y, z, radius in ((3.58, 2.10, 4.10, 0.48), (4.0, 25.0, 4.1, 0.38)):
     cylinder("Cream", (x, y-0.05, z), (x, y+0.06, z), radius, 80)
-    ring("BlackSteel", (x, y-0.075, z), radius, 0.025, "XZ")
-    ring("Brass", (x, y-0.080, z), radius-0.04, 0.006, "XZ")
-    for t in [i*math.tau/12 for i in range(12)]:
-        rivet("BlackSteel", (x+(radius-0.065)*math.cos(t), y-0.08,
-                             z+(radius-0.065)*math.sin(t)), radius=0.012)
-    text("9", (x-radius*0.28, y-0.084, z-0.035), radius*1.50, "Lettering")
-    text("3", (x+radius*0.42, y-0.084, z+radius*0.31), radius*0.62, "Lettering")
-    text("4", (x+radius*0.42, y-0.084, z-radius*0.33), radius*0.62, "Lettering")
-    box("Lettering", (x+radius*0.42, y-0.089, z+0.01), (radius*0.51, 0.007, 0.020))
-    tube("Iron", [(x-0.2, y, z+radius), (x-0.2, y, z+radius+0.32),
-                  (4.64, y, z+radius+0.32)], 0.033)
-    tube("Iron", [(4.64, y, z+radius+0.32), (4.64, y, z+0.1),
-                  (x+0.5, y, z+radius+0.25)], 0.031)
-    ring("Iron", (4.32, y, z+radius+0.13), 0.20, 0.022, "XZ", 40)
-    for offset in (0,.22,.45):
-        points=[(4.18-offset+.17*math.cos(t),y,z+radius+.16+.17*math.sin(t))
-                for t in [i*math.pi*1.7/32 for i in range(33)]]
-        tube("Iron",points,.016,8)
+    ring("BlackSteel", (x,y+.065,z),radius,.008,"XZ")
+    ring("Iron", (x, y-0.075, z), radius, 0.010, "XZ")
+    ring("Brass", (x, y-0.080, z), radius-0.012, 0.003, "XZ")
+    for i in range(96):
+        a,b=i*math.tau/96,(i+1)*math.tau/96
+        face("SignFace",[(x,y-.090,z),
+                        (x+radius*.985*math.cos(a),y-.090,z+radius*.985*math.sin(a)),
+                        (x+radius*.985*math.cos(b),y-.090,z+radius*.985*math.sin(b))],
+             [(.5,.5),(.5+.5*math.cos(a),.5+.5*math.sin(a)),
+              (.5+.5*math.cos(b),.5+.5*math.sin(b))])
+    # Retain lettering as real embossed back-face detail, hidden from the target view.
+    text("9", (x, y+.065, z), radius*1.4, "Lettering", rotation=(math.pi/2,0,math.pi))
+    if y < 3:
+        def screen_tube(material, pixels, thickness):
+            tube(material,[camera_pixel_on_plane(p,y,.60) for p in pixels],thickness,12)
+        screen_tube("Iron",[(1084,48),(1263,47)],.017)
+        screen_tube("Iron",[(1263,39),(1263,192)],.021)
+        screen_tube("Iron",[(1085,48),(1106,62),(1132,76),(1160,91),
+                            (1187,107),(1210,123),(1231,144),(1249,169),(1256,187)],.016)
+        screen_tube("Iron",[(1086,46),(1087,85)],.015)
+        for cx,cy,radius_px,start,turns in ((1169,71,15,-math.pi/2,1.12),
+                                           (1225,87,37,-math.pi/2,1.32),
+                                           (1246,133,12,-math.pi/2,1.40),
+                                           (1118,57,5,math.pi,1.1)):
+            pixels=[]
+            for j in range(97):
+                t=start+j*math.tau*turns/96
+                rr=radius_px*(1-.73*max(0,(j/96-.58)/.42))
+                pixels.append((cx+rr*math.cos(t),cy+rr*math.sin(t)))
+            screen_tube("Iron",pixels,.019 if radius_px>20 else .015)
+        pixels=[(1075+7*math.cos(t),57+10*math.sin(t))
+                for t in [j*math.tau/64 for j in range(65)]]
+        screen_tube("Brass",pixels,.008)
+        screen_tube("Brass",[(1086,45),(1087,28),(1089,24)],.014)
+        anchor=camera_pixel_on_plane((1264,114),y,.60)
+        box("Iron",anchor,(.055,.13,1.15))
+        boss=camera_pixel_on_plane((1220,91),y,.60)
+        box("BlackSteel",boss,(.20,.10,.23))
+        cylinder("BlackSteel",boss+Vector((.08,-.06,0)),boss+Vector((.08,-.13,0)),.09,48)
+        ring("Iron",boss+Vector((.08,-.14,0)),.085,.010,"XZ",48)
+        cylinder("Brass",boss+Vector((.08,-.13,0)),boss+Vector((.08,-.15,0)),.018,20)
+        cylinder("BlackSteel",boss+Vector((0,0,-.10)),boss+Vector((0,0,-.26)),.045,20,.027)
+    else:
+        top=z+radius+.26
+        tube("Iron",[(x,y,z+radius),(x,y,top),(4.66,y,top)],.018,10)
+        tube("Iron",[(x,y,top),(4.66,y,top-.55)],.014,10)
 
 GROUP = "Lanterns"
 lamps = []
@@ -591,6 +719,7 @@ for y in (-2.5, 7.5, 17.5, 27.5, 37.5, 47.5, 57.5):
     box("BlackSteel", (x, y, z-0.25), (0.33, 0.33, 0.07))
     cylinder("BlackSteel", (x, y, z+0.22), (x, y, z+0.41), 0.28, 4, 0.05)
     lamps.append([x-0.23, y-0.12, z])
+lamps.extend(left_lamps)
 
 GROUP = "Puddles"
 for x, y, rx, ry in [(1.6, -0.8, 0.55, 0.40), (0.4, 3.2, 0.27, 1.2),
@@ -627,7 +756,7 @@ for (group, material), data in meshes.items():
     obj = bpy.data.objects.new(mesh.name, mesh)
     bpy.context.collection.objects.link(obj)
     objects[group].append(obj)
-    if group not in ("Roof", "Track") and material not in ("Glass", "Puddle", "Gravel", "Lettering", "Blanket"):
+    if group not in ("Roof", "Track", "Signs") and material not in ("Glass", "Puddle", "Gravel", "Lettering", "Blanket"):
         bevel = obj.modifiers.new("Machined and worn edges", "BEVEL")
         bevel.width = (0.032 if group == "Luggage" and material in ("Leather","DarkLeather")
                        else .012 if group == "Furniture" and material == "Wood" else .008)
@@ -644,7 +773,7 @@ manifest = {
     "materials": {k: {"color": v[0], "metallic": v[1], "roughness": v[2],
                        "texture": v[3]} for k, v in PALETTE.items()},
     "meshes": [],
-    "camera": {"position": [2.5, -5.8, 2.35], "target": [-2.55, 30, 1.72], "fov": 70},
+    "camera": CAMERA,
     "lamps": lamps,
     "chimney": [TX, 4.2, 5.37],
 }
@@ -664,9 +793,18 @@ for group, group_objects in objects.items():
     if path.stat().st_size < 1024:
         raise RuntimeError(f"Empty mesh export: {path}")
     coordinates = [o.matrix_world @ v.co for o in group_objects for v in o.data.vertices]
+    exported_triangles = 0
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    for obj in group_objects:
+        evaluated = obj.evaluated_get(depsgraph)
+        evaluated_mesh = evaluated.to_mesh()
+        evaluated_mesh.calc_loop_triangles()
+        exported_triangles += len(evaluated_mesh.loop_triangles)
+        evaluated.to_mesh_clear()
     manifest["meshes"].append({
         "name": group, "file": str(path.relative_to(ROOT)),
         "vertices": sum(len(o.data.vertices) for o in group_objects),
+        "exported_triangles": exported_triangles,
         "material_slots": sorted({m.name for o in group_objects for m in o.data.materials}),
         "source_bounds_m": {
             "minimum": [min(p[i] for p in coordinates) for i in range(3)],

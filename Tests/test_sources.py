@@ -42,6 +42,14 @@ class SourceContractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             BUILD.validate_mesh_record(source, record)
 
+    def test_full_detail_mesh_cannot_silently_use_reduced_fallback(self):
+        source, record = self.mesh_fixture()
+        source["exported_triangles"] = 35000
+        record["nanite_enabled"] = False
+        record["lod0_triangles"] = 940
+        with self.assertRaises(ValueError):
+            BUILD.validate_mesh_record(source, record)
+
     def test_real_sources_are_complete(self):
         manifest = BUILD.source_manifest()
         self.assertEqual(len(manifest["meshes"]), 14)
