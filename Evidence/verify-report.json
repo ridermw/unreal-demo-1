@@ -1,8 +1,8 @@
 {
   "status": "success",
   "map": "/Game/Platform/Maps/HiddenPlatform",
-  "generated_actor_count": 75,
-  "total_actor_count": 75,
+  "generated_actor_count": 99,
+  "total_actor_count": 99,
   "meshes": [
     {
       "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_0",
@@ -23,7 +23,9 @@
         "/Game/Platform/Materials/M_Iron.M_Iron",
         "/Game/Platform/Materials/M_Interior.M_Interior",
         "/Game/Platform/Materials/M_Lamp.M_Lamp",
-        "/Game/Platform/Materials/M_Wood.M_Wood"
+        "/Game/Platform/Materials/M_Wood.M_Wood",
+        "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather",
+        "/Game/Platform/Materials/M_Leather.M_Leather"
       ]
     },
     {
@@ -81,7 +83,10 @@
         "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
         "/Game/Platform/Materials/M_Brass.M_Brass",
         "/Game/Platform/Materials/M_Scarlet.M_Scarlet",
-        "/Game/Platform/Materials/M_Cream.M_Cream"
+        "/Game/Platform/Materials/M_Cream.M_Cream",
+        "/Game/Platform/Materials/M_SootSteel.M_SootSteel",
+        "/Game/Platform/Materials/M_SmokeboxDoor.M_SmokeboxDoor",
+        "/Game/Platform/Materials/M_RodSteel.M_RodSteel"
       ]
     },
     {
@@ -90,7 +95,8 @@
       "materials": [
         "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
         "/Game/Platform/Materials/M_Brass.M_Brass",
-        "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+        "/Game/Platform/Materials/M_Scarlet.M_Scarlet",
+        "/Game/Platform/Materials/M_RodSteel.M_RodSteel"
       ]
     },
     {
@@ -123,7 +129,10 @@
         "/Game/Platform/Materials/M_Brass.M_Brass",
         "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather",
         "/Game/Platform/Materials/M_Leather.M_Leather",
-        "/Game/Platform/Materials/M_Wood.M_Wood"
+        "/Game/Platform/Materials/M_Wood.M_Wood",
+        "/Game/Platform/Materials/M_CageBrass.M_CageBrass",
+        "/Game/Platform/Materials/M_Rubber.M_Rubber",
+        "/Game/Platform/Materials/M_AgedBrass.M_AgedBrass"
       ]
     },
     {
@@ -162,5 +171,5 @@
   "engine": "5.8.3-58210709+++UE5+Release-5.8",
   "rendered": false,
   "stage": "verify",
-  "utc": "2026-09-25T06:18:56.483202+00:00"
+  "utc": "2026-09-25T10:52:37.697984+00:00"
 }

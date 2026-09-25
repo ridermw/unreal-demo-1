@@ -1,0 +1,46 @@
+[
+  {
+    "view": "locomotive",
+    "image": "inspections/inspection-final-locomotive.png",
+    "fov": 60,
+    "scene_identity": {
+      "sha256": "d44a1b08688492972a55974adb899d089225300f2396b6e415139661cb6d065b",
+      "package_count": 88,
+      "map_sha256": "5b23cd938ad435821a360997a82c04df605cc5219484dc6c151b1eee43a7df43"
+    },
+    "sha256": "c986fc2942bacc10b773091bb0aea7cca540ad77f318e0e24e61b6cb12f5c16f"
+  },
+  {
+    "view": "luggage",
+    "image": "inspections/inspection-final-luggage.png",
+    "fov": 55,
+    "scene_identity": {
+      "sha256": "d44a1b08688492972a55974adb899d089225300f2396b6e415139661cb6d065b",
+      "package_count": 88,
+      "map_sha256": "5b23cd938ad435821a360997a82c04df605cc5219484dc6c151b1eee43a7df43"
+    },
+    "sha256": "803842300d2b314f7d2b4f0ca022cb7cc5b49cdb55406a4b6e4000e4f9e661fb"
+  },
+  {
+    "view": "opposite",
+    "image": "inspections/inspection-final-opposite.png",
+    "fov": 65,
+    "scene_identity": {
+      "sha256": "d44a1b08688492972a55974adb899d089225300f2396b6e415139661cb6d065b",
+      "package_count": 88,
+      "map_sha256": "5b23cd938ad435821a360997a82c04df605cc5219484dc6c151b1eee43a7df43"
+    },
+    "sha256": "d4856dc4b36c1052479ac0e90e59b353adc00df760623241294559c12214f681"
+  },
+  {
+    "view": "reverse",
+    "image": "inspections/inspection-final-reverse.png",
+    "fov": 70,
+    "scene_identity": {
+      "sha256": "d44a1b08688492972a55974adb899d089225300f2396b6e415139661cb6d065b",
+      "package_count": 88,
+      "map_sha256": "5b23cd938ad435821a360997a82c04df605cc5219484dc6c151b1eee43a7df43"
+    },
+    "sha256": "340d09d396fd41e317ec052a17ccec78d93e5bc7f4257366d079f8a071b43311"
+  }
+]

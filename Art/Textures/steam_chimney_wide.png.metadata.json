@@ -1,0 +1,9 @@
+{
+  "rendered_at": "2026-09-25T06:46:24.819486+00:00",
+  "size": "1024x1024",
+  "quality": "high",
+  "model_name": "gpt-image-2.5-flare",
+  "model_version": "default",
+  "prompt_char_count": 707,
+  "prompt": "A photoreal game VFX steam density sprite on pure black background. One broad irregular white-grey vapor plume from an old steam train chimney, rising from a small opening at bottom center, swelling into soft cauliflower eddies then bending and drifting diagonally towards the upper right. The cloud is roughly half as wide as it is tall, not a narrow vertical streak, with several large soft turbulent folds, translucent wispy edges, fine internal density detail. Steam not soot or fire. Grayscale only. All outer edges fully black with generous empty margin. No locomotive, chimney object, scenery, text, frame or graphics. This image will be used as the alpha density of a three-dimensional steam effect."
+}

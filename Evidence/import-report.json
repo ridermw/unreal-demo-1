@@ -23,17 +23,17 @@
         }
       ],
       "center_cm": [
-        -241.74957275390625,
-        -3049.9999389648438,
+        -241.74920654296875,
+        -5276.249938964844,
         376.2499990463257
       ],
       "extent_cm": [
-        771.2505493164062,
-        4150.000061035156,
+        771.2509155273438,
+        6376.250061035156,
         406.2500009536743
       ],
-      "lod0_triangles": 14806,
-      "nanite_enabled": true
+      "lod0_triangles": 548404,
+      "nanite_enabled": false
     },
     {
       "name": "Windows",
@@ -62,19 +62,27 @@
         {
           "slot": "Wood",
           "material": "/Game/Platform/Materials/M_Wood.M_Wood"
+        },
+        {
+          "slot": "DarkLeather",
+          "material": "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather"
+        },
+        {
+          "slot": "Leather",
+          "material": "/Game/Platform/Materials/M_Leather.M_Leather"
         }
       ],
       "center_cm": [
-        -241.49954223632812,
-        -2928.4999389648438,
+        -241.49920654296875,
+        -5224.999938964844,
         410.0
       ],
       "extent_cm": [
-        887.5005798339844,
-        4128.500061035156,
+        887.5009155273438,
+        6325.000061035156,
         410.0
       ],
-      "lod0_triangles": 107160,
+      "lod0_triangles": 377176,
       "nanite_enabled": false
     },
     {
@@ -99,16 +107,16 @@
         }
       ],
       "center_cm": [
-        -123.00363159179688,
-        -3200.0000610351562,
+        -122.94975280761719,
+        -5150.000061035156,
         141.00000762939453
       ],
       "extent_cm": [
-        579.2973937988281,
-        3999.9999389648438,
+        579.3753814697266,
+        5949.999938964844,
         75.00000762939453
       ],
-      "lod0_triangles": 182758,
+      "lod0_triangles": 453210,
       "nanite_enabled": false
     },
     {
@@ -129,17 +137,17 @@
         }
       ],
       "center_cm": [
-        -240.7462615966797,
-        -3200.0005798339844,
+        -240.74697875976562,
+        -5150.000335693359,
         408.0
       ],
       "extent_cm": [
-        710.1422882080078,
-        3767.5350646972656,
+        710.1620788574219,
+        5792.587554931641,
         88.0
       ],
-      "lod0_triangles": 2153,
-      "nanite_enabled": true
+      "lod0_triangles": 103320,
+      "nanite_enabled": false
     },
     {
       "name": "Roof",
@@ -163,16 +171,16 @@
         }
       ],
       "center_cm": [
-        -254.99954223632812,
-        -3137.8640747070312,
-        629.9987182617188
+        -254.99923706054688,
+        -5137.863830566406,
+        630.0000610351562
       ],
       "extent_cm": [
-        749.9897155761719,
-        4062.4703979492188,
-        564.9987182617188
+        749.9900207519531,
+        6062.470153808594,
+        565.0000610351562
       ],
-      "lod0_triangles": 356492,
+      "lod0_triangles": 323764,
       "nanite_enabled": false
     },
     {
@@ -197,13 +205,13 @@
         }
       ],
       "center_cm": [
-        -256.2490234375,
-        -8168.75,
+        -256.24830627441406,
+        -13000.0,
         592.5
       ],
       "extent_cm": [
-        763.75,
-        1868.75,
+        763.7499847412109,
+        2000.0,
         592.5
       ],
       "lod0_triangles": 9840,
@@ -227,17 +235,17 @@
         }
       ],
       "center_cm": [
-        -276.46924591064453,
-        -2851.713623046875,
+        -276.57016372680664,
+        -5050.97900390625,
         3.75
       ],
       "extent_cm": [
-        211.7953109741211,
-        3951.713623046875,
+        211.89660263061523,
+        6150.97900390625,
         13.75
       ],
-      "lod0_triangles": 5272,
-      "nanite_enabled": true
+      "lod0_triangles": 230348,
+      "nanite_enabled": false
     },
     {
       "name": "Locomotive",
@@ -258,19 +266,31 @@
         {
           "slot": "Cream",
           "material": "/Game/Platform/Materials/M_Cream.M_Cream"
+        },
+        {
+          "slot": "SootSteel",
+          "material": "/Game/Platform/Materials/M_SootSteel.M_SootSteel"
+        },
+        {
+          "slot": "SmokeboxDoor",
+          "material": "/Game/Platform/Materials/M_SmokeboxDoor.M_SmokeboxDoor"
+        },
+        {
+          "slot": "RodSteel",
+          "material": "/Game/Platform/Materials/M_RodSteel.M_RodSteel"
         }
       ],
       "center_cm": [
-        -268.9999694824219,
-        -698.9785079956055,
-        293.66600036621094
+        -268.9999580383301,
+        -711.1467170715332,
+        280.2531490325928
       ],
       "extent_cm": [
-        145.0,
-        621.0214920043945,
-        249.33839416503906
+        146.0000114440918,
+        608.8532829284668,
+        239.26314735412598
       ],
-      "lod0_triangles": 650658,
+      "lod0_triangles": 230576,
       "nanite_enabled": false
     },
     {
@@ -288,19 +308,23 @@
         {
           "slot": "Scarlet",
           "material": "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+        },
+        {
+          "slot": "RodSteel",
+          "material": "/Game/Platform/Materials/M_RodSteel.M_RodSteel"
         }
       ],
       "center_cm": [
-        -268.9998970031738,
-        -776.0000457763672,
-        106.99858260154724
+        -268.99988555908203,
+        -731.0000457763672,
+        118.77575016021729
       ],
       "extent_cm": [
-        144.00004196166992,
-        457.2772979736328,
-        100.27868485450745
+        155.0000228881836,
+        502.1059112548828,
+        111.88162899017334
       ],
-      "lod0_triangles": 707088,
+      "lod0_triangles": 249916,
       "nanite_enabled": false
     },
     {
@@ -327,14 +351,14 @@
       "center_cm": [
         -268.9998092651367,
         -1502.5,
-        220.60825204849243
+        220.5971097946167
       ],
       "extent_cm": [
         179.00000762939453,
         347.5,
-        213.39174795150757
+        213.4028902053833
       ],
-      "lod0_triangles": 96764,
+      "lod0_triangles": 54268,
       "nanite_enabled": false
     },
     {
@@ -363,16 +387,16 @@
         }
       ],
       "center_cm": [
-        -268.9994125366211,
-        -3849.25,
-        228.39687728881836
+        -268.99901580810547,
+        -6489.25,
+        228.34716629981995
       ],
       "extent_cm": [
-        143.25028228759766,
-        1959.25,
-        221.60312271118164
+        143.25067901611328,
+        4599.25,
+        221.65283370018005
       ],
-      "lod0_triangles": 272160,
+      "lod0_triangles": 188832,
       "nanite_enabled": false
     },
     {
@@ -402,19 +426,31 @@
         {
           "slot": "Wood",
           "material": "/Game/Platform/Materials/M_Wood.M_Wood"
+        },
+        {
+          "slot": "CageBrass",
+          "material": "/Game/Platform/Materials/M_CageBrass.M_CageBrass"
+        },
+        {
+          "slot": "Rubber",
+          "material": "/Game/Platform/Materials/M_Rubber.M_Rubber"
+        },
+        {
+          "slot": "AgedBrass",
+          "material": "/Game/Platform/Materials/M_AgedBrass.M_AgedBrass"
         }
       ],
       "center_cm": [
-        384.22499084472656,
-        -49.078521728515625,
-        154.34943008422852
+        367.1500244140625,
+        -55.98289489746094,
+        148.72293853759766
       ],
       "extent_cm": [
-        105.47496032714844,
-        317.4214172363281,
-        88.49325180053711
+        90.54998779296875,
+        310.9829559326172,
+        83.77706146240234
       ],
-      "lod0_triangles": 268922,
+      "lod0_triangles": 150764,
       "nanite_enabled": false
     },
     {
@@ -447,16 +483,16 @@
         }
       ],
       "center_cm": [
-        387.92698669433594,
+        387.9263916015625,
         -1324.8706512451172,
-        432.9990997314453
+        432.99803161621094
       ],
       "extent_cm": [
-        78.92576599121094,
+        78.92636108398438,
         1182.4293975830078,
-        71.99790954589844
+        71.99803161621094
       ],
-      "lod0_triangles": 35154,
+      "lod0_triangles": 20922,
       "nanite_enabled": false
     },
     {
@@ -469,17 +505,17 @@
         }
       ],
       "center_cm": [
-        95.71374225616455,
-        -1749.822940826416,
+        95.19709587097168,
+        -1745.1665687561035,
         70.20000457763672
       ],
       "extent_cm": [
-        125.68997478485107,
-        1873.912899017334,
+        126.48300361633301,
+        1866.4686851501465,
         0.0
       ],
       "lod0_triangles": 210,
-      "nanite_enabled": true
+      "nanite_enabled": false
     }
   ],
   "textures": [
@@ -494,15 +530,18 @@
     "leather",
     "scarlet",
     "sign_face",
+    "smokebox_door",
     "stone",
     "wood"
   ],
   "materials": [
+    "AgedBrass",
     "AmberGlass",
     "BlackSteel",
     "Blanket",
     "Brass",
     "Brick",
+    "CageBrass",
     "Cream",
     "DarkLeather",
     "Glass",
@@ -513,9 +552,13 @@
     "Leather",
     "Lettering",
     "Puddle",
+    "RodSteel",
     "RoofPanel",
+    "Rubber",
     "Scarlet",
     "SignFace",
+    "SmokeboxDoor",
+    "SootSteel",
     "Stone",
     "Wood"
   ],
@@ -542,7 +585,7 @@
         "/Game/Platform/Textures/T_stone.T_stone",
         "/Game/Platform/Textures/T_stone_normal.T_stone_normal",
         "/Game/Platform/Textures/T_stone_roughness.T_stone_roughness",
-        "/Game/Platform/Textures/T_stone_wetness.T_stone_wetness"
+        "/Game/Platform/Textures/T_stone.T_stone"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -571,6 +614,90 @@
         "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
         "/Game/Platform/Textures/T_blacksteel_normal.T_blacksteel_normal",
         "/Game/Platform/Textures/T_blacksteel_roughness.T_blacksteel_roughness"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "SootSteel",
+      "texture_references": [
+        "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
+        "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
+        "/Game/Platform/Textures/T_blacksteel_normal.T_blacksteel_normal",
+        "/Game/Platform/Textures/T_blacksteel_roughness.T_blacksteel_roughness"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "SmokeboxDoor",
+      "texture_references": [
+        "/Game/Platform/Textures/T_smokebox_door.T_smokebox_door",
+        "/Game/Platform/Textures/T_smokebox_door.T_smokebox_door",
+        "/Game/Platform/Textures/T_smokebox_door_normal.T_smokebox_door_normal",
+        "/Game/Platform/Textures/T_smokebox_door_roughness.T_smokebox_door_roughness"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "RodSteel",
+      "texture_references": [
+        "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
+        "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
+        "/Game/Platform/Textures/T_blacksteel_normal.T_blacksteel_normal",
+        "/Game/Platform/Textures/T_blacksteel_roughness.T_blacksteel_roughness"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Rubber",
+      "texture_references": [
+        "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
+        "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
+        "/Game/Platform/Textures/T_blacksteel_normal.T_blacksteel_normal",
+        "/Game/Platform/Textures/T_blacksteel_roughness.T_blacksteel_roughness"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "CageBrass",
+      "texture_references": [
+        "/Game/Platform/Textures/T_brass.T_brass",
+        "/Game/Platform/Textures/T_brass.T_brass",
+        "/Game/Platform/Textures/T_brass_normal.T_brass_normal",
+        "/Game/Platform/Textures/T_brass_roughness.T_brass_roughness"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "AgedBrass",
+      "texture_references": [
+        "/Game/Platform/Textures/T_brass.T_brass",
+        "/Game/Platform/Textures/T_brass.T_brass",
+        "/Game/Platform/Textures/T_brass_normal.T_brass_normal",
+        "/Game/Platform/Textures/T_brass_roughness.T_brass_roughness"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -756,10 +883,10 @@
     {
       "name": "Interior",
       "texture_references": [
-        "/Game/Platform/Textures/T_wood.T_wood",
-        "/Game/Platform/Textures/T_wood.T_wood",
-        "/Game/Platform/Textures/T_wood_normal.T_wood_normal",
-        "/Game/Platform/Textures/T_wood_roughness.T_wood_roughness"
+        "/Game/Platform/Textures/T_enamel.T_enamel",
+        "/Game/Platform/Textures/T_enamel.T_enamel",
+        "/Game/Platform/Textures/T_enamel_normal.T_enamel_normal",
+        "/Game/Platform/Textures/T_enamel_roughness.T_enamel_roughness"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -790,7 +917,8 @@
   ],
   "policy": "Reuse and validate existing named packages; no deletions",
   "engine": "5.8.3-58210709+++UE5+Release-5.8",
-  "asset_count": 76,
+  "geometry_policy": "Full authored source geometry; automatic Nanite simplification disabled",
+  "asset_count": 88,
   "stage": "import",
-  "utc": "2026-09-25T06:18:44.227330+00:00"
+  "utc": "2026-09-25T10:34:00.179651+00:00"
 }

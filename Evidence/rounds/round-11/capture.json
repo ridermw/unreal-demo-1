@@ -1,0 +1,50 @@
+{
+  "status": "success",
+  "source": "Actual Unreal AutomationLibrary screenshot",
+  "scene_identity": {
+    "sha256": "2ba033a774784872d693898db11af7be415577bd43bfe84226139d6bfc232023",
+    "package_count": 88,
+    "map_sha256": "ee2b38172814005bab1b2ae3b1b396ba9d678845c5ee68da1ec2881366804662"
+  },
+  "image": "Evidence/round11-color-balance.png",
+  "utc": "2026-09-25T10:05:57.090013+00:00",
+  "resolution": [
+    1536,
+    864
+  ],
+  "camera_label": "PN_TargetCamera",
+  "view": "target",
+  "fov": 70.0,
+  "position_cm": [
+    250.0,
+    580.0,
+    235.0
+  ],
+  "rotation_degrees": [
+    -0.9982923864338885,
+    -98.02925109306653,
+    -0.0
+  ],
+  "quality": "High",
+  "screen_percentage": 100,
+  "frame_cap": 32.0,
+  "one_frame_thread_lag": false,
+  "runtime_settings": {
+    "sg.ViewDistanceQuality": 2.0,
+    "sg.AntiAliasingQuality": 2.0,
+    "sg.ShadowQuality": 2.0,
+    "sg.GlobalIlluminationQuality": 2.0,
+    "sg.ReflectionQuality": 2.0,
+    "sg.PostProcessQuality": 2.0,
+    "sg.TextureQuality": 2.0,
+    "sg.EffectsQuality": 2.0,
+    "sg.FoliageQuality": 2.0,
+    "sg.ShadingQuality": 2.0,
+    "t.MaxFPS": 32.0,
+    "r.OneFrameThreadLag": 0.0,
+    "r.ScreenPercentage": 100.0
+  },
+  "sha256": "b0c417a25e61d87120b06bcfc869076c8b39db6e83854b68580ba3c24172e012",
+  "completed_utc": "2026-09-25T10:06:20.922047+00:00",
+  "clean_editor_verified": true
+}

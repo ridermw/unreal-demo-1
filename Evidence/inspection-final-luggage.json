@@ -1,0 +1,50 @@
+{
+  "status": "success",
+  "source": "Actual Unreal AutomationLibrary screenshot",
+  "scene_identity": {
+    "sha256": "d44a1b08688492972a55974adb899d089225300f2396b6e415139661cb6d065b",
+    "package_count": 88,
+    "map_sha256": "5b23cd938ad435821a360997a82c04df605cc5219484dc6c151b1eee43a7df43"
+  },
+  "image": "Evidence/inspection-final-luggage.png",
+  "utc": "2026-09-25T10:46:02.998860+00:00",
+  "resolution": [
+    1536,
+    864
+  ],
+  "camera_label": "EditorInspection:luggage",
+  "view": "luggage",
+  "fov": 55,
+  "position_cm": [
+    270.0,
+    340.0,
+    220.00000000000003
+  ],
+  "rotation_degrees": [
+    -14.271367073059082,
+    -59.420772552490234,
+    0.0
+  ],
+  "quality": "High",
+  "screen_percentage": 100,
+  "frame_cap": 32.0,
+  "one_frame_thread_lag": false,
+  "runtime_settings": {
+    "sg.ViewDistanceQuality": 2.0,
+    "sg.AntiAliasingQuality": 2.0,
+    "sg.ShadowQuality": 2.0,
+    "sg.GlobalIlluminationQuality": 2.0,
+    "sg.ReflectionQuality": 2.0,
+    "sg.PostProcessQuality": 2.0,
+    "sg.TextureQuality": 2.0,
+    "sg.EffectsQuality": 2.0,
+    "sg.FoliageQuality": 2.0,
+    "sg.ShadingQuality": 2.0,
+    "t.MaxFPS": 32.0,
+    "r.OneFrameThreadLag": 0.0,
+    "r.ScreenPercentage": 100.0
+  },
+  "sha256": "803842300d2b314f7d2b4f0ca022cb7cc5b49cdb55406a4b6e4000e4f9e661fb",
+  "completed_utc": "2026-09-25T10:46:04.594575+00:00",
+  "clean_editor_verified": true
+}

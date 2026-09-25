@@ -87,9 +87,11 @@ def upgrade(root, manifest):
             specular.r = .05
             if not editing.connect_material_property(specular,"",unreal.MaterialProperty.MP_SPECULAR):
                 raise RuntimeError("Cannot calibrate printed-sign specular")
-            if not library.save_loaded_asset(texture) or not library.save_loaded_asset(sign):
-                raise RuntimeError("Cannot save exact sign material")
+            if not library.save_loaded_asset(texture):
+                raise RuntimeError("Cannot save exact sign texture")
             editing.recompile_material(sign)
+            if not library.save_loaded_asset(sign):
+                raise RuntimeError("Cannot save recompiled exact sign material")
             reports.append({"material": sign.get_path_name(), "maps": {"albedo": texture.get_path_name()},
                             "source": "User-authorized rectified crop of locked target"})
             continue
@@ -137,8 +139,13 @@ def upgrade(root, manifest):
         tint_value = {
             "DarkLeather": (0.45, 0.40, 0.35), "RoofPanel": (0.25, 0.25, 0.25),
             "AmberGlass": (0.14, 0.15, 0.12), "Glass": (0.35, 0.43, 0.45),
-            "Scarlet": (0.65, 0.30, 0.25), "Stone": (.19,.20,.21),
+            "Scarlet": (0.65, 0.30, 0.25), "Stone": (.19,.175,.16),
             "Brick": (.7,.62,.53), "BlackSteel": (.85,.85,.85),
+            "SootSteel": (.5,.52,.54),
+            "SmokeboxDoor": (.68,.68,.65),
+            "RodSteel": (4.0,4.2,4.4),
+            "Rubber": (.20,.22,.24), "CageBrass": (.55,.60,.46),
+            "AgedBrass": (.42,.39,.28), "Blanket": (.65,.25,.70),
             "Cream": (.62,.49,.32), "Brass": (.72,.60,.43),
         }.get(name, (1.0, 1.0, 1.0))
         expressions = editing.get_material_expressions(material)
@@ -165,7 +172,9 @@ def upgrade(root, manifest):
         if not isinstance(metallic, unreal.MaterialExpressionConstant):
             raise RuntimeError(f"Unexpected metallic input type on {name}")
         metallic.r = spec["metallic"]
-        modifiers = {"Stone": .45, "Scarlet": .65, "BlackSteel": .9, "Brass": .9,
+        modifiers = {"Stone": .45, "Scarlet": .65, "BlackSteel": .9, "SootSteel":1.0,
+                     "SmokeboxDoor":1.0,"RodSteel":1.1,"Brass": .9,
+                     "Rubber":1.0,"CageBrass":1.15,"AgedBrass":1.3,"Blanket":1.0,
                      "Iron": 1.0, "Leather": 1.0, "DarkLeather": 1.0, "Wood": 1.0}
         if name in modifiers:
             rough_scale = next((node for node in expressions
@@ -189,6 +198,28 @@ def upgrade(root, manifest):
                 raise RuntimeError("Cannot wire roughness scale")
             if not editing.connect_material_property(rough_product, "", unreal.MaterialProperty.MP_ROUGHNESS):
                 raise RuntimeError("Cannot wire varied roughness")
+            if name in ("SootSteel","SmokeboxDoor","Rubber","Blanket"):
+                rough_scale.set_editor_property("default_value", .15 if name in ("Rubber","Blanket") else .35)
+                offset = next((node for node in expressions
+                               if isinstance(node, unreal.MaterialExpressionConstant)
+                               and str(node.get_editor_property("desc")) == "SootRoughnessFloor"), None)
+                if offset is None:
+                    offset = editing.create_material_expression(
+                        material, unreal.MaterialExpressionConstant, -500, 2000)
+                    offset.set_editor_property("desc", "SootRoughnessFloor")
+                offset.r = .78 if name=="Blanket" else .75 if name=="Rubber" else .52
+                added = next((node for node in expressions
+                              if isinstance(node, unreal.MaterialExpressionAdd)
+                              and str(node.get_editor_property("desc")) == "SootRoughness"), None)
+                if added is None:
+                    added = editing.create_material_expression(
+                        material, unreal.MaterialExpressionAdd,-150,1900)
+                    added.set_editor_property("desc","SootRoughness")
+                for source_node,input_ in ((rough_product,"A"),(offset,"B")):
+                    if not editing.connect_material_expressions(source_node,"",added,input_):
+                        raise RuntimeError("Cannot wire soot-coated metal roughness")
+                if not editing.connect_material_property(added,"",unreal.MaterialProperty.MP_ROUGHNESS):
+                    raise RuntimeError("Cannot apply soot roughness floor")
         normal_strength = next((node for node in expressions
             if isinstance(node, unreal.MaterialExpressionScalarParameter)
             and str(node.get_editor_property("parameter_name")) == "NormalStrength"), None)
@@ -196,7 +227,7 @@ def upgrade(root, manifest):
             normal_strength = editing.create_material_expression(
                 material, unreal.MaterialExpressionScalarParameter, -800, 2150)
             normal_strength.set_editor_property("parameter_name", "NormalStrength")
-        normal_strength.set_editor_property("default_value", .25 if name in ("Brick","Stone","Gravel") else .08)
+        normal_strength.set_editor_property("default_value", .25 if name in ("Brick","Stone","Gravel","Blanket") else .08)
         flatten = next((node for node in expressions
             if isinstance(node, unreal.MaterialExpressionLinearInterpolate)
             and str(node.get_editor_property("desc")) == "SurfaceNormal"), None)
@@ -242,8 +273,15 @@ def upgrade(root, manifest):
                 raise RuntimeError("Cannot wire wet paving color")
             if not editing.connect_material_property(wet_roughness, "", unreal.MaterialProperty.MP_ROUGHNESS):
                 raise RuntimeError("Cannot wire wet paving roughness")
-        if name in ("Glass", "AmberGlass", "RoofPanel"):
+        if name in ("Glass", "AmberGlass", "RoofPanel", "Blanket"):
             material.set_editor_property("two_sided", True)
+        if name=="Blanket":
+            specular=editing.get_material_property_input_node(material,unreal.MaterialProperty.MP_SPECULAR)
+            if specular is None:
+                specular=editing.create_material_expression(material,unreal.MaterialExpressionConstant,-300,3600)
+            specular.r=.04
+            if not editing.connect_material_property(specular,"",unreal.MaterialProperty.MP_SPECULAR):
+                raise RuntimeError("Cannot set wool surface specular response")
         if name == "AmberGlass":
             material.set_editor_property("blend_mode", unreal.BlendMode.BLEND_TRANSLUCENT)
             opacity = editing.get_material_property_input_node(material, unreal.MaterialProperty.MP_OPACITY)
@@ -252,12 +290,30 @@ def upgrade(root, manifest):
             if emission is None:
                 emission = editing.create_material_expression(
                     material, unreal.MaterialExpressionConstant3Vector, -300, 1400)
-            emission.constant = unreal.LinearColor(.06, .025, .008, 1)
+            emission.constant = unreal.LinearColor(15.0, 7.0, 2.0, 1)
             if not editing.connect_material_property(emission, "", unreal.MaterialProperty.MP_EMISSIVE_COLOR):
                 raise RuntimeError("Cannot wire window interior glow")
         if name == "Glass":
             opacity = editing.get_material_property_input_node(material, unreal.MaterialProperty.MP_OPACITY)
             opacity.r = 0.28
+        if name == "Interior":
+            room_tint = next((node for node in expressions
+                             if isinstance(node, unreal.MaterialExpressionVectorParameter)
+                             and str(node.get_editor_property("parameter_name")) == "InteriorGlow"), None)
+            if room_tint is None:
+                room_tint = editing.create_material_expression(
+                    material, unreal.MaterialExpressionVectorParameter,-600,3200)
+                room_tint.set_editor_property("parameter_name","InteriorGlow")
+            room_tint.set_editor_property("default_value",unreal.LinearColor(3.2,1.5,.60,1))
+            room_emission = editing.get_material_property_input_node(material,unreal.MaterialProperty.MP_EMISSIVE_COLOR)
+            if room_emission is None:
+                room_emission = editing.create_material_expression(
+                    material,unreal.MaterialExpressionMultiply,-300,3200)
+            for source_node,input_ in ((maps["albedo"],"A"),(room_tint,"B")):
+                if not editing.connect_material_expressions(source_node,"",room_emission,input_):
+                    raise RuntimeError("Cannot connect textured interior glow")
+            if not editing.connect_material_property(room_emission,"",unreal.MaterialProperty.MP_EMISSIVE_COLOR):
+                raise RuntimeError("Cannot apply interior glow")
         editing.recompile_material(material)
         if not library.save_loaded_asset(material):
             raise RuntimeError(f"PBR material save failed: {name}")

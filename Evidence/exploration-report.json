@@ -1,0 +1,244 @@
+{
+  "status": "success",
+  "utc": "2026-09-25T10:34:10.725232+00:00",
+  "traces": [
+    {
+      "name": "platform-floor-0",
+      "start_cm": [
+        150,
+        0,
+        250
+      ],
+      "end_cm": [
+        150,
+        0,
+        -100
+      ],
+      "hit": true,
+      "impact_cm": [
+        150.0,
+        0.0,
+        68.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "actor_label": "PN_Architecture",
+      "blocks_pawn": true,
+      "collision_mode": "<CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE: 3>"
+    },
+    {
+      "name": "platform-floor-1000",
+      "start_cm": [
+        150,
+        -1000,
+        250
+      ],
+      "end_cm": [
+        150,
+        -1000,
+        -100
+      ],
+      "hit": true,
+      "impact_cm": [
+        150.0,
+        -1000.0,
+        68.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "actor_label": "PN_Architecture",
+      "blocks_pawn": true,
+      "collision_mode": "<CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE: 3>"
+    },
+    {
+      "name": "platform-floor-3500",
+      "start_cm": [
+        150,
+        -3500,
+        250
+      ],
+      "end_cm": [
+        150,
+        -3500,
+        -100
+      ],
+      "hit": true,
+      "impact_cm": [
+        150.0,
+        -3500.0,
+        68.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "actor_label": "PN_Architecture",
+      "blocks_pawn": true,
+      "collision_mode": "<CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE: 3>"
+    },
+    {
+      "name": "platform-floor-8000",
+      "start_cm": [
+        150,
+        -8000,
+        250
+      ],
+      "end_cm": [
+        150,
+        -8000,
+        -100
+      ],
+      "hit": true,
+      "impact_cm": [
+        150.0,
+        -8000.0,
+        68.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "actor_label": "PN_Architecture",
+      "blocks_pawn": true,
+      "collision_mode": "<CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE: 3>"
+    },
+    {
+      "name": "platform-floor-10700",
+      "start_cm": [
+        150,
+        -10700,
+        250
+      ],
+      "end_cm": [
+        150,
+        -10700,
+        -100
+      ],
+      "hit": true,
+      "impact_cm": [
+        150.0,
+        -10700.0,
+        68.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "actor_label": "PN_Architecture",
+      "blocks_pawn": true,
+      "collision_mode": "<CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE: 3>"
+    },
+    {
+      "name": "opposite-floor",
+      "start_cm": [
+        -800,
+        -1100,
+        250
+      ],
+      "end_cm": [
+        -800,
+        -1100,
+        -100
+      ],
+      "hit": true,
+      "impact_cm": [
+        -800.0,
+        -1100.0,
+        60.000003814697266
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "actor_label": "PN_Architecture",
+      "blocks_pawn": true,
+      "collision_mode": "<CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE: 3>"
+    },
+    {
+      "name": "locomotive-body",
+      "start_cm": [
+        100,
+        -700,
+        300
+      ],
+      "end_cm": [
+        -500,
+        -700,
+        300
+      ],
+      "hit": true,
+      "impact_cm": [
+        -170.93956927339337,
+        -700.0,
+        300.0
+      ],
+      "normal": [
+        0.9702378060935731,
+        1.603971329333794e-07,
+        -0.2421540824076777
+      ],
+      "actor_label": "PN_Locomotive",
+      "blocks_pawn": true,
+      "collision_mode": "<CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE: 3>"
+    },
+    {
+      "name": "right-wall",
+      "start_cm": [
+        150,
+        -600,
+        300
+      ],
+      "end_cm": [
+        600,
+        -600,
+        300
+      ],
+      "hit": true,
+      "impact_cm": [
+        467.50010681154237,
+        -600.0,
+        300.0
+      ],
+      "normal": [
+        -0.9999999999999519,
+        -3.1013791212674963e-07,
+        0.0
+      ],
+      "actor_label": "PN_Architecture",
+      "blocks_pawn": true,
+      "collision_mode": "<CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE: 3>"
+    },
+    {
+      "name": "clear-platform-corridor",
+      "start_cm": [
+        150,
+        300,
+        180
+      ],
+      "end_cm": [
+        150,
+        -9500,
+        180
+      ],
+      "hit": false
+    }
+  ],
+  "scene_identity": {
+    "sha256": "d4efce569301ef6b5d6a89fb6eb0d8a42ded27bb45aa5c0b302189c40bb2fbea",
+    "package_count": 88,
+    "map_sha256": "813ab08616b75568c982d2407dcf9805095f790bbdaa4376ed5b5c66e82bbe15"
+  },
+  "limitations": [
+    "Static collision probes; not a full walking-controller or packaged-game test"
+  ]
+}

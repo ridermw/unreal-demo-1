@@ -1,0 +1,17 @@
+{
+  "status": "authorized-pending",
+  "base": "ae13c86faac4fc8e3608332375b822943111b492",
+  "scope": "Only unpublished main commits after the existing origin/main base",
+  "backup_ref": "refs/heads/backup/pre-lfs-20260925",
+  "preserve_refs": ["origin/main", "gh-pages", "checkpoint/platform-nine"],
+  "working_asset_policy": "Preserve hydrated working files byte-for-byte",
+  "lfs_patterns": ["*.uasset", "*.umap", "*.ubulk", "*.uexp", "*.fbx", "*.blend", "Art/Textures/**/*.png"],
+  "pages_policy": "Reference, Evidence and docs PNGs remain ordinary Git files",
+  "review": "Code review: skipped (mechanical diff)",
+  "review_reason": "LFS filter configuration and binary-to-pointer representation change; existing scene work has separate review receipts.",
+  "verification": [
+    "Local Git LFS3.8.0 is installed and repository-local filters/hooks initialized",
+    "Map, FBX and PNG clean/smudge round trips preserve original bytes",
+    "Attributes exclude Pages images and text metadata"
+  ]
+}

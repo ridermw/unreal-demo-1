@@ -1,0 +1,39 @@
+{
+  "status": "success",
+  "source": "Actual Unreal AutomationLibrary screenshot",
+  "scene_identity": {
+    "sha256": "e6490e50cb4bc11358445be2cc046a3b2a77f5840fd9bfae5e22f3a200929639",
+    "package_count": 88,
+    "map_sha256": "3b97009c3b995e7baad367940dd4e1287841658defba5f92b358243d7cf5df12"
+  },
+  "image": "Evidence/round10-architecture.png",
+  "utc": "2026-09-25T09:26:47.444215+00:00",
+  "resolution": [
+    1536,
+    864
+  ],
+  "camera_label": "PN_TargetCamera",
+  "fov": 70.0,
+  "quality": "High",
+  "screen_percentage": 100,
+  "frame_cap": 32.0,
+  "one_frame_thread_lag": false,
+  "runtime_settings": {
+    "sg.ViewDistanceQuality": 2.0,
+    "sg.AntiAliasingQuality": 2.0,
+    "sg.ShadowQuality": 2.0,
+    "sg.GlobalIlluminationQuality": 2.0,
+    "sg.ReflectionQuality": 2.0,
+    "sg.PostProcessQuality": 2.0,
+    "sg.TextureQuality": 2.0,
+    "sg.EffectsQuality": 2.0,
+    "sg.FoliageQuality": 2.0,
+    "sg.ShadingQuality": 2.0,
+    "t.MaxFPS": 32.0,
+    "r.OneFrameThreadLag": 0.0,
+    "r.ScreenPercentage": 100.0
+  },
+  "sha256": "951e61540676105956a7ce7fe2941c573c67541c1fae29ba39cd0e6509a022d8",
+  "completed_utc": "2026-09-25T09:27:15.252787+00:00",
+  "clean_editor_verified": true
+}

@@ -1,0 +1,55 @@
+{
+  "status": "success",
+  "utc": "2026-09-25T10:16:51.337628+00:00",
+  "mode": "standalone game, Metal SM6 offscreen rendering; not NullRHI",
+  "view": "target",
+  "camera_label": "PN_TargetCamera",
+  "camera_fov": 70,
+  "resolution": [
+    1536,
+    864
+  ],
+  "screen_percentage": 100,
+  "quality": "High (all sg.* = 2)",
+  "frame_cap": 32.0,
+  "one_frame_thread_lag": false,
+  "warmup_frames": 360,
+  "measurement_frames": 360,
+  "target": {
+    "median_fps_minimum": 30,
+    "p95_frame_ms_maximum": 50
+  },
+  "log": ".dream-loop/profile-20260925T101651.log",
+  "pacing_source": "Confirmed engine readbacks before capture stop",
+  "runtime_settings": {
+    "sg.ViewDistanceQuality": 2.0,
+    "sg.AntiAliasingQuality": 2.0,
+    "sg.ShadowQuality": 2.0,
+    "sg.GlobalIlluminationQuality": 2.0,
+    "sg.ReflectionQuality": 2.0,
+    "sg.PostProcessQuality": 2.0,
+    "sg.TextureQuality": 2.0,
+    "sg.EffectsQuality": 2.0,
+    "sg.FoliageQuality": 2.0,
+    "sg.ShadingQuality": 2.0,
+    "r.ScreenPercentage": 100.0,
+    "t.MaxFPS": 32.0,
+    "r.OneFrameThreadLag": 0.0
+  },
+  "detailed_gpu_instrumentation": false,
+  "median_fps": 32.00133125538022,
+  "average_fps": 32.00071141137102,
+  "median_frame_ms": 31.2487,
+  "p95_frame_ms": 31.622,
+  "meets_target": true,
+  "frame_source": "Native Unreal CSV FrameTime",
+  "device": "Apple M4 Pro, 20 GPU cores, 48 GB",
+  "engine": "5.8.3",
+  "frame_evidence": "Evidence/performance-frames.csv",
+  "scene_identity": {
+    "sha256": "2ba033a774784872d693898db11af7be415577bd43bfe84226139d6bfc232023",
+    "package_count": 88,
+    "map_sha256": "ee2b38172814005bab1b2ae3b1b396ba9d678845c5ee68da1ec2881366804662"
+  },
+  "provenance_finalized": true
+}

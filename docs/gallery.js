@@ -30,7 +30,7 @@ function showRound(id) {
   }
   const perf = round.performance;
   byId("performance").textContent = perf?.status === "success"
-    ? `Measured for this round: ${perf.median_fps.toFixed(2)} median FPS; ${perf.p95_frame_ms.toFixed(2)} ms p95. ${perf.resolution.join(" x ")}. ${perf.quality}. ${perf.frame_cap ? `Frame cap ${perf.frame_cap} FPS.` : "Uncapped."} ${perf.one_frame_thread_lag === false ? "One-frame thread lag disabled." : ""} Target ${perf.meets_target ? "passed" : "not met"}.`
+    ? `${round.matching_capture_and_performance ? "Verified same-state measurement" : "Recorded timing; exact capture/runtime match not verified"}: ${perf.median_fps.toFixed(2)} median FPS; ${perf.p95_frame_ms.toFixed(2)} ms p95. ${perf.resolution.join(" x ")}. ${perf.quality}. ${perf.frame_cap == null ? "Frame cap unverified." : perf.frame_cap ? `Frame cap ${perf.frame_cap} FPS.` : "Uncapped."} ${perf.one_frame_thread_lag == null ? "Thread-lag setting unverified." : perf.one_frame_thread_lag === false ? "One-frame thread lag disabled." : "One-frame thread lag enabled."} Numeric timing target ${perf.meets_target ? "passed" : "not met"}.`
     : "Performance has not yet been validly measured for this exact round. Earlier measurements are not treated as current.";
   byId("provenance").textContent = `${round.id} | Actual Unreal PNG SHA-256: ${round.sha256}`;
   const audit = round.component_audit || [];
@@ -78,4 +78,26 @@ fetch("rounds.json").then(response => {
   byId("status").textContent = "Evidence unavailable";
   byId("error").hidden = false;
   byId("error").textContent = error.message;
+});
+fetch("inspections.json").then(response => {
+  if (!response.ok) throw new Error(`Inspection request failed (${response.status})`);
+  return response.json();
+}).then(inspections => {
+  if (!Array.isArray(inspections)) throw new Error("Invalid inspection evidence.");
+  byId("inspection-section").hidden = !inspections.length;
+  for (const inspection of inspections) {
+    const link = document.createElement("a");
+    link.href = inspection.image;
+    const image = document.createElement("img");
+    image.src = inspection.image;
+    image.alt = `Actual Unreal inspection: ${inspection.view}`;
+    image.loading = "lazy";
+    const label = document.createElement("strong");
+    label.textContent = `${inspection.view} - ${inspection.fov} degree view`;
+    link.append(image, label);
+    byId("inspections").append(link);
+  }
+}).catch(error => {
+  byId("error").hidden = false;
+  byId("error").textContent += ` ${error.message}`;
 });

@@ -1,0 +1,50 @@
+{
+  "status": "success",
+  "source": "Actual Unreal AutomationLibrary screenshot",
+  "scene_identity": {
+    "sha256": "d4a27200a91817480fdb10faaf8ac3100066687a0f0a461673fa2f2b07dabe5c",
+    "package_count": 88,
+    "map_sha256": "a349cf8a037001375862d2484dae53a5ab9c2e387e1b7a3daf89294dfb814b95"
+  },
+  "image": "Evidence/round11-interior.png",
+  "utc": "2026-09-25T09:58:11.881790+00:00",
+  "resolution": [
+    1536,
+    864
+  ],
+  "camera_label": "PN_TargetCamera",
+  "view": "target",
+  "fov": 70.0,
+  "position_cm": [
+    250.0,
+    580.0,
+    235.0
+  ],
+  "rotation_degrees": [
+    -0.9982923864338885,
+    -98.02925109306653,
+    -0.0
+  ],
+  "quality": "High",
+  "screen_percentage": 100,
+  "frame_cap": 32.0,
+  "one_frame_thread_lag": false,
+  "runtime_settings": {
+    "sg.ViewDistanceQuality": 2.0,
+    "sg.AntiAliasingQuality": 2.0,
+    "sg.ShadowQuality": 2.0,
+    "sg.GlobalIlluminationQuality": 2.0,
+    "sg.ReflectionQuality": 2.0,
+    "sg.PostProcessQuality": 2.0,
+    "sg.TextureQuality": 2.0,
+    "sg.EffectsQuality": 2.0,
+    "sg.FoliageQuality": 2.0,
+    "sg.ShadingQuality": 2.0,
+    "t.MaxFPS": 32.0,
+    "r.OneFrameThreadLag": 0.0,
+    "r.ScreenPercentage": 100.0
+  },
+  "sha256": "49a45452b11e1dc3e218996c86d9bdb2539965c8d912ace6693ef690ac8d32fa",
+  "completed_utc": "2026-09-25T09:58:39.094674+00:00",
+  "clean_editor_verified": true
+}

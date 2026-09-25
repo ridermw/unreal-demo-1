@@ -86,4 +86,8 @@ li { margin-bottom: 12px; }
 .report + .report { margin-top: 20px; }
 details { padding: 12px 0; border-bottom: 1px solid var(--cp-border); }
 summary { cursor: pointer; font-weight: 650; }
+.inspection-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 16px; }
+.inspection-grid img { width: 100%; display: block; border-radius: .625rem; }
+.inspection-grid a { text-decoration: none; }
+.inspection-grid strong { display: block; margin-top: 8px; text-transform: capitalize; }
 @media(max-width:720px) { header { display: block; } header,main,footer { padding: 20px 16px; } .metrics { grid-template-columns: repeat(2,1fr); } .report { padding: 16px; } .toolbar { align-items: start; } }

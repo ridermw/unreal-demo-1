@@ -1,0 +1,841 @@
+{
+  "round": "11",
+  "target_image": "Art/Reference/target.png",
+  "actual_image": ".dream-loop/round-11/unreal.png",
+  "previous_image": ".dream-loop/round-09/unreal.png",
+  "previous_verdict": ".dream-loop/round-09/verdict.json",
+  "checklist": "Art/Reference/visual-checklist.json",
+  "judge_instructions": "Scripts/judge_round.txt",
+  "evaluation_basis": "Independent, single-context pixel comparison. Full target, actual and previous frames were viewed, followed by ten enlarged target/actual region comparisons and two enlarged previous/actual architectural comparisons. All 58 components are audited in checklist order. Implementation claims were not provided and implementation code was not inspected. No credit is given for effort, asset counts or performance. Approximate coordinates refer to the original 1536x864 images, with origin at upper left. Temporary labeled crops are inspection derivatives, not engine captures.",
+  "review_execution": {
+    "subagents_launched": 0,
+    "implementation_files_changed": false,
+    "persistent_output": ".dream-loop/round-11/verdict.json",
+    "independence_scope": "Independent of implementation, not a claim of multiple-reviewer consensus.",
+    "image_identity_checked_utc": "2026-09-25T10:21:26Z",
+    "target_sha256": "13f10c4beb43d098cac8bc78cf8721ee5aefb4b1fe1fa259048fa390a0a849c0",
+    "actual_sha256": "b0c417a25e61d87120b06bcfc869076c8b39db6e83854b68580ba3c24172e012",
+    "previous_sha256": "47ef23adb590ada1cf8bf3cbd170191aeeb417ae3a5345601836ad4e737e40f7"
+  },
+  "coverage": {
+    "expected_components": 58,
+    "audited_components": 58,
+    "checklist_order_preserved": true,
+    "train_front_to_back_audited": true,
+    "opposing_facade_separately_audited": true,
+    "roof_columns_terminal_and_right_glazing_enlarged": true,
+    "unassessed_components": [],
+    "inspection_regions": [
+      "Full target, actual round-11 and previous round-09 frames, 1536x864",
+      "Upper locomotive front, smokebox, lamp and chimney: [175,85,575,450], 1.7x",
+      "Lower front, buffers, beam, apron and coupling: [0,390,560,740], 1.4x",
+      "Cylinders, leading/driving wheels, running gear and low steam: [360,375,760,720], 1.7x",
+      "Rear boiler, cab, tender and carriages through the distant end: [540,205,955,550], 1.7x",
+      "Exposed opposing upper/lower facade, platform, railings and roof-support location: [0,75,310,545], 2.2x",
+      "Roof span, primary/secondary structure, columns, glazing, side panels and chimney steam: [0,0,1050,355], 1.3x",
+      "Terminal glazing, lower opening, train endpoint and distant platform: [745,245,1020,510], 2.5x",
+      "Paving, wetness, coping, rails, sleepers and ballast: [0,425,1100,864], 1.25x",
+      "Right masonry, glazing, lanterns, sign, bracket and bench: [970,0,1536,580], 1.25x",
+      "Foreground bench, trolley, trunks, other luggage, cage and blanket: [1060,395,1536,864], 1.5x",
+      "Previous/actual opposing facade and disappearing support: [0,75,310,545], 2.2x",
+      "Previous/actual right glazing and architectural relief: [970,0,1536,580], 1.25x",
+      "Cross-frame exposure, palette, reflections, haze, repetition, intersections and cropping"
+    ]
+  },
+  "component_audit": [
+    {
+      "id": "train.buffers",
+      "status": "partial",
+      "target_observation": "Complete convex black heads near (65,575) and (335,580) project from red shafts and thick circular bolted mounts. Curved worn edges separate heads from the beam.",
+      "actual_observation": "Both heads and mounts are visible near (80,545) and (320,548). They are too high and closer together, with blunt dark faces and shallower shaft/mount relief. Their silhouette is materially unchanged from round 09.",
+      "correction": "Lower the connected front assembly about 30 pixels at this camera, match head separation and shaft projection, and give each head a restrained curved edge highlight.",
+      "severity": "major"
+    },
+    {
+      "id": "train.buffer-beam",
+      "status": "partial",
+      "target_observation": "The substantial scarlet beam occupies approximately y515-618, with uneven bolts, deep buffer plates, brackets and localized abrasion.",
+      "actual_observation": "A shallower, higher red rectangle around y495-584 has regular small bolts and a pale glossy patch at its right end. Mounting depth, bracket density and aged scarlet response remain simplified.",
+      "correction": "Match beam height, thickness and projected placement as part of the front assembly; add the visible mounting clusters and replace the pale uniform sheen with localized wear.",
+      "severity": "major"
+    },
+    {
+      "id": "train.coupling",
+      "status": "wrong",
+      "target_observation": "Separate central hook, attachment plate, hanging links and curved hoses form a compact mechanical group backed by a broad dark lower enclosure toward y710.",
+      "actual_observation": "An angular diagonal structure terminates in a dense pendant of repeated links. A bare transverse axle and far-side red wheel remain exposed through the largely open lower front.",
+      "correction": "Rebuild the hook, plate, hose loops and hanging fittings as distinct connected parts against the correct lower enclosure; remove the knotted pendant and inappropriate open axle silhouette.",
+      "severity": "major"
+    },
+    {
+      "id": "train.apron",
+      "status": "wrong",
+      "target_observation": "A thick riveted apron slopes between roughly y440 and515, then sweeps down into a curved right cheek joined to the cylinder casing and running board.",
+      "actual_observation": "A high flat trapezoid around y405-470 terminates in a heavy straight shelf and square side transition. The side running strip does not form the target's continuous curved structural connection.",
+      "correction": "Replace the shelf with a thick folded sloping apron and sweeping cheek, connecting beam, cylinder mounting and running board at their target-projected heights.",
+      "severity": "major"
+    },
+    {
+      "id": "train.smokebox-form",
+      "status": "partial",
+      "target_observation": "The front door is shallowly convex, with a thick annular surround, recessed seam and irregular cool/amber reflections over blackened curved steel.",
+      "actual_observation": "The diameter and screen position are broadly recognizable, but the face reads as a flat gray disk with a narrow bright perimeter. The adjacent housing is a plain smooth dark cylinder rather than layered soot-dark steel.",
+      "correction": "Preserve the broad outline while adding shallow convexity, surround thickness and seam depth; shape the roughness and reflected light around the curved surface.",
+      "severity": "major"
+    },
+    {
+      "id": "train.smokebox-fittings",
+      "status": "partial",
+      "target_observation": "A bent central latch, right straps, left hinges, rim rivets and oval 8 plate sit below a compact square brass-framed lantern near (316,193).",
+      "actual_observation": "Latch, straps, rivets and oval plate are recognizable. The latch is strongly gold and the upper lamp is a bright circular disk on a tall gold block; left hinge relief is weak.",
+      "correction": "Replace the circular lamp with the small square framed lantern; refine the hinge and latch profiles and restrain their gold response.",
+      "severity": "minor"
+    },
+    {
+      "id": "train.chimney",
+      "status": "partial",
+      "target_observation": "A short soot-black stack around x390 has a flared mouth, layered rim and shaped foot, defined by narrow curved highlights.",
+      "actual_observation": "The stack occupies approximately the correct area but has a straighter body, simpler lip and abrupt base. Bright steam is visibly split beside and above the mouth rather than filling it naturally.",
+      "correction": "Match the flare, layered rim and shaped base, then align the plume with the mouth without hiding the corrected outline.",
+      "severity": "minor"
+    },
+    {
+      "id": "train.front-cylinders",
+      "status": "partial",
+      "target_observation": "Around x465-555, y480-605, a curved red casing wraps a dark circular cover with seams and bolts; pipes, guidework and mountings connect it to the surrounding structure.",
+      "actual_observation": "A bolted end cover exists farther left, around x420-505, on a plain brown-gray tube. Sparse angular connections replace the target's layered red shell and connected pipework.",
+      "correction": "Correct the casing envelope and placement, keep the end cover distinct, and join the curved red shell, piston guide, pipes and mounting structure to the apron and frame.",
+      "severity": "major"
+    },
+    {
+      "id": "train.leading-wheels",
+      "status": "partial",
+      "target_observation": "The forward near wheel has a hub around (420,645), fine warm-edged spokes and a thick dark tire reaching about y715. The front structure partly encloses it.",
+      "actual_observation": "The near hub is around (428,631), the lower tire is near y680, and a broad red center replaces the fine visible spoke pattern. The far wheel and transverse axle are conspicuously exposed.",
+      "correction": "Match the tire envelope, hub/spoke proportions, support and rail contact; restore the target's enclosing structure and selective axle occlusion.",
+      "severity": "major"
+    },
+    {
+      "id": "train.driving-wheels",
+      "status": "wrong",
+      "target_observation": "Successive dark drivers near x565-700 show selected fine spokes and warm rim edges through overlapping machinery and steam. Shaped red splashers cover their upper sectors.",
+      "actual_observation": "Three exposed red spoked disks near x495,575 and625 dominate the side. Their repetitive open spokes and red upper arcs lack the separate shaped splashers and intervening dark mass.",
+      "correction": "Match each driver's projected envelope and perspective; darken wheel faces, refine tires/spokes/hubs, add separate splashers and establish the correct frame/rod occlusion.",
+      "severity": "major"
+    },
+    {
+      "id": "train.running-gear",
+      "status": "wrong",
+      "target_observation": "Broad rods, guides, crank joints, vertical supports and suspension overlap against a substantial dark frame between roughly x535-720, y465-615.",
+      "actual_observation": "A diagonal cylinder linkage and thin horizontal member cross mostly open red spokes. Readable rod joints, guides, bearings and layered suspension are not resolved; repeated horizontal steam bands occupy the same region.",
+      "correction": "Reconstruct the visible cylinder, wheel, rod and frame relationships together. Place broad rods and joints first, then guides, supports and suspension mass; do not conceal the open mechanism with steam.",
+      "severity": "major"
+    },
+    {
+      "id": "train.boiler",
+      "status": "partial",
+      "target_observation": "The heavy oxblood barrel changes contour along its length, with a black forward section, bands, seams and narrow irregular amber streaks on worn curved paint.",
+      "actual_observation": "The broad color family and direction are present, but the body is a regular smooth tube with simple bands and broad highlights. An oversized plain diagonal support and reflective cab slab disrupt the silhouette.",
+      "correction": "Correct the barrel profile, forward transition and band spacing, then tune aged oxblood roughness and localized reflections; match the visible forward pipe/support rather than the plain diagonal bar.",
+      "severity": "major"
+    },
+    {
+      "id": "train.boiler-fittings",
+      "status": "partial",
+      "target_observation": "A broad brass dome near (550,207), smaller valves, high handrail, brackets and pipe clusters create distinct layered shapes along the boiler.",
+      "actual_observation": "Narrow peg-like gold fittings and long straight lines remain. The prominent dome is too slender, lower side lines dominate, and local support/valve complexity is sparse.",
+      "correction": "Match the dome width and foot, handrail height and support spacing, then add the target-visible valve and pipe clusters with restrained aged brass.",
+      "severity": "major"
+    },
+    {
+      "id": "train.cab",
+      "status": "wrong",
+      "target_observation": "The cab near x665-750 has a curved thin roof, arched side opening, narrow gold-edged pillars, a tall near-side door edge and dark interior depth connected to the boiler.",
+      "actual_observation": "A blocky cab around x625-720 has a straight heavy roof and broad gray reflective panels. The side opening, narrow pillars, door/step hierarchy and dark interior do not read correctly.",
+      "correction": "Rebuild the cab silhouette and openings in screen space, replacing the bright slab with a recessed dark interior and thin framed windows; connect the door, steps and lower edge to the chassis.",
+      "severity": "major"
+    },
+    {
+      "id": "train.tender",
+      "status": "partial",
+      "target_observation": "Behind the cab, a distinct tall maroon tender body with fine edging and a small gold emblem sits above dark undercarriage, separated from the first coach. Its dark upper contents are not clearly resolvable.",
+      "actual_observation": "A brown-red intermediate body is present but merges into the cab/coach transition, with weak upper profile, edge hierarchy and lower chassis separation. Coal detail cannot be confidently assessed in either image.",
+      "correction": "Match the visible tender body, edging, upper silhouette and dark underframe, and clarify both junctions. Prioritize visible contours rather than inventing hidden coal geometry.",
+      "severity": "major"
+    },
+    {
+      "id": "train.near-carriage",
+      "status": "partial",
+      "target_observation": "The first coach beyond the tender has a curved dark roof, framed reflective windows, thin warm trim, visible doors, maroon lower body and layered dark undercarriage.",
+      "actual_observation": "The nearest coach reads as a dark rectangular side with a regular row of amber panes and a simple roof strip. Door divisions, framing depth, undercarriage and separation from the tender are weak.",
+      "correction": "Resolve the curved roof, window/door rhythm, fine trim, lower panel proportions and undercarriage as a distinct coach; vary glass values instead of repeating orange rectangles.",
+      "severity": "major"
+    },
+    {
+      "id": "train.middle-carriages",
+      "status": "partial",
+      "target_observation": "Successive coach bodies diminish toward x900 with identifiable roof sections, joins, doors and fine window rhythms softened progressively by cool haze.",
+      "actual_observation": "A receding row exists, but nearly continuous dark lower walls and repeated amber panes dominate. Bright small roof-edge patches repeat, while separate bodies and atmospheric progression remain indistinct.",
+      "correction": "Match each visible coach segment, junction and perspective spacing; retain distinct roof/body divisions and progressively reduce contrast without turning the row into one repeated wall.",
+      "severity": "major"
+    },
+    {
+      "id": "train.distant-end",
+      "status": "partial",
+      "target_observation": "The final visible train extent reaches roughly x920-925, y405-430 beside a narrow platform continuation and luminous layered terminal structure.",
+      "actual_observation": "The row terminates around x885-890 against a blank gray opening. Its leftward endpoint and hard relationship to the bright far-floor patch do not reproduce the target recession.",
+      "correction": "Correct the final visible train extent together with the terminal/support projection, leaving the narrow platform continuation and integrating the last coach into cool atmospheric layers.",
+      "severity": "major"
+    },
+    {
+      "id": "opposite.platform",
+      "status": "wrong",
+      "target_observation": "The exposed left margin has a broad gray platform top, worn coping near y480-505 and a substantial raised face, with dense fence and furnishings behind the edge.",
+      "actual_observation": "A tan strip and near-black face appear beside the track, with a conspicuous white lower boundary. The platform top, gray coping, elevation and fence relationship remain unlike the target.",
+      "correction": "Match the exposed platform's width, elevation, worn gray coping and face; put the fence behind its top and remove the anomalous bright track-side strip.",
+      "severity": "major"
+    },
+    {
+      "id": "opposite.lower-facade",
+      "status": "wrong",
+      "target_observation": "Several exposed lower arched door/window bays contain thick stone surrounds, recessed green-black frames, fine panes and small warm interior regions.",
+      "actual_observation": "The lower bay rhythm has shifted since round 09, exposing a large cropped left opening and another beside the engine. Oversized amber/beige fields behind thick sparse bars still replace door-scale subdivisions and stone-framed recesses.",
+      "correction": "Match the visible lower bay count, widths and stone arches, then build the recessed frame/glass hierarchy and localized interior illumination at the target scale.",
+      "severity": "major"
+    },
+    {
+      "id": "opposite.upper-facade",
+      "status": "wrong",
+      "target_observation": "The visible upper storey has several smaller arched bays separated by substantial masonry infill, pilasters and pale horizontal bands beneath the branching supports.",
+      "actual_observation": "Two large amber arches are now exposed near the left edge and beside the smokebox, rather than the previous dominant central bay. Their scale, coarse mullions, flat infill and weak pale stone bands still disagree with the target.",
+      "correction": "Rebuild the upper-storey bay rhythm, smaller arch sizes, infill, pilasters and stone bands independently of the lower windows; keep the visible area audited despite train occlusion.",
+      "severity": "major"
+    },
+    {
+      "id": "opposite.masonry",
+      "status": "partial",
+      "target_observation": "Warm weathered brick is articulated by stone arch surrounds, projecting pilasters, floor bands and cornices, with localized soot and restrained mortar contrast.",
+      "actual_observation": "Brick and mortar remain recognizable, but the facade is a relatively flat regular field with dark thin bands. The target's stone-to-brick proportions, projecting relief and layered weathering remain weak.",
+      "correction": "Restore the major stone surrounds, pilasters and bands before varying brick roughness and soot; avoid treating the problem as texture detail alone.",
+      "severity": "major"
+    },
+    {
+      "id": "opposite.railings",
+      "status": "wrong",
+      "target_observation": "A dense fence near x0-140, y410-460 has slender pickets, pointed tops, stronger posts and horizontal rails, clearly standing on the opposing platform.",
+      "actual_observation": "Sparse low bars and widely spaced uprights are visible at the left. The dense fine-picket silhouette and its target-height relationship to the platform are absent.",
+      "correction": "Place a correctly scaled dense picket fence with finials, stronger posts and rails on the rebuilt platform, preserving its dark outline against the facade.",
+      "severity": "major"
+    },
+    {
+      "id": "opposite.fixtures",
+      "status": "partial",
+      "target_observation": "Small lamps, ornate dark brackets and notices punctuate the exposed wall; a decorative fixture is visible near the left lower arches.",
+      "actual_observation": "A bright simple lantern has moved into the exposed left area near x65,y335. Its large light spill, simple bracket and sparse surrounding dressing do not reproduce the smaller target fixtures.",
+      "correction": "Match the visible fixture positions, scale and ornate brackets, add the exposed notices, and contain their light rather than flooding the lower wall.",
+      "severity": "minor"
+    },
+    {
+      "id": "opposite.columns",
+      "status": "missing",
+      "target_observation": "A prominent shaft near x250 terminates in a pale layered capital around y165-205, with substantial dark-green branches spreading into the roof. Additional supports recede along the facade.",
+      "actual_observation": "The exposed left wall/roof region now lacks the freestanding shaft and branching support silhouette. The thin column near x165 and its collar/branches visible in round 09 have disappeared; no target-equivalent support replaces them.",
+      "correction": "Restore the primary support at the target screen position with a substantial shaft, pale layered capital and deep connected branches, then establish the receding supports. This is missing visible architecture, not an unassessable hidden feature.",
+      "severity": "major"
+    },
+    {
+      "id": "roof.overall",
+      "status": "partial",
+      "target_observation": "The station is a broad high vaulted hall, with a luminous central glazed span, substantial dark side roofs and a terminal crown near y270.",
+      "actual_observation": "The canopy remains a narrow regular tunnel converging to an arch near y330. The span, curvature, glazed-to-solid ratio and side-support hierarchy do not create the target's expansive hall.",
+      "correction": "Correct the canopy span, height, curvature and solid/glazed proportions together with the terminal projection; do not substitute more repeated ribs for the correct envelope.",
+      "severity": "major"
+    },
+    {
+      "id": "roof.primary-trusses",
+      "status": "wrong",
+      "target_observation": "Deep curved trusses have separated chords, dense triangular webs, plates and substantial junctions, with overlapping dark-green surfaces catching cool and warm light.",
+      "actual_observation": "Thin paired dark arcs and sparse zigzag members read as a wire-like grid against flat gray. Deep chord separation, web layering, connection plates and substantial supported junctions remain unresolved.",
+      "correction": "Construct correctly projected deep truss sections with triangulated webs and readable joint plates, connect them to restored columns, then repeat the resolved assemblies into depth.",
+      "severity": "major"
+    },
+    {
+      "id": "roof.secondary",
+      "status": "partial",
+      "target_observation": "Longitudinal beams, purlins and diagonal braces cross at different depths and overlap the main arches, producing layered structural silhouettes.",
+      "actual_observation": "Longitudinal lines and diagonals are present but remain thin and highly repetitive, largely flattened into the same visual grid. Their support relationships and depth ordering are unclear.",
+      "correction": "Give the secondary members appropriate section and depth, connect them to the primary assemblies and match the target's purlin/brace spacing and overlap.",
+      "severity": "major"
+    },
+    {
+      "id": "roof.glazing",
+      "status": "wrong",
+      "target_observation": "Individual framed blue-gray panes show varying brightness, subtle dirt and cool sky transmission through layered glass and iron.",
+      "actual_observation": "The overhead glazed strip is an almost uniform neutral-gray backing behind black lines. Pane-level dirt, transmission variation, frame depth and sky structure are not convincingly visible.",
+      "correction": "Establish pane divisions, frame thickness and restrained cool transmission/sky variation, with dirt concentrated at edges instead of a single flat gray roof field.",
+      "severity": "major"
+    },
+    {
+      "id": "roof.side-panels",
+      "status": "partial",
+      "target_observation": "Dark brown roof-side panels have fine seams, soot variation and warm glints, separated visibly from the substantial supporting ironwork below.",
+      "actual_observation": "Corresponding dark ribbed surfaces exist but read nearly black, uniformly repetitive and weakly separated from their supports. Removing the left support further reduces the layered construction.",
+      "correction": "Recover a restrained brown panel response, seam hierarchy, localized soot and depth separation from the restored support assemblies.",
+      "severity": "major"
+    },
+    {
+      "id": "distance.upper-window",
+      "status": "wrong",
+      "target_observation": "The terminal's broad arch crowns near y270 and meets a strong crossbeam near y335; fine vertical and horizontal mullions subdivide luminous cool panes with structure beyond.",
+      "actual_observation": "The crown sits near y330 and the crossbar near y385. Sparse uneven lines cross a flat gray field, with the wrong height, proportions, pane rhythm and transmitted background detail.",
+      "correction": "Raise and reshape the terminal arch and crossbeam to the target projection, then add the fine mullion pattern and layered visibility beyond the glazing.",
+      "severity": "major"
+    },
+    {
+      "id": "distance.lower-opening",
+      "status": "wrong",
+      "target_observation": "Below the terminal glazing, branching columns, further structure and distant buildings/open space form several distinguishable cool layers around x900-970, y340-425.",
+      "actual_observation": "A nearly blank gray rectangular closure sits beneath the crossbar, ending at an isolated bright white floor patch. The target's visible continuation and intermediate supports remain absent.",
+      "correction": "Build the target-visible lower columns, crossing structure and background layers with open-space continuation; do not use a flat closure or bright floor patch as a substitute.",
+      "severity": "major"
+    },
+    {
+      "id": "distance.depth",
+      "status": "wrong",
+      "target_observation": "Train, platform, ironwork and background architecture overlap progressively into blue-gray haze while retaining a luminous, detailed vanishing region.",
+      "actual_observation": "Perspective recession exists, but the short train endpoint, repetitive dark side walls and blank terminal create a closed corridor. The detached far-floor brightness is not layered atmospheric depth.",
+      "correction": "Correct train, terminal and support projection first, then establish progressive cool separation across several visible depth layers without washing out the terminal.",
+      "severity": "major"
+    },
+    {
+      "id": "ground.paving",
+      "status": "partial",
+      "target_observation": "Large worn rectangular slabs vary in alignment and tone, with dark joints, chipped edges and irregular damp patches establishing convincing foreground scale.",
+      "actual_observation": "Rectangular paving is present but visibly regular and coarse, with repetitive bright seam dashes. Its tonal repetition and bright joints compete with the intended irregular worn stone.",
+      "correction": "Match slab scale and layout, introduce restrained per-slab wear and tone, darken recessed joints and remove the repeated white seam accents.",
+      "severity": "major"
+    },
+    {
+      "id": "ground.wetness",
+      "status": "wrong",
+      "target_observation": "Shallow irregular puddles interrupt damp stone, including a distinct dark reflective pool around x925-1010,y675-715. Broken amber/cool reflections continue toward the distant platform.",
+      "actual_observation": "The floor has broad smooth sheen and fairly uniform stone roughness. The recognizable target puddle silhouette and damp-to-dry transitions are absent; the middle walkway lacks its reflected-light path.",
+      "correction": "Add target-positioned shallow irregular pools with graded wet margins, especially the visible foreground puddle, and tune their reflections independently of the surrounding damp stone.",
+      "severity": "major"
+    },
+    {
+      "id": "ground.platform-edge",
+      "status": "partial",
+      "target_observation": "A narrow weathered pale-gray coping borders the track, with chipped white edges, a visible raised face and a warmer inset paving strip following the perspective.",
+      "actual_observation": "The near edge is a comparatively dark regular strip, with weak pale coping and wear. Its relationship to the rails and raised platform is less distinct, and the intended inset strip is subdued.",
+      "correction": "Match coping width, elevation and screen-space perspective; restore worn pale edge breakup and the adjacent warm strip without creating a continuous bright line.",
+      "severity": "major"
+    },
+    {
+      "id": "track.rails",
+      "status": "partial",
+      "target_observation": "Parallel rails have narrow polished running tops, rusted sides, readable profile and fastenings, embedded in dark gritty track bed.",
+      "actual_observation": "Parallel dark rails are clearly present, but their broad simple profiles and weak rust/polished-top separation lack the target's varied aged response. Fastening/contact detail is sparse.",
+      "correction": "Refine the rail cross-section, narrow polished heads and rusted webs, add target-visible fastening groups and preserve believable contact with sleepers and ballast.",
+      "severity": "minor"
+    },
+    {
+      "id": "track.sleepers",
+      "status": "partial",
+      "target_observation": "Weathered dark sleepers are partially buried in dirty ballast, with muted grain, irregular exposure and rail-seat hardware.",
+      "actual_observation": "Regular clean orange-brown crosspieces are strongly exposed between the rails. Their uniform width, color and burial level produce a conspicuous ladder pattern.",
+      "correction": "Darken and weather the sleepers, vary exposed edges and ballast coverage, and add the visible rail seats/fasteners rather than emphasizing clean repeated boards.",
+      "severity": "minor"
+    },
+    {
+      "id": "track.ballast",
+      "status": "partial",
+      "target_observation": "Dense irregular stones, coal grit and dirt form a dark, varied track bed with believable scale and accumulation around sleepers and rails.",
+      "actual_observation": "Small gray stones exist, but their distribution is comparatively sparse and regular against exposed brown sleepers. Dark coal grit, finer debris and natural accumulation are weak.",
+      "correction": "Match the stone-size mixture and density, fill the sleeper gaps naturally, and integrate dark fines, coal grit and localized debris around the rail seats.",
+      "severity": "minor"
+    },
+    {
+      "id": "right.masonry",
+      "status": "wrong",
+      "target_observation": "Substantial warm brick piers separate arched glazed bays, with projecting arch courses and broad weathered stone sills. The near pier supports notices and distinct masonry relief.",
+      "actual_observation": "Oversized barred window fields and narrow dark dividers dominate the right side. The pier widths, bay rhythm, deep brick arches and chipped projecting sill remain unlike the target.",
+      "correction": "Rebuild the near pier/window proportions and projecting arches/sills in screen space before refining brick scale, mortar and localized soot.",
+      "severity": "major"
+    },
+    {
+      "id": "right.windows",
+      "status": "wrong",
+      "target_observation": "Dark-green layered frames and finer mullions enclose reflective amber glass, with visible warm lamps, interior fittings and room depth behind the panes.",
+      "actual_observation": "Thick near-black bars sit in front of broad orange/beige wall-like fields and pale reveals. There is some interior-value variation, but glazing reflections, thin frame profiles and a layered occupied room do not read; this remains a major mismatch after the local facade changes.",
+      "correction": "Separate frames, glass and recessed interior planes; match mullion thickness and green finish, add restrained reflections and target-visible interior lamps/fittings, and remove the brick-backed or opaque-panel impression.",
+      "severity": "major"
+    },
+    {
+      "id": "right.lanterns",
+      "status": "partial",
+      "target_observation": "Tapered warm lanterns on ornate brackets punctuate the facade, with amber glow, local brick spill and interior lanterns visible through the nearest glass.",
+      "actual_observation": "Receding bright lamps are present but have simpler rectangular housings and stronger white cores. The large near-window interior lantern arrangement and its reflected light are not reproduced.",
+      "correction": "Match housing taper, bracket silhouettes and lamp spacing; restrain white clipping and restore the near interior lanterns with localized amber spill/reflections.",
+      "severity": "major"
+    },
+    {
+      "id": "sign.face",
+      "status": "partial",
+      "target_observation": "The circular aged-cream 9 3/4 sign near x1085,y157 has a dark rim, a large serif 9, smaller fraction and irregular enamel grime.",
+      "actual_observation": "This is one of the closest features: the circular placement, aged face, dark rim and numeral hierarchy are recognizable. The face is more uniformly amber and the exact fraction spacing, rim and grime pattern differ.",
+      "correction": "Preserve its successful placement and broad proportions; make only measured adjustments to numeral spacing, rim profile, cream tone and irregular aging.",
+      "severity": "minor"
+    },
+    {
+      "id": "sign.bracket",
+      "status": "partial",
+      "target_observation": "A wrought-iron arm with varied scroll sizes, mounting plate, suspension and small upper ornament projects from the brick above the sign.",
+      "actual_observation": "The main arm and scroll silhouette are close in placement, but several loops are heavier and more uniform, the central curl reads as a solid dark disk, and finer mounting/ornament details differ.",
+      "correction": "Thin and vary the scroll profiles, open the central curl and match the visible mount, finial and suspension connections without moving the whole sign.",
+      "severity": "minor"
+    },
+    {
+      "id": "props.bench",
+      "status": "wrong",
+      "target_observation": "A clearly visible slatted bench around x1075-1190,y465-620 has an angled back, shaped seat, curved metal arms and slender legs beside the wall.",
+      "actual_observation": "The near bench is mostly hidden behind the shifted trolley and luggage. Its visible back is an upright dark mass with a few thick orange slats, and the arm/seat/leg curves do not reproduce the target.",
+      "correction": "Correct the bench's angle and placement, thin its slats and shape its arms/legs; reposition the trolley/luggage so the target-visible seat and back remain exposed.",
+      "severity": "major"
+    },
+    {
+      "id": "props.trolley",
+      "status": "partial",
+      "target_observation": "A worn dark-brass trolley has a curved handle near x1210-1335, a small upper finial, slim tubing, a rounded tray and a dark wheel near x1205,y780.",
+      "actual_observation": "The handle begins farther left around x1140, the tray is broad and brightly gold, and the large wheel has a clean thick black tire and simplified hub. The shifted frame blocks the bench and lacks the target's aged delicacy.",
+      "correction": "Match handle and wheel placement, slim the tubing, round and darken the tray, refine axle/hub construction and restore the small visible finial and wear.",
+      "severity": "major"
+    },
+    {
+      "id": "props.main-trunk",
+      "status": "partial",
+      "target_observation": "The large foreground brown leather trunk has rounded thick edges, a gently curved lid, worn straps, seams, handles, corner hardware and a readable front lock.",
+      "actual_observation": "A large brown case with straps and hardware occupies the right foreground, but it remains a rigid planar box with sharp lid transitions and a dark front face. Its surface reads more like flat stained panels than thick worn leather.",
+      "correction": "Round the lid and case thickness, establish leather seams and strap relief, match the front lock/handle layout and tune localized leather sheen and corner wear.",
+      "severity": "major"
+    },
+    {
+      "id": "props.other-luggage",
+      "status": "partial",
+      "target_observation": "Several distinct worn cases stand beside the bench and farther down the wall, differing in size, orientation and leather tone while resting believably on the platform or trolley.",
+      "actual_observation": "Multiple cases are present, but oversized rectangular blocks around x960-1110 project too far into the walkway. The near supporting cases are boxier and their overlap with the bench/trolley differs.",
+      "correction": "Match each visible case's screen-space size and placement, restore rounded worn silhouettes and material variation, and maintain clear support and contact relationships.",
+      "severity": "major"
+    },
+    {
+      "id": "props.cage",
+      "status": "partial",
+      "target_observation": "A delicate brass cage near x1250-1395 has thin numerous bars, a rounded dome, several rings, small top finial and ring, an exposed base and mottled contents low inside.",
+      "actual_observation": "A domed cage is recognizable but broader and simpler, with thicker widely separated bars and fewer convincing horizontal layers. The oversized blanket hides the lower cage/base and any readable contents.",
+      "correction": "Match the cage envelope and position, thin/densify bars, refine dome/rings/finial and expose the base and low contents by correcting the blanket overlap.",
+      "severity": "major"
+    },
+    {
+      "id": "props.blanket",
+      "status": "partial",
+      "target_observation": "A compact folded burgundy blanket sits on the right trunk around x1305-1495,y585-715, with soft layered folds, pale woven stripes and a naturally hanging fringe.",
+      "actual_observation": "Large rigid burgundy tiers extend left across the cage base and are clipped at the right image edge. Their angular slab-like waves, dark uniform color and comb-like fringe lack soft compression and the visible pale stripes.",
+      "correction": "Reduce and reposition the folded volume, soften and compress the layers onto the lid, add the visible woven stripes and irregular fringe, and keep the cage base and blanket silhouette correctly exposed.",
+      "severity": "major"
+    },
+    {
+      "id": "props.small-details",
+      "status": "wrong",
+      "target_observation": "A small round station clock hangs near x948,y350; framed notices occupy right brick piers, with varied minor luggage and dressing along the platform.",
+      "actual_observation": "The distant hanging disk repeats the 9 sign rather than showing a clock. The target-visible posters/notices are missing, while repeated benches and case blocks substitute for varied small dressing.",
+      "correction": "Replace the distant numeral disk with the target-style clock, add the visible framed notices in their exact wall regions and vary only the station dressing actually seen in the target.",
+      "severity": "major"
+    },
+    {
+      "id": "light.exposure",
+      "status": "partial",
+      "target_observation": "Important black train and roof forms remain readable while the terminal and lanterns are luminous but retain surrounding detail; warm foreground reflections do not overpower the image.",
+      "actual_observation": "The locomotive underframe and portions of the facade are dark and poorly separated, while the flat roof, lamp cores and far-floor patch are conspicuously bright. Exposure is not uniformly too low; the distribution is wrong.",
+      "correction": "Recover local dark-form separation and control the bright terminal/floor and lamp values, preserving contrast instead of applying a global exposure increase.",
+      "severity": "major"
+    },
+    {
+      "id": "light.palette",
+      "status": "partial",
+      "target_observation": "Cool blue-gray roof transmission and terminal haze contrast with warm brick, restrained brass, oxblood paint and broken amber light on wet paving.",
+      "actual_observation": "The roof and terminal are mostly neutral gray, windows are broad orange/beige fields, and the scene lacks the target's cool atmospheric counterweight. Warm colors exist but are distributed across the wrong surfaces.",
+      "correction": "Establish cool roof/distance illumination and localized amber interior/lamp light; retain deep oxblood and brick without globally tinting all surfaces orange.",
+      "severity": "major"
+    },
+    {
+      "id": "light.reflections",
+      "status": "wrong",
+      "target_observation": "Broken amber/cool streaks follow the wet walkway; curved boiler metal, green window glass, leather and brass each show distinct localized reflections appropriate to their surfaces.",
+      "actual_observation": "Broad foreground paving sheen, repetitive bright seam dashes, a pale cab slab and flat window fields replace these shaped reflections. The central reflected-light trail and dark mirrored puddle are missing.",
+      "correction": "Place and shape reflections per surface: broken walkway streaks and pools, narrow curved boiler glints, layered glass reflections and restrained leather/brass highlights.",
+      "severity": "major"
+    },
+    {
+      "id": "light.chimney-steam",
+      "status": "wrong",
+      "target_observation": "A soft gray plume rises from the chimney mouth, expands and drifts through the roof light, with translucent edges and uneven illuminated density.",
+      "actual_observation": "Bright narrow jets rise partly to the left near the lamp and separately at the chimney rim, then form a dense white column. The source, breadth, translucency and drift do not match.",
+      "correction": "Attach the emission convincingly across the mouth, remove the displaced left jet, widen and soften the plume, and let irregular translucent vapor drift through the roof light.",
+      "severity": "major"
+    },
+    {
+      "id": "light.wheel-steam",
+      "status": "wrong",
+      "target_observation": "Low steam rolls irregularly around the forward wheels and rods, rising in local wisps and drifting near the rail while selectively revealing machinery.",
+      "actual_observation": "Several thin repeated horizontal white streaks cross the exposed wheels at similar heights. They read as stacked bands rather than low volumetric vapor interacting with the mechanism.",
+      "correction": "Replace the repeated stripes with irregular localized low plumes and soft expanding wisps, preserving clear rod/joint silhouettes and physically plausible occlusion.",
+      "severity": "major"
+    },
+    {
+      "id": "light.depth-haze",
+      "status": "wrong",
+      "target_observation": "Blue-gray atmosphere progressively separates roof trusses, train sections, columns and distant buildings without erasing the terminal structure.",
+      "actual_observation": "Dark repeating architecture runs into a flat neutral-gray closure and white floor pool. Intermediate depth layers and cool aerial separation remain weak.",
+      "correction": "After restoring distant geometry, introduce gradual cool extinction and illumination across multiple depths; keep the arch, lower supports and last carriage readable.",
+      "severity": "major"
+    },
+    {
+      "id": "image.artifacts",
+      "status": "partial",
+      "target_observation": "Fine irregular textures and delicate silhouettes remain coherent, with natural overlap, deliberate image-edge cropping and no repeated bright seam pattern.",
+      "actual_observation": "Fine roof/cage lines appear jagged or noisy, regular bright paving dashes repeat, the open lower locomotive exposes implausible gaps, and the oversized blanket is clipped at the right. Still images do not establish temporal shimmer or performance.",
+      "correction": "Remove repeated seam artifacts and incorrect overlaps/open gaps, correct blanket framing, then address residual fine-line aliasing without blurring geometry or using performance evidence as visual credit.",
+      "severity": "major"
+    }
+  ],
+  "scores": {
+    "composition": 2.2,
+    "lighting": 1.4,
+    "materials": 1.3,
+    "details": 0.5
+  },
+  "score_maxima": {
+    "composition": 3,
+    "lighting": 3,
+    "materials": 3,
+    "details": 1
+  },
+  "total": 5.4,
+  "previous_total": 5.5,
+  "score_change": -0.1,
+  "visual_gate": 8.0,
+  "visual_gate_passed": false,
+  "assessment": "5.4/10: a slight regression from the supplied round-09 score of 5.5, not a visual breakthrough. The recognizable train-left/platform-center/sign-and-props-right layout and relatively close main sign remain strengths. Exposed opposing bay positions have changed, but the freestanding left roof support has disappeared without a target-equivalent replacement. Oversized facade grids, shallow wire-like trusses, the low blank terminal, disconnected locomotive machinery, unconvincing right glazing, missing wet-light structure and rigid foreground forms remain major gaps. The architectural loss warrants a small composition reduction; the other categories remain at the prior calibration because no substantial improvement is visible. Full 58/58 coverage is review completeness, not component agreement. The unchanged 8.0 visual gate is not met.",
+  "score_rationale": {
+    "composition": "2.2/3. The broad layout and main sign placement still work. The too-high front assembly, wrong cab/coach relationships, narrow roof tunnel, low terminal and displaced foreground overlaps remain. The disappearance of the already-imperfect opposing support removes visible architecture that the target prominently requires, accounting for the 0.1 regression from 2.3.",
+    "lighting": "1.4/3. Warm lamps, dark train and recession preserve the broad atmosphere, but cool roof transmission, layered terminal haze, readable dark machinery, target-positioned wet reflections and attached natural steam remain substantially wrong. No visible category-level gain over round 09.",
+    "materials": "1.3/3. Material families are identifiable, but neutral flat glazing, orange wall-like window fields, regular paving sheen, smooth boiler/cab surfaces, boxy leather and rigid unstriped cloth do not achieve the target's aged material response. Local facade-value changes do not resolve these gaps.",
+    "details": "0.5/1. The sign, rivets, straps, luggage hardware, cage and trolley provide recognizable detail. Missing connected running gear, incorrect lamp/clock silhouettes, absent notices, heavy cage bars, simplified coaches and inaccurate fabric/support relationships remain extensive."
+  },
+  "comparison_with_previous": {
+    "reference_round": "09",
+    "reference_score": 5.5,
+    "visible_changes": [
+      "The exposed opposing upper/lower bay rhythm has shifted, with more of a cropped left arch and another arch beside the locomotive visible.",
+      "The opposing wall lamp has moved left within the exposed facade region.",
+      "The thin left freestanding column, collar and branching silhouette visible in round 09 are no longer present.",
+      "Local orange/beige window backing and reveal relationships differ, but the right windows still read as coarse bars in front of flat fields rather than target glass and room depth."
+    ],
+    "visible_gains": [
+      "The opposing facade exposes an additional partial bay rhythm rather than relying on one dominant central opening, but this remains too large and too flat to satisfy either facade component."
+    ],
+    "category_level_improvements": [],
+    "substantially_unchanged": [
+      "Locomotive front height, apron, coupling, wheels, running gear, smooth boiler and blocky cab",
+      "Roof envelope, thin truss grid, flat glazing and low blank terminal",
+      "Right pier/window proportions and lack of reflective glass/interior depth",
+      "Paving repetition, absent target puddling and misplaced reflected-light pattern",
+      "Steam source/shape errors and weak cool depth haze",
+      "Bench occlusion, shifted trolley, boxy luggage and oversized rigid blanket"
+    ],
+    "round_10_supplied": false,
+    "comparison_limit": "No round-10 image or verdict was supplied or inspected. No intermediate implementation outcome or score is invented."
+  },
+  "regressions": [
+    {
+      "components": [
+        "opposite.columns",
+        "roof.side-panels",
+        "roof.primary-trusses"
+      ],
+      "severity": "major",
+      "observation": "The previous image has a thin dark column around x165 with a collar and spreading branches. The current exposed left facade/roof region has no corresponding freestanding support. Although the earlier column was itself wrong in position and substance, its disappearance moves farther from the target's prominent x250 shaft, pale capital and heavy branching junction.",
+      "score_effect": "Composition reduced by 0.1; the regional loss does not justify changing unrelated category scores.",
+      "required_repair": "Restore a target-sized and target-positioned connected support assembly, not merely the previous misplaced thin pole."
+    }
+  ],
+  "prioritized_fixes": [
+    {
+      "priority": 1,
+      "title": "Rebuild the connected locomotive lower assembly",
+      "components": [
+        "train.apron",
+        "train.coupling",
+        "train.front-cylinders",
+        "train.leading-wheels",
+        "train.driving-wheels",
+        "train.running-gear",
+        "train.buffers",
+        "train.buffer-beam"
+      ],
+      "action": "Treat the front and visible wheel train as one screen-space assembly. Lower the front beam/buffers, build the sloped apron and sweeping cheek, enclose the open axle region, position the cylinder and tires, then connect rods, joints, guides and suspension against the proper dark frame. Replace the hanging chain knot and separate exposed red disks with the target's layered mechanical structure.",
+      "acceptance": "At 1536x864 the buffer centers are approximately y575-580, the beam reaches about y618 and the forward tire reaches about y715. Enlarged inspection shows a curved apron/cylinder transition, distinct hook and hoses, broad rods attached at readable joints and no bare transverse-axle gap. The mechanism remains convincing with steam absent."
+    },
+    {
+      "priority": 2,
+      "title": "Restore the missing opposing support and rebuild both exposed facade storeys",
+      "components": [
+        "opposite.columns",
+        "opposite.upper-facade",
+        "opposite.lower-facade",
+        "opposite.masonry",
+        "opposite.platform",
+        "opposite.railings",
+        "opposite.fixtures"
+      ],
+      "action": "Restore the substantial column near target x250, its pale layered capital and deep branches physically joined to the roof. Independently match the visible upper and lower arched bay rhythms, stone pilasters/bands, platform elevation and dense picket fence. Do not hide the region behind the locomotive or substitute flat orange openings.",
+      "acceptance": "The exposed x0-310 region clearly contains the target-like support, multiple appropriately sized arched bays, projecting stonework and dense fence. The platform reads as worn gray coping near the target elevation, without the anomalous white lower strip. Both storeys remain inspectable and neither is excused by train occlusion."
+    },
+    {
+      "priority": 3,
+      "title": "Reconstruct the hall envelope, deep trusses and layered terminal",
+      "components": [
+        "roof.overall",
+        "roof.primary-trusses",
+        "roof.secondary",
+        "roof.glazing",
+        "roof.side-panels",
+        "distance.upper-window",
+        "distance.lower-opening",
+        "distance.depth",
+        "train.distant-end"
+      ],
+      "action": "Correct roof span/curvature and terminal projection before adding detail. Build deep curved trusses with separated chords and web/plate junctions, connect secondary members at distinct depths and establish framed cool glazing. Raise the terminal and provide visible lower columns, background structure and open-space layers; correct the last coach extent with this geometry.",
+      "acceptance": "The terminal crown is approximately y270 and its crossbeam about y335 rather than y330/y385; its lower region contains several readable structural/background layers instead of a blank gray rectangle. The last train segment reaches roughly x920-925. Enlarged roof views show section depth and connected joints, not a wire grid."
+    },
+    {
+      "priority": 4,
+      "title": "Replace barred wall-like right windows with target masonry, glass and room depth",
+      "components": [
+        "right.masonry",
+        "right.windows",
+        "right.lanterns",
+        "props.small-details"
+      ],
+      "action": "Match the right brick pier/bay proportions and projecting stone sill. Build thinner layered dark-green frames, separate reflective panes from recessed interior geometry, and place the target-visible warm lamps/fittings. Restore framed notices and replace the distant duplicate 9 disk with a clock.",
+      "acceptance": "The enlarged nearest right bay visibly reads as glass over a warm room with localized reflected/transmitted light, not black bars over orange brick or beige planes. The wide brick pier, worn sill, interior lanterns, notices and distant clock are independently recognizable at their target locations."
+    },
+    {
+      "priority": 5,
+      "title": "Establish the target wet-light pattern and cool atmospheric hierarchy",
+      "components": [
+        "ground.paving",
+        "ground.wetness",
+        "ground.platform-edge",
+        "light.exposure",
+        "light.palette",
+        "light.reflections",
+        "light.depth-haze"
+      ],
+      "action": "Remove repetitive bright paving seams, vary worn slabs, add target-positioned shallow irregular puddles and graded damp margins, and shape broken amber/cool reflections down the platform. Recover local dark-form separation and establish cool roof/terminal illumination without globally lifting exposure or creating a white terminal-floor patch.",
+      "acceptance": "A distinct dark reflective pool is visible around x925-1010,y675-715, with broken reflected-light continuity toward the distance. Slab joints remain dark rather than dotted white; the roof/distance are cool, brick/lamps warm, and important black machinery remains readable without clipped far-floor brightness."
+    },
+    {
+      "priority": 6,
+      "title": "Correct the cab, tender, coach silhouettes and aged locomotive surface hierarchy",
+      "components": [
+        "train.smokebox-form",
+        "train.smokebox-fittings",
+        "train.boiler",
+        "train.boiler-fittings",
+        "train.cab",
+        "train.tender",
+        "train.near-carriage",
+        "train.middle-carriages"
+      ],
+      "action": "Replace the bright blocky cab with its curved roof, thin framed openings and recessed interior. Resolve tender and coach junctions, curved roofs, doors and window rhythms. Correct the smokebox convexity, square lantern and broad dome, then refine blackened steel and worn oxblood reflections.",
+      "acceptance": "An enlarged front-to-back traversal identifies a convex heavy smokebox, square top lantern, broad dome, recessed framed cab, distinct tender and successive connected coaches. No broad gray cab slab or continuous row of identical amber panes dominates."
+    },
+    {
+      "priority": 7,
+      "title": "Recompose and soften the foreground luggage group",
+      "components": [
+        "props.bench",
+        "props.trolley",
+        "props.main-trunk",
+        "props.other-luggage",
+        "props.cage",
+        "props.blanket"
+      ],
+      "action": "Restore the visible angled slatted bench, shift/slim the trolley to match the target, round the leather cases and correct the oversized walkway luggage. Reduce and soften the blanket, add its pale woven stripes and irregular fringe, and expose the cage base beneath finer bars and rings.",
+      "acceptance": "The bench seat/back and curved arms are visible, the trolley no longer intrudes too far left, case lids/edges read as rounded leather, and the folded blanket occupies approximately x1305-1495 without right-edge clipping or hiding the cage base. Each prop has believable support and target-like overlap."
+    },
+    {
+      "priority": 8,
+      "title": "Replace displaced and repeated steam with attached irregular vapor",
+      "components": [
+        "train.chimney",
+        "light.chimney-steam",
+        "light.wheel-steam"
+      ],
+      "action": "Align the upper plume with the chimney mouth and remove the displaced lamp-side jet. Give it broad translucent drift and uneven illumination. Replace equally spaced horizontal wheel streaks with irregular low localized vapor around the corrected machinery.",
+      "acceptance": "The top plume visibly originates at the stack, has soft nonuniform edges and drifts through roof light. Low steam rolls around rods/rails without reading as repeated white stripes or concealing unresolved mechanical structure."
+    },
+    {
+      "priority": 9,
+      "title": "Finish track-bed integration and fine-image cleanup after structural repair",
+      "components": [
+        "track.rails",
+        "track.sleepers",
+        "track.ballast",
+        "sign.face",
+        "sign.bracket",
+        "image.artifacts"
+      ],
+      "action": "Narrow polished rail heads, weather and partly bury the orange sleepers, integrate dense stones and coal fines, then remove residual seam repetition and fine-line aliasing. Preserve the main sign's successful placement while refining its fraction spacing and bracket curls.",
+      "acceptance": "Track reads as worn rails over dark integrated sleepers/ballast rather than a clean orange ladder, thin lines remain coherent, and the relatively close sign has not been displaced in pursuit of lower-priority detail."
+    }
+  ],
+  "repeated_gaps": [
+    {
+      "components": [
+        "train.apron",
+        "train.coupling",
+        "train.running-gear",
+        "train.driving-wheels"
+      ],
+      "status": "unchanged",
+      "evidence": "Round-09 verdict identifies the shelf-like apron, open axle region, pendant coupling and exposed red drivers. The same silhouettes remain in the enlarged round-11 front/running-gear views.",
+      "required_rethink": "Rebuild the connected mechanical assembly instead of tuning rivets, paint or steam over disconnected geometry."
+    },
+    {
+      "components": [
+        "opposite.columns",
+        "opposite.upper-facade",
+        "opposite.lower-facade",
+        "opposite.platform",
+        "opposite.railings"
+      ],
+      "status": "local_bay_changes_with_support_regression",
+      "evidence": "Both facade storeys remain too coarse and flat, platform/fence relationships remain wrong, and the previous misplaced thin support has now disappeared rather than being replaced with the target assembly.",
+      "required_rethink": "Treat the exposed opposing station as a complete architectural region with its own projected bay/support rhythm."
+    },
+    {
+      "components": [
+        "roof.primary-trusses",
+        "roof.glazing",
+        "distance.upper-window",
+        "distance.lower-opening",
+        "distance.depth"
+      ],
+      "status": "unchanged",
+      "evidence": "The thin tunnel-like grid, flat roof field, low arch and blank lower terminal remain visible in both supplied rounds and were explicit round-09 findings.",
+      "required_rethink": "Correct the hall envelope, structural section depth and actual distant layers rather than increasing thin-member repetition or fog."
+    },
+    {
+      "components": [
+        "right.masonry",
+        "right.windows",
+        "right.lanterns"
+      ],
+      "status": "major_gap_unresolved",
+      "evidence": "Local backing/reveal values differ, but the nearest window region still reads as coarse black bars over flat warm fields, with incorrect pier proportions and no target-equivalent glass/interior layering.",
+      "required_rethink": "Separate masonry, frames, glass and room geometry and light each appropriately; repainting a backing plane cannot establish depth."
+    },
+    {
+      "components": [
+        "ground.wetness",
+        "ground.paving",
+        "light.reflections",
+        "light.depth-haze"
+      ],
+      "status": "unchanged",
+      "evidence": "The target puddle silhouette and broken amber walkway reflection path remain absent, while regular bright joints, broad sheen and the detached white far-floor patch persist.",
+      "required_rethink": "Reconstruct the visible spatial wetness/reflection pattern and cool depth hierarchy instead of globally changing roughness or exposure."
+    },
+    {
+      "components": [
+        "train.cab",
+        "train.tender",
+        "train.near-carriage",
+        "train.middle-carriages"
+      ],
+      "status": "unchanged",
+      "evidence": "The reflective blocky cab and repeated amber coach strip still lack the target's curved framed silhouettes and distinct body/junction hierarchy.",
+      "required_rethink": "Resolve each visible train section and its connection rather than relying on long repeated side panels."
+    },
+    {
+      "components": [
+        "props.bench",
+        "props.main-trunk",
+        "props.cage",
+        "props.blanket"
+      ],
+      "status": "unchanged",
+      "evidence": "Bench occlusion, boxy leather, heavy cage bars and the oversized rigid unstriped blanket remain. Round-09's local fold closure did not resolve the overall soft-form/overlap mismatch.",
+      "required_rethink": "Match prop silhouettes, scale and support relationships before additional hardware or tiny fabric edits."
+    },
+    {
+      "components": [
+        "light.chimney-steam",
+        "light.wheel-steam"
+      ],
+      "status": "unchanged",
+      "evidence": "The displaced bright upper emission and repeated horizontal wheel vapor remain explicit, readily visible repeated gaps.",
+      "required_rethink": "Correct emitter origin, volume shape and depth interaction rather than adding more copies of the same streak."
+    }
+  ],
+  "stall_assessment": {
+    "previous_state": "stalled",
+    "state": "stalled",
+    "label": "STALLED - no major gap resolved; opposing support regression",
+    "visual_stall_resolved": false,
+    "prior_architectural_rethink_attempted": true,
+    "prior_rethink_basis": "The supplied round-09 verdict records an earlier architectural rethink and an established stalled state. This review uses that history for stall calibration only; no historical implementation claims are independently verified or rewarded.",
+    "new_scene_wide_architectural_gain_visible": false,
+    "repeated_major_gap_rule_triggered": true,
+    "current_same_or_worse_than_previous": true,
+    "current_gain": -0.1,
+    "two_round_window": {
+      "start_round": "09",
+      "start_score": 5.5,
+      "end_round": "11",
+      "end_score": 5.4,
+      "endpoint_gain": -0.1,
+      "round_10_inspected": false,
+      "intermediate_best_score_known": false,
+      "interpretation": "The supplied endpoints show no full-point gain. The intermediate best score is not known; the repeated-major-gap rule and previously documented stalled state independently support the present stalled assessment."
+    },
+    "reason": "Multiple dominant structural, material and lighting gaps recur after the previously recorded rethink, and this score is slightly worse. Rearranging exposed facade bays while losing a support is not an architectural recovery. The visual gate cannot be cleared by performance success, exhaustive audit coverage or continued effort.",
+    "user_direction_received_after_prior_stall": true,
+    "user_direction": "The user authorizes continued best effort until September 25, 2026 at 11:21 UTC, without lowering the 8.0 visual gate.",
+    "continuation_authorized": true,
+    "authorization_deadline_utc": "2026-09-25T11:21:00Z",
+    "authorization_limits": "Existing authorization permits the implementation owner to continue within the stated window; it does not authorize this judge to edit assets/code, use agents, extend the deadline or declare a sub-8 result visually complete.",
+    "new_user_input_required_for_this_audit": false,
+    "new_authorization_required_to_continue_after_deadline": true,
+    "required_next_action": "Keep the stalled status explicit. Within the remaining authorized implementation window, prioritize a substantial connected-locomotive and architectural correction rather than more tiny surface changes. Rejudge actual full-frame pixels against the unchanged target and rubric. After the cutoff, stop unless the user supplies new direction.",
+    "completion_blockers": [
+      "Visual similarity is 5.4/10, below the unchanged 8.0 gate.",
+      "The target's prominent opposing support is missing, while both exposed facade storeys remain incorrect.",
+      "Connected machinery, deep roof structure, layered terminal, reflective right glazing, wet-light pattern and soft foreground forms remain unresolved.",
+      "58/58 component coverage establishes audit completeness, not visual agreement.",
+      "A separately reported performance pass earns no visual-score credit."
+    ]
+  },
+  "performance_assessment": {
+    "separate_from_visual_score": true,
+    "visual_score_credit": 0,
+    "reported_performance_pass": true,
+    "source": "Current user statement that performance passes separately.",
+    "independently_verified_in_this_audit": false,
+    "scope": "No profiling, performance manifests or implementation were inspected; this task scores only the supplied pixels.",
+    "conclusion": "The reported separate performance pass does not change the 5.4 visual score, the 8.0 gate or the stalled state."
+  },
+  "next_component_priority": "train.running-gear"
+}

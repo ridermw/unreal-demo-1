@@ -1,0 +1,50 @@
+{
+  "status": "success",
+  "source": "Actual Unreal AutomationLibrary screenshot",
+  "scene_identity": {
+    "sha256": "d44a1b08688492972a55974adb899d089225300f2396b6e415139661cb6d065b",
+    "package_count": 88,
+    "map_sha256": "5b23cd938ad435821a360997a82c04df605cc5219484dc6c151b1eee43a7df43"
+  },
+  "image": "Evidence/final-candidate-target.png",
+  "utc": "2026-09-25T10:40:02.444291+00:00",
+  "resolution": [
+    1536,
+    864
+  ],
+  "camera_label": "PN_TargetCamera",
+  "view": "target",
+  "fov": 70.0,
+  "position_cm": [
+    250.0,
+    580.0,
+    235.0
+  ],
+  "rotation_degrees": [
+    -0.9982923864338885,
+    -98.02925109306653,
+    -0.0
+  ],
+  "quality": "High",
+  "screen_percentage": 100,
+  "frame_cap": 32.0,
+  "one_frame_thread_lag": false,
+  "runtime_settings": {
+    "sg.ViewDistanceQuality": 2.0,
+    "sg.AntiAliasingQuality": 2.0,
+    "sg.ShadowQuality": 2.0,
+    "sg.GlobalIlluminationQuality": 2.0,
+    "sg.ReflectionQuality": 2.0,
+    "sg.PostProcessQuality": 2.0,
+    "sg.TextureQuality": 2.0,
+    "sg.EffectsQuality": 2.0,
+    "sg.FoliageQuality": 2.0,
+    "sg.ShadingQuality": 2.0,
+    "t.MaxFPS": 32.0,
+    "r.OneFrameThreadLag": 0.0,
+    "r.ScreenPercentage": 100.0
+  },
+  "sha256": "2da748eec5b52338813dc057fd8c1facf23f386524977b6d6d76b6bc834afe16",
+  "completed_utc": "2026-09-25T10:40:04.214823+00:00",
+  "clean_editor_verified": true
+}

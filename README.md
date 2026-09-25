@@ -4,7 +4,47 @@ An original Victorian hidden-platform environment. `GOAL.md` is the authoritativ
 objective and evidence standard. The generated target is a reference, **not an
 Unreal screenshot**.
 
-## Restart checkpoint
+## Current checkpoint
+
+**Not complete.** The latest independent visual score is **5.4/10** (round 12,
+58/58 components audited); the required threshold remains8/10. The user authorized
+continued best effort until **September 25, 2026, 07:21 EDT / 11:21 UTC** after the
+Dream Loop stall. Do not interpret local improvements as acceptance.
+
+- Project: `PlatformNine.uproject`, Unreal 5.8.3 on Apple M4 Pro / 48 GB.
+- Saved map: `/Game/Platform/Maps/HiddenPlatform`. Current scene report: 99 generated
+  actors, 14 authored mesh groups, 29 material packages and 44 imported texture images.
+- Current actual target capture: `Evidence/final-candidate-target.png`. Its complete
+  58-component verdict is `Evidence/rounds/round-12/verdict.json`. Best historical
+  score was 5.5/10; the unchanged required score is 8/10.
+- Runtime defaults are **High quality, 1536x864, 100% screen percentage, 32 FPS cap,
+  one-frame thread lag disabled**. The current matched-state timing is **31.99 median
+  FPS / 31.67 ms p95**. It passes the unchanged median >=30 FPS and p95 <=50 ms target.
+- Captures now reject unsaved platform changes and record the saved-scene hash,
+  actual runtime settings, camera, PNG hash and completion status in sibling JSON.
+  Profiles require finalized provenance bound to both log and CSV. Gallery
+  acceptance requires matching capture/profile state and runtime conditions.
+- `Evidence/exploration-report.json` verifies both platform floors, train and wall
+  collision, Pawn blocking/complex-as-simple settings, and the open central route.
+  These are actual engine probes, not a full packaged-player traversal test.
+- `Evidence/play-exploration-report.json` verifies native DefaultPawn displacement
+  and camera control in advancing PIE. No hardware-key simulation is claimed.
+- `Evidence/inspection-opposite-platform.png` and other `inspection-*.png` files
+  are actual Unreal alternate views; each has a capture receipt. Blender inspection
+  renders stay under `.dream-loop/` and are never presented as Unreal evidence.
+- The corrected source/assets are preserved on local `main`; a separate
+  **`checkpoint/platform-nine`** branch safely mirrors reviewed snapshots remotely.
+  User approval now permits Git LFS migration of unpublished commits after
+  `ae13c86`, with the original history preserved under
+  `backup/pre-lfs-20260925`. Published history and Pages/recovery refs must remain
+  unchanged. See `Evidence/lfs-migration.json` for the migration outcome.
+- Public review gallery: **https://ridermw.github.io/unreal-demo-1/**, deployed from
+  `gh-pages`. It is a screenshot/audit gallery, not a playable browser Unreal build.
+- **Next action:** finish the authorized LFS checkpoint/migration/push and update
+  the gallery. Visual work is stalled below the required threshold and needs
+  further direction; do not claim the environment objective is complete.
+
+## Historical recovery notes (superseded by the checkpoint above)
 
 - **Five-hour best-effort window active until September 25, 2026, 07:21 EDT
   (11:21 UTC). M4 and final completion are not accepted.**
@@ -150,8 +190,8 @@ Unreal screenshot**.
   compilation passed. `Evidence/m2-unreal-camera.png` is the corrected-material
   1536x864 actual Unreal target-camera capture at FOV 70. Its visual quality is
   still inadequate: bright/open architecture, basic surface detail and no steam.
-- **No Dream Loop score exists yet; frame pacing fails the acceptance target.**
-  Saved/imported does not mean visually accepted.
+- These historical entries document earlier evidence and failures. They do not
+  override the current checkpoint or certify visual acceptance.
 
 ## Execution and evidence gates
 
@@ -168,10 +208,23 @@ Performance acceptance is set **before measurement**: at 1536x864, 100% screen
 percentage, High scalability, software Lumen, no hardware ray tracing, after at
 least 120 warmup frames, target median >=30 FPS and 95th-percentile frame time
 <=50 ms over >=300 frames. Device: Apple M4 Pro, 20 GPU cores, 48 GB memory.
-Report editor/PIE conditions and any deviation rather than silently changing the
-target. No performance result or visual score exists yet.
+Report editor/PIE conditions, frame caps and any deviation rather than silently
+changing the target. Only matching, finalized evidence may satisfy the gate.
 
 ## Source and rebuild
+
+### Git LFS
+
+Install Git LFS before cloning or checking out the Unreal assets, then run
+`git lfs install --local` and `git lfs pull` in this repository. `.gitattributes`
+tracks Unreal packages (`.uasset`, `.umap`, `.ubulk`, `.uexp`), FBX and Blender
+models, and PNG source textures under `Art/Textures/`.
+
+Images under `Art/Reference/`, `Evidence/` and `docs/` remain ordinary Git files
+so the review gallery can serve them. Enabling these rules does not itself convert
+oversized blobs in existing commits. Any history migration must preserve the
+current work and explicitly limit rewriting to the approved unpublished range;
+do not rewrite `origin/main`, `gh-pages` or recovery refs implicitly.
 
 - `Scripts/build_station.py`: existing Blender generation/export source.
   Do not rerun it in an unsaved Blender session: it clears that session's scene.
@@ -185,8 +238,9 @@ target. No performance result or visual score exists yet.
   references, per-group slots, axis-specific centimeter bounds, triangles, Nanite.
   Blender `(x,y,z)` meters maps to Unreal `(100*x,-100*y,100*z)` centimeters.
   Mesh collision uses complex-as-simple for exploration; not simulated bodies.
-- Repeated imports reuse and validate the same packages (35 total), without
-  actor creation. Groups with translucent glass do not use Nanite.
+- Repeated imports reuse and validate named packages without actor creation.
+  All authored meshes now preserve full source geometry; imported triangle counts
+  must retain at least 98% of the evaluated source rather than a simplified fallback.
 - Legacy FBX crashed in headless mode while opening a message-log window.
   Use the explicit Interchange pipeline, not `AssetImportTask.options` for FBX:
   that field did not apply Interchange options. Ten unintended test-import
@@ -199,6 +253,21 @@ target. No performance result or visual score exists yet.
   It retains the screenshot task and requests 32 settling frames. If a background
   capture does not complete, native `CaptureViewport` triggered the pending
   high-resolution draw in this session; verify the output rather than resubmit.
+  Use a fresh capture name: existing outputs are rejected to prevent stale pixels
+  from being reported as success. `--view reverse|locomotive|luggage|opposite`
+  captures genuine alternate viewpoints without editing saved camera actors.
+- `python3 Scripts/profile_unreal.py`: current project pacing defaults, 360 warmup
+  frames plus 360 measured frames. `--frame-cap 0 --frame-lag` requests an uncapped
+  diagnostic variant; `--gpu-stats` adds detailed GPU instrumentation. Reports use
+  confirmed engine readbacks, not requested settings. `--existing-log` requires
+  finalized, untampered provenance; pending/failed/legacy captures cannot replay
+  into successful evidence.
+- `blender --background --python-exit-code 1 -P Tests/blender_geometry_contract.py`:
+  checks continuous tube closure, outward winding and saved blanket edge winding.
+- `python3 Scripts/editor_python.py Scripts/verify_exploration.py`: actual collision
+  probes in the saved live map. `Scripts/explore_unreal.py` releases the piloted
+  camera for normal editor navigation; `--play-camera` uses the possessed fly pawn
+  after native PIE is started with `Scripts/start_performance_pie.py`.
 - To reapply refined source assets in the live editor, enable loopback Python
   remote execution through MCP, then run:
   `python3 Scripts/editor_python.py Scripts/build_unreal.py --stage import --reimport`,

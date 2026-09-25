@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "source": "Actual Unreal AutomationLibrary screenshot",
+  "scene_identity": {
+    "sha256": "ac744ae68e2450f708079131ebf3b5d737ab92b5f107c1c1276f34e1b8068eb0",
+    "package_count": 88,
+    "map_sha256": "88a466152857a3f6f400e77477703a183ba7bfba2d5b9c64fddff53d06a32998"
+  },
+  "image": "Evidence/round08-verified-state.png",
+  "utc": "2026-09-25T08:49:02.693691+00:00",
+  "resolution": [
+    1536,
+    864
+  ],
+  "camera_label": "PN_TargetCamera",
+  "fov": 70.0,
+  "quality": "High",
+  "screen_percentage": 100,
+  "sha256": "9c7041b549034a307a3b294069f2e5106a3b742960302e5fd4d64b58ddb141e6",
+  "completed_utc": "2026-09-25T08:49:25.049489+00:00"
+}

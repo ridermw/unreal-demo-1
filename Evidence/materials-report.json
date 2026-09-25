@@ -34,6 +34,54 @@
       }
     },
     {
+      "material": "/Game/Platform/Materials/M_SootSteel.M_SootSteel",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
+        "normal": "/Game/Platform/Textures/T_blacksteel_normal.T_blacksteel_normal",
+        "roughness": "/Game/Platform/Textures/T_blacksteel_roughness.T_blacksteel_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_SmokeboxDoor.M_SmokeboxDoor",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_smokebox_door.T_smokebox_door",
+        "normal": "/Game/Platform/Textures/T_smokebox_door_normal.T_smokebox_door_normal",
+        "roughness": "/Game/Platform/Textures/T_smokebox_door_roughness.T_smokebox_door_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_RodSteel.M_RodSteel",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
+        "normal": "/Game/Platform/Textures/T_blacksteel_normal.T_blacksteel_normal",
+        "roughness": "/Game/Platform/Textures/T_blacksteel_roughness.T_blacksteel_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Rubber.M_Rubber",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
+        "normal": "/Game/Platform/Textures/T_blacksteel_normal.T_blacksteel_normal",
+        "roughness": "/Game/Platform/Textures/T_blacksteel_roughness.T_blacksteel_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_CageBrass.M_CageBrass",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_brass.T_brass",
+        "normal": "/Game/Platform/Textures/T_brass_normal.T_brass_normal",
+        "roughness": "/Game/Platform/Textures/T_brass_roughness.T_brass_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_AgedBrass.M_AgedBrass",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_brass.T_brass",
+        "normal": "/Game/Platform/Textures/T_brass_normal.T_brass_normal",
+        "roughness": "/Game/Platform/Textures/T_brass_roughness.T_brass_roughness"
+      }
+    },
+    {
       "material": "/Game/Platform/Materials/M_Iron.M_Iron",
       "maps": {
         "albedo": "/Game/Platform/Textures/T_iron.T_iron",
@@ -124,9 +172,9 @@
     {
       "material": "/Game/Platform/Materials/M_Interior.M_Interior",
       "maps": {
-        "albedo": "/Game/Platform/Textures/T_wood.T_wood",
-        "normal": "/Game/Platform/Textures/T_wood_normal.T_wood_normal",
-        "roughness": "/Game/Platform/Textures/T_wood_roughness.T_wood_roughness"
+        "albedo": "/Game/Platform/Textures/T_enamel.T_enamel",
+        "normal": "/Game/Platform/Textures/T_enamel_normal.T_enamel_normal",
+        "roughness": "/Game/Platform/Textures/T_enamel_roughness.T_enamel_roughness"
       }
     },
     {
@@ -138,5 +186,5 @@
     }
   ],
   "stage": "materials",
-  "utc": "2026-09-25T06:06:49.265977+00:00"
+  "utc": "2026-09-25T10:34:07.006118+00:00"
 }

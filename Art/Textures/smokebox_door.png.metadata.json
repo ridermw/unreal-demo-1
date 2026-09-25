@@ -1,0 +1,9 @@
+{
+  "rendered_at": "2026-09-25T07:02:39.221067+00:00",
+  "size": "1024x1024",
+  "quality": "high",
+  "model_name": "gpt-image-2.5-sunburst",
+  "model_version": "default",
+  "prompt_char_count": 868,
+  "prompt": "Create a high-detail physically based ALBEDO texture of the soot-black weathered locomotive metal surface visible in this reference. Preserve its old black painted iron character, oily vertical grime streaks, faint brown patina, subtle rubbed patches and fine metal pitting. Remove every latch, hinge, bar, rivet, lamp, numeral, plate and mechanical fitting: those will be modeled separately in3D. Remove all directional lighting, bright specular reflections and cast shadows. Fill the entire square with the underlying dark aged metal surface, edge to edge, flat orthographic and evenly lit. Do not draw a circular border or an entire train. This is the unique material surface for a smokebox door, not a shiny polished steel disk. No text, no objects. Crisp realistic irregular surface detail, restrained contrast, dark blue-black charcoal with traces of warm grime."
+}

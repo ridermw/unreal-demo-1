@@ -10,5 +10,6 @@
   "ballast": {"description": "railway ballast of tightly packed rough dark charcoal grey angular granite pebbles, 20 to 45mm stones in random orientations, deep dark gaps, scattered coal grit. No paving slabs, no rails, no large rocks"},
   "cloth": {"description": "wine red burgundy wool blanket fabric, close fine woven twill with tiny fuzzy fibers, very subtle creases. Flat textile not folded, no objects or tassels"},
   "dirtyglass": {"description": "dusty Victorian station window glass, transparent-looking cool grey green glass surface represented on uniform medium grey, subtle soot specks and thin rain streaks, clean rubbed patches. No frames, no scenery reflected, no objects"},
-  "enamel": {"description": "aged warm ivory cream enamel railway sign surface, fine hairline crazing and restrained edge-independent soot specks, subtle discoloration. Mostly clean readable cream. Absolutely no letters, numerals, labels, border or symbols"}
+  "enamel": {"description": "aged warm ivory cream enamel railway sign surface, fine hairline crazing and restrained edge-independent soot specks, subtle discoloration. Mostly clean readable cream. Absolutely no letters, numerals, labels, border or symbols"},
+  "smokebox_door": {"existing": true, "description": "aged soot-black locomotive smokebox door paint, finely pitted blue-black steel, faint vertical oily grime, subtle brown patina and worn painted surface; no polished silver finish"}
 }

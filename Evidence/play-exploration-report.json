@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "utc": "2026-09-25T10:47:17.135924+00:00",
+  "method": "Native DefaultPawn movement input in live PIE; not hardware-key simulation",
+  "pawn_class": "DefaultPawn",
+  "start_cm": [
+    250.0,
+    580.0,
+    235.0
+  ],
+  "end_cm": [
+    250.0,
+    49.59774106334737,
+    235.0
+  ],
+  "distance_cm": 530.4022589366526,
+  "elapsed_game_seconds": 0.5843328163027763,
+  "camera_follows_possessed_pawn": true
+}
