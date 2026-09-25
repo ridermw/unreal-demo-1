@@ -64,6 +64,8 @@ def assemble(manifest):
         component.set_static_mesh(mesh)
         component.set_mobility(unreal.ComponentMobility.STATIC)
         component.set_collision_profile_name("BlockAll")
+        component.set_visibility(spec["name"] != "Puddles")
+        actor.set_actor_hidden_in_game(spec["name"] == "Puddles")
         component.set_editor_property("cast_shadow", spec["name"] != "Puddles")
         component.set_editor_property("cast_shadow_as_two_sided", spec["name"] == "Roof")
 
@@ -71,24 +73,24 @@ def assemble(manifest):
                  unreal.Rotator(pitch=-38, yaw=65, roll=0))
     light = sun.get_component_by_class(unreal.DirectionalLightComponent)
     light.set_mobility(unreal.ComponentMobility.MOVABLE)
-    light.set_intensity(5000)
+    light.set_intensity(300)
     light.set_editor_property("atmosphere_sun_light", True)
-    light.set_editor_property("light_source_angle", 2.0)
+    light.set_editor_property("light_source_angle", 6.0)
     light.set_light_color(unreal.LinearColor(1.0, 0.91, 0.78, 1))
 
     upsert("SkyAtmosphere", unreal.SkyAtmosphere)
     sky = upsert("SkyLight", unreal.SkyLight)
     sky_component = sky.get_component_by_class(unreal.SkyLightComponent)
     sky_component.set_mobility(unreal.ComponentMobility.MOVABLE)
-    sky_component.set_intensity(1.8)
+    sky_component.set_intensity(2.2)
     sky_component.set_editor_property("real_time_capture", True)
     sky_component.set_editor_property("lower_hemisphere_is_black", False)
 
     fog = upsert("Haze", unreal.ExponentialHeightFog, (0, 0, 0))
     fog_component = fog.get_component_by_class(unreal.ExponentialHeightFogComponent)
-    fog_component.set_editor_property("fog_density", 0.014)
+    fog_component.set_editor_property("fog_density", 0.024)
     fog_component.set_editor_property("fog_height_falloff", 0.2)
-    fog_component.set_fog_inscattering_color(unreal.LinearColor(0.30, 0.39, 0.46, 1))
+    fog_component.set_fog_inscattering_color(unreal.LinearColor(0.10, 0.17, 0.25, 1))
     fog_component.set_volumetric_fog(True)
     fog_component.set_editor_property("volumetric_fog_scattering_distribution", 0.4)
     fog_component.set_volumetric_fog_distance(10000)
@@ -102,7 +104,7 @@ def assemble(manifest):
         "override_auto_exposure_apply_physical_camera_exposure": True,
         "auto_exposure_apply_physical_camera_exposure": False,
         "override_auto_exposure_bias": True,
-        "auto_exposure_bias": -7.5,
+        "auto_exposure_bias": -6.0,
         "override_bloom_intensity": True,
         "bloom_intensity": 0.25,
         "override_vignette_intensity": True,
@@ -120,27 +122,46 @@ def assemble(manifest):
         component.set_editor_property("intensity_units", unreal.LightUnits.LUMENS)
         component.set_intensity(4500)
         component.set_light_color(unreal.LinearColor(1.0, 0.49, 0.19, 1))
-        component.set_attenuation_radius(650)
+        component.set_attenuation_radius(1800)
         component.set_editor_property("source_radius", 14)
         component.set_editor_property("cast_shadows", index < 3)
         component.set_editor_property("volumetric_scattering_intensity", 0.25)
+    for index, y in enumerate((-5.5, -.5, 4.5, 9.5, 14.5, 19.5, 24.5, 29.5, 39.5, 49.5, 59.5)):
+        actor = upsert(f"InteriorLight_{index:02}", unreal.PointLight, (5.45, y, 3.5))
+        component = actor.get_component_by_class(unreal.PointLightComponent)
+        component.set_mobility(unreal.ComponentMobility.MOVABLE)
+        component.set_editor_property("intensity_units", unreal.LightUnits.LUMENS)
+        component.set_intensity(3500)
+        component.set_light_color(unreal.LinearColor(1.0,.53,.22,1))
+        component.set_attenuation_radius(450)
+        component.set_editor_property("cast_shadows", False)
+    for index, y in enumerate((-5.5,4.5,14.5,24.5,34.5,44.5,54.5,64.5)):
+        actor=upsert(f"OppositeInterior_{index:02}",unreal.PointLight,(-10.35,y,2.2))
+        component=actor.get_component_by_class(unreal.PointLightComponent)
+        component.set_mobility(unreal.ComponentMobility.MOVABLE)
+        component.set_editor_property("intensity_units",unreal.LightUnits.LUMENS)
+        component.set_intensity(4000)
+        component.set_light_color(unreal.LinearColor(1,.55,.25,1))
+        component.set_attenuation_radius(550)
+        component.set_editor_property("cast_shadows",False)
 
     for name, position, intensity, color, yaw in (
-        ("FrontBounce", (1.0, -6.0, 5.5), 18000, (0.72, 0.82, 1.0), -95),
-        ("WarmWindowBounce", (4.0, 5.0, 4.2), 14000, (1.0, 0.65, 0.34), -150),
-        ("PlatformSkylight", (0.5, 20.0, 9.5), 24000, (0.74, 0.84, 1.0), -90),
+        ("FrontBounce", (-2.0, -5.0, 4.2), 55000, (0.84, 0.87, 1.0), -95),
+        ("WarmWindowBounce", (4.0, 5.0, 4.2), 24000, (1.0, 0.65, 0.34), -150),
+        ("PlatformSkylight", (0.5, 20.0, 9.5), 18000, (0.64, 0.76, 1.0), -90),
+        ("DistantDaylight", (-1.5, 66.0, 6.0), 35000, (0.55,0.73,1.0), 90),
     ):
         fill = upsert(name, unreal.RectLight, position,
-                      unreal.Rotator(pitch=-35 if name != "PlatformSkylight" else -85, yaw=yaw, roll=0))
+                      unreal.Rotator(pitch=-12 if name != "PlatformSkylight" else -85, yaw=yaw, roll=0))
         component = fill.get_component_by_class(unreal.RectLightComponent)
         component.set_mobility(unreal.ComponentMobility.MOVABLE)
         component.set_editor_property("intensity_units", unreal.LightUnits.LUMENS)
         component.set_intensity(intensity)
         component.set_light_color(unreal.LinearColor(*color, 1))
-        component.set_editor_property("source_width", 550)
-        component.set_editor_property("source_height", 400)
-        component.set_attenuation_radius(3500)
-        component.set_editor_property("cast_shadows", True)
+        component.set_editor_property("source_width", 1100 if name=="DistantDaylight" else 550)
+        component.set_editor_property("source_height", 550 if name=="DistantDaylight" else 400)
+        component.set_attenuation_radius(8000 if name=="DistantDaylight" else 3500)
+        component.set_editor_property("cast_shadows", name != "FrontBounce")
 
     config = manifest["camera"]
     rotation = camera_rotation(config["position"], config["target"])

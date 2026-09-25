@@ -1,0 +1,27 @@
+{
+  "status": "success",
+  "utc": "2026-09-25T04:50:00.337993+00:00",
+  "mode": "standalone game, Metal SM6 offscreen rendering; not NullRHI",
+  "resolution": [
+    1536,
+    864
+  ],
+  "screen_percentage": 100,
+  "quality": "High (all sg.* = 2)",
+  "warmup_frames": 360,
+  "measurement_frames": 360,
+  "target": {
+    "median_fps_minimum": 30,
+    "p95_frame_ms_maximum": 50
+  },
+  "log": ".dream-loop/profile-20260925T045000.log",
+  "median_fps": 45.99414034651985,
+  "average_fps": 45.53182768348277,
+  "median_frame_ms": 21.7419,
+  "p95_frame_ms": 53.6777,
+  "meets_target": false,
+  "frame_source": "Native Unreal CSV FrameTime",
+  "device": "Apple M4 Pro, 20 GPU cores, 48 GB",
+  "engine": "5.8.3",
+  "frame_evidence": "Evidence/performance-frames.csv"
+}

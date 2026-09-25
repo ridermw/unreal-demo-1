@@ -35,7 +35,7 @@ def upgrade(root, manifest):
         texture.set_editor_property("srgb", kind == "albedo")
         if kind == "normal":
             texture.set_editor_property("compression_settings", unreal.TextureCompressionSettings.TC_NORMALMAP)
-        elif kind == "roughness":
+        elif kind in ("roughness", "wetness"):
             texture.set_editor_property("compression_settings", unreal.TextureCompressionSettings.TC_MASKS)
         if not library.save_loaded_asset(texture):
             raise RuntimeError(f"Texture save failed: {key}")
@@ -45,6 +45,54 @@ def upgrade(root, manifest):
     reports = []
     for name, spec in manifest["materials"].items():
         surface = spec["texture"]
+        if name == "SignFace":
+            sign = library.load_asset("/Game/Platform/Materials/M_SignFace")
+            if sign is None:
+                raise RuntimeError("Reference sign material is not imported")
+            nodes = [node for node in editing.get_material_expressions(sign)
+                     if isinstance(node, unreal.MaterialExpressionTextureSample)]
+            if len(nodes) != 1:
+                raise RuntimeError("Expected one sign-face texture sample")
+            texture = nodes[0].texture
+            texture.set_editor_property("address_x", unreal.TextureAddress.TA_CLAMP)
+            texture.set_editor_property("address_y", unreal.TextureAddress.TA_CLAMP)
+            texture.set_editor_property("srgb", True)
+            texture.set_editor_property("compression_settings", unreal.TextureCompressionSettings.TC_EDITOR_ICON)
+            texture.set_editor_property("mip_gen_settings", unreal.TextureMipGenSettings.TMGS_NO_MIPMAPS)
+            texture.set_editor_property("never_stream", True)
+            texture.set_editor_property("filter", unreal.TextureFilter.TF_BILINEAR)
+            expressions = editing.get_material_expressions(sign)
+            tint = next((node for node in expressions
+                         if isinstance(node, unreal.MaterialExpressionVectorParameter)
+                         and str(node.get_editor_property("parameter_name")) == "SignCalibration"), None)
+            if tint is None:
+                tint = editing.create_material_expression(
+                    sign, unreal.MaterialExpressionVectorParameter, -500, 650)
+                tint.set_editor_property("parameter_name", "SignCalibration")
+            tint.set_editor_property("default_value", unreal.LinearColor(.68,.63,.58,1))
+            product = editing.get_material_property_input_node(sign, unreal.MaterialProperty.MP_BASE_COLOR)
+            if not isinstance(product, unreal.MaterialExpressionMultiply):
+                product = editing.create_material_expression(sign, unreal.MaterialExpressionMultiply,-250,0)
+            if not editing.connect_material_expressions(nodes[0], "", product, "A"):
+                raise RuntimeError("Cannot connect sign artwork to calibration")
+            if not editing.connect_material_expressions(tint, "", product, "B"):
+                raise RuntimeError("Cannot connect sign calibration")
+            if not editing.connect_material_property(product, "", unreal.MaterialProperty.MP_BASE_COLOR):
+                raise RuntimeError("Cannot connect exact sign artwork")
+            roughness = editing.get_material_property_input_node(sign, unreal.MaterialProperty.MP_ROUGHNESS)
+            roughness.r = .9
+            specular = editing.get_material_property_input_node(sign, unreal.MaterialProperty.MP_SPECULAR)
+            if specular is None:
+                specular = editing.create_material_expression(sign, unreal.MaterialExpressionConstant,-300,400)
+            specular.r = .05
+            if not editing.connect_material_property(specular,"",unreal.MaterialProperty.MP_SPECULAR):
+                raise RuntimeError("Cannot calibrate printed-sign specular")
+            if not library.save_loaded_asset(texture) or not library.save_loaded_asset(sign):
+                raise RuntimeError("Cannot save exact sign material")
+            editing.recompile_material(sign)
+            reports.append({"material": sign.get_path_name(), "maps": {"albedo": texture.get_path_name()},
+                            "source": "User-authorized rectified crop of locked target"})
+            continue
         if not surface:
             if name == "Lamp":
                 lamp = library.load_asset("/Game/Platform/Materials/M_Lamp")
@@ -89,7 +137,9 @@ def upgrade(root, manifest):
         tint_value = {
             "DarkLeather": (0.45, 0.40, 0.35), "RoofPanel": (0.25, 0.25, 0.25),
             "AmberGlass": (0.14, 0.15, 0.12), "Glass": (0.35, 0.43, 0.45),
-            "Scarlet": (1.0, 0.62, 0.56),
+            "Scarlet": (0.65, 0.30, 0.25), "Stone": (.19,.20,.21),
+            "Brick": (.7,.62,.53), "BlackSteel": (.85,.85,.85),
+            "Cream": (.62,.49,.32), "Brass": (.72,.60,.43),
         }.get(name, (1.0, 1.0, 1.0))
         expressions = editing.get_material_expressions(material)
         tint = next((node for node in expressions
@@ -100,9 +150,12 @@ def upgrade(root, manifest):
                 material, unreal.MaterialExpressionVectorParameter, -850, 1500)
             tint.set_editor_property("parameter_name", "SurfaceTint")
         tint.set_editor_property("default_value", unreal.LinearColor(*tint_value, 1))
-        multiply = original_base_input
+        multiply = next((node for node in expressions
+                         if isinstance(node, unreal.MaterialExpressionMultiply)
+                         and str(node.get_editor_property("desc")) == "SurfaceBaseTint"), original_base_input)
         if not isinstance(multiply, unreal.MaterialExpressionMultiply):
             multiply = editing.create_material_expression(material, unreal.MaterialExpressionMultiply, -300, 650)
+        multiply.set_editor_property("desc", "SurfaceBaseTint")
         for source, input_ in ((maps["albedo"], "A"), (tint, "B")):
             if not editing.connect_material_expressions(source, "", multiply, input_):
                 raise RuntimeError(f"Cannot connect tint on {name}")
@@ -112,20 +165,99 @@ def upgrade(root, manifest):
         if not isinstance(metallic, unreal.MaterialExpressionConstant):
             raise RuntimeError(f"Unexpected metallic input type on {name}")
         metallic.r = spec["metallic"]
+        modifiers = {"Stone": .45, "Scarlet": .65, "BlackSteel": .9, "Brass": .9,
+                     "Iron": 1.0, "Leather": 1.0, "DarkLeather": 1.0, "Wood": 1.0}
+        if name in modifiers:
+            rough_scale = next((node for node in expressions
+                if isinstance(node, unreal.MaterialExpressionScalarParameter)
+                and str(node.get_editor_property("parameter_name")) == "RoughnessScale"), None)
+            if rough_scale is None:
+                rough_scale = editing.create_material_expression(
+                    material, unreal.MaterialExpressionScalarParameter, -650, 1900)
+                rough_scale.set_editor_property("parameter_name", "RoughnessScale")
+            rough_scale.set_editor_property("default_value", modifiers[name])
+            rough_product = next((node for node in expressions
+                if isinstance(node, unreal.MaterialExpressionMultiply)
+                and str(node.get_editor_property("desc")) == "SurfaceRoughness"), None)
+            if rough_product is None:
+                rough_product = editing.create_material_expression(
+                    material, unreal.MaterialExpressionMultiply, -300, 1800)
+                rough_product.set_editor_property("desc", "SurfaceRoughness")
+            if not editing.connect_material_expressions(maps["roughness"], "R", rough_product, "A"):
+                raise RuntimeError("Cannot wire roughness sample")
+            if not editing.connect_material_expressions(rough_scale, "", rough_product, "B"):
+                raise RuntimeError("Cannot wire roughness scale")
+            if not editing.connect_material_property(rough_product, "", unreal.MaterialProperty.MP_ROUGHNESS):
+                raise RuntimeError("Cannot wire varied roughness")
+        normal_strength = next((node for node in expressions
+            if isinstance(node, unreal.MaterialExpressionScalarParameter)
+            and str(node.get_editor_property("parameter_name")) == "NormalStrength"), None)
+        if normal_strength is None:
+            normal_strength = editing.create_material_expression(
+                material, unreal.MaterialExpressionScalarParameter, -800, 2150)
+            normal_strength.set_editor_property("parameter_name", "NormalStrength")
+        normal_strength.set_editor_property("default_value", .25 if name in ("Brick","Stone","Gravel") else .08)
+        flatten = next((node for node in expressions
+            if isinstance(node, unreal.MaterialExpressionLinearInterpolate)
+            and str(node.get_editor_property("desc")) == "SurfaceNormal"), None)
+        if flatten is None:
+            flatten = editing.create_material_expression(
+                material, unreal.MaterialExpressionLinearInterpolate, -300, 2100)
+            flatten.set_editor_property("desc", "SurfaceNormal")
+            neutral = editing.create_material_expression(
+                material, unreal.MaterialExpressionConstant3Vector, -600, 2300)
+            neutral.constant = unreal.LinearColor(0, 0, 1, 1)
+            if not editing.connect_material_expressions(neutral, "", flatten, "A"):
+                raise RuntimeError("Cannot wire neutral surface normal")
+        if not editing.connect_material_expressions(maps["normal"], "", flatten, "B"):
+            raise RuntimeError("Cannot wire generated normal")
+        if not editing.connect_material_expressions(normal_strength, "", flatten, "Alpha"):
+            raise RuntimeError("Cannot wire normal strength")
+        if not editing.connect_material_property(flatten, "", unreal.MaterialProperty.MP_NORMAL):
+            raise RuntimeError("Cannot wire softened surface normal")
+        if name == "Stone":
+            def node_with_label(cls, label, x, y):
+                found = next((node for node in editing.get_material_expressions(material)
+                              if isinstance(node, cls) and str(node.get_editor_property("desc")) == label), None)
+                if found is None:
+                    found = editing.create_material_expression(material, cls, x, y)
+                    found.set_editor_property("desc", label)
+                return found
+
+            mask = node_with_label(unreal.MaterialExpressionTextureSample, "GeneratedWetness", -900, 2600)
+            mask.texture = load_texture("stone", "wetness")
+            mask.set_editor_property("sampler_type", unreal.MaterialSamplerType.SAMPLERTYPE_MASKS)
+            darken = node_with_label(unreal.MaterialExpressionLinearInterpolate, "WetDarken", -550, 2600)
+            darken.set_editor_property("const_a", 1)
+            darken.set_editor_property("const_b", .36)
+            wet_color = node_with_label(unreal.MaterialExpressionMultiply, "WetBaseColor", -250, 2600)
+            wet_roughness = node_with_label(unreal.MaterialExpressionLinearInterpolate, "WetRoughness", -250, 2900)
+            wet_roughness.set_editor_property("const_b", .07)
+            for source_node, output, target_node, input_ in (
+                (mask, "R", darken, "Alpha"), (multiply, "", wet_color, "A"), (darken, "", wet_color, "B"),
+                (rough_product, "", wet_roughness, "A"), (mask, "R", wet_roughness, "Alpha")):
+                if not editing.connect_material_expressions(source_node, output, target_node, input_):
+                    raise RuntimeError(f"Cannot wire wet paving: {input_}")
+            if not editing.connect_material_property(wet_color, "", unreal.MaterialProperty.MP_BASE_COLOR):
+                raise RuntimeError("Cannot wire wet paving color")
+            if not editing.connect_material_property(wet_roughness, "", unreal.MaterialProperty.MP_ROUGHNESS):
+                raise RuntimeError("Cannot wire wet paving roughness")
         if name in ("Glass", "AmberGlass", "RoofPanel"):
             material.set_editor_property("two_sided", True)
         if name == "AmberGlass":
-            material.set_editor_property("blend_mode", unreal.BlendMode.BLEND_OPAQUE)
+            material.set_editor_property("blend_mode", unreal.BlendMode.BLEND_TRANSLUCENT)
+            opacity = editing.get_material_property_input_node(material, unreal.MaterialProperty.MP_OPACITY)
+            opacity.r = .22
             emission = editing.get_material_property_input_node(material, unreal.MaterialProperty.MP_EMISSIVE_COLOR)
             if emission is None:
                 emission = editing.create_material_expression(
                     material, unreal.MaterialExpressionConstant3Vector, -300, 1400)
-            emission.constant = unreal.LinearColor(0.16, 0.075, 0.018, 1)
+            emission.constant = unreal.LinearColor(.06, .025, .008, 1)
             if not editing.connect_material_property(emission, "", unreal.MaterialProperty.MP_EMISSIVE_COLOR):
                 raise RuntimeError("Cannot wire window interior glow")
         if name == "Glass":
             opacity = editing.get_material_property_input_node(material, unreal.MaterialProperty.MP_OPACITY)
-            opacity.r = 0.5
+            opacity.r = 0.28
         editing.recompile_material(material)
         if not library.save_loaded_asset(material):
             raise RuntimeError(f"PBR material save failed: {name}")

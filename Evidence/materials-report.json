@@ -120,8 +120,23 @@
         "normal": "/Game/Platform/Textures/T_iron_normal.T_iron_normal",
         "roughness": "/Game/Platform/Textures/T_iron_roughness.T_iron_roughness"
       }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Interior.M_Interior",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_wood.T_wood",
+        "normal": "/Game/Platform/Textures/T_wood_normal.T_wood_normal",
+        "roughness": "/Game/Platform/Textures/T_wood_roughness.T_wood_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_SignFace.M_SignFace",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_sign_face.T_sign_face"
+      },
+      "source": "User-authorized rectified crop of locked target"
     }
   ],
   "stage": "materials",
-  "utc": "2026-09-25T04:11:28.238847+00:00"
+  "utc": "2026-09-25T06:06:49.265977+00:00"
 }

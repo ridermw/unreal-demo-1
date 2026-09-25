@@ -1,0 +1,19 @@
+{
+  "kind": "reference-derived-image-crop-not-new-generation",
+  "source": "Art/Reference/target.png",
+  "source_sha256": "13f10c4beb43d098cac8bc78cf8721ee5aefb4b1fe1fa259048fa390a0a849c0",
+  "source_rectangle_pixels": [
+    1013,
+    88,
+    1156,
+    227
+  ],
+  "operation": "Crop the circular target sign face and rectify its elliptical extent to square UV space",
+  "output_pixels": [
+    512,
+    512
+  ],
+  "output_sha256": "b0a2581b7c37426f795ddb611ba811922cfa2ed7b5c1fbbc9dcbad970e2ab8cb",
+  "limitation": "The crop contains target lighting and perspective; rim and bracket remain real geometry.",
+  "authorization": "User explicitly suggested cropping the target sign and using it on the Unreal sign."
+}

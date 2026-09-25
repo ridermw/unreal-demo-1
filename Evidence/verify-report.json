@@ -1,8 +1,8 @@
 {
   "status": "success",
   "map": "/Game/Platform/Maps/HiddenPlatform",
-  "generated_actor_count": 39,
-  "total_actor_count": 39,
+  "generated_actor_count": 75,
+  "total_actor_count": 75,
   "meshes": [
     {
       "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_0",
@@ -20,7 +20,29 @@
       "materials": [
         "/Game/Platform/Materials/M_AmberGlass.M_AmberGlass",
         "/Game/Platform/Materials/M_Glass.M_Glass",
-        "/Game/Platform/Materials/M_Iron.M_Iron"
+        "/Game/Platform/Materials/M_Iron.M_Iron",
+        "/Game/Platform/Materials/M_Interior.M_Interior",
+        "/Game/Platform/Materials/M_Lamp.M_Lamp",
+        "/Game/Platform/Materials/M_Wood.M_Wood"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_10",
+      "mesh": "/Game/Platform/Meshes/SM_Furniture.SM_Furniture",
+      "materials": [
+        "/Game/Platform/Materials/M_Brass.M_Brass",
+        "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather",
+        "/Game/Platform/Materials/M_Iron.M_Iron",
+        "/Game/Platform/Materials/M_Wood.M_Wood"
+      ]
+    },
+    {
+      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_12",
+      "mesh": "/Game/Platform/Meshes/SM_Lanterns.SM_Lanterns",
+      "materials": [
+        "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
+        "/Game/Platform/Materials/M_Iron.M_Iron",
+        "/Game/Platform/Materials/M_Lamp.M_Lamp"
       ]
     },
     {
@@ -38,7 +60,9 @@
       "mesh": "/Game/Platform/Meshes/SM_FarWall.SM_FarWall",
       "materials": [
         "/Game/Platform/Materials/M_Glass.M_Glass",
-        "/Game/Platform/Materials/M_Iron.M_Iron"
+        "/Game/Platform/Materials/M_Iron.M_Iron",
+        "/Game/Platform/Materials/M_Brick.M_Brick",
+        "/Game/Platform/Materials/M_Stone.M_Stone"
       ]
     },
     {
@@ -56,7 +80,8 @@
       "materials": [
         "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
         "/Game/Platform/Materials/M_Brass.M_Brass",
-        "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+        "/Game/Platform/Materials/M_Scarlet.M_Scarlet",
+        "/Game/Platform/Materials/M_Cream.M_Cream"
       ]
     },
     {
@@ -102,16 +127,6 @@
       ]
     },
     {
-      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_10",
-      "mesh": "/Game/Platform/Meshes/SM_Furniture.SM_Furniture",
-      "materials": [
-        "/Game/Platform/Materials/M_Brass.M_Brass",
-        "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather",
-        "/Game/Platform/Materials/M_Iron.M_Iron",
-        "/Game/Platform/Materials/M_Wood.M_Wood"
-      ]
-    },
-    {
       "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_11",
       "mesh": "/Game/Platform/Meshes/SM_Signs.SM_Signs",
       "materials": [
@@ -119,16 +134,8 @@
         "/Game/Platform/Materials/M_Brass.M_Brass",
         "/Game/Platform/Materials/M_Cream.M_Cream",
         "/Game/Platform/Materials/M_Iron.M_Iron",
-        "/Game/Platform/Materials/M_Lettering.M_Lettering"
-      ]
-    },
-    {
-      "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_12",
-      "mesh": "/Game/Platform/Meshes/SM_Lanterns.SM_Lanterns",
-      "materials": [
-        "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
-        "/Game/Platform/Materials/M_Iron.M_Iron",
-        "/Game/Platform/Materials/M_Lamp.M_Lamp"
+        "/Game/Platform/Materials/M_Lettering.M_Lettering",
+        "/Game/Platform/Materials/M_SignFace.M_SignFace"
       ]
     },
     {
@@ -146,14 +153,14 @@
       235.0
     ],
     "rotation_degrees": [
-      0.07892125099123186,
-      -99.514221185863,
-      1.8636080266085744e-17
+      -0.9982923864338885,
+      -98.02925109306653,
+      -0.0
     ],
     "fov": 70.0
   },
   "engine": "5.8.3-58210709+++UE5+Release-5.8",
   "rendered": false,
   "stage": "verify",
-  "utc": "2026-09-25T04:11:42.477289+00:00"
+  "utc": "2026-09-25T06:18:56.483202+00:00"
 }

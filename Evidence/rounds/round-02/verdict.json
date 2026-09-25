@@ -1,0 +1,186 @@
+{
+  "round": "02",
+  "target_image": "/Users/mattheww/git/unreal-demo-1/Art/Reference/target.png",
+  "actual_image": "/Users/mattheww/git/unreal-demo-1/.dream-loop/round-02/unreal.png",
+  "previous_image": "/Users/mattheww/git/unreal-demo-1/.dream-loop/round-01/unreal.png",
+  "previous_verdict": "/Users/mattheww/git/unreal-demo-1/.dream-loop/round-01/verdict.json",
+  "evaluation_basis": "Direct visual comparison of the locked target, round 02 and round 01 screenshots, calibrated against the round 01 verdict. Scores reward visible target similarity only, not effort or claimed implementation changes. Positions and surface descriptions are visual observations, not instrumented measurements or assertions about underlying engine settings.",
+  "scores": {
+    "composition": 2.1,
+    "lighting": 1.2,
+    "materials": 1.1,
+    "details": 0.3
+  },
+  "total": 4.7,
+  "maximum": 10,
+  "previous_total": 4.5,
+  "score_delta": 0.2,
+  "visual_goal": 8,
+  "visual_goal_met": false,
+  "performance_included_in_score": false,
+  "performance": {
+    "source": "User-supplied measurement; not independently measured by this judge.",
+    "median_fps": 46,
+    "p95_frame_time_ms": 53.7,
+    "gate_passed": false,
+    "affects_visual_score": false
+  },
+  "assessment": "Marginally closer, not a successful overall architectural transformation. The cage is substantially better scaled, the conspicuous pale oval puddle is gone, window recesses read less like flat tan panels, and the front beam reaches farther left. These justify a small gain. They do not resolve the simplified locomotive, sparse roof structure, closed-off terminal backdrop, boxy foreground assets or missing warm wet-platform atmosphere. The extended front also introduces left-edge buffer clipping and emphasizes an oversized flat deck. The smokebox and red front surfaces have conspicuous cool or pale highlights unlike the target's dark, locally worn machinery. Most major gaps from the previous verdict remain.",
+  "category_assessments": {
+    "composition": {
+      "score_change": 0.1,
+      "credit": "The cage no longer towers over the luggage and is much closer to the target's low foreground silhouette. Extending the locomotive front improves the broad leftward reach of its buffer beam. The recognizable train-left, platform-center and luggage-right arrangement is preserved.",
+      "gaps": [
+        "The smokebox face remains lower and farther right than the target, with a comparatively tall, plain outline. Correct its position and proportions independently of the already close chimney-top placement; the new front extension does not fix the face-to-chassis relationship.",
+        "The leftmost buffer is now clipped by the frame, whereas the target retains the complete round buffer head inside the image. Pull that extremity inward while retaining the needed beam width.",
+        "The locomotive front reads as a large shallow black deck on a thick straight red shelf. The target has a raised, shaped apron, layered structural plates and dense machinery between the face, beam and rails. The new length exaggerates the shelf instead of supplying that volume.",
+        "The cage is still too far left relative to the target's rightmost window and trunk grouping. Preserve the scale improvement while moving the cage right and refining its proportions; do not enlarge it back toward round 01.",
+        "The broad rectangular foreground trunk and stiff cropped scarf remain unlike the target's rounded, staggered luggage and clearly readable folded burgundy cloth. The prominent near-right slatted bench and curved armrests are still not clearly reproduced.",
+        "The terminal opening remains a large flat gridded end wall reaching down to the platform. The target has a smaller upper glazed opening, structure beneath it and visible receding space beyond the train.",
+        "The canopy still reads as a repeated thin rib-and-pane tunnel. The target's deep triangulated trusses, branching supports and overlapping side-roof structure produce a substantially different upper-frame silhouette."
+      ]
+    },
+    "lighting": {
+      "score_change": 0.0,
+      "credit": "The central platform is less broadly pale than in round 01, and dark window recesses with localized warm illumination are closer than the previous uniformly tan panels. These local gains are offset by persistent atmospheric mismatch and conspicuous new or stronger foreground highlights.",
+      "gaps": [
+        "The target has a broken amber reflection path on dark wet paving leading into a cool hazy distance. The actual still has mostly gray illumination, a bright cream platform edge and pale foreground highlights rather than that warm reflected path.",
+        "The far end is darker than before but not convincingly deeper or cooler. A gray panel behind dense lines is not a substitute for layered architecture visible through blue-gray atmospheric haze.",
+        "The right windows remain predominantly dark. The target's nearest panes contain broad amber interior light, readable interior layers and restrained glass reflections; the actual has only small isolated lit areas.",
+        "The train face now has a conspicuous silver-gray highlight, and the flat red front shelf and beam catch pale glossy bands. These compete with the dark steel and restrained warm grazing light of the target.",
+        "The roof interior and side volumes remain heavy and dark without the target's readable layered ironwork and soft skylight scattering. Bright flat roof panes do not provide equivalent atmospheric illumination.",
+        "The chimney plume is still a narrow, nearly vertical white column instead of a wide irregular drifting cloud. Wheel steam is still separated into localized upright wisps rather than soft low steam integrated with the running gear.",
+        "Harsh speckled highlights remain visible on metal, masonry and paving. The screenshots establish the visual mismatch but not whether its cause is material frequency, sampling or another rendering setting."
+      ]
+    },
+    "materials": {
+      "score_change": 0.1,
+      "credit": "Removing the large pale oval puddle and smaller obvious opaque-looking patches makes the ground more coherent. Window recesses now provide some dark depth rather than a uniform brown fill. These are modest visible gains, not a match to the target's material response.",
+      "gaps": [
+        "The platform remains a regular field of sharply outlined gray slabs. It lacks the target's irregular slab sizes, softened chipped edges, dirt-filled joints, dark damp variation and recognizable broken warm reflections.",
+        "Removing the pale puddle fixes an artifact but also leaves no convincing equivalent of the target's dark irregular foreground pooling. Wetness needs thin reflective transitions integrated into the slab surface, not merely the absence of a puddle decal.",
+        "The platform edge remains a continuous clean cream stripe. The target edge is worn, dirty and less visually dominant, with weathered adjoining stone.",
+        "The smokebox still reads as coarse mottled metal with an overly bright rim and broad gray sheen. The target has blackened steel, localized oily wear and shaped fittings with restrained highlights.",
+        "The boiler, cab transition and red front shelf retain broad smooth painted areas. The target's deep oxblood paint has spatially varied grime, seams, subtle wear and warm curved reflections; the actual's pale highlights emphasize simple surfaces.",
+        "The luggage remains hard-edged and flat-sided, with coarse square corner plates. Rounded leather thickness, seams, binding, inset locks and differentiated wear are still missing or too weak to read.",
+        "The scarf remains angular and slab-like rather than thick soft cloth. Its folds, hanging fringe and placement do not resemble the target's burgundy textile.",
+        "The resized cage still uses thick, bright orange-gold bars and heavy rings. It needs finer dark aged brass with restrained glints; reducing the object scale did not solve its material or construction mismatch.",
+        "Window glass now has more apparent recess, but still lacks the target's simultaneous transmitted amber interior detail and reflected station light. Brick and frame surfaces remain comparatively repetitive and harsh."
+      ]
+    },
+    "details": {
+      "score_change": 0.0,
+      "credit": "Existing lamps, rivets, hoses, rods and ornamental sign hardware remain recognizable. More lines are visible at the terminal opening, but they do not yet reproduce the target's construction.",
+      "gaps": [
+        "The smokebox needs the target's clearly resolved horizontal straps, hinges, latch assembly and lower oval number plate. Current small marks and isolated fittings do not create the same mechanical face.",
+        "The front hoses repeat oversized similar hanging shapes. Replace that repetition with the target's distinct coupling hook, chain, hose connections, brackets and layered apron hardware.",
+        "Running gear remains a sparse set of red wheels and simple rods. Model cylinders, connected rod joints, suspension and intervening dark machinery so the train has the target's lower-body density.",
+        "Roof members lack deep triangulated webs and legible junctions. The new far-end lines read like thin overlapping scaffold marks rather than a coherent framed window with masonry, supports and space beyond.",
+        "The foreground needs the target's slatted bench, curled armrests, curved trolley tubing, substantial wheel construction, fine cage base and interior details, plus convincing trunk handles and locks.",
+        "Ballast and sleepers remain conspicuously regular and cleanly separated. The target has denser varied ballast, weathered rails, dirt and irregular trackside debris.",
+        "The sign is close in overall location but not in typography: the target has a much heavier dominant 9, different fractional-number proportions and a darker aged face. The bracket also lacks the target's finer layered ornamental silhouette."
+      ]
+    }
+  },
+  "visible_improvements": [
+    "Cage height and width are much closer to the target while its base stays near the correct vertical region.",
+    "The large pale foreground oval puddle and isolated pale wet patches no longer dominate the paving.",
+    "Windows read as darker recesses rather than uniformly filled tan rectangles.",
+    "The extended front beam occupies more of the target's left-hand footprint, although the outer buffer overshoots."
+  ],
+  "regressions": [
+    {
+      "area": "Locomotive framing",
+      "evidence": "The leftmost round buffer is clipped by the image boundary in round 02; it was inside the frame in round 01 and is fully visible in the target.",
+      "consequence": "The front extension overshoots the target at its outermost silhouette."
+    },
+    {
+      "area": "Front deck and painted-metal response",
+      "evidence": "The longer shallow deck and broad pale highlights across the red front surfaces are more conspicuous than before.",
+      "consequence": "The hero asset reads more strongly as flat shelves supporting a cylinder rather than layered dark machinery."
+    },
+    {
+      "area": "Terminal construction",
+      "evidence": "The former simple grid is now crossed by many thin, uneven overlapping lines while the backing still reads as a flat gray closure.",
+      "consequence": "Added line density introduces visual clutter without the target's coherent mullions, structural depth or open continuation."
+    }
+  ],
+  "repeated_gaps": [
+    {
+      "gap": "Incorrect locomotive proportions and insufficient connected mechanical construction",
+      "severity": "major",
+      "consecutive_verdicts": 3,
+      "status": "partially_improved_but_unresolved",
+      "evidence": "The beam reaches farther left, but the face position, shallow shelf-like apron and sparse machinery remain; the outer buffer now clips.",
+      "required_response": "Fit the face, complete buffer silhouettes and lower machinery together against the target. Rebuild the apron and connected running gear rather than extending the flat deck again."
+    },
+    {
+      "gap": "Missing warm wet-platform reflections and cool atmospheric depth",
+      "severity": "major",
+      "consecutive_verdicts": 3,
+      "status": "partially_improved_but_unresolved",
+      "evidence": "The pale puddle artifact is removed, but the paving still lacks dark integrated pooling and amber reflections; the terminal remains a gray closure.",
+      "required_response": "Resolve stone albedo, spatial roughness, irregular pooling, reflected warm sources and cool distant illumination as a single target-matched setup."
+    },
+    {
+      "gap": "Foreground prop placement and tactile leather, brass and cloth construction",
+      "severity": "major",
+      "consecutive_verdicts": 3,
+      "status": "cage_scale_substantially_improved_other_gaps_unresolved",
+      "evidence": "The cage size is a real correction, but its leftward placement, thick bright bars, boxy luggage, stiff scarf and missing clear near-bench silhouette persist.",
+      "required_response": "Retain the smaller cage, shift it right, and replace the coarse foreground construction with rounded leather forms, fine aged brass and soft folded cloth."
+    },
+    {
+      "gap": "Insufficient roof structural complexity and far-end spatial depth",
+      "severity": "major",
+      "consecutive_verdicts": 3,
+      "status": "unresolved_with_terminal_line_clutter_regression",
+      "evidence": "The roof remains a thin repetitive tunnel, and additional terminal bars do not create a layered opening or visible space beyond.",
+      "required_response": "Reconstruct structural sections and junctions, not just line density. Replace the end-wall appearance with the target's upper opening, supporting architecture and receding scene."
+    }
+  ],
+  "architectural_change_outcome": {
+    "overall": "Partially effective local corrections; no substantial architectural breakthrough.",
+    "locomotive_front_length_and_beam": "Mixed. Broader leftward reach is closer, but the outer buffer clips and the enlarged flat deck accentuates the wrong construction. Door placement and mechanical mass remain unresolved.",
+    "roof_geometry": "No convincing target-similarity breakthrough is visible. The canopy still lacks the target's deep triangulated, overlapping iron structure.",
+    "windows_with_interior_depth": "Partially effective. Darker recesses improve on flat tan panels, but the nearest windows still lack broad amber interior illumination and layered glass detail.",
+    "far_end_architecture": "Ineffective at resolving depth. Extra thin lines add clutter over a still-flat gray terminal closure rather than establishing the target's receding architecture.",
+    "cage_scale": "Clearly effective. The reduced silhouette is substantially closer; rightward placement, delicate construction and patina remain necessary.",
+    "wetness_and_light_balance": "Partially effective artifact removal. The pale oval puddle is gone and central paving is less washed out, but warm wet reflections and cool atmosphere are not established; front-surface highlights are less target-like."
+  },
+  "prioritized_remaining_work": [
+    {
+      "priority": 1,
+      "action": "Rebuild the locomotive's front apron and running-gear mass while fitting face, chimney and complete buffer heads to the target together.",
+      "acceptance": "No left-edge buffer clipping; the face is correctly positioned; layered shaped machinery replaces the long shallow shelf silhouette."
+    },
+    {
+      "priority": 2,
+      "action": "Establish dark irregular wet stone, a broken amber reflection path, warmly lit window interiors and cooler atmospheric distance as one coherent lighting/material pass.",
+      "acceptance": "The platform no longer reads as pale gray tiles bordered by a cream stripe, the nearest windows show amber depth, and the far end reads as receding space rather than a gray panel."
+    },
+    {
+      "priority": 3,
+      "action": "Replace sparse canopy ribs and terminal line clutter with coherent deep trusses, junctions, supporting architecture and visible background layers.",
+      "acceptance": "The roof has target-like structural depth and varied silhouettes, and the terminal opening no longer closes the platform like a flat gridded wall."
+    },
+    {
+      "priority": 4,
+      "action": "Keep the improved cage scale while correcting its placement and rebuilding the foreground luggage, cloth, trolley and near bench.",
+      "acceptance": "The foreground reads as rounded worn leather, delicate aged brass and soft burgundy fabric, with the target's slatted bench and curved trolley silhouette visible."
+    }
+  ],
+  "stall_assessment": {
+    "previous_state": "stall_approaching",
+    "architectural_rethink_attempted": true,
+    "repeated_major_gap_rule_triggered": true,
+    "same_or_worse_after_rethink": false,
+    "state": "continue",
+    "fully_stalled": false,
+    "reason": "The score increased from 4.5 to 4.7, so the supplied same-or-worse-after-rethink rule does not permit a stalled verdict. The gain is only 0.2 and comes mainly from cage scale and removal of obvious ground artifacts. Repeated major gaps remain, so continue with the unresolved structural and lighting/material changes rather than treating this as a successful redesign or returning to minor decorative tweaks.",
+    "completion_blockers": [
+      "Visual similarity is 4.7/10, below the 8/10 goal.",
+      "User-reported performance fails its separate gate; this did not reduce the visual score."
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "scope": "Sign only: visible face, rim, suspension, ornamental bracket, screen placement, color and sharpness. No overall-scene score.",
+  "actual": {
+    "path": "/Users/mattheww/git/unreal-demo-1/Evidence/sign-calibrated-unreal.png",
+    "size_px": [1536, 864],
+    "sha256": "1b514cac7136afb392df33380bda5d3804aaa7addf0dd5c5ae98321c84550bf9"
+  },
+  "reference": {
+    "path": "/Users/mattheww/git/unreal-demo-1/Art/Reference/target.png",
+    "size_px": [1536, 864],
+    "sha256": "13f10c4beb43d098cac8bc78cf8721ee5aefb4b1fe1fa259048fa390a0a849c0"
+  },
+  "inspection": {
+    "full_images_viewed_first": true,
+    "requested_crop_xyxy": [990, 0, 1220, 260],
+    "requested_crop_enlargement": "PIL, 4x nearest-neighbor; both images inspected",
+    "supplemental_bracket_crop_xyxy": [1040, 0, 1280, 240],
+    "supplemental_crop_enlargement": "PIL, 3x nearest-neighbor; both images inspected because the requested crop clips the reference bracket's wall attachment",
+    "review_mode": "Rubber Duck, single-context visual critique",
+    "execution": "Single-agent review; no subagents launched; model not changed; no independent-reviewer consensus ranking or external calls",
+    "scoring": "Subjective visible similarity, 0-10; 10 means visually indistinguishable in these images, not merely the correct subject or source texture",
+    "geometry_measurements": "Screen-space estimates from inspected images, approximately +/-3 pixels; not segmented or fitted measurements",
+    "provenance_policy": "The user-authorized source crop and real 3D rim/bracket are user-supplied implementation context, not proof of visual acceptance."
+  },
+  "scores": {
+    "face": 8.0,
+    "bracket": 2.5,
+    "placement": 8.5,
+    "rim": 6.5,
+    "suspension": 4.5,
+    "face_color": 7.0,
+    "face_sharpness": 6.0
+  },
+  "acceptance": false,
+  "picture_perfect": false,
+  "verdict": "The face is recognizably close in artwork and screen size, but visibly softer, browner and more heavily shaded than the reference. The ornamental support remains substantially different. The sign as a whole is not picture-perfect.",
+  "exact_matches": [
+    {
+      "feature": "Displayed content",
+      "observation": "Both display a large black 9 with a smaller stacked 3 over 4 and a horizontal fraction rule to its right.",
+      "qualification": "Exact content/layout identity, not pixel-identical glyph edges, dimensions or rendering."
+    }
+  ],
+  "close_matches_not_exact": [
+    "The face follows the same serif numeral design and recognizable stain, scratch and fastener-mark arrangement.",
+    "Both have a weathered tan circular face enclosed by a dark metal rim.",
+    "The disk occupies almost the same upper-right screen location and approximately the same 145-150 pixel diameter.",
+    "Both supports include a horizontal upper member, a descending diagonal member and a brass-toned ring near the hanging end; their detailed silhouettes do not match."
+  ],
+  "differences": [
+    {
+      "component": "Face color and shading",
+      "confidence": "high",
+      "evidence": "Within the requested crop, the actual face is warmer orange-brown and darker than the reference's lighter, more neutral parchment tone. Its perimeter, especially the lower face, has a stronger dark shading band.",
+      "required_change": "Match the rendered face's luminance and warm/cool balance to the reference and reduce the excessive peripheral darkening without erasing the source weathering."
+    },
+    {
+      "component": "Face sharpness",
+      "confidence": "high",
+      "evidence": "At 4x, the actual 9 outline, fraction numerals/rule and mottled surface marks are visibly softer and less distinct. The reference's fine face texture and edge contrast survive enlargement better.",
+      "required_change": "Recover the reference's screen-space texture detail and numeral edge definition. Inspect the actual sampling/render path rather than assuming reuse of the source crop guarantees fidelity; the images alone do not establish the technical cause."
+    },
+    {
+      "component": "Rim",
+      "confidence": "high",
+      "evidence": "The actual rim has a heavier, softer dark border and a conspicuous pale/gold lower-left outer bevel. The reference has a finer, crisper layered dark rim and more legible small perimeter fittings, including its lower tab.",
+      "required_change": "Refine the projected rim profile, bevel highlight, lower shadow band and small fittings to match the reference silhouette and material response."
+    },
+    {
+      "component": "Suspension",
+      "confidence": "high",
+      "evidence": "The actual upper assembly reads as a simple upright, left-side brass ring and block-like gold cap. The reference has a more articulated hanging connection, slender decorative vertical fittings and a rounded ornamental finial. Their silhouettes and highlight placement differ.",
+      "required_change": "Reproduce the visible finial, ring position, vertical hanger and connection to the disk rather than retaining generic cap-and-rod shapes."
+    },
+    {
+      "component": "Ornamental bracket",
+      "confidence": "high",
+      "evidence": "The actual is dominated by a plain, short triangular frame with a sparse loop. The reference has a small upper spiral, a large nested scroll assembly, a lower spiral and a substantial decorated wall plate. The reference reaches approximately x1265 and descends to y205; the actual principal support ends around x1215 and y125. Much of the missing reference ornament lies beyond x1220.",
+      "required_change": "Rebuild the bracket to the reference's full projected span and depth, including nested curls, lower scroll, end ornaments and wall attachment. This is a silhouette/geometry mismatch, not a face-texture problem."
+    },
+    {
+      "component": "Screen placement and projected shape",
+      "confidence": "medium",
+      "evidence": "Approximate disk centers are actual (1081, 161) and reference (1085, 158). The actual disk is a few pixels left and down and reads slightly narrower/taller. Disk scale is close, but the whole assembly's footprint is not, because the bracket is markedly shorter.",
+      "required_change": "After correcting the support and rim, nudge the disk approximately 4 pixels right and 3 pixels up and refine its projected width/height against the reference. Do not move or scale the entire assembly as a substitute for rebuilding the bracket."
+    }
+  ],
+  "main_remaining_changes": [
+    "Restore the reference bracket's scrollwork, full rightward reach, lower ornament and wall plate.",
+    "Match the suspension fittings and rim silhouette/highlights.",
+    "Make the face less brown/dark and recover the reference's crisp numeral edges and fine weathering.",
+    "Finish with the small right/up disk-placement and projected-shape corrections."
+  ],
+  "acceptance_reason": "Matching source artwork and nearly matching disk placement are insufficient: visible face color/sharpness differences remain, and the suspension and ornamental bracket are clearly not close enough."
+}
