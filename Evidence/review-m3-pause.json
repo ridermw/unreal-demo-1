@@ -1,0 +1,36 @@
+{
+  "milestone": "M3 partial",
+  "verdict": "WIP preservation only; issues remain before milestone completion",
+  "reviewer": "Independent code-review agent",
+  "findings": [
+    {
+      "file": "Scripts/build_unreal.py",
+      "issue": "Reused meshes receive current source hash without actually reimporting that source",
+      "next_fix": "Stamp only successful imports; reject or report reuse source-hash mismatches"
+    },
+    {
+      "file": "Scripts/generate_textures.py",
+      "issue": "Existing PNG and receipt bypass reconciliation of interrupted submitted status",
+      "next_fix": "Validate/sanitize/hash existing outputs and reconcile ledger without resubmission"
+    },
+    {
+      "file": "Scripts/measure_performance.py",
+      "issue": "Positive stale game delta can still allow invalid Slate-derived FPS",
+      "next_fix": "Require new game-frame advancement and derive performance from that frame stream"
+    },
+    {
+      "file": "Scripts/build_station.py",
+      "issue": "Intermediate roof arch loop emits the same full-width arches four times",
+      "next_fix": "Generate three intermediate arches once per bay outside the panel loop"
+    }
+  ],
+  "verified_checkpoint": [
+    "33 new mockui jobs completed and image hashes match receipts",
+    "37 source PNGs total with sanitized provenance",
+    "39 generated actors reopen in the saved map",
+    "11 source/scene contract tests pass",
+    "Actual Unreal treatment screenshot is 1536x864",
+    "Performance evidence explicitly invalid; no visual score yet"
+  ],
+  "pause_state": "PIE stopped; Python remote execution disabled; no image jobs active"
+}

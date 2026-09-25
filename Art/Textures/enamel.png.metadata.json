@@ -1,0 +1,9 @@
+{
+  "rendered_at": "2026-09-25T03:45:19.037276+00:00",
+  "size": "1024x1024",
+  "quality": "high",
+  "model_name": "gpt-image-2.5-flare",
+  "model_version": "default",
+  "prompt_char_count": 508,
+  "prompt": "A seamless tileable physically based game material BASE COLOR / ALBEDO texture. Perfectly orthographic flat square surface, edge to edge, uniform diffuse neutral lighting, no baked highlights or shadows, no perspective, no vignette, no text. Photoreal close material microdetail: aged warm ivory cream enamel railway sign surface, fine hairline crazing and restrained edge-independent soot specks, subtle discoloration. Mostly clean readable cream. Absolutely no letters, numerals, labels, border or symbols."
+}

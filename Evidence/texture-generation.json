@@ -1,0 +1,332 @@
+{
+  "brick_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:36:58.967488+00:00",
+    "output": "Art/Textures/brick_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "2ffbbc69b7401f9e6f0ee5835de762b712fdf63996d84a6b4a64afbb206403e1"
+  },
+  "stone_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:36:58.971165+00:00",
+    "output": "Art/Textures/stone_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "47773f37d772f2bc1c8907c488532873d676186d413550e86a11511e69145002"
+  },
+  "scarlet_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:36:58.973544+00:00",
+    "output": "Art/Textures/scarlet_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "ae665f488d178f22d10cd3871c2b2a8476d71d859016a67e192a5ba7844d2997"
+  },
+  "leather_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:36:58.975747+00:00",
+    "output": "Art/Textures/leather_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "14aa3e5187628e45f7830a221ecdcc90e81927bf6843a89c756a5c110f5bd7ab"
+  },
+  "scarlet_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:38:21.281104+00:00",
+    "output": "Art/Textures/scarlet_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: deep burgundy scarlet locomotive enamel, rubbed polished edges and fine scratches.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "6ed69e0917bc34bc9d77b7826c7ce354ec316e5da65e2b7ff5be92b9d37021d2"
+  },
+  "stone_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:38:24.278212+00:00",
+    "output": "Art/Textures/stone_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: worn grey-brown sandstone paving slabs with narrow recessed joints.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "ae8ee30a7954d4ff83e7de1b800b747d50bf6c246590b7debeaad9313d8d6615"
+  },
+  "leather_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:39:19.091688+00:00",
+    "output": "Art/Textures/leather_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: antique chestnut brown leather luggage, fine pores, scuffs and creases.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "8f8e898bceb0cd274f630dc732800b8f5378f91eebff3e6fa54a94a21c882e94"
+  },
+  "brick_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:39:23.240434+00:00",
+    "output": "Art/Textures/brick_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: Victorian reddish-brown handmade brick and recessed grey lime mortar.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "d51c3272ae9d72bae0e23759a3ec0ea9a3e1a7704528021e4c64ca60f1224370"
+  },
+  "blacksteel": {
+    "status": "completed",
+    "model": "flare",
+    "started_utc": "2026-09-25T03:39:44.018212+00:00",
+    "output": "Art/Textures/blacksteel.png",
+    "prompt": "A seamless tileable physically based game material BASE COLOR / ALBEDO texture. Perfectly orthographic flat square surface, edge to edge, uniform diffuse neutral lighting, no baked highlights or shadows, no perspective, no vignette, no text. Photoreal close material microdetail: blackened oily steam locomotive steel, nearly black charcoal gunmetal, subtle shallow pitting, soot, rub marks and minute silver scratches. No large rust patches.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "93ce37a50816e7966984dbc1372c6eed2cda710f4e02a1d22aa170ffb28a68d6"
+  },
+  "iron": {
+    "status": "completed",
+    "model": "flare",
+    "started_utc": "2026-09-25T03:39:45.204432+00:00",
+    "output": "Art/Textures/iron.png",
+    "prompt": "A seamless tileable physically based game material BASE COLOR / ALBEDO texture. Perfectly orthographic flat square surface, edge to edge, uniform diffuse neutral lighting, no baked highlights or shadows, no perspective, no vignette, no text. Photoreal close material microdetail: Victorian cast iron painted very dark forest green teal, weathered paint and soot with tiny patches of exposed iron and sparse rust freckles. The dominant color is very dark desaturated green.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "4a39565d4679973f8939b5d44e4ebcc85f5b4401c4740c9e2843143b9b2bc3db"
+  },
+  "iron_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:40:13.483934+00:00",
+    "output": "Art/Textures/iron_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "d247f8a2d962803f480c5b2c8450c12908048b46e7ca8036c38675f4c4db7455"
+  },
+  "blacksteel_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:40:24.079430+00:00",
+    "output": "Art/Textures/blacksteel_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "3730e2271bb60b80a60715fcd2c3735709014b4b0fefd639d951559fe9460a42"
+  },
+  "brass": {
+    "status": "completed",
+    "model": "flare",
+    "started_utc": "2026-09-25T03:40:41.370640+00:00",
+    "output": "Art/Textures/brass.png",
+    "prompt": "A seamless tileable physically based game material BASE COLOR / ALBEDO texture. Perfectly orthographic flat square surface, edge to edge, uniform diffuse neutral lighting, no baked highlights or shadows, no perspective, no vignette, no text. Photoreal close material microdetail: antique golden brass, warm honey gold with fine scratches, rubbed polished areas and irregular restrained dark brown patina. No green corrosion covering the entire surface.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "3577da63ae063e17fb7ceac0fb524a7fec8e66885bbaf1426e8055fde46f6567"
+  },
+  "wood": {
+    "status": "completed",
+    "model": "flare",
+    "started_utc": "2026-09-25T03:40:43.625152+00:00",
+    "output": "Art/Textures/wood.png",
+    "prompt": "A seamless tileable physically based game material BASE COLOR / ALBEDO texture. Perfectly orthographic flat square surface, edge to edge, uniform diffuse neutral lighting, no baked highlights or shadows, no perspective, no vignette, no text. Photoreal close material microdetail: Victorian bench hardwood slats, medium dark walnut brown, straight long grain running horizontally, old varnish wear and small scratches. No gaps between planks; continuous wood grain material.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "5d6ec274f43a457744dba43f76f4202418a62286406407c0827972c09810a46a"
+  },
+  "wood_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:41:10.907320+00:00",
+    "output": "Art/Textures/wood_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "50f8abb03361cd6453cb3dcd55139deed8e426390fbb9818f10bda20554d7c34"
+  },
+  "brass_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:41:17.511557+00:00",
+    "output": "Art/Textures/brass_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "4accb6c8cb123c73753f3abb445fe077880d6011464032a4b0de08ab93bbbaac"
+  },
+  "blacksteel_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:41:39.384652+00:00",
+    "output": "Art/Textures/blacksteel_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: blackened oily steam locomotive steel, nearly black charcoal gunmetal, subtle shallow pitting, soot, rub marks and minute silver scratches. No large rust patches.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "30c22af03efc283f581a70a2aa957192078621a9c8af0ba5e20dbdce0c563429"
+  },
+  "iron_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:41:42.026915+00:00",
+    "output": "Art/Textures/iron_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: Victorian cast iron painted very dark forest green teal, weathered paint and soot with tiny patches of exposed iron and sparse rust freckles. The dominant color is very dark desaturated green.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "1fe896b22cd9f2118427909d03099e87431d6b3c02e0115d04c5c6971100f168"
+  },
+  "wood_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:42:39.985471+00:00",
+    "output": "Art/Textures/wood_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: Victorian bench hardwood slats, medium dark walnut brown, straight long grain running horizontally, old varnish wear and small scratches. No gaps between planks; continuous wood grain material.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "5e510d6634e9ed80c70ddd8490aa037a8350a51d705568afc28f1949ee04a1c1"
+  },
+  "brass_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:42:44.385765+00:00",
+    "output": "Art/Textures/brass_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: antique golden brass, warm honey gold with fine scratches, rubbed polished areas and irregular restrained dark brown patina. No green corrosion covering the entire surface.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "4e65fc7bc1b7511fefa57c55144b2ac7a8157a17c7afc9e00453b44cd9a0f502"
+  },
+  "ballast": {
+    "status": "completed",
+    "model": "flare",
+    "started_utc": "2026-09-25T03:43:41.212961+00:00",
+    "output": "Art/Textures/ballast.png",
+    "prompt": "A seamless tileable physically based game material BASE COLOR / ALBEDO texture. Perfectly orthographic flat square surface, edge to edge, uniform diffuse neutral lighting, no baked highlights or shadows, no perspective, no vignette, no text. Photoreal close material microdetail: railway ballast of tightly packed rough dark charcoal grey angular granite pebbles, 20 to 45mm stones in random orientations, deep dark gaps, scattered coal grit. No paving slabs, no rails, no large rocks.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "36bfb772a4c7725d5e3f078982f4f2e61eeff862d1bc1ea9bf74f52fadfdd29f"
+  },
+  "cloth": {
+    "status": "completed",
+    "model": "flare",
+    "started_utc": "2026-09-25T03:43:45.431203+00:00",
+    "output": "Art/Textures/cloth.png",
+    "prompt": "A seamless tileable physically based game material BASE COLOR / ALBEDO texture. Perfectly orthographic flat square surface, edge to edge, uniform diffuse neutral lighting, no baked highlights or shadows, no perspective, no vignette, no text. Photoreal close material microdetail: wine red burgundy wool blanket fabric, close fine woven twill with tiny fuzzy fibers, very subtle creases. Flat textile not folded, no objects or tassels.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "9404840b182e11911d6a4371679965cdb76753f7c273717fc6bee17f2f928fef"
+  },
+  "dirtyglass": {
+    "status": "completed",
+    "model": "flare",
+    "started_utc": "2026-09-25T03:43:54.595228+00:00",
+    "output": "Art/Textures/dirtyglass.png",
+    "prompt": "A seamless tileable physically based game material BASE COLOR / ALBEDO texture. Perfectly orthographic flat square surface, edge to edge, uniform diffuse neutral lighting, no baked highlights or shadows, no perspective, no vignette, no text. Photoreal close material microdetail: dusty Victorian station window glass, transparent-looking cool grey green glass surface represented on uniform medium grey, subtle soot specks and thin rain streaks, clean rubbed patches. No frames, no scenery reflected, no objects.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "91538de53de08be2771e71c270347cd231d4c1fd914506d61831ea30e1902b39"
+  },
+  "cloth_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:44:11.126175+00:00",
+    "output": "Art/Textures/cloth_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "935b4c4221c1be748a0324aa5a3bc89301773413844c354daf85f923bd4cf700"
+  },
+  "ballast_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:44:18.017300+00:00",
+    "output": "Art/Textures/ballast_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "cf1c80c9a5abda5ebffb27d2116220d8e8c6d2fabe1631ed793df8ec31ea7e7c"
+  },
+  "enamel": {
+    "status": "completed",
+    "model": "flare",
+    "started_utc": "2026-09-25T03:44:35.107691+00:00",
+    "output": "Art/Textures/enamel.png",
+    "prompt": "A seamless tileable physically based game material BASE COLOR / ALBEDO texture. Perfectly orthographic flat square surface, edge to edge, uniform diffuse neutral lighting, no baked highlights or shadows, no perspective, no vignette, no text. Photoreal close material microdetail: aged warm ivory cream enamel railway sign surface, fine hairline crazing and restrained edge-independent soot specks, subtle discoloration. Mostly clean readable cream. Absolutely no letters, numerals, labels, border or symbols.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "7e39f51e4f0f4c3f049ea9a57c194ce8b60adc1a7c2121e54c1e424b111652a4"
+  },
+  "dirtyglass_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:45:13.926791+00:00",
+    "output": "Art/Textures/dirtyglass_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "aaa6d5825130d63cbdd93648f2f61b10067e469ce70e3443829835d1bbcb240b"
+  },
+  "enamel_normal": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:45:19.091577+00:00",
+    "output": "Art/Textures/enamel_normal.png",
+    "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "85220a546703ef3ff54b643a1d54f05baf7e837004d76bf3a5cf0561f906f8a2"
+  },
+  "cloth_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:45:28.722541+00:00",
+    "output": "Art/Textures/cloth_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: wine red burgundy wool blanket fabric, close fine woven twill with tiny fuzzy fibers, very subtle creases. Flat textile not folded, no objects or tassels.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "47ca7ed6b715832bde24d0ad9d3ea12bdc99cf02f1c3a155e1215b98573292bd"
+  },
+  "ballast_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:45:29.100322+00:00",
+    "output": "Art/Textures/ballast_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: railway ballast of tightly packed rough dark charcoal grey angular granite pebbles, 20 to 45mm stones in random orientations, deep dark gaps, scattered coal grit. No paving slabs, no rails, no large rocks.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "8e6b7f2b126ce48ee58ced17c16e8136b9a09cf3ee0b62a9128812524cbe5a15"
+  },
+  "dirtyglass_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:46:36.372482+00:00",
+    "output": "Art/Textures/dirtyglass_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: dusty Victorian station window glass, transparent-looking cool grey green glass surface represented on uniform medium grey, subtle soot specks and thin rain streaks, clean rubbed patches. No frames, no scenery reflected, no objects.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "c0689233c67900b832fc7d37c740b4feab232fc6e537ab56ec47ce906f950703"
+  },
+  "enamel_roughness": {
+    "status": "completed",
+    "model": "sunburst",
+    "started_utc": "2026-09-25T03:47:05.712574+00:00",
+    "output": "Art/Textures/enamel_roughness.png",
+    "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: aged warm ivory cream enamel railway sign surface, fine hairline crazing and restrained edge-independent soot specks, subtle discoloration. Mostly clean readable cream. Absolutely no letters, numerals, labels, border or symbols.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "43cc395d6560477f626d9d38aefa2e2e4c34120ebdfabc2d7fcecab96d79758d"
+  },
+  "steam": {
+    "status": "completed",
+    "model": "flare",
+    "started_utc": "2026-09-25T03:48:47.268179+00:00",
+    "output": "Art/Textures/steam.png",
+    "prompt": "A single photoreal soft white steam plume sprite for a real-time Victorian steam locomotive. Wispy turbulent translucent vapor rising vertically, fine feathery strands and soft curling eddies, thin at base, gently wider in upper half, diffuse cool white. Pure solid black background, all four image edges fully black with wide margins. No engine, no objects, no text, no border. Grayscale density sprite, not thick opaque smoke; smooth soft fade to black.",
+    "request_id": null,
+    "exit_code": 0,
+    "sha256": "5474c4b7d6cb5ef444fafd0d09883ab234bb0cf0d46c48bf6242ff063e511b66"
+  }
+}

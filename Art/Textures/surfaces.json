@@ -1,0 +1,14 @@
+{
+  "brick": {"existing": true, "description": "Victorian reddish-brown handmade brick and recessed grey lime mortar"},
+  "stone": {"existing": true, "description": "worn grey-brown sandstone paving slabs with narrow recessed joints"},
+  "scarlet": {"existing": true, "description": "deep burgundy scarlet locomotive enamel, rubbed polished edges and fine scratches"},
+  "leather": {"existing": true, "description": "antique chestnut brown leather luggage, fine pores, scuffs and creases"},
+  "blacksteel": {"description": "blackened oily steam locomotive steel, nearly black charcoal gunmetal, subtle shallow pitting, soot, rub marks and minute silver scratches. No large rust patches"},
+  "iron": {"description": "Victorian cast iron painted very dark forest green teal, weathered paint and soot with tiny patches of exposed iron and sparse rust freckles. The dominant color is very dark desaturated green"},
+  "brass": {"description": "antique golden brass, warm honey gold with fine scratches, rubbed polished areas and irregular restrained dark brown patina. No green corrosion covering the entire surface"},
+  "wood": {"description": "Victorian bench hardwood slats, medium dark walnut brown, straight long grain running horizontally, old varnish wear and small scratches. No gaps between planks; continuous wood grain material"},
+  "ballast": {"description": "railway ballast of tightly packed rough dark charcoal grey angular granite pebbles, 20 to 45mm stones in random orientations, deep dark gaps, scattered coal grit. No paving slabs, no rails, no large rocks"},
+  "cloth": {"description": "wine red burgundy wool blanket fabric, close fine woven twill with tiny fuzzy fibers, very subtle creases. Flat textile not folded, no objects or tassels"},
+  "dirtyglass": {"description": "dusty Victorian station window glass, transparent-looking cool grey green glass surface represented on uniform medium grey, subtle soot specks and thin rain streaks, clean rubbed patches. No frames, no scenery reflected, no objects"},
+  "enamel": {"description": "aged warm ivory cream enamel railway sign surface, fine hairline crazing and restrained edge-independent soot specks, subtle discoloration. Mostly clean readable cream. Absolutely no letters, numerals, labels, border or symbols"}
+}

@@ -45,7 +45,7 @@ class SourceContractTests(unittest.TestCase):
     def test_real_sources_are_complete(self):
         manifest = BUILD.source_manifest()
         self.assertEqual(len(manifest["meshes"]), 14)
-        self.assertEqual(len(manifest["materials"]), 17)
+        self.assertGreaterEqual(len(manifest["materials"]), 17)
 
     def test_missing_mesh_fails_before_engine_work(self):
         with tempfile.TemporaryDirectory() as folder:

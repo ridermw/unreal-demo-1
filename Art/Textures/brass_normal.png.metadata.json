@@ -1,0 +1,9 @@
+{
+  "rendered_at": "2026-09-25T03:42:44.329771+00:00",
+  "size": "1024x1024",
+  "quality": "high",
+  "model_name": "gpt-image-2.5-sunburst",
+  "model_version": "default",
+  "prompt_char_count": 544,
+  "prompt": "Convert this exact surface into its corresponding seamless tangent-space NORMAL MAP for Unreal. Keep every feature in precisely the same pixel positions; do not invent a different arrangement. This is technical RGB normal data, not a color image: flat areas RGB (128,128,255), blue dominant, red/green encode surface slopes, DirectX Y orientation. Recess mortar, cracks or pores and give the material realistic subtle raised microdetail. No lighting, shadows, text or colored albedo. Do not exaggerate relief on metal, glass, leather or fabric."
+}

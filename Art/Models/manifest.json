@@ -26,7 +26,7 @@
         0.014,
         0.023
       ],
-      "metallic": 0.62,
+      "metallic": 0.0,
       "roughness": 0.32,
       "texture": "scarlet"
     },
@@ -38,7 +38,7 @@
       ],
       "metallic": 0.78,
       "roughness": 0.34,
-      "texture": "scarlet"
+      "texture": "blacksteel"
     },
     "Iron": {
       "color": [
@@ -46,9 +46,9 @@
         0.062,
         0.059
       ],
-      "metallic": 0.75,
+      "metallic": 0.2,
       "roughness": 0.47,
-      "texture": "scarlet"
+      "texture": "iron"
     },
     "Brass": {
       "color": [
@@ -58,7 +58,7 @@
       ],
       "metallic": 0.85,
       "roughness": 0.28,
-      "texture": "leather"
+      "texture": "brass"
     },
     "Leather": {
       "color": [
@@ -88,7 +88,7 @@
       ],
       "metallic": 0.0,
       "roughness": 0.61,
-      "texture": "leather"
+      "texture": "wood"
     },
     "Cream": {
       "color": [
@@ -98,7 +98,7 @@
       ],
       "metallic": 0.1,
       "roughness": 0.55,
-      "texture": "stone"
+      "texture": "enamel"
     },
     "Lettering": {
       "color": [
@@ -116,19 +116,19 @@
         0.21,
         0.22
       ],
-      "metallic": 0.3,
-      "roughness": 0.15,
-      "texture": null
+      "metallic": 0.0,
+      "roughness": 0.25,
+      "texture": "dirtyglass"
     },
     "AmberGlass": {
       "color": [
-        0.7,
-        0.34,
-        0.075
+        0.18,
+        0.1,
+        0.035
       ],
       "metallic": 0.0,
       "roughness": 0.32,
-      "texture": null
+      "texture": "dirtyglass"
     },
     "Lamp": {
       "color": [
@@ -148,7 +148,7 @@
       ],
       "metallic": 0.0,
       "roughness": 0.91,
-      "texture": "stone"
+      "texture": "ballast"
     },
     "Blanket": {
       "color": [
@@ -158,7 +158,17 @@
       ],
       "metallic": 0.0,
       "roughness": 0.95,
-      "texture": "leather"
+      "texture": "cloth"
+    },
+    "RoofPanel": {
+      "color": [
+        0.045,
+        0.054,
+        0.048
+      ],
+      "metallic": 0.3,
+      "roughness": 0.72,
+      "texture": "iron"
     },
     "Puddle": {
       "color": [
@@ -174,8 +184,8 @@
   "meshes": [
     {
       "name": "Architecture",
-      "file": "Art/Models/Architecture.fbx",
-      "vertices": 27864,
+      "file": "Art/Models/Refined/Architecture.fbx",
+      "vertices": 38400,
       "material_slots": [
         "Brick",
         "Cream",
@@ -197,8 +207,8 @@
     },
     {
       "name": "Windows",
-      "file": "Art/Models/Windows.fbx",
-      "vertices": 10380,
+      "file": "Art/Models/Refined/Windows.fbx",
+      "vertices": 8940,
       "material_slots": [
         "AmberGlass",
         "Glass",
@@ -207,24 +217,25 @@
       "source_bounds_m": {
         "minimum": [
           -9.682499885559082,
-          -7.474999904632568,
+          -6.474999904632568,
           1.7100000381469727
         ],
         "maximum": [
           4.632500171661377,
-          66.4749984741211,
-          6.769999980926514
+          65.4749984741211,
+          5.769999980926514
         ]
       }
     },
     {
       "name": "Roof",
-      "file": "Art/Models/Roof.fbx",
-      "vertices": 91952,
+      "file": "Art/Models/Refined/Roof.fbx",
+      "vertices": 534320,
       "material_slots": [
         "Brass",
         "Glass",
-        "Iron"
+        "Iron",
+        "RoofPanel"
       ],
       "source_bounds_m": {
         "minimum": [
@@ -241,7 +252,7 @@
     },
     {
       "name": "FarWall",
-      "file": "Art/Models/FarWall.fbx",
+      "file": "Art/Models/Refined/FarWall.fbx",
       "vertices": 288,
       "material_slots": [
         "Glass",
@@ -262,8 +273,8 @@
     },
     {
       "name": "Track",
-      "file": "Art/Models/Track.fbx",
-      "vertices": 104160,
+      "file": "Art/Models/Refined/Track.fbx",
+      "vertices": 278160,
       "material_slots": [
         "BlackSteel",
         "Gravel",
@@ -271,20 +282,20 @@
       ],
       "source_bounds_m": {
         "minimum": [
-          -4.890869140625,
+          -4.882651329040527,
           -11.0,
           -0.10000000149011612
         ],
         "maximum": [
-          -0.6450485587120056,
-          68.0416259765625,
+          -0.6467443704605103,
+          68.03427124023438,
           0.17499999701976776
         ]
       }
     },
     {
       "name": "Locomotive",
-      "file": "Art/Models/Locomotive.fbx",
+      "file": "Art/Models/Refined/Locomotive.fbx",
       "vertices": 53150,
       "material_slots": [
         "BlackSteel",
@@ -306,7 +317,7 @@
     },
     {
       "name": "Wheels",
-      "file": "Art/Models/Wheels.fbx",
+      "file": "Art/Models/Refined/Wheels.fbx",
       "vertices": 63888,
       "material_slots": [
         "BlackSteel",
@@ -328,7 +339,7 @@
     },
     {
       "name": "CabTender",
-      "file": "Art/Models/CabTender.fbx",
+      "file": "Art/Models/Refined/CabTender.fbx",
       "vertices": 12048,
       "material_slots": [
         "BlackSteel",
@@ -351,7 +362,7 @@
     },
     {
       "name": "Carriages",
-      "file": "Art/Models/Carriages.fbx",
+      "file": "Art/Models/Refined/Carriages.fbx",
       "vertices": 33408,
       "material_slots": [
         "AmberGlass",
@@ -375,7 +386,7 @@
     },
     {
       "name": "Luggage",
-      "file": "Art/Models/Luggage.fbx",
+      "file": "Art/Models/Refined/Luggage.fbx",
       "vertices": 27492,
       "material_slots": [
         "BlackSteel",
@@ -392,7 +403,7 @@
           0.6573678255081177
         ],
         "maximum": [
-          4.574999809265137,
+          4.744999885559082,
           3.6649999618530273,
           3.4738974571228027
         ]
@@ -400,7 +411,7 @@
     },
     {
       "name": "Furniture",
-      "file": "Art/Models/Furniture.fbx",
+      "file": "Art/Models/Refined/Furniture.fbx",
       "vertices": 10260,
       "material_slots": [
         "Brass",
@@ -423,7 +434,7 @@
     },
     {
       "name": "Signs",
-      "file": "Art/Models/Signs.fbx",
+      "file": "Art/Models/Refined/Signs.fbx",
       "vertices": 27444,
       "material_slots": [
         "BlackSteel",
@@ -447,7 +458,7 @@
     },
     {
       "name": "Lanterns",
-      "file": "Art/Models/Lanterns.fbx",
+      "file": "Art/Models/Refined/Lanterns.fbx",
       "vertices": 2688,
       "material_slots": [
         "BlackSteel",
@@ -469,33 +480,33 @@
     },
     {
       "name": "Puddles",
-      "file": "Art/Models/Puddles.fbx",
+      "file": "Art/Models/Refined/Puddles.fbx",
       "vertices": 224,
       "material_slots": [
         "Puddle"
       ],
       "source_bounds_m": {
         "minimum": [
-          -0.31367239356040955,
-          -1.2348805665969849,
-          0.6850000023841858
+          -0.29976731538772583,
+          -1.2408993244171143,
+          0.7020000219345093
         ],
         "maximum": [
-          2.2338998317718506,
-          36.253326416015625,
-          0.6850000023841858
+          2.2140331268310547,
+          36.23735809326172,
+          0.7020000219345093
         ]
       }
     }
   ],
   "camera": {
     "position": [
-      1.1,
+      2.5,
       -5.8,
       2.35
     ],
     "target": [
-      -0.5,
+      -3.5,
       30,
       2.4
     ],

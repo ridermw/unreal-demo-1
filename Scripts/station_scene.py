@@ -1,6 +1,8 @@
 """Assemble and verify the saved Platform Nine level using existing imported assets."""
 
 import math
+import importlib
+from pathlib import Path
 
 import unreal
 from scene_contract import verify_camera, verify_inventory, verify_material_slots
@@ -62,13 +64,14 @@ def assemble(manifest):
         component.set_static_mesh(mesh)
         component.set_mobility(unreal.ComponentMobility.STATIC)
         component.set_collision_profile_name("BlockAll")
-        component.set_editor_property("cast_shadow", spec["name"] not in ("Puddles", "Windows"))
+        component.set_editor_property("cast_shadow", spec["name"] != "Puddles")
+        component.set_editor_property("cast_shadow_as_two_sided", spec["name"] == "Roof")
 
     sun = upsert("Sun", unreal.DirectionalLight, (0, 0, 15),
-                 unreal.Rotator(pitch=-32, yaw=60, roll=0))
+                 unreal.Rotator(pitch=-38, yaw=65, roll=0))
     light = sun.get_component_by_class(unreal.DirectionalLightComponent)
     light.set_mobility(unreal.ComponentMobility.MOVABLE)
-    light.set_intensity(7000)
+    light.set_intensity(5000)
     light.set_editor_property("atmosphere_sun_light", True)
     light.set_editor_property("light_source_angle", 2.0)
     light.set_light_color(unreal.LinearColor(1.0, 0.91, 0.78, 1))
@@ -77,13 +80,13 @@ def assemble(manifest):
     sky = upsert("SkyLight", unreal.SkyLight)
     sky_component = sky.get_component_by_class(unreal.SkyLightComponent)
     sky_component.set_mobility(unreal.ComponentMobility.MOVABLE)
-    sky_component.set_intensity(1.3)
+    sky_component.set_intensity(1.8)
     sky_component.set_editor_property("real_time_capture", True)
     sky_component.set_editor_property("lower_hemisphere_is_black", False)
 
     fog = upsert("Haze", unreal.ExponentialHeightFog, (0, 0, 0))
     fog_component = fog.get_component_by_class(unreal.ExponentialHeightFogComponent)
-    fog_component.set_editor_property("fog_density", 0.008)
+    fog_component.set_editor_property("fog_density", 0.014)
     fog_component.set_editor_property("fog_height_falloff", 0.2)
     fog_component.set_fog_inscattering_color(unreal.LinearColor(0.30, 0.39, 0.46, 1))
     fog_component.set_volumetric_fog(True)
@@ -99,7 +102,7 @@ def assemble(manifest):
         "override_auto_exposure_apply_physical_camera_exposure": True,
         "auto_exposure_apply_physical_camera_exposure": False,
         "override_auto_exposure_bias": True,
-        "auto_exposure_bias": -7.0,
+        "auto_exposure_bias": -7.5,
         "override_bloom_intensity": True,
         "bloom_intensity": 0.25,
         "override_vignette_intensity": True,
@@ -115,12 +118,29 @@ def assemble(manifest):
         component = lamp.get_component_by_class(unreal.PointLightComponent)
         component.set_mobility(unreal.ComponentMobility.MOVABLE)
         component.set_editor_property("intensity_units", unreal.LightUnits.LUMENS)
-        component.set_intensity(1800)
+        component.set_intensity(4500)
         component.set_light_color(unreal.LinearColor(1.0, 0.49, 0.19, 1))
         component.set_attenuation_radius(650)
         component.set_editor_property("source_radius", 14)
         component.set_editor_property("cast_shadows", index < 3)
         component.set_editor_property("volumetric_scattering_intensity", 0.25)
+
+    for name, position, intensity, color, yaw in (
+        ("FrontBounce", (1.0, -6.0, 5.5), 18000, (0.72, 0.82, 1.0), -95),
+        ("WarmWindowBounce", (4.0, 5.0, 4.2), 14000, (1.0, 0.65, 0.34), -150),
+        ("PlatformSkylight", (0.5, 20.0, 9.5), 24000, (0.74, 0.84, 1.0), -90),
+    ):
+        fill = upsert(name, unreal.RectLight, position,
+                      unreal.Rotator(pitch=-35 if name != "PlatformSkylight" else -85, yaw=yaw, roll=0))
+        component = fill.get_component_by_class(unreal.RectLightComponent)
+        component.set_mobility(unreal.ComponentMobility.MOVABLE)
+        component.set_editor_property("intensity_units", unreal.LightUnits.LUMENS)
+        component.set_intensity(intensity)
+        component.set_light_color(unreal.LinearColor(*color, 1))
+        component.set_editor_property("source_width", 550)
+        component.set_editor_property("source_height", 400)
+        component.set_attenuation_radius(3500)
+        component.set_editor_property("cast_shadows", True)
 
     config = manifest["camera"]
     rotation = camera_rotation(config["position"], config["target"])
@@ -131,6 +151,11 @@ def assemble(manifest):
     camera.camera_component.set_editor_property("post_process_blend_weight", 0)
     camera.set_editor_property("auto_activate_for_player", unreal.AutoReceiveInput.PLAYER0)
     upsert("ExploreStart", unreal.PlayerStart, config["position"], rotation)
+    root = Path(__file__).resolve().parents[1]
+    if (root / "Art/Textures/steam.png").exists():
+        import station_steam
+        importlib.reload(station_steam)
+        station_steam.assemble(root, upsert, manifest)
     unreal.EditorLevelLibrary.set_level_viewport_camera_info(world_position(config["position"]), rotation)
     if not levels.save_current_level():
         raise RuntimeError("Station map save failed")

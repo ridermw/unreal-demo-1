@@ -1,8 +1,8 @@
 {
   "status": "success",
   "map": "/Game/Platform/Maps/HiddenPlatform",
-  "generated_actor_count": 28,
-  "total_actor_count": 28,
+  "generated_actor_count": 39,
+  "total_actor_count": 39,
   "meshes": [
     {
       "actor": "/Game/Platform/Maps/HiddenPlatform.HiddenPlatform:PersistentLevel.StaticMeshActor_0",
@@ -29,7 +29,8 @@
       "materials": [
         "/Game/Platform/Materials/M_Brass.M_Brass",
         "/Game/Platform/Materials/M_Glass.M_Glass",
-        "/Game/Platform/Materials/M_Iron.M_Iron"
+        "/Game/Platform/Materials/M_Iron.M_Iron",
+        "/Game/Platform/Materials/M_RoofPanel.M_RoofPanel"
       ]
     },
     {
@@ -140,19 +141,19 @@
   ],
   "camera": {
     "position_cm": [
-      110.00000000000001,
+      250.0,
       580.0,
       235.0
     ],
     "rotation_degrees": [
-      0.07994218915700911,
-      -92.55900573730469,
-      6.212026908817162e-18
+      0.07892125099123186,
+      -99.514221185863,
+      1.8636080266085744e-17
     ],
     "fov": 70.0
   },
   "engine": "5.8.3-58210709+++UE5+Release-5.8",
   "rendered": false,
   "stage": "verify",
-  "utc": "2026-09-25T03:35:49.744363+00:00"
+  "utc": "2026-09-25T04:00:05.647655+00:00"
 }

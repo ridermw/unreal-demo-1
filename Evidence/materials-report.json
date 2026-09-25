@@ -1,0 +1,127 @@
+{
+  "status": "success",
+  "surfaces": [
+    {
+      "material": "/Game/Platform/Materials/M_Brick.M_Brick",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_brick.T_brick",
+        "normal": "/Game/Platform/Textures/T_brick_normal.T_brick_normal",
+        "roughness": "/Game/Platform/Textures/T_brick_roughness.T_brick_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Stone.M_Stone",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_stone.T_stone",
+        "normal": "/Game/Platform/Textures/T_stone_normal.T_stone_normal",
+        "roughness": "/Game/Platform/Textures/T_stone_roughness.T_stone_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Scarlet.M_Scarlet",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_scarlet.T_scarlet",
+        "normal": "/Game/Platform/Textures/T_scarlet_normal.T_scarlet_normal",
+        "roughness": "/Game/Platform/Textures/T_scarlet_roughness.T_scarlet_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_blacksteel.T_blacksteel",
+        "normal": "/Game/Platform/Textures/T_blacksteel_normal.T_blacksteel_normal",
+        "roughness": "/Game/Platform/Textures/T_blacksteel_roughness.T_blacksteel_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Iron.M_Iron",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_iron.T_iron",
+        "normal": "/Game/Platform/Textures/T_iron_normal.T_iron_normal",
+        "roughness": "/Game/Platform/Textures/T_iron_roughness.T_iron_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Brass.M_Brass",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_brass.T_brass",
+        "normal": "/Game/Platform/Textures/T_brass_normal.T_brass_normal",
+        "roughness": "/Game/Platform/Textures/T_brass_roughness.T_brass_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Leather.M_Leather",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_leather.T_leather",
+        "normal": "/Game/Platform/Textures/T_leather_normal.T_leather_normal",
+        "roughness": "/Game/Platform/Textures/T_leather_roughness.T_leather_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_leather.T_leather",
+        "normal": "/Game/Platform/Textures/T_leather_normal.T_leather_normal",
+        "roughness": "/Game/Platform/Textures/T_leather_roughness.T_leather_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Wood.M_Wood",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_wood.T_wood",
+        "normal": "/Game/Platform/Textures/T_wood_normal.T_wood_normal",
+        "roughness": "/Game/Platform/Textures/T_wood_roughness.T_wood_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Cream.M_Cream",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_enamel.T_enamel",
+        "normal": "/Game/Platform/Textures/T_enamel_normal.T_enamel_normal",
+        "roughness": "/Game/Platform/Textures/T_enamel_roughness.T_enamel_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Glass.M_Glass",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_dirtyglass.T_dirtyglass",
+        "normal": "/Game/Platform/Textures/T_dirtyglass_normal.T_dirtyglass_normal",
+        "roughness": "/Game/Platform/Textures/T_dirtyglass_roughness.T_dirtyglass_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_AmberGlass.M_AmberGlass",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_dirtyglass.T_dirtyglass",
+        "normal": "/Game/Platform/Textures/T_dirtyglass_normal.T_dirtyglass_normal",
+        "roughness": "/Game/Platform/Textures/T_dirtyglass_roughness.T_dirtyglass_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Gravel.M_Gravel",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_ballast.T_ballast",
+        "normal": "/Game/Platform/Textures/T_ballast_normal.T_ballast_normal",
+        "roughness": "/Game/Platform/Textures/T_ballast_roughness.T_ballast_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_Blanket.M_Blanket",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_cloth.T_cloth",
+        "normal": "/Game/Platform/Textures/T_cloth_normal.T_cloth_normal",
+        "roughness": "/Game/Platform/Textures/T_cloth_roughness.T_cloth_roughness"
+      }
+    },
+    {
+      "material": "/Game/Platform/Materials/M_RoofPanel.M_RoofPanel",
+      "maps": {
+        "albedo": "/Game/Platform/Textures/T_iron.T_iron",
+        "normal": "/Game/Platform/Textures/T_iron_normal.T_iron_normal",
+        "roughness": "/Game/Platform/Textures/T_iron_roughness.T_iron_roughness"
+      }
+    }
+  ],
+  "stage": "materials",
+  "utc": "2026-09-25T03:50:36.550530+00:00"
+}

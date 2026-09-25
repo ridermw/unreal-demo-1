@@ -11,7 +11,7 @@ from mathutils import Vector
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "Art" / "Models"
+OUT = ROOT / "Art" / "Models" / "Refined"
 OUT.mkdir(parents=True, exist_ok=True)
 random.seed(934)
 bpy.ops.object.select_all(action="SELECT")
@@ -20,20 +20,21 @@ bpy.ops.object.delete(use_global=False)
 PALETTE = {
     "Brick": ((0.28, 0.105, 0.055), 0.0, 0.87, "brick", 2.6),
     "Stone": ((0.35, 0.32, 0.26), 0.0, 0.68, "stone", 3.2),
-    "Scarlet": ((0.19, 0.014, 0.023), 0.62, 0.32, "scarlet", 2.0),
-    "BlackSteel": ((0.018, 0.025, 0.027), 0.78, 0.34, "scarlet", 2.0),
-    "Iron": ((0.029, 0.062, 0.059), 0.75, 0.47, "scarlet", 2.0),
-    "Brass": ((0.40, 0.255, 0.086), 0.85, 0.28, "leather", 1.8),
+    "Scarlet": ((0.19, 0.014, 0.023), 0.0, 0.32, "scarlet", 2.0),
+    "BlackSteel": ((0.018, 0.025, 0.027), 0.78, 0.34, "blacksteel", 2.0),
+    "Iron": ((0.029, 0.062, 0.059), 0.2, 0.47, "iron", 2.0),
+    "Brass": ((0.40, 0.255, 0.086), 0.85, 0.28, "brass", 1.8),
     "Leather": ((0.26, 0.105, 0.035), 0.0, 0.67, "leather", 0.75),
     "DarkLeather": ((0.115, 0.055, 0.019), 0.0, 0.70, "leather", 0.9),
-    "Wood": ((0.20, 0.095, 0.030), 0.0, 0.61, "leather", 1.3),
-    "Cream": ((0.79, 0.70, 0.49), 0.1, 0.55, "stone", 2.0),
+    "Wood": ((0.20, 0.095, 0.030), 0.0, 0.61, "wood", 1.3),
+    "Cream": ((0.79, 0.70, 0.49), 0.1, 0.55, "enamel", 2.0),
     "Lettering": ((0.015, 0.013, 0.01), 0.1, 0.45, None, 1.0),
-    "Glass": ((0.11, 0.21, 0.22), 0.3, 0.15, None, 1.0),
-    "AmberGlass": ((0.70, 0.34, 0.075), 0.0, 0.32, None, 1.0),
+    "Glass": ((0.11, 0.21, 0.22), 0.0, 0.25, "dirtyglass", 1.0),
+    "AmberGlass": ((0.18, 0.10, 0.035), 0.0, 0.32, "dirtyglass", 1.0),
     "Lamp": ((1.0, 0.49, 0.14), 0.0, 0.35, None, 1.0),
-    "Gravel": ((0.09, 0.115, 0.12), 0.0, 0.91, "stone", 1.2),
-    "Blanket": ((0.13, 0.009, 0.027), 0.0, 0.95, "leather", 0.25),
+    "Gravel": ((0.09, 0.115, 0.12), 0.0, 0.91, "ballast", 1.2),
+    "Blanket": ((0.13, 0.009, 0.027), 0.0, 0.95, "cloth", 0.25),
+    "RoofPanel": ((0.045, 0.054, 0.048), 0.3, 0.72, "iron", 2.0),
     "Puddle": ((0.10, 0.12, 0.12), 0.4, 0.075, None, 1.0),
 }
 MATERIALS = {}
@@ -51,7 +52,7 @@ for name, (color, metallic, roughness, texture, scale) in PALETTE.items():
             raise FileNotFoundError(f"Generated texture required before modeling: {path}")
         node = material.node_tree.nodes.new("ShaderNodeTexImage")
         node.image = bpy.data.images.load(str(path), check_existing=True)
-        if name in ("Brick", "Stone", "Scarlet", "Leather", "DarkLeather", "Wood"):
+        if name not in ("Glass", "AmberGlass"):
             material.node_tree.links.new(node.outputs["Color"], shader.inputs["Base Color"])
     MATERIALS[name] = material
 
@@ -162,6 +163,13 @@ def text(body, position, size, material, rotation=(math.pi/2, 0, 0), align="CENT
 box("Stone", (2.25, 28, 0.34), (5.5, 78, 0.68))
 box("Stone", (-7.6, 28, 0.30), (4.6, 78, 0.60))
 box("Gravel", (-2.7, 28, -0.15), (4.5, 78, 0.30))
+for row in range(-10, 48):
+    offset = 0.45 if row % 2 else 0.0
+    for col in range(6):
+        x = 0.11 + col*0.87 + offset
+        if x + 0.43 < 4.9:
+            box("Stone", (x, row+0.5, 0.681+random.uniform(-0.002, 0.002)),
+                (0.852, 0.977, 0.016))
 for y in range(-10, 68, 2):
     box("Cream", (-0.46, y, 0.69), (0.29, 1.98, 0.07))
     box("Stone", (-0.59, y, 0.46), (0.15, 1.98, 0.48))
@@ -172,33 +180,39 @@ for side in (4.95, -10.0):
         box("Stone", (side-0.04, y, 6.65), (0.77, 1.12, 0.24))
         box("Brick", (side, y+2.5, 1.2), (0.50, 4.05, 1.00))
         box("Brick", (side, y+2.5, 6.85), (0.50, 4.05, 1.75))
+        for offset in (1.0, 4.0):
+            box("Brick", (side, y+offset, 3.8), (0.55, 1.0, 4.2))
         # Fill the curved spandrel above the arched glass opening.
         for i in range(20):
-            yy = y + 0.49 + i*0.201
-            arc_top = 4.8 + math.sqrt(max(0, 2.02**2 - (yy+0.1-y-2.5)**2))
+            yy = y + 1.50 + i*0.10
+            arc_top = 4.8 + math.sqrt(max(0, 1.01**2 - (yy+0.05-y-2.5)**2))
             if arc_top < 6.05:
                 box("Brick", (side, yy+0.1, (6.05+arc_top)/2),
-                    (0.5, 0.203, 6.05-arc_top))
+                    (0.5, 0.102, 6.05-arc_top))
         inward = -1 if side > 0 else 1
         x = side + inward*0.33
-        box("Stone", (x, y+2.5, 1.69), (0.35, 4.10, 0.16))
-        for t in range(26):
-            theta = t*math.pi/25
-            yy = y+2.5+2.01*math.cos(theta)
-            zz = 4.8+2.01*math.sin(theta)
-            box("Brick", (x, yy, zz), (0.16, 0.25, 0.25))
+        box("Stone", (x, y+2.5, 1.69), (0.45, 2.25, 0.20))
+        for t in range(18):
+            a, b = t*math.pi/18+0.006, (t+1)*math.pi/18-0.006
+            for xx in (x-0.10, x+0.10):
+                points = [(xx, y+2.5+r*math.cos(theta), 4.8+r*math.sin(theta))
+                          for r, theta in ((1.0, a), (1.0, b), (1.24, b), (1.24, a))]
+                face("Brick", points if xx < x else list(reversed(points)))
+            for r in (1.0, 1.24):
+                face("Brick", [(xx, y+2.5+r*math.cos(theta), 4.8+r*math.sin(theta))
+                               for xx, theta in ((x-.1, a), (x+.1, a), (x+.1, b), (x-.1, b))])
         GROUP = "Windows"
-        box("AmberGlass", (x+inward*0.015, y+2.5, 3.22), (0.055, 3.95, 3.02))
+        box("AmberGlass", (x+inward*0.015, y+2.5, 3.22), (0.055, 1.95, 3.02))
         points = [(x, y+2.5, 4.8)] + [
-            (x, y+2.5+1.97*math.cos(t*math.pi/32), 4.8+1.97*math.sin(t*math.pi/32))
+            (x, y+2.5+0.97*math.cos(t*math.pi/32), 4.8+0.97*math.sin(t*math.pi/32))
             for t in range(33)]
         face("Glass", points)
-        for offset in (-1.95, -1.3, -0.65, 0, 0.65, 1.3, 1.95):
-            top = 4.8+math.sqrt(max(0, 1.95**2-offset**2))
+        for offset in (-0.95, -0.475, 0, 0.475, 0.95):
+            top = 4.8+math.sqrt(max(0, 0.95**2-offset**2))
             box("Iron", (x+inward*0.055, y+2.5+offset, (1.8+top)/2),
                 (0.09, 0.05, top-1.8))
         for z in (2.5, 3.3, 4.1, 4.8, 5.45):
-            span = 3.9 if z <= 4.8 else 2*math.sqrt(1.95**2-(z-4.8)**2)
+            span = 1.9 if z <= 4.8 else 2*math.sqrt(max(0, 0.95**2-(z-4.8)**2))
             box("Iron", (x+inward*0.055, y+2.5, z), (0.10, span, 0.06))
         GROUP = "Architecture"
 
@@ -222,7 +236,10 @@ for y in range(-8, 70, 5):
         a, b = i*math.pi/20, (i+1)*math.pi/20
         pts = [(-2.55+7.4*math.cos(t), yy, 6.65+5.2*math.sin(t))
                for t, yy in ((a, y), (b, y), (b, y+5), (a, y+5))]
-        face("Glass", pts)
+        face("Glass" if 7 <= i <= 12 and y % 15 != 2 else "RoofPanel", pts)
+        if i in (4, 6, 13, 15):
+            for offset in (1.25, 2.5, 3.75):
+                arch("Iron", y+offset, 6.65, 7.4, 5.2, 0.025, -2.55)
 for i in range(21):
     t = i*math.pi/20
     cylinder("Iron", (-2.55+7.4*math.cos(t), -8, 6.65+5.2*math.sin(t)),
@@ -244,7 +261,7 @@ for i in range(112):
     box("Wood", (-2.69, y, -0.015), (2.65, 0.22, 0.17))
     for x in (-3.42, -1.96):
         box("BlackSteel", (x, y, 0.07), (0.26, 0.15, 0.035))
-for i in range(3200):
+for i in range(9000):
     x, y = random.uniform(-4.82, -0.7), random.uniform(-10, 68)
     radius = random.uniform(0.025, 0.075)
     cylinder("Gravel", (x, y, -0.02), (x+radius*0.3, y, radius*0.7),
@@ -397,7 +414,7 @@ def suitcase(x, y, bottom, width, depth, height, mat="Leather"):
 
 
 GROUP = "Luggage"
-cx, cy = 3.85, 0.0
+cx, cy = 4.02, 0.0
 box("Wood", (cx, cy, 1.03), (1.45, 1.12, 0.12))
 for side in (-1, 1):
     for yy in (cy-0.38, cy+0.38):
@@ -478,7 +495,7 @@ for x, y, rx, ry in [(1.6, -0.8, 0.55, 0.40), (0.4, 3.2, 0.27, 1.2),
                       (1.0, 17, 0.60, 1.4), (1.9, 27, 0.30, 2.2),
                       (0.25, 33, 0.50, 3)]:
     face("Puddle", [(x+rx*math.cos(t)*(1+random.uniform(-0.13, 0.13)),
-                     y+ry*math.sin(t)*(1+random.uniform(-0.13, 0.13)), 0.685)
+                     y+ry*math.sin(t)*(1+random.uniform(-0.13, 0.13)), 0.702)
                     for t in [i*math.tau/32 for i in range(32)]])
 
 objects = defaultdict(list)
@@ -507,7 +524,7 @@ manifest = {
     "materials": {k: {"color": v[0], "metallic": v[1], "roughness": v[2],
                        "texture": v[3]} for k, v in PALETTE.items()},
     "meshes": [],
-    "camera": {"position": [1.1, -5.8, 2.35], "target": [-0.5, 30, 2.4], "fov": 70},
+    "camera": {"position": [2.5, -5.8, 2.35], "target": [-3.5, 30, 2.4], "fov": 70},
     "lamps": lamps,
     "chimney": [TX, 4.2, 4.62],
 }
@@ -542,6 +559,7 @@ bpy.context.scene.unit_settings.scale_length = 1.0
 bpy.ops.object.select_all(action="DESELECT")
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT / "HiddenPlatform.blend"))
 (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2))
+(ROOT / "Art/Models/manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 print("PLATFORM_MODEL_OK", json.dumps({
     "groups": len(objects),
     "vertices": sum(len(o.data.vertices) for group in objects.values() for o in group),

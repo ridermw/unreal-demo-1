@@ -32,7 +32,7 @@
         3900.0000610351562,
         406.2500009536743
       ],
-      "lod0_triangles": 3934,
+      "lod0_triangles": 9598,
       "nanite_enabled": true
     },
     {
@@ -53,16 +53,16 @@
         }
       ],
       "center_cm": [
-        -252.4995574951172,
-        -2950.0,
-        424.0
+        -252.49952697753906,
+        -2949.999969482422,
+        374.0
       ],
       "extent_cm": [
-        715.7505493164062,
-        3697.5,
-        253.0
+        715.7505340576172,
+        3597.500030517578,
+        203.0
       ],
-      "lod0_triangles": 5640,
+      "lod0_triangles": 4920,
       "nanite_enabled": false
     },
     {
@@ -80,19 +80,23 @@
         {
           "slot": "Iron",
           "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        },
+        {
+          "slot": "RoofPanel",
+          "material": "/Game/Platform/Materials/M_RoofPanel.M_RoofPanel"
         }
       ],
       "center_cm": [
         -254.99954223632812,
-        -3137.69677734375,
+        -3137.6968383789062,
         632.4987182617188
       ],
       "extent_cm": [
-        749.98974609375,
-        4062.30322265625,
+        749.9897155761719,
+        4062.3031616210938,
         562.4987182617188
       ],
-      "lod0_triangles": 53132,
+      "lod0_triangles": 311180,
       "nanite_enabled": false
     },
     {
@@ -110,7 +114,7 @@
       ],
       "center_cm": [
         -251.6240234375,
-        -6604.0,
+        -6604.000244140625,
         510.0
       ],
       "extent_cm": [
@@ -139,16 +143,16 @@
         }
       ],
       "center_cm": [
-        -276.79533767700195,
-        -2852.081298828125,
+        -276.46924591064453,
+        -2851.713623046875,
         3.75
       ],
       "extent_cm": [
-        212.2907829284668,
-        3952.081298828125,
+        211.7953109741211,
+        3951.713623046875,
         13.75
       ],
-      "lod0_triangles": 3182,
+      "lod0_triangles": 5292,
       "nanite_enabled": true
     },
     {
@@ -233,14 +237,14 @@
         }
       ],
       "center_cm": [
-        -268.99981689453125,
+        -268.9998092651367,
         -1502.5,
-        205.51925659179688
+        205.51926016807556
       ],
       "extent_cm": [
-        179.0,
+        179.00000762939453,
         347.5,
-        198.48074340820312
+        198.48073983192444
       ],
       "lod0_triangles": 6716,
       "nanite_enabled": false
@@ -271,14 +275,14 @@
         }
       ],
       "center_cm": [
-        -268.9994201660156,
+        -268.9994125366211,
         -3849.25,
-        213.28634643554688
+        213.2863426208496
       ],
       "extent_cm": [
-        143.25027465820312,
+        143.25028228759766,
         1959.25,
-        206.713623046875
+        206.71362686157227
       ],
       "lod0_triangles": 19008,
       "nanite_enabled": false
@@ -313,16 +317,16 @@
         }
       ],
       "center_cm": [
-        368.12501525878906,
+        376.62501525878906,
         -148.99993896484375,
         206.56326293945312
       ],
       "extent_cm": [
-        89.37498474121094,
+        97.87498474121094,
         217.5,
         140.82647705078125
       ],
-      "lod0_triangles": 4558,
+      "lod0_triangles": 4350,
       "nanite_enabled": true
     },
     {
@@ -437,13 +441,13 @@
         }
       ],
       "center_cm": [
-        95.86776733398438,
-        -1750.3675537109375,
-        68.5
+        95.71374225616455,
+        -1749.822940826416,
+        70.20000457763672
       ],
       "extent_cm": [
-        127.52230834960938,
-        1874.9649658203125,
+        125.68997478485107,
+        1873.912899017334,
         0.0
       ],
       "lod0_triangles": 210,
@@ -451,10 +455,18 @@
     }
   ],
   "textures": [
+    "ballast",
+    "blacksteel",
+    "brass",
     "brick",
+    "cloth",
+    "dirtyglass",
+    "enamel",
+    "iron",
     "leather",
     "scarlet",
-    "stone"
+    "stone",
+    "wood"
   ],
   "materials": [
     "AmberGlass",
@@ -471,6 +483,7 @@
     "Leather",
     "Lettering",
     "Puddle",
+    "RoofPanel",
     "Scarlet",
     "Stone",
     "Wood"
@@ -512,7 +525,7 @@
     {
       "name": "BlackSteel",
       "texture_references": [
-        "/Game/Platform/Textures/T_scarlet.T_scarlet"
+        "/Game/Platform/Textures/T_blacksteel.T_blacksteel"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -523,7 +536,7 @@
     {
       "name": "Iron",
       "texture_references": [
-        "/Game/Platform/Textures/T_scarlet.T_scarlet"
+        "/Game/Platform/Textures/T_iron.T_iron"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -534,7 +547,7 @@
     {
       "name": "Brass",
       "texture_references": [
-        "/Game/Platform/Textures/T_leather.T_leather"
+        "/Game/Platform/Textures/T_brass.T_brass"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -567,7 +580,7 @@
     {
       "name": "Wood",
       "texture_references": [
-        "/Game/Platform/Textures/T_leather.T_leather"
+        "/Game/Platform/Textures/T_wood.T_wood"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -578,7 +591,7 @@
     {
       "name": "Cream",
       "texture_references": [
-        "/Game/Platform/Textures/T_stone.T_stone"
+        "/Game/Platform/Textures/T_enamel.T_enamel"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -597,7 +610,9 @@
     },
     {
       "name": "Glass",
-      "texture_references": [],
+      "texture_references": [
+        "/Game/Platform/Textures/T_dirtyglass.T_dirtyglass"
+      ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
         "<MaterialProperty.MP_METALLIC: 6>",
@@ -607,7 +622,9 @@
     },
     {
       "name": "AmberGlass",
-      "texture_references": [],
+      "texture_references": [
+        "/Game/Platform/Textures/T_dirtyglass.T_dirtyglass"
+      ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
         "<MaterialProperty.MP_METALLIC: 6>",
@@ -628,7 +645,7 @@
     {
       "name": "Gravel",
       "texture_references": [
-        "/Game/Platform/Textures/T_stone.T_stone"
+        "/Game/Platform/Textures/T_ballast.T_ballast"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -639,7 +656,18 @@
     {
       "name": "Blanket",
       "texture_references": [
-        "/Game/Platform/Textures/T_leather.T_leather"
+        "/Game/Platform/Textures/T_cloth.T_cloth"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "RoofPanel",
+      "texture_references": [
+        "/Game/Platform/Textures/T_iron.T_iron"
       ],
       "required_graph_inputs": [
         "<MaterialProperty.MP_BASE_COLOR: 5>",
@@ -659,7 +687,7 @@
   ],
   "policy": "Reuse and validate existing named packages; no deletions",
   "engine": "5.8.3-58210709+++UE5+Release-5.8",
-  "asset_count": 36,
+  "asset_count": 45,
   "stage": "import",
-  "utc": "2026-09-25T03:31:47.277428+00:00"
+  "utc": "2026-09-25T03:49:29.177851+00:00"
 }

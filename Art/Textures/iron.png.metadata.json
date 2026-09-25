@@ -1,0 +1,9 @@
+{
+  "rendered_at": "2026-09-25T03:40:13.427233+00:00",
+  "size": "1024x1024",
+  "quality": "high",
+  "model_name": "gpt-image-2.5-flare",
+  "model_version": "default",
+  "prompt_char_count": 472,
+  "prompt": "A seamless tileable physically based game material BASE COLOR / ALBEDO texture. Perfectly orthographic flat square surface, edge to edge, uniform diffuse neutral lighting, no baked highlights or shadows, no perspective, no vignette, no text. Photoreal close material microdetail: Victorian cast iron painted very dark forest green teal, weathered paint and soot with tiny patches of exposed iron and sparse rust freckles. The dominant color is very dark desaturated green."
+}

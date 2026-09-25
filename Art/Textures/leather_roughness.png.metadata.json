@@ -1,0 +1,9 @@
+{
+  "rendered_at": "2026-09-25T03:40:43.569897+00:00",
+  "size": "1024x1024",
+  "quality": "high",
+  "model_name": "gpt-image-2.5-sunburst",
+  "model_version": "default",
+  "prompt_char_count": 544,
+  "prompt": "Convert this exact material image into its precisely aligned seamless grayscale ROUGHNESS map for physically based Unreal shading. White means rough matte, black means glossy. Preserve feature positions. Use medium-dark values for polished metal or glass, medium values for worn leather/varnish, light grey for stone, brick, cloth, rust and dust; darker rubbed areas. Natural nuanced variation, no lighting, shadows, color, text, border or large invented stains. Material: antique chestnut brown leather luggage, fine pores, scuffs and creases."
+}

@@ -6,6 +6,8 @@ import json
 from pathlib import Path
 import traceback
 import sys
+import hashlib
+import importlib
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -52,7 +54,9 @@ def validate_mesh_record(source, record):
             raise ValueError(f"Scale/orientation mismatch on {source['name']}: {actual} vs {expected}")
 
 
-def import_assets(unreal, manifest):
+def import_assets(unreal, manifest, reimport=False):
+    world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
+    unreal.SystemLibrary.execute_console_command(world, "Interchange.FeatureFlags.Import.FBX 1")
     library = unreal.EditorAssetLibrary
     tools = unreal.AssetToolsHelpers.get_asset_tools()
     editing = unreal.MaterialEditingLibrary
@@ -149,14 +153,32 @@ def import_assets(unreal, manifest):
             if editing.get_material_property_input_node(material, property_) is None:
                 raise RuntimeError(f"Missing graph input {property_} on {name}")
         expressions = editing.get_material_expressions(material)
+        if reimport and spec["texture"]:
+            source_nodes = [node for node in expressions
+                            if isinstance(node, unreal.MaterialExpressionTextureSample) and not isinstance(
+                                node, unreal.MaterialExpressionTextureSampleParameter2D)]
+            if not source_nodes:
+                node = editing.create_material_expression(
+                    material, unreal.MaterialExpressionTextureSample, -850, -200)
+                if not editing.connect_material_property(node, "", unreal.MaterialProperty.MP_BASE_COLOR):
+                    raise RuntimeError(f"Cannot connect new source texture on {name}")
+                source_nodes.append(node)
+                expressions = editing.get_material_expressions(material)
+            for node in source_nodes:
+                node.texture = textures[spec["texture"]]
         for node in expressions:
             if isinstance(node, unreal.MaterialExpressionDesaturation):
-                texture_nodes = [n for n in expressions if isinstance(n, unreal.MaterialExpressionTextureSample)]
+                texture_nodes = [n for n in expressions if isinstance(n, unreal.MaterialExpressionTextureSample)
+                                 and not isinstance(n, unreal.MaterialExpressionTextureSampleParameter2D)]
                 if len(texture_nodes) != 1 or not editing.connect_material_expressions(texture_nodes[0], "", node, ""):
                     raise RuntimeError(f"Cannot wire generated texture into {name}")
                 editing.recompile_material(material)
                 if not library.save_loaded_asset(material):
                     raise RuntimeError(f"Cannot save corrected {name} material")
+        if reimport:
+            editing.recompile_material(material)
+            if not library.save_loaded_asset(material):
+                raise RuntimeError(f"Cannot save updated source material {name}")
         referenced_textures = [node.texture.get_path_name() for node in expressions
                                if isinstance(node, unreal.MaterialExpressionTextureSample)
                                and node.texture is not None]
@@ -171,7 +193,7 @@ def import_assets(unreal, manifest):
     for mesh in manifest["meshes"]:
         name = mesh["name"]
         path = f"{BASE}/Meshes/SM_{name}"
-        if not library.does_asset_exist(path):
+        if reimport or not library.does_asset_exist(path):
             options = unreal.InterchangeGenericAssetsPipeline()
             options.set_editor_property("asset_name", "SM_" + name)
             data = options.get_editor_property("mesh_pipeline")
@@ -186,6 +208,7 @@ def import_assets(unreal, manifest):
             parameters = unreal.ImportAssetParameters()
             parameters.is_automated = True
             parameters.destination_name = "SM_" + name
+            parameters.replace_existing = reimport
             parameters.override_pipelines = [unreal.SoftObjectPath(options.get_path_name())]
             manager = unreal.InterchangeManager.get_interchange_manager_scripted()
             source = unreal.InterchangeManager.create_source_data(str(ROOT / mesh["file"]))
@@ -193,6 +216,8 @@ def import_assets(unreal, manifest):
             if not imported or len(imported) != 1:
                 raise RuntimeError(f"Expected one combined mesh for {name}; got {imported}")
         static_mesh = asset(path)
+        library.set_metadata_tag(static_mesh, "PlatformSourceSHA256",
+                                 hashlib.sha256((ROOT / mesh["file"]).read_bytes()).hexdigest())
         slots = []
         for index, slot in enumerate(static_mesh.static_materials):
             slot_name = str(slot.get_editor_property("imported_material_slot_name"))
@@ -229,17 +254,23 @@ def import_assets(unreal, manifest):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--stage", choices=["import", "scene", "verify"], default="import")
+    parser.add_argument("--stage", choices=["import", "scene", "verify", "materials"], default="import")
+    parser.add_argument("--reimport", action="store_true")
     args = parser.parse_args()
     save_report(args.stage, {"status": "running"})
     try:
         manifest = source_manifest()
         import unreal
+        sys.path.insert(0, str(ROOT / "Scripts"))
         if args.stage == "import":
-            report = import_assets(unreal, manifest)
+            report = import_assets(unreal, manifest, args.reimport)
+        elif args.stage == "materials":
+            import station_materials
+            importlib.reload(station_materials)
+            report = {"status": "success", "surfaces": station_materials.upgrade(ROOT, manifest)}
         else:
-            sys.path.insert(0, str(ROOT / "Scripts"))
             import station_scene
+            importlib.reload(station_scene)
             if args.stage == "scene":
                 report = station_scene.assemble(manifest)
             else:

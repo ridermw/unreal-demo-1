@@ -61,11 +61,11 @@ def main():
     remote = connect()
     try:
         result = remote.run_command(
-            '"' + str(script) + '" ' + " ".join(args.arguments), raise_on_failure=True)
+            '"' + str(script) + '" ' + " ".join(args.arguments), raise_on_failure=False)
         for entry in result["output"]:
             print(entry["output"], end="")
-        if any(entry["type"] == "Error" for entry in result["output"]):
-            raise RuntimeError("Editor logged a Python error")
+        if not result["success"] or any(entry["type"] == "Error" for entry in result["output"]):
+            raise RuntimeError("Editor Python failed: " + result["result"])
     finally:
         remote.stop()
 
