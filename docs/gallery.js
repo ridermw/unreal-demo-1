@@ -30,7 +30,7 @@ function showRound(id) {
   }
   const perf = round.performance;
   byId("performance").textContent = perf?.status === "success"
-    ? `Measured for this round: ${perf.median_fps.toFixed(2)} median FPS; ${perf.p95_frame_ms.toFixed(2)} ms p95. ${perf.resolution.join(" x ")}. ${perf.quality}. Target ${perf.meets_target ? "passed" : "not met"}.`
+    ? `Measured for this round: ${perf.median_fps.toFixed(2)} median FPS; ${perf.p95_frame_ms.toFixed(2)} ms p95. ${perf.resolution.join(" x ")}. ${perf.quality}. ${perf.frame_cap ? `Frame cap ${perf.frame_cap} FPS.` : "Uncapped."} ${perf.one_frame_thread_lag === false ? "One-frame thread lag disabled." : ""} Target ${perf.meets_target ? "passed" : "not met"}.`
     : "Performance has not yet been validly measured for this exact round. Earlier measurements are not treated as current.";
   byId("provenance").textContent = `${round.id} | Actual Unreal PNG SHA-256: ${round.sha256}`;
   const audit = round.component_audit || [];

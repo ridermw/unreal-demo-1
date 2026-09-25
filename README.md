@@ -22,6 +22,12 @@ Unreal screenshot**.
   and station/train depth; still below acceptance. Running gear is the next
   targeted component. Round06 evidence is published independently while that
   next source/asset revision is in progress.
+- **Round07 audit:** **5.3/10**, unchanged,58/58 components. Connected running
+  gear is more substantial but still does not match the reference. A lossless
+  pacing experiment (40FPS cap, one-frame thread lag disabled) measured
+  33.47medianFPS and56.10ms p95, still failing. These are experimental conditions,
+  not an accepted default or proof of completion. Foreground trolley/trunk/cloth
+  proportions are the next isolated component pass.
 - A complete reviewed recovery snapshot is pushed on
   `checkpoint/platform-nine` (`317efe7` initially); this does not alter local
   blocked history or advance `origin/main`.
