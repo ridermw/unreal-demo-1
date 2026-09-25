@@ -17,6 +17,14 @@ Unreal screenshot**.
   checked. Judge reports **stalled** after structural rethinking. The user then
   requested best effort during a five-hour absence; this does not lower the
   acceptance standard or grant permission to rewrite unpublished history.
+- **Round06 audit:** **5.3/10** (composition2.2, lighting1.4, materials1.3,
+  details0.4), 58/58 components. Improved steam, window warmth, buffer assembly
+  and station/train depth; still below acceptance. Running gear is the next
+  targeted component. Round06 evidence is published independently while that
+  next source/asset revision is in progress.
+- A complete reviewed recovery snapshot is pushed on
+  `checkpoint/platform-nine` (`317efe7` initially); this does not alter local
+  blocked history or advance `origin/main`.
 - **Latest valid performance:** **34.47 median FPS, 58.05 ms p95** at 1536x864,
   High, 100% screen percentage, standalone Metal rendering. P95 still fails the
   50 ms target. Actual gameplay uses `PN_TargetCamera`, FOV70, verified during
