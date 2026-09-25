@@ -1,0 +1,29 @@
+{
+  "status": "release-upload-verified",
+  "verified_utc": "2026-09-25T14:57:20Z",
+  "repository": "ridermw/unreal-demo-1",
+  "source_commit": "222100a59a833dac683c92ee38637b15d184b4e4",
+  "release_tag": "mac-walkthrough-20260925",
+  "release_url": "https://github.com/ridermw/unreal-demo-1/releases/tag/mac-walkthrough-20260925",
+  "prerelease": true,
+  "app": "Builds/PlatformNine-Mac-Shipping-20260925T142016/Mac/PlatformNine-Mac-Shipping.app",
+  "app_file_count": 30,
+  "app_file_bytes": 882979793,
+  "archive": "Builds/PlatformNine-Mac-arm64-20260925.zip",
+  "archive_bytes": 521979534,
+  "archive_sha256": "12a16045de6db4553d9388b15905a410ba1c9b7c5f20dde92b3cfce2ba678449",
+  "remote_asset_state": "uploaded",
+  "remote_digest_matches": true,
+  "archive_file_hashes_match_app": true,
+  "archive_executable_mode_retained": true,
+  "checksum_asset": "PlatformNine-Mac-arm64-20260925.zip.sha256",
+  "runtime_evidence": "Evidence/app-package-report.json",
+  "signing": "Ad-hoc signed, not Apple-notarized; Gatekeeper may block downloaded copies",
+  "removed_with_user_permission": [
+    "Builds/PlatformNine-Mac-Shipping-20260925T121303",
+    "Builds/PlatformNine-Mac-Shipping-20260925T123125",
+    "Saved/StagedBuilds/Mac/PlatformNine-Mac-Shipping.app",
+    "Binaries/Mac/PlatformNine-Mac-Shipping.app"
+  ],
+  "cleanup_scope": "Empty failed attempt, incomplete archive, and two hash-identical app copies; authoritative assets and diagnostic evidence retained"
+}

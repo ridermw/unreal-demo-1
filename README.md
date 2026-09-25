@@ -6,6 +6,13 @@ Unreal screenshot**.
 
 ## Mac walkthrough app - built
 
+The app is backed up as the
+[Mac walkthrough preview release](https://github.com/ridermw/unreal-demo-1/releases/tag/mac-walkthrough-20260925).
+Download the ZIP and extract it; the release includes a SHA-256 checksum.
+The approximately 522 MB ZIP matches the retained app byte-for-byte.
+`Evidence/app-distribution.json` records the verified upload and source commit.
+For restart context, read **[HANDOFF.md](HANDOFF.md)**.
+
 Open the self-contained Apple Silicon Shipping application:
 
 ```text
@@ -14,6 +21,7 @@ Builds/PlatformNine-Mac-Shipping-20260925T142016/Mac/PlatformNine-Mac-Shipping.a
 
 The approximately 842 MB bundle includes the runtime and cooked scene; Unreal Editor
 is not required. It is ad-hoc signed for local running, **not Apple-notarized**.
+Gatekeeper may prevent opening the downloaded copy on another Mac.
 The actual packaged executable loaded `HiddenPlatform` and passed fresh checks
 for five views, preset keys, keyboard movement, mouse-look input and the Escape
 menu at 1536x864. See `Evidence/app-package-report.json` and
