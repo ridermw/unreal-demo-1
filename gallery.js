@@ -33,6 +33,22 @@ function showRound(id) {
     ? `Measured for this round: ${perf.median_fps.toFixed(2)} median FPS; ${perf.p95_frame_ms.toFixed(2)} ms p95. ${perf.resolution.join(" x ")}. ${perf.quality}. Target ${perf.meets_target ? "passed" : "not met"}.`
     : "Performance has not yet been validly measured for this exact round. Earlier measurements are not treated as current.";
   byId("provenance").textContent = `${round.id} | Actual Unreal PNG SHA-256: ${round.sha256}`;
+  const audit = round.component_audit || [];
+  byId("component-section").hidden = !audit.length;
+  byId("components").replaceChildren();
+  for (const entry of audit) {
+    const details = document.createElement("details");
+    const summary = document.createElement("summary");
+    summary.textContent = `${entry.id} - ${entry.status} (${entry.severity})`;
+    details.append(summary);
+    for (const [label, text] of [["Target", entry.target_observation], ["Unreal", entry.actual_observation],
+                                  ["Correction", entry.correction]]) {
+      const p = document.createElement("p");
+      p.textContent = `${label}: ${text || "None"}`;
+      details.append(p);
+    }
+    byId("components").append(details);
+  }
 }
 byId("round").addEventListener("change", event => showRound(event.target.value));
 byId("target-toggle").addEventListener("click", () => {
