@@ -46,6 +46,16 @@ Unreal screenshot**.
 - **Next exact action:** independent Dream Loop PRO comparison of
   `.dream-loop/round-00/unreal.png` with the locked target, then substantial
   geometry/material/lighting correction and performance optimization.
+- **Dream Loop round 01:** score **4.5/10** (composition 2.0, lighting 1.2,
+  materials 1.0, details 0.3), up from 3.4. Actual image:
+  `Evidence/rounds/round-01/unreal.png`. The judge repeated structural gaps;
+  the next pass must rethink proportions and architectural depth, not merely
+  add small details. Performance must be remeasured after visual changes.
+- **Human review gallery:** `https://ridermw.github.io/unreal-demo-1/`.
+  GitHub Pages publishes `main:/docs`. Run `python3 Scripts/publish_rounds.py`
+  after every independently judged round, then review/commit/push its output.
+  Gallery images are actual Unreal captures, with a labeled generated-target
+  comparison. It is not a playable browser port or a Pixel Streaming service.
 - **Valid performance, target not met:** median **30.05 FPS**, median **33.27 ms**,
   p95 **86.35 ms** at 1536x864, High, 100% screen percentage. Native Unreal CSV
   `FrameTime`, 720 actual standalone Metal frames, first 360 discarded for warmup.

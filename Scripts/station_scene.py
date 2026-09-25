@@ -71,22 +71,22 @@ def assemble(manifest):
                  unreal.Rotator(pitch=-38, yaw=65, roll=0))
     light = sun.get_component_by_class(unreal.DirectionalLightComponent)
     light.set_mobility(unreal.ComponentMobility.MOVABLE)
-    light.set_intensity(5000)
+    light.set_intensity(900)
     light.set_editor_property("atmosphere_sun_light", True)
-    light.set_editor_property("light_source_angle", 2.0)
+    light.set_editor_property("light_source_angle", 6.0)
     light.set_light_color(unreal.LinearColor(1.0, 0.91, 0.78, 1))
 
     upsert("SkyAtmosphere", unreal.SkyAtmosphere)
     sky = upsert("SkyLight", unreal.SkyLight)
     sky_component = sky.get_component_by_class(unreal.SkyLightComponent)
     sky_component.set_mobility(unreal.ComponentMobility.MOVABLE)
-    sky_component.set_intensity(1.8)
+    sky_component.set_intensity(2.2)
     sky_component.set_editor_property("real_time_capture", True)
     sky_component.set_editor_property("lower_hemisphere_is_black", False)
 
     fog = upsert("Haze", unreal.ExponentialHeightFog, (0, 0, 0))
     fog_component = fog.get_component_by_class(unreal.ExponentialHeightFogComponent)
-    fog_component.set_editor_property("fog_density", 0.014)
+    fog_component.set_editor_property("fog_density", 0.024)
     fog_component.set_editor_property("fog_height_falloff", 0.2)
     fog_component.set_fog_inscattering_color(unreal.LinearColor(0.30, 0.39, 0.46, 1))
     fog_component.set_volumetric_fog(True)
@@ -102,7 +102,7 @@ def assemble(manifest):
         "override_auto_exposure_apply_physical_camera_exposure": True,
         "auto_exposure_apply_physical_camera_exposure": False,
         "override_auto_exposure_bias": True,
-        "auto_exposure_bias": -7.5,
+        "auto_exposure_bias": -6.5,
         "override_bloom_intensity": True,
         "bloom_intensity": 0.25,
         "override_vignette_intensity": True,
@@ -126,9 +126,9 @@ def assemble(manifest):
         component.set_editor_property("volumetric_scattering_intensity", 0.25)
 
     for name, position, intensity, color, yaw in (
-        ("FrontBounce", (1.0, -6.0, 5.5), 18000, (0.72, 0.82, 1.0), -95),
-        ("WarmWindowBounce", (4.0, 5.0, 4.2), 14000, (1.0, 0.65, 0.34), -150),
-        ("PlatformSkylight", (0.5, 20.0, 9.5), 24000, (0.74, 0.84, 1.0), -90),
+        ("FrontBounce", (1.0, -6.0, 5.5), 45000, (0.72, 0.82, 1.0), -95),
+        ("WarmWindowBounce", (4.0, 5.0, 4.2), 24000, (1.0, 0.65, 0.34), -150),
+        ("PlatformSkylight", (0.5, 20.0, 9.5), 36000, (0.74, 0.84, 1.0), -90),
     ):
         fill = upsert(name, unreal.RectLight, position,
                       unreal.Rotator(pitch=-35 if name != "PlatformSkylight" else -85, yaw=yaw, roll=0))
@@ -140,7 +140,7 @@ def assemble(manifest):
         component.set_editor_property("source_width", 550)
         component.set_editor_property("source_height", 400)
         component.set_attenuation_radius(3500)
-        component.set_editor_property("cast_shadows", True)
+        component.set_editor_property("cast_shadows", name != "FrontBounce")
 
     config = manifest["camera"]
     rotation = camera_rotation(config["position"], config["target"])

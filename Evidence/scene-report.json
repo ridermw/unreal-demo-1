@@ -56,7 +56,8 @@
       "materials": [
         "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel",
         "/Game/Platform/Materials/M_Brass.M_Brass",
-        "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+        "/Game/Platform/Materials/M_Scarlet.M_Scarlet",
+        "/Game/Platform/Materials/M_Cream.M_Cream"
       ]
     },
     {
@@ -155,5 +156,5 @@
   "engine": "5.8.3-58210709+++UE5+Release-5.8",
   "rendered": false,
   "stage": "scene",
-  "utc": "2026-09-25T04:11:29.212447+00:00"
+  "utc": "2026-09-25T04:24:36.049452+00:00"
 }

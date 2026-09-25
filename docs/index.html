@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Platform Nine - Unreal round review</title>
+<script>
+(() => {
+  const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
+  const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  document.documentElement.setAttribute("data-theme", theme);
+})();
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div><p class="eyebrow">LIVE DEVELOPMENT / UNREAL ENGINE</p><h1>Platform Nine</h1>
+<p>A round-by-round record of an original Victorian railway environment.</p></div>
+<a class="source" href="https://github.com/ridermw/unreal-demo-1">Project &amp; restart notes</a></header>
+<main>
+<aside class="notice"><strong>Actual Unreal captures, not a browser game.</strong>
+This gallery documents saved scene iterations. The locked target is AI-generated reference imagery.
+Completion requires an independent score of 8/10 and acceptable measured performance.</aside>
+<div class="toolbar"><label for="round">Review round <select id="round"></select></label>
+<strong id="status">Loading evidence...</strong><button id="target-toggle" type="button">Compare with target</button></div>
+<section class="frame" aria-label="Unreal scene and reference comparison">
+<img id="actual" alt="Actual Unreal Engine scene capture">
+<img id="target" src="target.png" alt="Locked generated target, not an Unreal result" hidden>
+<span class="image-label" id="image-label">ACTUAL UNREAL CAPTURE</span>
+</section>
+<label class="comparison" id="comparison" hidden>Reference overlay
+<input id="split" type="range" min="0" max="100" value="50" aria-label="Target comparison split"></label>
+<div class="metrics" id="metrics"></div>
+<section class="report"><h2>Independent visual verdict</h2><p id="assessment"></p>
+<h3>Next fixes</h3><ol id="fixes"></ol><p id="performance" class="performance"></p></section>
+<p class="provenance" id="provenance"></p>
+<p id="error" role="alert" hidden></p>
+</main>
+<footer>1536 x 864 Unreal camera captures. No generated target or Blender render is labeled as implementation.</footer>
+<script src="gallery.js"></script>
+</body>
+</html>

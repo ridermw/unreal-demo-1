@@ -7,7 +7,7 @@ def material(root):
     library = unreal.EditorAssetLibrary
     path = "/Game/Platform/Materials/M_Steam"
     existing = library.load_asset(path) if library.does_asset_exist(path) else None
-    if existing and library.get_metadata_tag(existing, "PlatformSteamVersion") == "1":
+    if existing and library.get_metadata_tag(existing, "PlatformSteamVersion") == "2":
         return existing
     image = root / "Art/Textures/steam.png"
     if not image.is_file():
@@ -42,10 +42,10 @@ def material(root):
     opacity = editing.create_material_expression(result, unreal.MaterialExpressionMultiply, -300, 200)
     scale = editing.create_material_expression(result, unreal.MaterialExpressionScalarParameter, -600, 400)
     scale.set_editor_property("parameter_name", "Density")
-    scale.set_editor_property("default_value", 0.24)
+    scale.set_editor_property("default_value", 0.30)
     color = editing.create_material_expression(result, unreal.MaterialExpressionVectorParameter, -300, 0)
     color.set_editor_property("parameter_name", "SteamLuminance")
-    color.set_editor_property("default_value", unreal.LinearColor(20, 23, 26, 1))
+    color.set_editor_property("default_value", unreal.LinearColor(90, 103, 115, 1))
     fade = editing.create_material_expression(result, unreal.MaterialExpressionDepthFade, -50, 200)
     fade.set_editor_property("fade_distance_default", 80)
     for source, output, target, input_ in ((density, "R", opacity, "A"), (scale, "", opacity, "B"),
@@ -57,7 +57,7 @@ def material(root):
     if not editing.connect_material_property(color, "", unreal.MaterialProperty.MP_EMISSIVE_COLOR):
         raise RuntimeError("Cannot connect steam color")
     editing.recompile_material(result)
-    library.set_metadata_tag(result, "PlatformSteamVersion", "1")
+    library.set_metadata_tag(result, "PlatformSteamVersion", "2")
     if not library.save_loaded_asset(result):
         raise RuntimeError("Cannot save steam material")
     return result
@@ -71,7 +71,7 @@ def assemble(root, upsert, manifest):
     chimney = manifest["chimney"]
     specs = []
     for index, angle in enumerate((-35, 0, 35)):
-        specs.append((f"ChimneySteam_{index}", (chimney[0]+index*0.12, chimney[1]+index*0.25, 6.4+index*0.2),
+        specs.append((f"ChimneySteam_{index}", (chimney[0]+index*0.12, chimney[1]+index*0.25, 7.1+index*0.2),
                       2.2, 4.2, angle))
     for index, y in enumerate((4.7, 6.6, 8.8, 11.4, 15.0)):
         specs.append((f"WheelSteam_{index}", (-1.3, y, 1.22), 1.8, 1.8, 10))

@@ -1,0 +1,158 @@
+{
+  "round": "01",
+  "target_image": "/Users/mattheww/git/unreal-demo-1/Art/Reference/target.png",
+  "actual_image": "/Users/mattheww/git/unreal-demo-1/.dream-loop/round-01/unreal.png",
+  "previous_image": "/Users/mattheww/git/unreal-demo-1/.dream-loop/round-00/unreal.png",
+  "previous_verdict": "/Users/mattheww/git/unreal-demo-1/.dream-loop/round-00/verdict.json",
+  "evaluation_basis": "Direct visual inspection of the target, both actual screenshots and the previous verdict. Scores measure visible target similarity only, with no credit for effort or implementation claims. Screen-space coordinates are approximate visual estimates in the 1536 by 864 images, not instrumented measurements.",
+  "scores": {
+    "composition": 2.0,
+    "lighting": 1.2,
+    "materials": 1.0,
+    "details": 0.3
+  },
+  "total": 4.5,
+  "maximum": 10,
+  "previous_total": 3.4,
+  "score_delta": 1.1,
+  "visual_goal": 8,
+  "visual_goal_met": false,
+  "performance_included_in_score": false,
+  "assessment": "A visible improvement over round 00, but still substantially unlike the target. The chimney height, smaller sign, continuous ridge glazing, lower/right-shifted luggage, less extreme sun patches and more readable locomotive improve the match. Added hardware and steam are also visible. Nevertheless, the scene still reads as a simplified reconstruction: an oversized plain smokebox over a shallow mechanical assembly, sparse repetitive roof framing, an oversized cage, boxy luggage and pale paving with isolated puddle shapes. The target's dense mechanical silhouettes, warm reflective wet stone, cool atmospheric distance, amber interiors and tactile worn surfaces remain absent or weak. This is not close to the 8/10 completion threshold.",
+  "category_assessments": {
+    "composition": {
+      "credit": "The broad perspective and subject arrangement remain recognizable. The chimney top now approximately matches the target's height, the sign is much closer in size and placement, the ridge glazing is more continuous, and the trolley now crops at the bottom/right.",
+      "gaps": [
+        "The smokebox has become too large rather than simply better positioned. Its center is approximately (350, 325), versus about (325, 300) in the target; its face also extends farther down and right. Preserve the improved chimney-top alignment while independently fitting door diameter, boiler position and chassis proportions.",
+        "The target locomotive spreads farther left through its buffer beam and buffers and carries substantial layered machinery down toward the rails. The actual remains a large cylinder on thin horizontal shelves, with an underdeveloped front apron and exposed simple wheel assembly. Camera adjustment alone cannot fix these proportions.",
+        "The cage remains much too tall and wide. Its top ring is around y=305 rather than the target finial near y=435, while its base is already near the target's y=610. Lowering the whole cage again would misalign its base: reduce its height and width around the base, then shift it slightly right.",
+        "The foreground trunk presents a large plain horizontal face rather than the target's rounded, staggered trunk grouping. The scarf is pushed into the right edge, and the prominent near-right slatted bench is not visibly reproduced.",
+        "The terminal window still extends down to roughly y=460 and resembles a nearby flat luminous wall. The target's opening terminates higher around the distant platform region, with smaller-scale layered architecture and a more convincing continuation beyond it.",
+        "Continuous roof glazing improves the gross layout, but thin uniform curved ribs and a simple grid do not match the target's deep triangulated trusses, ornate columns and overlapping structural silhouettes."
+      ]
+    },
+    "lighting": {
+      "credit": "The very harsh white paving patches and shadow grid are substantially reduced, and the locomotive front is more readable. White chimney and wheel steam are now visible.",
+      "gaps": [
+        "The target's principal lighting pattern is a dark damp platform carrying a broken warm reflected path into cool distance. The actual platform remains comparatively pale and broadly lit, without that warm reflective path.",
+        "Warm lamps are visible as small bright emitters but do not create the target's surrounding amber illumination, interior glow or reflected streaks. The image remains predominantly neutral gray/brown instead of having strong but restrained warm/cool separation.",
+        "The far window remains nearly featureless light gray. It lacks the target's cooler haze, visible structures beyond the glazing and gradual atmospheric separation between train, roof and background.",
+        "The right windows are more readable than before, but flat brown panes with bright frame highlights are not equivalent to the target's luminous amber interiors and layered glass reflections.",
+        "The chimney steam is a narrow vertical streak rather than a broad turbulent plume. Wheel steam is a series of conspicuous separate upright wisps instead of low, diffuse steam wrapping around and partially obscuring the running gear.",
+        "Bright platform edging, pale foreground stone and hard glints on the right wall still compete with the locomotive and sign. Simply increasing exposure or adding more bright emitters would not recover the target's hierarchy.",
+        "Visible grain and harsh speckled highlights remain on the train, masonry, cage and ground. Their technical cause cannot be established from the screenshot alone."
+      ]
+    },
+    "materials": {
+      "credit": "The locomotive's metal is more legible, some highlights distinguish it from red paint, the ground is less blown out, and leather-colored luggage and brass-colored cage surfaces are recognizable.",
+      "gaps": [
+        "The smokebox reads as a coarse mottled circular slab with a broad bright rim. The target has smoother blackened steel interrupted by localized oily wear, soot, rivets and restrained highlights that describe its shaped mechanical parts.",
+        "Red boiler paint remains broad and uniform. It lacks the target's deep oxblood lacquer, warm grazing reflections, subtle dents, edge wear and localized grime around seams and fittings.",
+        "Paving is too regular, pale and sharply outlined. The target has darker varied slab sizes, irregular worn edges, dirt-filled joints and a continuous but uneven damp surface response.",
+        "The foreground puddle remains a large pale blue-gray oval, and smaller puddles read as isolated flat patches. The target's pooling is darker, irregular and integrated into the surrounding wet stone, with recognizable broken reflections rather than opaque-looking islands.",
+        "The bright uniform platform-edge strip is materially unlike the target's worn, dirty edging and adjacent weathered paving.",
+        "Luggage surfaces remain flat-sided and boxy, with oversized square corner plates and little leather thickness, softening, seam work or differentiated hardware wear.",
+        "The scarf has stiff angular folds and projecting fringe-like spikes rather than thick soft folded burgundy fabric with natural hanging fringe.",
+        "Cage bars and rings are thick and uniformly bright brass. The target uses finer, darker aged brass with restrained small glints and differentiated patina.",
+        "Brick, stone and window framing still have harsh repeated or mottled surface contrast without the target's coherent warm masonry, recessed mortar, softened edges and localized grime. Glazing needs reflected and transmitted depth, not just a brown fill."
+      ]
+    },
+    "details": {
+      "credit": "A front lamp, smaller central latch, additional pipes, running-gear elements, steam and an ornamental sign bracket are now visible. These improve recognition but not yet fine fidelity.",
+      "gaps": [
+        "The door is still missing the target's conspicuous horizontal straps, hinges, lower number plate and convincing mechanical latch assembly. The lamp shape and surrounding fittings remain different.",
+        "Front coupling hardware and hoses are larger simple hanging forms rather than the target's interconnected hooks, chains, hoses and layered apron details. Wheels, rods, cylinders and suspension need differentiated shapes and mechanical connections.",
+        "Roof truss webs, ornate capitals, arch relief, secondary ironwork and far-window construction remain sparse. Added repetition is not a substitute for the target's variety of structural members and junctions.",
+        "The cage needs closely spaced slender bars, a finer dome/finial, detailed base and believable small interior elements. The trolley needs curved tubular handles and larger convincingly constructed wheels.",
+        "Leather straps, stitching, inset locks, handles and edge binding are missing or too coarse. The near bench's slats and curled armrests are not reproduced.",
+        "The target's varied ballast, weathered rails, wet seams, small platform props and warm interior fixtures remain underrepresented."
+      ]
+    }
+  },
+  "prioritized_fixes": [
+    {
+      "priority": 1,
+      "title": "Rebuild and fit the locomotive rather than enlarging its primitive forms",
+      "categories": ["composition", "materials", "details"],
+      "action": "Use a target overlay to fit the smokebox face independently from chimney height and chassis. Move the face slightly up/left and reduce its oversized outline while retaining the improved chimney top. Rebuild the front apron, wider leftward buffer arrangement, cylinders, large driving wheels, rods and suspension as layered connected machinery. Replace the plain door with shaped steel, straps, hinges, latch and number plate. Rework the boiler/cab transition and paint/metal separation rather than adding isolated decorative pipes to the existing silhouette.",
+      "acceptance": "The door, chimney, buffer ends and bottom running gear align together with the target; the lower-left hero asset has comparable mechanical density and mass, not a large disk above thin shelves.",
+      "redesign_required": true
+    },
+    {
+      "priority": 2,
+      "title": "Re-author lighting and ground together around damp warm reflections",
+      "categories": ["lighting", "materials"],
+      "action": "Retain the reduction in harsh direct sunlight, but lower the pale stone/edge-strip dominance and establish darker irregular damp slabs. Replace the isolated oval puddles with shallow irregular pooling and wetness transitions. Balance soft cool skylight and restrained locomotive fill against warm lamps and genuinely lit window interiors, then tune roughness and exposure so those sources produce broken amber reflections down the platform. Restore cool hazy depth without washing out the terminal opening.",
+      "acceptance": "The platform reads as dark wet stone with a warm reflected path, the windows have amber depth, and the locomotive remains readable against cooler distance. There are no dominant pale puddle blobs or uniformly bright edge strips.",
+      "redesign_required": true
+    },
+    {
+      "priority": 3,
+      "title": "Replace the oversized cage and block-like foreground props",
+      "categories": ["composition", "materials", "details"],
+      "action": "Reduce cage height and width around its approximately correct base height; target a finial near y=435 rather than y=305 and a narrower dome farther right. Rebuild it with thin closely spaced bars and aged brass. Replace the broad plain trunk face with rounded leather trunks, inset locks, thin straps, binding and worn hardware. Recompose a thick folded scarf fully enough inside the frame to read clearly. Restore the visible near bench and the trolley's curved tubing and substantial wheels.",
+      "acceptance": "The foreground silhouette is low and right-weighted like the target, the cage no longer reaches into the middle-right architecture, and leather, cloth, brass and wood are distinguishable by shape as well as color.",
+      "redesign_required": true
+    },
+    {
+      "priority": 4,
+      "title": "Replace sparse roof repetition and the flat terminal backdrop",
+      "categories": ["composition", "details", "lighting"],
+      "action": "Keep continuous ridge glazing but build deep triangulated trusses, secondary members, ornate column capitals and overlapping longitudinal ironwork. Adjust the terminal opening's apparent size and lower extent using the target overlay, then add layered mullions, structural depth and visible cool exterior space beyond it. Refine brick arches and window recesses so the station is not a simple tunnel lined with flat panels.",
+      "acceptance": "The upper frame has target-like structural density and varied silhouettes, and the far station reads as receding space instead of a luminous gridded end wall.",
+      "redesign_required": true
+    },
+    {
+      "priority": 5,
+      "title": "Finish atmospheric shape, surface wear and fine construction",
+      "categories": ["lighting", "materials", "details"],
+      "action": "Broaden and break up the chimney plume; replace separate upright wheel wisps with low drifting steam integrated with the machinery. Localize paint wear, soot and oil instead of applying coarse uniform mottling. Refine cage, luggage, rails, ballast, bench and window details at the final camera distance. Diagnose the visible grain and unstable-looking highlights from fresh captures before choosing a rendering or material correction.",
+      "acceptance": "Steam has soft irregular volume, surfaces show scale-appropriate wear, and fine features remain cleanly readable without harsh speckling or an overall noise texture."
+    }
+  ],
+  "repeated_gaps": [
+    {
+      "gap": "Locomotive geometry remains too simplified and incorrectly proportioned",
+      "severity": "major",
+      "previous_evidence": "Round 00 identified a generic drum-and-box assembly, shallow chassis and missing dense mechanical construction.",
+      "current_evidence": "Added fittings improve recognition, but the oversized plain door, thin supporting shelves and underdeveloped apron/running gear still differ fundamentally from the target.",
+      "status": "partially_improved_but_unresolved",
+      "consecutive_verdicts": 2,
+      "required_response": "Rebuild hero-asset proportions and connected mechanical assemblies; do not treat another layer of small fittings as the primary fix."
+    },
+    {
+      "gap": "Warm/cool atmospheric lighting and integrated wet-stone reflections are still missing",
+      "severity": "major",
+      "previous_evidence": "Round 00 flagged harsh direct sun, pale paving, absent warm reflected streaks, weak cool depth and isolated pale puddles.",
+      "current_evidence": "Harsh sun is reduced, but pale slabs, a large oval puddle, weak amber illumination and the flat light-gray terminal opening still dominate instead of the target's damp atmosphere.",
+      "status": "partially_improved_but_unresolved",
+      "consecutive_verdicts": 2,
+      "required_response": "Rework illumination, interior light, ground albedo, roughness and pooling as one coherent setup."
+    },
+    {
+      "gap": "Foreground cage scale and tactile luggage/cloth construction remain wrong",
+      "severity": "major",
+      "previous_evidence": "Round 00 identified an excessively high cage, sharp wooden-box-like trunks, thick cage elements and flat scarf construction.",
+      "current_evidence": "The group is lower/right and now crops appropriately, but the cage top remains about 130 pixels too high, the main trunk is a broad hard-edged box and the scarf is angular and pushed off-frame.",
+      "status": "partially_improved_but_unresolved",
+      "consecutive_verdicts": 2,
+      "required_response": "Resize the cage around its base and replace the foreground prop geometry with rounded leather, delicate brass and volumetric folded cloth."
+    },
+    {
+      "gap": "Station structural complexity and far-end depth remain insufficient",
+      "severity": "major",
+      "previous_evidence": "Round 00 called for layered iron trusses, ornate supports and a smaller, deeper terminal opening rather than a bright backdrop.",
+      "current_evidence": "Continuous glazing is closer, but a uniform thin rib grid and an oversized flat end window still substitute for the target's dense architecture and atmospheric recession.",
+      "status": "partially_improved_but_unresolved",
+      "consecutive_verdicts": 2,
+      "required_response": "Rebuild truss depth and junctions, then reconstruct the terminal opening and the space beyond it."
+    }
+  ],
+  "stall_assessment": {
+    "repeated_major_gap_rule_triggered": true,
+    "state": "stall_approaching",
+    "reason": "Major asset, material/lighting and architectural gaps recur in two consecutive verdicts. The 1.1-point gain is real, but does not cancel the repeated-gap trigger. Prioritize structural asset and lighting/material redesign over another round of small embellishments.",
+    "two_round_score_window": "Only one score transition is available, so the separate two-round improvement rule cannot be evaluated.",
+    "fully_stalled": false
+  }
+}
