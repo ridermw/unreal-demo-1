@@ -78,8 +78,8 @@
     },
     {
       "path": "Art/Models/manifest.json",
-      "bytes": 4934,
-      "sha256": "65651c9fff2286bfb02da25583b7133d6ace887c99415b0be539a9c560da0b1a"
+      "bytes": 10082,
+      "sha256": "f0f181291044513eafebe9eff95ad7feffd9c3f6f878ed04e32177bfb4e8086a"
     },
     {
       "path": "Art/Reference/target-prompt.txt",

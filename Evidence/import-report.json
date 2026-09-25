@@ -1,0 +1,665 @@
+{
+  "status": "success",
+  "meshes": [
+    {
+      "name": "Architecture",
+      "path": "/Game/Platform/Meshes/SM_Architecture",
+      "slots": [
+        {
+          "slot": "Brick",
+          "material": "/Game/Platform/Materials/M_Brick.M_Brick"
+        },
+        {
+          "slot": "Cream",
+          "material": "/Game/Platform/Materials/M_Cream.M_Cream"
+        },
+        {
+          "slot": "Gravel",
+          "material": "/Game/Platform/Materials/M_Gravel.M_Gravel"
+        },
+        {
+          "slot": "Stone",
+          "material": "/Game/Platform/Materials/M_Stone.M_Stone"
+        }
+      ],
+      "center_cm": [
+        -256.49957275390625,
+        -2799.9999389648438,
+        376.2499990463257
+      ],
+      "extent_cm": [
+        786.0005493164062,
+        3900.0000610351562,
+        406.2500009536743
+      ],
+      "lod0_triangles": 3934,
+      "nanite_enabled": true
+    },
+    {
+      "name": "Windows",
+      "path": "/Game/Platform/Meshes/SM_Windows",
+      "slots": [
+        {
+          "slot": "AmberGlass",
+          "material": "/Game/Platform/Materials/M_AmberGlass.M_AmberGlass"
+        },
+        {
+          "slot": "Glass",
+          "material": "/Game/Platform/Materials/M_Glass.M_Glass"
+        },
+        {
+          "slot": "Iron",
+          "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        }
+      ],
+      "center_cm": [
+        -252.4995574951172,
+        -2949.999969482422,
+        424.0
+      ],
+      "extent_cm": [
+        715.7505645751953,
+        3697.500030517578,
+        253.0
+      ],
+      "lod0_triangles": 3353,
+      "nanite_enabled": false
+    },
+    {
+      "name": "Roof",
+      "path": "/Game/Platform/Meshes/SM_Roof",
+      "slots": [
+        {
+          "slot": "Brass",
+          "material": "/Game/Platform/Materials/M_Brass.M_Brass"
+        },
+        {
+          "slot": "Glass",
+          "material": "/Game/Platform/Materials/M_Glass.M_Glass"
+        },
+        {
+          "slot": "Iron",
+          "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        }
+      ],
+      "center_cm": [
+        -254.99954223632812,
+        -3137.6968383789062,
+        632.4987182617188
+      ],
+      "extent_cm": [
+        749.9897155761719,
+        4062.3031616210938,
+        562.4987182617188
+      ],
+      "lod0_triangles": 5936,
+      "nanite_enabled": false
+    },
+    {
+      "name": "FarWall",
+      "path": "/Game/Platform/Meshes/SM_FarWall",
+      "slots": [
+        {
+          "slot": "Glass",
+          "material": "/Game/Platform/Materials/M_Glass.M_Glass"
+        },
+        {
+          "slot": "Iron",
+          "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        }
+      ],
+      "center_cm": [
+        -251.6240234375,
+        -6604.000244140625,
+        510.0
+      ],
+      "extent_cm": [
+        721.625,
+        11.000244140625,
+        435.0
+      ],
+      "lod0_triangles": 144,
+      "nanite_enabled": false
+    },
+    {
+      "name": "Track",
+      "path": "/Game/Platform/Meshes/SM_Track",
+      "slots": [
+        {
+          "slot": "BlackSteel",
+          "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel"
+        },
+        {
+          "slot": "Gravel",
+          "material": "/Game/Platform/Materials/M_Gravel.M_Gravel"
+        },
+        {
+          "slot": "Wood",
+          "material": "/Game/Platform/Materials/M_Wood.M_Wood"
+        }
+      ],
+      "center_cm": [
+        -276.79533767700195,
+        -2852.081298828125,
+        3.75
+      ],
+      "extent_cm": [
+        212.2907829284668,
+        3952.081298828125,
+        13.75
+      ],
+      "lod0_triangles": 3182,
+      "nanite_enabled": true
+    },
+    {
+      "name": "Locomotive",
+      "path": "/Game/Platform/Meshes/SM_Locomotive",
+      "slots": [
+        {
+          "slot": "BlackSteel",
+          "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel"
+        },
+        {
+          "slot": "Brass",
+          "material": "/Game/Platform/Materials/M_Brass.M_Brass"
+        },
+        {
+          "slot": "Scarlet",
+          "material": "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+        }
+      ],
+      "center_cm": [
+        -268.99995040893555,
+        -755.8425521850586,
+        252.65152740478516
+      ],
+      "extent_cm": [
+        144.9999885559082,
+        564.1574478149414,
+        213.84847259521484
+      ],
+      "lod0_triangles": 5836,
+      "nanite_enabled": true
+    },
+    {
+      "name": "Wheels",
+      "path": "/Game/Platform/Meshes/SM_Wheels",
+      "slots": [
+        {
+          "slot": "BlackSteel",
+          "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel"
+        },
+        {
+          "slot": "Brass",
+          "material": "/Game/Platform/Materials/M_Brass.M_Brass"
+        },
+        {
+          "slot": "Scarlet",
+          "material": "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+        }
+      ],
+      "center_cm": [
+        -268.9998970031738,
+        -776.0000305175781,
+        97.00000190734863
+      ],
+      "extent_cm": [
+        144.00004196166992,
+        457.2900085449219,
+        90.29000663757324
+      ],
+      "lod0_triangles": 27632,
+      "nanite_enabled": true
+    },
+    {
+      "name": "CabTender",
+      "path": "/Game/Platform/Meshes/SM_CabTender",
+      "slots": [
+        {
+          "slot": "BlackSteel",
+          "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel"
+        },
+        {
+          "slot": "Brass",
+          "material": "/Game/Platform/Materials/M_Brass.M_Brass"
+        },
+        {
+          "slot": "Glass",
+          "material": "/Game/Platform/Materials/M_Glass.M_Glass"
+        },
+        {
+          "slot": "Scarlet",
+          "material": "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+        }
+      ],
+      "center_cm": [
+        -268.9998092651367,
+        -1502.5,
+        205.51926016807556
+      ],
+      "extent_cm": [
+        179.00000762939453,
+        347.5,
+        198.48073983192444
+      ],
+      "lod0_triangles": 3820,
+      "nanite_enabled": false
+    },
+    {
+      "name": "Carriages",
+      "path": "/Game/Platform/Meshes/SM_Carriages",
+      "slots": [
+        {
+          "slot": "AmberGlass",
+          "material": "/Game/Platform/Materials/M_AmberGlass.M_AmberGlass"
+        },
+        {
+          "slot": "BlackSteel",
+          "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel"
+        },
+        {
+          "slot": "Brass",
+          "material": "/Game/Platform/Materials/M_Brass.M_Brass"
+        },
+        {
+          "slot": "Scarlet",
+          "material": "/Game/Platform/Materials/M_Scarlet.M_Scarlet"
+        },
+        {
+          "slot": "Wood",
+          "material": "/Game/Platform/Materials/M_Wood.M_Wood"
+        }
+      ],
+      "center_cm": [
+        -268.9994125366211,
+        -3849.25,
+        213.2863426208496
+      ],
+      "extent_cm": [
+        143.25028228759766,
+        1959.25,
+        206.71362686157227
+      ],
+      "lod0_triangles": 8096,
+      "nanite_enabled": false
+    },
+    {
+      "name": "Luggage",
+      "path": "/Game/Platform/Meshes/SM_Luggage",
+      "slots": [
+        {
+          "slot": "BlackSteel",
+          "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel"
+        },
+        {
+          "slot": "Blanket",
+          "material": "/Game/Platform/Materials/M_Blanket.M_Blanket"
+        },
+        {
+          "slot": "Brass",
+          "material": "/Game/Platform/Materials/M_Brass.M_Brass"
+        },
+        {
+          "slot": "DarkLeather",
+          "material": "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather"
+        },
+        {
+          "slot": "Leather",
+          "material": "/Game/Platform/Materials/M_Leather.M_Leather"
+        },
+        {
+          "slot": "Wood",
+          "material": "/Game/Platform/Materials/M_Wood.M_Wood"
+        }
+      ],
+      "center_cm": [
+        368.12501525878906,
+        -148.99993896484375,
+        206.56326293945312
+      ],
+      "extent_cm": [
+        89.37498474121094,
+        217.5,
+        140.82647705078125
+      ],
+      "lod0_triangles": 4558,
+      "nanite_enabled": true
+    },
+    {
+      "name": "Furniture",
+      "path": "/Game/Platform/Meshes/SM_Furniture",
+      "slots": [
+        {
+          "slot": "Brass",
+          "material": "/Game/Platform/Materials/M_Brass.M_Brass"
+        },
+        {
+          "slot": "DarkLeather",
+          "material": "/Game/Platform/Materials/M_DarkLeather.M_DarkLeather"
+        },
+        {
+          "slot": "Iron",
+          "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        },
+        {
+          "slot": "Wood",
+          "material": "/Game/Platform/Materials/M_Wood.M_Wood"
+        }
+      ],
+      "center_cm": [
+        423.51551818847656,
+        -3040.999969482422,
+        132.5749969482422
+      ],
+      "extent_cm": [
+        32.95689392089844,
+        2433.500030517578,
+        60.17500305175781
+      ],
+      "lod0_triangles": 1930,
+      "nanite_enabled": true
+    },
+    {
+      "name": "Signs",
+      "path": "/Game/Platform/Meshes/SM_Signs",
+      "slots": [
+        {
+          "slot": "BlackSteel",
+          "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel"
+        },
+        {
+          "slot": "Brass",
+          "material": "/Game/Platform/Materials/M_Brass.M_Brass"
+        },
+        {
+          "slot": "Cream",
+          "material": "/Game/Platform/Materials/M_Cream.M_Cream"
+        },
+        {
+          "slot": "Iron",
+          "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        },
+        {
+          "slot": "Lettering",
+          "material": "/Game/Platform/Materials/M_Lettering.M_Lettering"
+        }
+      ],
+      "center_cm": [
+        379.3017120361328,
+        -1352.8999710083008,
+        456.84808349609375
+      ],
+      "extent_cm": [
+        87.79866027832031,
+        1153.1000289916992,
+        87.3450927734375
+      ],
+      "lod0_triangles": 3358,
+      "nanite_enabled": true
+    },
+    {
+      "name": "Lanterns",
+      "path": "/Game/Platform/Meshes/SM_Lanterns",
+      "slots": [
+        {
+          "slot": "BlackSteel",
+          "material": "/Game/Platform/Materials/M_BlackSteel.M_BlackSteel"
+        },
+        {
+          "slot": "Iron",
+          "material": "/Game/Platform/Materials/M_Iron.M_Iron"
+        },
+        {
+          "slot": "Lamp",
+          "material": "/Game/Platform/Materials/M_Lamp.M_Lamp"
+        }
+      ],
+      "center_cm": [
+        431.7820739746094,
+        -2749.999969482422,
+        461.25
+      ],
+      "extent_cm": [
+        37.782135009765625,
+        3028.000030517578,
+        34.75
+      ],
+      "lod0_triangles": 704,
+      "nanite_enabled": true
+    },
+    {
+      "name": "Puddles",
+      "path": "/Game/Platform/Meshes/SM_Puddles",
+      "slots": [
+        {
+          "slot": "Puddle",
+          "material": "/Game/Platform/Materials/M_Puddle.M_Puddle"
+        }
+      ],
+      "center_cm": [
+        96.01166725158691,
+        -1750.922218322754,
+        68.5
+      ],
+      "extent_cm": [
+        127.37840843200684,
+        1874.410301208496,
+        0.0
+      ],
+      "lod0_triangles": 210,
+      "nanite_enabled": true
+    }
+  ],
+  "textures": [
+    "brick",
+    "leather",
+    "scarlet",
+    "stone"
+  ],
+  "materials": [
+    "AmberGlass",
+    "BlackSteel",
+    "Blanket",
+    "Brass",
+    "Brick",
+    "Cream",
+    "DarkLeather",
+    "Glass",
+    "Gravel",
+    "Iron",
+    "Lamp",
+    "Leather",
+    "Lettering",
+    "Puddle",
+    "Scarlet",
+    "Stone",
+    "Wood"
+  ],
+  "material_checks": [
+    {
+      "name": "Brick",
+      "texture_references": [
+        "/Game/Platform/Textures/T_brick.T_brick"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Stone",
+      "texture_references": [
+        "/Game/Platform/Textures/T_stone.T_stone"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Scarlet",
+      "texture_references": [
+        "/Game/Platform/Textures/T_scarlet.T_scarlet"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "BlackSteel",
+      "texture_references": [
+        "/Game/Platform/Textures/T_scarlet.T_scarlet"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Iron",
+      "texture_references": [
+        "/Game/Platform/Textures/T_scarlet.T_scarlet"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Brass",
+      "texture_references": [
+        "/Game/Platform/Textures/T_leather.T_leather"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Leather",
+      "texture_references": [
+        "/Game/Platform/Textures/T_leather.T_leather"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "DarkLeather",
+      "texture_references": [
+        "/Game/Platform/Textures/T_leather.T_leather"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Wood",
+      "texture_references": [
+        "/Game/Platform/Textures/T_leather.T_leather"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Cream",
+      "texture_references": [
+        "/Game/Platform/Textures/T_stone.T_stone"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Lettering",
+      "texture_references": [],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Glass",
+      "texture_references": [],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>",
+        "<MaterialProperty.MP_OPACITY: 1>"
+      ]
+    },
+    {
+      "name": "AmberGlass",
+      "texture_references": [],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>",
+        "<MaterialProperty.MP_OPACITY: 1>"
+      ]
+    },
+    {
+      "name": "Lamp",
+      "texture_references": [],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>",
+        "<MaterialProperty.MP_EMISSIVE_COLOR: 0>"
+      ]
+    },
+    {
+      "name": "Gravel",
+      "texture_references": [
+        "/Game/Platform/Textures/T_stone.T_stone"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Blanket",
+      "texture_references": [
+        "/Game/Platform/Textures/T_leather.T_leather"
+      ],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    },
+    {
+      "name": "Puddle",
+      "texture_references": [],
+      "required_graph_inputs": [
+        "<MaterialProperty.MP_BASE_COLOR: 5>",
+        "<MaterialProperty.MP_METALLIC: 6>",
+        "<MaterialProperty.MP_ROUGHNESS: 8>"
+      ]
+    }
+  ],
+  "policy": "Reuse and validate existing named packages; no deletions",
+  "engine": "5.8.3-58210709+++UE5+Release-5.8",
+  "asset_count": 35,
+  "stage": "import",
+  "utc": "2026-09-25T03:17:42.614100+00:00"
+}

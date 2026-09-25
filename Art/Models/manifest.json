@@ -175,72 +175,317 @@
     {
       "name": "Architecture",
       "file": "Art/Models/Architecture.fbx",
-      "vertices": 27864
+      "vertices": 27864,
+      "material_slots": [
+        "Brick",
+        "Cream",
+        "Gravel",
+        "Stone"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          -10.425000190734863,
+          -11.0,
+          -0.30000001192092896
+        ],
+        "maximum": [
+          5.295000076293945,
+          67.0,
+          7.824999809265137
+        ]
+      }
     },
     {
       "name": "Windows",
       "file": "Art/Models/Windows.fbx",
-      "vertices": 10380
+      "vertices": 10380,
+      "material_slots": [
+        "AmberGlass",
+        "Glass",
+        "Iron"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          -9.682499885559082,
+          -7.474999904632568,
+          1.7100000381469727
+        ],
+        "maximum": [
+          4.632500171661377,
+          66.4749984741211,
+          6.769999980926514
+        ]
+      }
     },
     {
       "name": "Roof",
       "file": "Art/Models/Roof.fbx",
-      "vertices": 91952
+      "vertices": 91952,
+      "material_slots": [
+        "Brass",
+        "Glass",
+        "Iron"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          -10.049891471862793,
+          -9.246062278747559,
+          0.699999988079071
+        ],
+        "maximum": [
+          4.949891567230225,
+          72.0,
+          11.949974060058594
+        ]
+      }
     },
     {
       "name": "FarWall",
       "file": "Art/Models/FarWall.fbx",
-      "vertices": 288
+      "vertices": 288,
+      "material_slots": [
+        "Glass",
+        "Iron"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          -9.732500076293945,
+          65.93000030517578,
+          0.75
+        ],
+        "maximum": [
+          4.699999809265137,
+          66.1500015258789,
+          9.449999809265137
+        ]
+      }
     },
     {
       "name": "Track",
       "file": "Art/Models/Track.fbx",
-      "vertices": 104160
+      "vertices": 104160,
+      "material_slots": [
+        "BlackSteel",
+        "Gravel",
+        "Wood"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          -4.890869140625,
+          -11.0,
+          -0.10000000149011612
+        ],
+        "maximum": [
+          -0.6450485587120056,
+          68.0416259765625,
+          0.17499999701976776
+        ]
+      }
     },
     {
       "name": "Locomotive",
       "file": "Art/Models/Locomotive.fbx",
-      "vertices": 53150
+      "vertices": 53150,
+      "material_slots": [
+        "BlackSteel",
+        "Brass",
+        "Scarlet"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          -4.139999866485596,
+          1.9168505668640137,
+          0.3880305290222168
+        ],
+        "maximum": [
+          -1.2400000095367432,
+          13.199999809265137,
+          4.664999961853027
+        ]
+      }
     },
     {
       "name": "Wheels",
       "file": "Art/Models/Wheels.fbx",
-      "vertices": 63888
+      "vertices": 63888,
+      "material_slots": [
+        "BlackSteel",
+        "Brass",
+        "Scarlet"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          -4.130000114440918,
+          3.1870999336242676,
+          0.06709995120763779
+        ],
+        "maximum": [
+          -1.25,
+          12.332900047302246,
+          1.8729000091552734
+        ]
+      }
     },
     {
       "name": "CabTender",
       "file": "Art/Models/CabTender.fbx",
-      "vertices": 12048
+      "vertices": 12048,
+      "material_slots": [
+        "BlackSteel",
+        "Brass",
+        "Glass",
+        "Scarlet"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          -4.480000019073486,
+          11.550000190734863,
+          0.07038520276546478
+        ],
+        "maximum": [
+          -0.8999999761581421,
+          18.5,
+          4.039999961853027
+        ]
+      }
     },
     {
       "name": "Carriages",
       "file": "Art/Models/Carriages.fbx",
-      "vertices": 33408
+      "vertices": 33408,
+      "material_slots": [
+        "AmberGlass",
+        "BlackSteel",
+        "Brass",
+        "Scarlet",
+        "Wood"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          -4.122499942779541,
+          18.899999618530273,
+          0.06572715938091278
+        ],
+        "maximum": [
+          -1.2575000524520874,
+          58.084999084472656,
+          4.199999809265137
+        ]
+      }
     },
     {
       "name": "Luggage",
       "file": "Art/Models/Luggage.fbx",
-      "vertices": 27492
+      "vertices": 27492,
+      "material_slots": [
+        "BlackSteel",
+        "Blanket",
+        "Brass",
+        "DarkLeather",
+        "Leather",
+        "Wood"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          2.7874999046325684,
+          -0.6850000023841858,
+          0.6573678255081177
+        ],
+        "maximum": [
+          4.574999809265137,
+          3.6649999618530273,
+          3.4738974571228027
+        ]
+      }
     },
     {
       "name": "Furniture",
       "file": "Art/Models/Furniture.fbx",
-      "vertices": 10260
+      "vertices": 10260,
+      "material_slots": [
+        "Brass",
+        "DarkLeather",
+        "Iron",
+        "Wood"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          3.905585289001465,
+          6.074999809265137,
+          0.7239999771118164
+        ],
+        "maximum": [
+          4.56471586227417,
+          54.744998931884766,
+          1.9275000095367432
+        ]
+      }
     },
     {
       "name": "Signs",
       "file": "Art/Models/Signs.fbx",
-      "vertices": 27444
+      "vertices": 27444,
+      "material_slots": [
+        "BlackSteel",
+        "Brass",
+        "Cream",
+        "Iron",
+        "Lettering"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          2.9150302410125732,
+          1.9980000257492065,
+          3.6950299739837646
+        ],
+        "maximum": [
+          4.671000003814697,
+          25.059999465942383,
+          5.44193172454834
+        ]
+      }
     },
     {
       "name": "Lanterns",
       "file": "Art/Models/Lanterns.fbx",
-      "vertices": 2688
+      "vertices": 2688,
+      "material_slots": [
+        "BlackSteel",
+        "Iron",
+        "Lamp"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          3.93999981880188,
+          -2.7799999713897705,
+          4.264999866485596
+        ],
+        "maximum": [
+          4.695633411407471,
+          57.779998779296875,
+          4.960000038146973
+        ]
+      }
     },
     {
       "name": "Puddles",
       "file": "Art/Models/Puddles.fbx",
-      "vertices": 224
+      "vertices": 224,
+      "material_slots": [
+        "Puddle"
+      ],
+      "source_bounds_m": {
+        "minimum": [
+          -0.31367239356040955,
+          -1.2348805665969849,
+          0.6850000023841858
+        ],
+        "maximum": [
+          2.2338998317718506,
+          36.253326416015625,
+          0.6850000023841858
+        ]
+      }
     }
   ],
   "camera": {

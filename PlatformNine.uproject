@@ -4,6 +4,7 @@
   "Category": "Environment",
   "Description": "An original hidden railway platform environment.",
   "Plugins": [
+    {"Name": "AndroidFileServer", "Enabled": false},
     {"Name": "PythonScriptPlugin", "Enabled": true},
     {"Name": "EditorScriptingUtilities", "Enabled": true},
     {"Name": "ModelContextProtocol", "Enabled": true},

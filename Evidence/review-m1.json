@@ -1,0 +1,19 @@
+{
+  "milestone": "M1",
+  "reviewer": "Independent code-review agent plus direct follow-up",
+  "findings_resolved": [
+    "Existing material packages now require graph property inputs and generated texture references",
+    "All mesh groups now require positive geometry, exact source material slots and axis-specific source bounds",
+    "Unused AndroidFileServer plugin disabled; regenerated token removed and rescanned"
+  ],
+  "checks": [
+    "Actual Unreal 5.8.3 import completed successfully",
+    "Second import reused 35 named assets without duplicate packages",
+    "Eight source/contract tests including swapped axes, empty geometry and missing slots",
+    "Live MCP asset registry finds all fourteen SM_ groups"
+  ],
+  "limitations": [
+    "No scene assembly or Unreal visual-quality claim at M1",
+    "Material graph checks do not constitute rendered visual validation"
+  ]
+}

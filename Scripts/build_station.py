@@ -526,8 +526,16 @@ for group, group_objects in objects.items():
     )
     if path.stat().st_size < 1024:
         raise RuntimeError(f"Empty mesh export: {path}")
-    manifest["meshes"].append({"name": group, "file": str(path.relative_to(ROOT)),
-                               "vertices": sum(len(o.data.vertices) for o in group_objects)})
+    coordinates = [o.matrix_world @ v.co for o in group_objects for v in o.data.vertices]
+    manifest["meshes"].append({
+        "name": group, "file": str(path.relative_to(ROOT)),
+        "vertices": sum(len(o.data.vertices) for o in group_objects),
+        "material_slots": sorted({m.name for o in group_objects for m in o.data.materials}),
+        "source_bounds_m": {
+            "minimum": [min(p[i] for p in coordinates) for i in range(3)],
+            "maximum": [max(p[i] for p in coordinates) for i in range(3)],
+        },
+    })
 
 bpy.context.scene.unit_settings.system = "METRIC"
 bpy.context.scene.unit_settings.scale_length = 1.0
